@@ -38,21 +38,6 @@ public class AMenu extends JPanel implements MouseListener {
         add(plastiser);
         plastiser.addMouseListener(this);
         addMouseListener(this);
-        
-        jcb = new JCheckBox("Hover");
-        jcb.setBounds(10, 550, 159, 49);
-        jcb.addMouseListener(this);
-
-        jcb.setBorder(null);
-        jcb.setForeground(Colores.texto_boton);
-        jcb.setBackground(Colores.fondo_boton);
-        jcb.setFont(new Font("Calibri", Font.BOLD, 18));
-        jcb.setOpaque(true);
-        jcb.setFocusable(false);
-        jcb.setSelected(true);
-        //jcb.setHorizontalAlignment(SwingConstants.LEFT);
-       // jcb.setHorizontalTextPosition(SwingConstants.CENTER);
-        //add(jcb);
 
         setHover(false);
     }
@@ -93,6 +78,11 @@ public class AMenu extends JPanel implements MouseListener {
             botones[i] = new AButton("");
             botones[i].setText(s[i]);
             botones[i].setBounds(x, y, 170, 30);
+            botones[i].setTipo(1);
+            if(i == 0){
+        	botones[i].setTipo(2);
+            }
+            
             if(tipo == 1){
                 if (i == 3) {
                     botones[i].setBounds(x, y, 170, 50);
@@ -106,8 +96,6 @@ public class AMenu extends JPanel implements MouseListener {
                     y += 20;
                 }
             }
-            
-            botones[i].setTipo(1);
             botones[i].addMouseListener(this);
             botones[i].setFocusable(false);
             this.add(botones[i]);
@@ -125,16 +113,16 @@ public class AMenu extends JPanel implements MouseListener {
     }
 
     public void mouseEntered(MouseEvent e) {
-        if(hover){
+       /* if(hover){
             this.setSize(170, 600);
-        }
+        }*/
         
     }
 
     public void mouseExited(MouseEvent e) {
-        if(hover){
+        /*if(hover){
           this.setSize(50, 600);
-        }
+        }*/
         
     }
 }

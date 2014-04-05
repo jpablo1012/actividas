@@ -35,8 +35,8 @@ public class Conexion {
 
     public void ConexionBD() {
         try {
-           //setCon(DriverManager.getConnection("jdbc:mysql://localhost:3306/plastiser","root","")); //base de datos local
-           setCon(DriverManager.getConnection("jdbc:mysql://www.db4free.net/plastiser", "actividas", "actividas")); //base de datos en la web
+           setCon(DriverManager.getConnection("jdbc:mysql://localhost:3306/plastiser","root","")); //base de datos local
+           //setCon(DriverManager.getConnection("jdbc:mysql://www.db4free.net/plastiser", "actividas", "actividas")); //base de datos en la web
            
         } catch (SQLException e) {
             System.out.println("Error 05 Conexion: " + e.getMessage());
