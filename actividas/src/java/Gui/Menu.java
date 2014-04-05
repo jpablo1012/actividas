@@ -72,6 +72,18 @@ public class Menu implements MouseListener {
         }
         return 0;
     }
+    
+    private void limpiar(){
+	for(int i = 0; i < menu.botones.length; i++){
+	    menu.botones[i].setTipo(1);
+	}
+    }
+    
+    private void establecer(int b){
+	limpiar();
+	
+	menu.botones[b].setTipo(2);
+    }
 
     public void mouseClicked(MouseEvent e) {
     }
@@ -85,6 +97,7 @@ public class Menu implements MouseListener {
             Main.esconderTodos();
             Main.inicio.panel.setVisible(true);
             Main.dialog.ocultar();
+            establecer(0);
         }
 
         if (e.getSource() == menu.botones[1]) {
@@ -110,6 +123,7 @@ public class Menu implements MouseListener {
                 Main.esconderTodos();
                 Main.insumos.panel.setVisible(true);
             }
+            establecer(1);
         }
 
         if (e.getSource() == menu.botones[2]) {
@@ -118,6 +132,7 @@ public class Menu implements MouseListener {
             frame.add(Main.pedido.panel);
             Main.esconderTodos();
             Main.pedido.panel.setVisible(true);
+            establecer(2);
         }
 
         try {
@@ -127,6 +142,7 @@ public class Menu implements MouseListener {
                 frame.add(Main.ordenes.panel);
                 Main.esconderTodos();
                 Main.ordenes.panel.setVisible(true);
+                establecer(3);
             }
         } catch (Exception ee) {
         }
@@ -142,6 +158,7 @@ public class Menu implements MouseListener {
                 frame.add(Main.cliente.panel);
                 Main.esconderTodos();
                 Main.cliente.panel.setVisible(true);
+                establecer(4);
             }
         } catch (Exception ee) {
         }
@@ -153,6 +170,7 @@ public class Menu implements MouseListener {
                 frame.add(Main.empleado.panel);
                 Main.esconderTodos();
                 Main.empleado.panel.setVisible(true);
+                establecer(5);
             }
         } catch (Exception ee) {
         }
@@ -164,6 +182,7 @@ public class Menu implements MouseListener {
                 frame.add(Main.informes.panel);
                 Main.esconderTodos();
                 Main.informes.panel.setVisible(true);
+                establecer(6);
             }
         } catch (Exception ee) {
         }
@@ -175,6 +194,7 @@ public class Menu implements MouseListener {
                 frame.add(Main.ajustes.panel);
                 Main.esconderTodos();
                 Main.ajustes.panel.setVisible(true);
+                establecer(penultimo);
             }
         } catch (Exception ee) {
         }

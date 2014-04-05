@@ -5,6 +5,9 @@ import java.awt.event.MouseListener;
 
 import javax.swing.border.MatteBorder;
 import javax.swing.SwingConstants;
+
+import sun.awt.ModalityEvent;
+
 import java.awt.Font;
 
 
@@ -30,7 +33,6 @@ public class AcercaDe implements MouseListener{
     			+ "<p>JCalendar es una librer\u00EDa de java desarrollada por \u00A9Kai Toedter.</p>"
     			+ "<p>JFreeChart es una librer\u00EDa de java desarrolladada por \u00A9 2005-2013 Object Refinery Limited</p>"
     			+ "<center><p>Act&iacute;vidas</p><p>2014</p></center><body><html>";
-    			//+ "<p style='color: rgb(220, 68, 55); font-size: 14px; text-align: right'>Muchas gracias Diana, Yolanda y Claudia.</p>;
     
     public AcercaDe() {
 	frame = new AFrame(600, 400);
@@ -55,7 +57,7 @@ public class AcercaDe implements MouseListener{
 	lblTexto.setFont(new Font("Calibri", Font.PLAIN, 15));
 	//lblTexto.setHorizontalAlignment(SwingConstants.CENTER);
 	lblTexto.setVerticalAlignment(SwingConstants.TOP);
-	lblTexto.setBounds(59, 93, 506, 236);
+	lblTexto.setBounds(45, 93, 506, 236);
 	panel.add(lblTexto);
 	
 	btnCerrar = new AButton("Cerrar");

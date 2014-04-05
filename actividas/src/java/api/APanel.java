@@ -34,7 +34,7 @@ public class APanel extends JPanel implements MouseListener {
         setBorder(new MatteBorder(1, 0, 1, 1, Colores.borde_ventana));
 
         Actividas = new JLabel();
-        Actividas.setBounds(getWidth() - 72, getHeight() - 21, 71, 20);
+        Actividas.setBounds(getWidth() - 75, getHeight() - 21, 71, 20);
         Actividas.setText("Acerca de");
         Actividas.setFont(new Font("Calibri", Font.BOLD, 16));
         Actividas.setForeground(Colores.texto_desactivado);

@@ -1,5 +1,6 @@
 package api;
 
+import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
@@ -44,8 +45,21 @@ public class AButton extends JLabel implements MouseListener, FocusListener {
                 setOpaque(true);
                 setHorizontalAlignment(SwingConstants.LEFT);
                 setHorizontalTextPosition(SwingConstants.CENTER);
+                setCursor(new Cursor(Cursor.HAND_CURSOR));
                 this.tipo = 1;
                 break;
+                
+            case 2:
+        	setBorder(null);
+        	setBackground(Colores.fondo_normal);
+                setForeground(Colores.titulo_normal);
+                setFont(new Font("Calibri", Font.BOLD, 18));
+                setOpaque(true);
+                setHorizontalAlignment(SwingConstants.LEFT);
+                setHorizontalTextPosition(SwingConstants.CENTER);
+                setCursor(new Cursor(Cursor.HAND_CURSOR));
+                this.tipo = 2;
+        	break;
             default:
                 setBorder(new MatteBorder(1, 1, 1, 1, Colores.borde_boton));
                 setForeground(Colores.texto_boton);
@@ -65,6 +79,11 @@ public class AButton extends JLabel implements MouseListener, FocusListener {
                 setForeground(Colores.titulo_normal);
                 //setBorder(new MatteBorder(0, 3, 0, 0, Colores.titulo_normal));
                 break;
+                
+            case 2:
+        	setBackground(Colores.fondo_normal);
+                setForeground(Colores.titulo_normal);
+        	break;
             default:
                 setBorder(new MatteBorder(1, 1, 1, 1, Colores.borde_boton_hover));
                 setBackground(Colores.fondo_boton_hover);
@@ -79,6 +98,11 @@ public class AButton extends JLabel implements MouseListener, FocusListener {
                 setBackground(Colores.fondo_boton);
                 setBorder(null);
                 break;
+                
+            case 2:
+        	setBackground(Colores.fondo_normal);
+                setForeground(Colores.titulo_normal);
+        	break;
             default:
                 setBorder(new MatteBorder(1, 1, 1, 1, Colores.borde_boton));
                 setBackground(Colores.fondo_boton);
@@ -96,6 +120,11 @@ public class AButton extends JLabel implements MouseListener, FocusListener {
                 setForeground(Colores.titulo_normal);
                 // setBorder(new MatteBorder(0, 3, 0, 0, Colores.titulo_normal));
                 break;
+                
+            case 2:
+        	setBackground(Colores.fondo_normal);
+                setForeground(Colores.titulo_normal);
+        	break;
             default:
                 setBorder(new MatteBorder(1, 1, 1, 1, Colores.borde_boton_hover));
                 setBackground(Colores.fondo_boton_hover);
@@ -110,6 +139,11 @@ public class AButton extends JLabel implements MouseListener, FocusListener {
                 setBackground(Colores.fondo_boton);
                 setBorder(null);
                 break;
+                
+            case 2:
+        	setBackground(Colores.fondo_normal);
+                setForeground(Colores.titulo_normal);
+        	break;
             default:
                 setBorder(new MatteBorder(1, 1, 1, 1, Colores.borde_boton));
                 setBackground(Colores.fondo_boton);
