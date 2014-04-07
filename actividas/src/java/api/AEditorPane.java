@@ -9,6 +9,7 @@ import java.awt.event.MouseListener;
 import javax.swing.JEditorPane;
 import javax.swing.border.MatteBorder;
 
+@SuppressWarnings("serial")
 public class AEditorPane extends JEditorPane implements MouseListener{
 
     private int estado = Estado.normal;

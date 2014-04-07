@@ -6,6 +6,7 @@ import java.awt.event.MouseListener;
 
 import javax.swing.JLabel;
 
+@SuppressWarnings("serial")
 public class APlastiser extends JLabel implements MouseListener {
 
     int tipo = 0;

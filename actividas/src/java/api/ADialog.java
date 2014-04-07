@@ -5,10 +5,12 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Point;
 import java.awt.Toolkit;
+
 import javax.swing.JDialog;
 import javax.swing.SwingConstants;
 import javax.swing.border.MatteBorder;
 
+@SuppressWarnings("serial")
 public class ADialog extends JDialog{
 
 
@@ -17,7 +19,7 @@ public class ADialog extends JDialog{
     public ADialog(String s){
 
         setUndecorated(true);
-        setBackground(new Color(0,0,0,0.2f));
+        setBackground(new Color(0,0,0,0.3f));
         setLocationRelativeTo(null);
         setVisible(true);
         setLayout(null);
@@ -31,9 +33,8 @@ public class ADialog extends JDialog{
         l.setForeground(Colores.texto_boton);
         l.setFont(new Font("Calibri", Font.BOLD, 24));
 
-        l.setSize(200, 100);
-        l.setLocation((this.getWidth() / 2)-(l.getWidth() / 2),
-                    (this.getHeight() / 2)-(l.getHeight() / 2));
+        //l.setSize(this.getWidth(), 100);
+        l.setLocation(0, (this.getHeight() / 2)-(l.getHeight() / 2));
         l.setBorder(new MatteBorder(1, 1, 1, 1, Colores.borde_ventana));
         this.add(l);
 
@@ -46,27 +47,24 @@ public class ADialog extends JDialog{
     }
 
     public void setPosicionLabel(Point p, Dimension d){
-        //this.setLocation(p);
         this.setSize(d);
-        l.setLocation((this.getWidth() / 2)-(l.getWidth() / 2),
-                    (this.getHeight() / 2)-(l.getHeight() / 2));
+        l.setSize(this.getWidth(), 100);
+        l.setLocation(0, (this.getHeight() / 2)-(l.getHeight() / 2));
         
-        //toBack();
     }
 
     public void mostrar(Point p, Dimension d){
         this.setLocation(p);
         this.setSize(d);
-
-        l.setLocation((this.getWidth() / 2)-(l.getWidth() / 2),
-                    (this.getHeight() / 2)-(l.getHeight() / 2));
+        l.setSize(this.getWidth(), 100);
+        l.setLocation(0, (this.getHeight() / 2)-(l.getHeight() / 2));
 
         toFront();
     }
 
     public void ocultar(){
         Dimension s = Toolkit.getDefaultToolkit().getScreenSize();
-        setLocation((int) (s.getWidth()) + 500, 0);
+        setLocation((int) (s.getWidth()) + 1000, 0);
         toBack();
     }
 

@@ -1,9 +1,11 @@
 package api;
 
 import org.jfree.chart.renderer.category.BarRenderer;
+
 import java.awt.Color;
 import java.awt.Paint;
 
+@SuppressWarnings("serial")
 public class ARendered extends BarRenderer {
     private Paint[] colors;
 

@@ -3,6 +3,7 @@ package Gui;
 import java.awt.Font;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+
 import javax.swing.SwingConstants;
 
 import Entidades.ColorE;
@@ -273,6 +274,7 @@ public class CAInsumos implements MouseListener {
         txtCo_nombre.setText(this.ce.getNombre());
     }
 
+    @SuppressWarnings("unused")
     public boolean comprobarColor() {
         String cantidad = txtCo_cantidad.getText().replaceAll(",", ".");
         String referencia = txtCo_nombre.getText();
@@ -371,6 +373,7 @@ public class CAInsumos implements MouseListener {
         btnCo_nuevo.setVisible(nuevo);
     }
 
+    @SuppressWarnings("unused")
     public boolean comprobarMaterial() {
         String nombre = txtMat_nombre.getText();
         String cantidad = txtMat_cantidad.getText().replaceAll(",", ".");

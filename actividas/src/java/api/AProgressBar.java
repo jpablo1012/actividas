@@ -13,6 +13,7 @@ import javax.swing.border.MatteBorder;
  *
  * @author JPABLO
  */
+@SuppressWarnings("serial")
 public class AProgressBar extends JProgressBar {
 
     public AProgressBar() {

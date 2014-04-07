@@ -15,6 +15,7 @@ import javax.swing.border.MatteBorder;
  *
  * @author Actividas
  */
+@SuppressWarnings("serial")
 public class AButton extends JLabel implements MouseListener, FocusListener {
 
     int tipo = 0;

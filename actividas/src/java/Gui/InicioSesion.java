@@ -100,6 +100,7 @@ public class InicioSesion implements MouseListener, KeyListener {
         frame.setState(AFrame.NORMAL);
     }
 
+    @SuppressWarnings({ "deprecation", "unused" })
     public void validar() {
         Main.dialog.mostrar(frame.getLocation(), frame.getSize());
 
@@ -212,6 +213,7 @@ public class InicioSesion implements MouseListener, KeyListener {
         Main.inicio.panel.setVisible(true);
     }
 
+    @SuppressWarnings("deprecation")
     private String losDos(UsuarioE ueEmpleado, UsuarioE ueCliente) {
         String codigo = pswCodigo.getText();
 

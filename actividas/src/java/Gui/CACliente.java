@@ -352,6 +352,7 @@ public class CACliente implements MouseListener {
         }
     }
 
+    @SuppressWarnings("deprecation")
     private void actualizar() {
         String nombre = txtnombre.getText();
         String apellido = txtapellido.getText();
@@ -432,6 +433,7 @@ public class CACliente implements MouseListener {
         this.aBuscar = b;
     }
 
+    @SuppressWarnings({ "deprecation", "unused" })
     private boolean validar() {
         boolean cont = true;
 
@@ -593,6 +595,7 @@ public class CACliente implements MouseListener {
         return m.matches();
     }
 
+    @SuppressWarnings("deprecation")
     private void crear() {
         String nombre = txtnombre.getText();
         String apellido = txtapellido.getText();

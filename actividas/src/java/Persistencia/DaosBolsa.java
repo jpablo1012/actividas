@@ -68,6 +68,7 @@ public class DaosBolsa {
         return buscarBolsa(con, variable, valor, exactamente, false);
     }
 
+    @SuppressWarnings("resource")
     public ArrayList<BolsaE> buscarBolsa(Connection con, String variable, String valor, boolean exactamente, boolean imagen) {
         ArrayList<BolsaE> albe = new ArrayList<BolsaE>();
         try {

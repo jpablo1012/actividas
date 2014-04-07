@@ -6,10 +6,12 @@ import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.border.MatteBorder;
 
+@SuppressWarnings("serial")
 public class AToggleButton extends JLabel implements MouseListener, FocusListener {
 
     boolean seleccionado = true;

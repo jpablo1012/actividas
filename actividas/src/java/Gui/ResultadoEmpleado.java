@@ -254,6 +254,7 @@ public class ResultadoEmpleado implements MouseListener {
         this.aBuscar = b;
     }
 
+    @SuppressWarnings({ "deprecation", "unused" })
     private void actualizar() {
         String cedula = txtCedula.getText();
         String nombre = txtNombre.getText();

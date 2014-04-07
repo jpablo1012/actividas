@@ -3,9 +3,11 @@ package api;
 import java.awt.Font;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
+@SuppressWarnings("serial")
 public class AMinimizar extends JLabel implements MouseListener {
 
     public AMinimizar() {

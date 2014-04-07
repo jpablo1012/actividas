@@ -10,6 +10,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 
+@SuppressWarnings("serial")
 public class AFrame extends JFrame implements MouseListener, MouseMotionListener {
 
     private int x,  y;
@@ -23,7 +24,6 @@ public class AFrame extends JFrame implements MouseListener, MouseMotionListener
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         setUndecorated(true);
         setLayout(null);
         setSize(w, h);
