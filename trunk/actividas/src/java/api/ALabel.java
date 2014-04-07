@@ -1,6 +1,7 @@
 package api;
 
 import java.awt.Font;
+
 import javax.swing.JLabel;
 import javax.swing.border.MatteBorder;
 
@@ -8,6 +9,7 @@ import javax.swing.border.MatteBorder;
  *
  * @author JPABLO
  */
+@SuppressWarnings("serial")
 public class ALabel extends JLabel {
 
     private int estado = Estado.normal;

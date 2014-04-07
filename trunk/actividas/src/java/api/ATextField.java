@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+
 import javax.swing.JTextField;
 import javax.swing.border.MatteBorder;
 
@@ -12,6 +13,7 @@ import javax.swing.border.MatteBorder;
  *
  * @author JPABLO
  */
+@SuppressWarnings("serial")
 public class ATextField extends JTextField implements MouseListener {
 
     private int estado = Estado.normal;

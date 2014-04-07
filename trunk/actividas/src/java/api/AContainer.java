@@ -1,10 +1,12 @@
 package api;
 
 import java.awt.Font;
+
 import javax.swing.JPanel;
 import javax.swing.border.MatteBorder;
 import javax.swing.border.TitledBorder;
 
+@SuppressWarnings("serial")
 public class AContainer extends JPanel {
 
     private String text;

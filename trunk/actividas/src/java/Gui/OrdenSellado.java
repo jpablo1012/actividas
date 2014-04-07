@@ -354,7 +354,7 @@ public class OrdenSellado implements MouseListener {
     }
 
     private boolean comprobar() {
-	String retal = spnRetal.getValor();
+	//String retal = spnRetal.getValor();
 	String selladas = spnSelladas.getValor();
 	boolean cont = true;
 

@@ -6,20 +6,24 @@
 package api;
 
 import com.toedter.calendar.JDateChooser;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.Locale;
+
 import javax.swing.border.MatteBorder;
 
 /**
  *
  * @author Usuario
  */
+@SuppressWarnings("serial")
 public class ADateChosser extends JDateChooser implements MouseListener{
 
     private int estado = Estado.normal;
+    @SuppressWarnings("unused")
     private Color place = Colores.texto_desactivado;
     //private String placeHolder = "";
 

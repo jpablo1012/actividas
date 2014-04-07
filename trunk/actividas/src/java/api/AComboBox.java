@@ -17,10 +17,12 @@ import javax.swing.border.MatteBorder;
  *
  * @author JPABLO
  */
+@SuppressWarnings({ "serial", "rawtypes" })
 public class AComboBox extends JComboBox implements MouseListener {
 
     private int estado = Estado.normal;
     private String[] valor;
+    @SuppressWarnings("unchecked")
     public AComboBox(String[] s) {
 
         try {
@@ -49,6 +51,7 @@ public class AComboBox extends JComboBox implements MouseListener {
         setVisible(true);
     }
     
+    @SuppressWarnings("unchecked")
     public void setTextos(String[] s){
 	setModel(new DefaultComboBoxModel(s));
     }

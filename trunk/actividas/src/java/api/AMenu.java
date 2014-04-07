@@ -4,9 +4,9 @@
  */
 package api;
 
-import java.awt.Font;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+
 import javax.swing.JCheckBox;
 import javax.swing.JPanel;
 import javax.swing.border.MatteBorder;
@@ -15,6 +15,7 @@ import javax.swing.border.MatteBorder;
  *
  * @author Usuario
  */
+@SuppressWarnings("serial")
 public class AMenu extends JPanel implements MouseListener {
 
     public String[] administrador = {"Inicio","Insumos", "Pedidos", "<html><body>Ordenes de producci&oacute;n</body></html>", "Clientes", "Empleados", "Informes","Perfil", "<html><body>Cerrar sesi&oacute;n</body></html>"};

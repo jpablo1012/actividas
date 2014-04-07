@@ -196,6 +196,7 @@ public class CrearEmpleado implements MouseListener {
 
     }
 
+    @SuppressWarnings({ "deprecation", "unused" })
     public void validar() {
         String cedula = txtCedula.getText();
         String nombre = txtNombre.getText();
@@ -287,6 +288,7 @@ public class CrearEmpleado implements MouseListener {
         }
     }
 
+    @SuppressWarnings("deprecation")
     public void crear() {
         String cedula = txtCedula.getText();
         String nombre = txtNombre.getText();

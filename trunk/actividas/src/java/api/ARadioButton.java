@@ -1,12 +1,14 @@
 package api;
 
 import java.awt.Font;
+
 import javax.swing.JRadioButton;
 
 /**
  *
  * @author JPABLO
  */
+@SuppressWarnings("serial")
 public class ARadioButton extends JRadioButton {
 
     public ARadioButton(String s) {

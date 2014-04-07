@@ -9,6 +9,7 @@ import java.awt.event.MouseListener;
 import javax.swing.JPasswordField;
 import javax.swing.border.MatteBorder;
 
+@SuppressWarnings("serial")
 public class APassword extends JPasswordField implements MouseListener {
 
     private int estado = Estado.normal;
@@ -23,6 +24,7 @@ public class APassword extends JPasswordField implements MouseListener {
         addMouseListener(this);
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     protected void paintComponent(java.awt.Graphics g) {
         super.paintComponent(g);

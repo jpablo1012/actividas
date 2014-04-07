@@ -6,8 +6,6 @@ import java.awt.event.MouseListener;
 import javax.swing.border.MatteBorder;
 import javax.swing.SwingConstants;
 
-import sun.awt.ModalityEvent;
-
 import java.awt.Font;
 
 

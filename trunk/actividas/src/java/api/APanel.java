@@ -12,6 +12,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.MatteBorder;
 import javax.swing.UIManager;
 
+@SuppressWarnings("serial")
 public class APanel extends JPanel implements MouseListener {
 
     // JLabel Cerrar;

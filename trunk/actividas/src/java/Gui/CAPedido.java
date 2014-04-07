@@ -7,10 +7,8 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import Entidades.BolsaE;
-import Entidades.ClienteE;
 import Entidades.PedidoE;
 import Negocio.BolsaN;
-import Negocio.ClienteN;
 import Negocio.PedidoN;
 import api.*;
 
@@ -364,6 +362,7 @@ public class CAPedido implements MouseListener {
         btnAtras.setVisible(atras);
     }
 
+    @SuppressWarnings("unused")
     public boolean comprobar() {
         Date tiempo = dtEntrega.getDate();
         int venta = cmbTipo_venta.getSelectedIndex();

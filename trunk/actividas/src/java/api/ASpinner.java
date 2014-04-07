@@ -11,6 +11,7 @@ import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.border.MatteBorder;
 
+@SuppressWarnings("serial")
 public class ASpinner extends JSpinner implements MouseListener, FocusListener{
     
     private int estado = Estado.normal;

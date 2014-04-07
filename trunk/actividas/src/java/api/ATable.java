@@ -9,6 +9,7 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.border.MatteBorder;
 import javax.swing.table.JTableHeader;
 
+@SuppressWarnings("serial")
 public class ATable extends JTable {
 	JTableHeader jth;
     public ATable() {

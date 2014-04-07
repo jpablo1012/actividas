@@ -310,7 +310,6 @@ public class BuscarOrdenes implements MouseListener, KeyListener {
 	    return "1";
 	} else {
 	    int alto = 0;
-	    int cont = 0;
 	    Object[][] result = new Object[aloe.size()][13];
 	    for (int i = 0; i < aloe.size(); i++) {
 		OrdenE oe = aloe.get((aloe.size() - 1) - i);

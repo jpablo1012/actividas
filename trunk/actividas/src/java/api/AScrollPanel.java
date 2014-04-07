@@ -1,12 +1,14 @@
 package api;
 
 import java.awt.Font;
+
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.border.MatteBorder;
 import javax.swing.border.TitledBorder;
 
+@SuppressWarnings("serial")
 public class AScrollPanel extends JScrollPane {
 
     private String text;
