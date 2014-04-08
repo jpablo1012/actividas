@@ -1,17 +1,11 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package Persistencia;
 
 import Entidades.MaterialE;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 
-/**
- *
- * @author JPABLO
- */
 public class DaosMaterial {
 
     public String crearMaterial(Connection con, MaterialE me) {

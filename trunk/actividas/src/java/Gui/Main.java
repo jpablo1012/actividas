@@ -2,10 +2,6 @@ package Gui;
 
 import api.ADialog;
 
-/**
- * 
- * @author JPABLO
- */
 public class Main {
 
     public static Inicio inicio;

@@ -9,30 +9,63 @@ import java.util.Date;
 import javax.swing.SwingConstants;
 import javax.swing.border.MatteBorder;
 
+import api.AButton;
+import api.AContainer;
+import api.ADateChosser;
+import api.AEditorPane;
+import api.ALabel;
+import api.APanel;
+import api.AScrollPanel;
+import api.ASpinner;
+import api.ATextField;
+import api.Colores;
+import api.Estado;
 import Entidades.BolsaE;
 import Entidades.OrdenE;
 import Entidades.SelladoE;
 import Negocio.Auxiliar;
 import Negocio.BolsaN;
 import Negocio.SelladoN;
-import api.*;
 
 public class OrdenSellado implements MouseListener {
 
     String style = "style='color:#D3362D;'";
 
     APanel panel;
-    AContainer ordenProduccion, sellado;
-    ALabel lblSellado, lblOrden, lblCodigo, lblBolsa, lblCantidad, lblTipoCantidad, lblNota, lblRetal, lblSelladas, lblFechaInicio, lblFechaFin, lblObligatorio;
-    ATextField txtOrden, txtCodigo, txtBolsa, txtTipoCantidad;
-    ALabel msjOrden, msjCodigo, msjBolsa, msjMensaje;
-    ASpinner spnCantidad, spnRetal, spnSelladas;
-    AButton btnBolsa, btnGuardar, btnRegresar, btnFinalizar;
+    AContainer ordenProduccion;
+    AContainer sellado;
+    ALabel lblOrden;
+    ALabel lblCodigo;
+    ALabel lblBolsa;
+    ALabel lblCantidad;
+    ALabel lblTipoCantidad;
+    ALabel lblNota;
+    ALabel lblRetal;
+    ALabel lblSelladas;
+    ALabel lblFechaInicio;
+    ALabel lblFechaFin;
+    ALabel lblObligatorio;
+    ATextField txtOrden;
+    ATextField txtCodigo;
+    ATextField txtBolsa;
+    ATextField txtTipoCantidad;
+    ALabel msjOrden;
+    ALabel msjCodigo;
+    ALabel msjBolsa;
+    ALabel msjMensaje;
+    ASpinner spnCantidad;
+    ASpinner spnRetal;
+    ASpinner spnSelladas;
+    AButton btnBolsa;
+    AButton btnGuardar;
+    AButton btnRegresar;
+    AButton btnFinalizar;
     AEditorPane editNota;
     AScrollPanel nota;
     OrdenE oe;
     SelladoE se;
-    ADateChosser dtFechaInicio, dtFechaFin;
+    ADateChosser dtFechaInicio;
+    ADateChosser dtFechaFin;
     
     String fecha = "<html><body><b " + style + "></b>Fecha de finalizaci\u00F3n:</body></html>";
 
@@ -40,16 +73,10 @@ public class OrdenSellado implements MouseListener {
     
     public OrdenSellado() {
 	panel = new APanel(Main.x, 0, 750, 600);
-	
+	panel.setTitulo("Ordenes de producci\u00F3n| Sellado");
 	if(Main.menu.evaluar(Main.menu.getUsuario().getTipo()) == 0){
 	    fecha = "<html><body><b " + style + "></b>Plazo hasta:</body></html>";
 	}
-
-	lblSellado = new ALabel("Ordenes de producci\u00F3n| Sellado");
-	lblSellado.setFont(new Font("Calibri", Font.PLAIN, 24));
-	lblSellado.setForeground(Colores.titulo_normal);
-	lblSellado.setBounds(10, 0, 460, 50);
-	panel.add(lblSellado);
 
 	ordenProduccion = new AContainer("Orden de producci\u00F3n");
 	ordenProduccion.setBounds(60, 63, 630, 138);
@@ -177,7 +204,7 @@ public class OrdenSellado implements MouseListener {
 
 	nota = new AScrollPanel("");
 	nota.setBounds(120, 162, 450, 60);
-	nota.setBorder(new MatteBorder(1, 1, 1, 1, Colores.borde_cajaTexto));
+	nota.setBorder(new MatteBorder(1, 1, 1, 1, Colores.BORDE_CAJATEXTO));
 	nota.setHorizontalScrollBarPolicy(AScrollPanel.HORIZONTAL_SCROLLBAR_NEVER);
 	sellado.add(nota);
 
@@ -232,12 +259,12 @@ public class OrdenSellado implements MouseListener {
 
 	if (albe == null) {
 	    msjMensaje.setText("Error desconocido :C");
-	    msjMensaje.setEstado(Estado.error);
+	    msjMensaje.setEstado(Estado.ERROR);
 	    msjMensaje.setVisible(true);
 	} else {
 	    if (albe.size() == 0) {
 		msjMensaje.setText("Error al conectarse a la base de datos");
-		msjMensaje.setEstado(Estado.error);
+		msjMensaje.setEstado(Estado.ERROR);
 		msjMensaje.setVisible(true);
 	    } else {
 		Main.caBolsa = new CABolsa();
@@ -258,7 +285,7 @@ public class OrdenSellado implements MouseListener {
 
 	if (s.length() > 1000) {
 	    msjMensaje.setText("La nota supera los 1000 caracteres");
-	    msjMensaje.setEstado(Estado.error);
+	    msjMensaje.setEstado(Estado.ERROR);
 	    msjMensaje.setVisible(true);
 	    cont = false;
 	} else {
@@ -277,7 +304,7 @@ public class OrdenSellado implements MouseListener {
 	String h = Main.buscarOrdenes.pendientes_sellado();
 	if (h.equals("")) {
 	    Main.buscarOrdenes.msjMensaje.setText(s);
-	    Main.buscarOrdenes.msjMensaje.setEstado(Estado.exito);
+	    Main.buscarOrdenes.msjMensaje.setEstado(Estado.EXITO);
 	    Main.buscarOrdenes.msjMensaje.setVisible(true);
 	    Main.buscarOrdenes.panel.setVisible(true);
 	} else {
@@ -286,7 +313,7 @@ public class OrdenSellado implements MouseListener {
 	    Main.menu.frame.getContentPane().add(Main.ordenes.panel);
 	    Main.esconderTodos();
 	    Main.ordenes.msjMensaje.setText(s);
-	    Main.ordenes.msjMensaje.setEstado(Estado.exito);
+	    Main.ordenes.msjMensaje.setEstado(Estado.EXITO);
 	    Main.ordenes.msjMensaje.setVisible(true);
 	    Main.ordenes.panel.setVisible(true);
 	}
@@ -306,13 +333,13 @@ public class OrdenSellado implements MouseListener {
 
 	if (s.equals("1")) {
 	    msjMensaje.setText("Error desconocido :C");
-	    msjMensaje.setEstado(Estado.error);
+	    msjMensaje.setEstado(Estado.ERROR);
 	    msjMensaje.setVisible(true);
 	}
 
 	if (s.equals("2")) {
 	    msjMensaje.setText("Error al conectarse a la base de datos");
-	    msjMensaje.setEstado(Estado.error);
+	    msjMensaje.setEstado(Estado.ERROR);
 	    msjMensaje.setVisible(true);
 	}
 
@@ -359,13 +386,13 @@ public class OrdenSellado implements MouseListener {
 	boolean cont = true;
 
 	if (selladas.equals("0.0")) {
-	    spnSelladas.setEstado(Estado.error);
+	    spnSelladas.setEstado(Estado.ERROR);
 	    msjMensaje.setText("La cantidad de bolsas selladas no puede ser 0");
-	    msjMensaje.setEstado(Estado.error);
+	    msjMensaje.setEstado(Estado.ERROR);
 	    msjMensaje.setVisible(true);
 	    cont = false;
 	} else {
-	    spnSelladas.setEstado(Estado.normal);
+	    spnSelladas.setEstado(Estado.NORMAL);
 	    msjMensaje.setText("");
 	}
 	return cont;
@@ -391,13 +418,13 @@ public class OrdenSellado implements MouseListener {
 
 	if (s.equals("1")) {
 	    msjMensaje.setText("Error desconocido :C");
-	    msjMensaje.setEstado(Estado.error);
+	    msjMensaje.setEstado(Estado.ERROR);
 	    msjMensaje.setVisible(true);
 	}
 
 	if (s.equals("2")) {
 	    msjMensaje.setText("Error al conectarse a la base de datos");
-	    msjMensaje.setEstado(Estado.error);
+	    msjMensaje.setEstado(Estado.ERROR);
 	    msjMensaje.setVisible(true);
 	}
     }

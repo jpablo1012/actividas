@@ -1,15 +1,19 @@
 package Gui;
 
 import Entidades.UsuarioE;
-import api.*;
+
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+
+import api.AFrame;
+import api.AMenu;
 
 public class Menu implements MouseListener {
 
     AFrame frame;
     AMenu menu;
-    int ultimo, penultimo;
+    int ultimo;
+    int penultimo;
     private UsuarioE usuario;
 
     public Menu(UsuarioE ue) {
@@ -49,7 +53,6 @@ public class Menu implements MouseListener {
             menu.botones[2].addMouseListener(this);
         }
 
-        // menu.jcb.addChangeListener(this);
         Main.dialog.enInicio(false);
         Main.esconderTodos();
         frame.toFront();

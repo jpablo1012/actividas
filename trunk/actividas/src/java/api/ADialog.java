@@ -27,15 +27,15 @@ public class ADialog extends JDialog{
 
         l = new ALabel(s);
         l.setOpaque(true);
-        l.setBackground(Colores.fondo_rojo);
+        l.setBackground(Colores.FONDO_ROJO);
         l.setHorizontalAlignment(SwingConstants.CENTER);
         
-        l.setForeground(Colores.texto_boton);
+        l.setForeground(Colores.TEXTO_BOTON);
         l.setFont(new Font("Calibri", Font.BOLD, 24));
 
         //l.setSize(this.getWidth(), 100);
         l.setLocation(0, (this.getHeight() / 2)-(l.getHeight() / 2));
-        l.setBorder(new MatteBorder(1, 1, 1, 1, Colores.borde_ventana));
+        l.setBorder(new MatteBorder(1, 1, 1, 1, Colores.BORDE_VENTANA));
         this.add(l);
 
         ocultar();

@@ -4,9 +4,12 @@ import java.awt.Font;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import api.*;
-
 import javax.swing.SwingConstants;
+
+import api.AButton;
+import api.ALabel;
+import api.APanel;
+import api.Estado;
 
 public class Pedido implements MouseListener {
 
@@ -15,18 +18,11 @@ public class Pedido implements MouseListener {
     AButton btnBuscar;
     AButton btnConfirmar;
     AButton btnMisPedidos;
-    ALabel lblPedido;
     ALabel msjMensaje;
 
     public Pedido() {
         panel = new APanel(Main.x, 0, 750, 600);
-
-        lblPedido = new ALabel("Pedidos");
-        lblPedido.setHorizontalAlignment(SwingConstants.CENTER);
-        lblPedido.setFont(new Font("Calibri", Font.PLAIN, 40));
-        lblPedido.setForeground(Colores.titulo_normal);
-        lblPedido.setBounds(0, 74, panel.getWidth(), 50);
-        panel.add(lblPedido);
+        panel.setTitulo("Pedidos");
 
         btnCrear = new AButton("Crear pedido");
         btnCrear.setBounds(295, 190, 160, 60);
@@ -105,7 +101,7 @@ public class Pedido implements MouseListener {
             Main.menu.frame.getContentPane().add(Main.buscarPedido.panel);
             Main.esconderTodos();
             Main.buscarPedido.misPedidos();
-            Main.buscarPedido.lblPedido.setText("Pedidos| Mis pedidos");
+            Main.buscarPedido.panel.setTitulo("Pedidos| Mis pedidos");
             Main.buscarPedido.panel.setVisible(true);
             Main.dialog.ocultar();
 
@@ -116,7 +112,7 @@ public class Pedido implements MouseListener {
                 Main.esconderTodos();
                 Main.pedido.panel.setVisible(true);
                 Main.pedido.msjMensaje.setText("No tienes pedidos :C");
-                Main.pedido.msjMensaje.setEstado(Estado.error);
+                Main.pedido.msjMensaje.setEstado(Estado.ERROR);
             }
         }
 
@@ -127,7 +123,7 @@ public class Pedido implements MouseListener {
             Main.menu.frame.getContentPane().add(Main.buscarPedido.panel);
             Main.esconderTodos();
             Main.buscarPedido.enConfirmacion();
-            Main.buscarPedido.lblPedido.setText("Pedidos| Confirmar");
+            Main.buscarPedido.panel.setTitulo("Pedidos| Confirmar");
             Main.buscarPedido.panel.setVisible(true);
             Main.dialog.ocultar();
 
@@ -138,7 +134,7 @@ public class Pedido implements MouseListener {
                 Main.esconderTodos();
                 Main.pedido.panel.setVisible(true);
                 Main.pedido.msjMensaje.setText("No hay pedidos pendientes para confirmar");
-                Main.pedido.msjMensaje.setEstado(Estado.exito);
+                Main.pedido.msjMensaje.setEstado(Estado.EXITO);
             }
         }
     }

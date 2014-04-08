@@ -2,7 +2,6 @@ package Gui;
 
 import Entidades.UsuarioE;
 import Negocio.UsuarioN;
-import api.*;
 
 import java.awt.Font;
 import java.awt.event.KeyEvent;
@@ -14,6 +13,15 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.border.MatteBorder;
+
+import api.AButton;
+import api.AFrame;
+import api.ALabel;
+import api.APanel;
+import api.APassword;
+import api.ATextField;
+import api.Colores;
+import api.Estado;
 
 public class InicioSesion implements MouseListener, KeyListener {
 
@@ -36,8 +44,12 @@ public class InicioSesion implements MouseListener, KeyListener {
         frame.setLocationRelativeTo(null);
 
         inicio = new APanel(0, 0, 400, 300);
-        inicio.add(inicio.plastiser);
-        inicio.setBorder(new MatteBorder(1, 1, 1, 1, Colores.borde_ventana));
+        inicio.setTitulo("Plastiser");
+        inicio.titulo.setFont(new Font("Brush Script MT", Font.PLAIN, 40));
+        inicio.titulo.setLocation(1, 1);
+        inicio.titulo.setBorder(null);
+        inicio.titulo.setVerticalAlignment(SwingConstants.CENTER);
+        inicio.setBorder(new MatteBorder(1, 1, 1, 1, Colores.BORDE_VENTANA));
         frame.getContentPane().add(inicio);
 
         lblCedula = new ALabel("C\u00E9dula:");
@@ -84,7 +96,7 @@ public class InicioSesion implements MouseListener, KeyListener {
 
         lblSesion = new ALabel("Inicio de Sesi\u00F3n");
         lblSesion.setFont(new Font("Calibri", Font.PLAIN, 20));
-        lblSesion.setForeground(Colores.titulo_normal);
+        lblSesion.setForeground(Colores.TITULO_NORMAL);
         lblSesion.setBounds(135, 41, 130, 32);
         inicio.add(lblSesion);
 
@@ -110,8 +122,8 @@ public class InicioSesion implements MouseListener, KeyListener {
         String codigo = pswCodigo.getText();
 
         if (cedula.equals("")) {
-            txtCedula.setEstado(Estado.error);
-            lblCedulaM.setEstado(Estado.error);
+            txtCedula.setEstado(Estado.ERROR);
+            lblCedulaM.setEstado(Estado.ERROR);
             lblCedulaM.setText("Campo vaci\u00F3");
             lblCedulaM.setVisible(true);
             ced = false;
@@ -120,16 +132,16 @@ public class InicioSesion implements MouseListener, KeyListener {
             try {
                 double d = Double.parseDouble(cedula);
             } catch (Exception e) {
-                txtCedula.setEstado(Estado.error);
-                lblCedulaM.setEstado(Estado.error);
+                txtCedula.setEstado(Estado.ERROR);
+                lblCedulaM.setEstado(Estado.ERROR);
                 lblCedulaM.setText("S\u00F3lo d\u00EDgitos");
                 lblCedulaM.setVisible(true);
                 ced = false;
             }
         }
         if (codigo.equals("")) {
-            pswCodigo.setEstado(Estado.error);
-            lblCodigoM.setEstado(Estado.error);
+            pswCodigo.setEstado(Estado.ERROR);
+            lblCodigoM.setEstado(Estado.ERROR);
             lblCodigoM.setText("Campo vaci\u00F3");
             lblCodigoM.setVisible(true);
             cod = false;
@@ -143,9 +155,9 @@ public class InicioSesion implements MouseListener, KeyListener {
             UsuarioE ueCliente = new UsuarioE();
 
             if (alueEmpleado == null || alueCliente == null) {
-                txtCedula.setEstado(Estado.error);
-                pswCodigo.setEstado(Estado.error);
-                lblMensaje.setEstado(Estado.error);
+                txtCedula.setEstado(Estado.ERROR);
+                pswCodigo.setEstado(Estado.ERROR);
+                lblMensaje.setEstado(Estado.ERROR);
                 lblMensaje.setText("Error al conectarse a la base de datos");
                 lblMensaje.setVisible(true);
                 pswCodigo.setText("");
@@ -184,9 +196,9 @@ public class InicioSesion implements MouseListener, KeyListener {
                 }
 
                 if (com.equals("nada")) {
-                    txtCedula.setEstado(Estado.error);
-                    pswCodigo.setEstado(Estado.error);
-                    lblMensaje.setEstado(Estado.error);
+                    txtCedula.setEstado(Estado.ERROR);
+                    pswCodigo.setEstado(Estado.ERROR);
+                    lblMensaje.setEstado(Estado.ERROR);
                     lblMensaje.setText("C\u00E9dula o c\u00F3digo incorrectos");
                     lblMensaje.setVisible(true);
                     pswCodigo.setText("");
@@ -245,8 +257,8 @@ public class InicioSesion implements MouseListener, KeyListener {
     public void mousePressed(MouseEvent e) {
         if (e.getSource() == btnIniciar) {
             lblMensaje.setVisible(false);
-            txtCedula.setEstado(Estado.normal);
-            pswCodigo.setEstado(Estado.normal);
+            txtCedula.setEstado(Estado.NORMAL);
+            pswCodigo.setEstado(Estado.NORMAL);
             lblCedulaM.setVisible(false);
             lblCodigoM.setVisible(false);
             validar();
@@ -265,8 +277,8 @@ public class InicioSesion implements MouseListener, KeyListener {
 
             if (k == 10) {
                 lblMensaje.setVisible(false);
-                txtCedula.setEstado(Estado.normal);
-                pswCodigo.setEstado(Estado.normal);
+                txtCedula.setEstado(Estado.NORMAL);
+                pswCodigo.setEstado(Estado.NORMAL);
                 lblCedulaM.setVisible(false);
                 lblCodigoM.setVisible(false);
                 validar();

@@ -9,7 +9,6 @@ import Entidades.OrdenE;
 import Negocio.Auxiliar;
 import Negocio.BolsaN;
 import Negocio.ExtrusionN;
-import api.*;
 
 import java.awt.Font;
 import java.util.ArrayList;
@@ -18,22 +17,59 @@ import java.util.Date;
 import javax.swing.SwingConstants;
 import javax.swing.border.MatteBorder;
 
+import api.AButton;
+import api.AContainer;
+import api.ADateChosser;
+import api.AEditorPane;
+import api.ALabel;
+import api.APanel;
+import api.AScrollPanel;
+import api.ASpinner;
+import api.ATextField;
+import api.Colores;
+import api.Estado;
+
 public class OrdenExtrusor implements MouseListener {
 
     String style = "style='color:#D3362D;'";
 
     APanel panel;
-    AContainer ordenProduccion, extrusion;
-    ALabel lblExtrusion;
-    ALabel lblCodigo, lblOrden, lblBolsa, lblDesperdicio, lblFechaInicio, lblFechaFin, lblNota, lblRollo, lblMaquina, lblCantidad, lblTipoCantidad, lblObligatorio;
-    ALabel msjCodigo, msjOrden, msjBolsa, msjFechaInicio, msjFechaFin, msjMaquina;
-    ATextField txtCodigo, txtOrden, txtBolsa, txtMaquina, txtTipoCantidad;
-    ASpinner spnDesperdicio, spnRollo, spnCantidad;
+    AContainer ordenProduccion;
+    AContainer extrusion;
+    ALabel lblCodigo;
+    ALabel lblOrden;
+    ALabel lblBolsa;
+    ALabel lblDesperdicio;
+    ALabel lblFechaInicio;
+    ALabel lblFechaFin;
+    ALabel lblNota;
+    ALabel lblRollo;
+    ALabel lblMaquina;
+    ALabel lblCantidad;
+    ALabel lblTipoCantidad;
+    ALabel lblObligatorio;
+    ALabel msjCodigo;
+    ALabel msjOrden;
+    ALabel msjBolsa;
+    ALabel msjFechaInicio;
+    ALabel msjFechaFin;
+    ALabel msjMaquina;
+    ATextField txtCodigo;
+    ATextField txtOrden;
+    ATextField txtBolsa;
+    ATextField txtMaquina;
+    ATextField txtTipoCantidad;
+    ASpinner spnDesperdicio;
+    ASpinner spnRollo;
+    ASpinner spnCantidad;
     AEditorPane editNota;
-    ADateChosser dtFechaFin, dtFechaInicio;
+    ADateChosser dtFechaFin;
+    ADateChosser dtFechaInicio;
     AButton btnBolsa;
     AScrollPanel nota;
-    AButton btnGuardar, btnFinalizar, btnRegresar;
+    AButton btnGuardar;
+    AButton btnFinalizar;
+    AButton btnRegresar;
     ALabel msjMensaje;
 
     ExtrusionE ee;
@@ -41,20 +77,15 @@ public class OrdenExtrusor implements MouseListener {
     
     String fecha = "<html><body><b " + style + "></b>Fecha de finalizaci\u00F3n:</body></html>";
 
-    int modo = 0;//
+    int modo = 0;
 
     public OrdenExtrusor() {
 	panel = new APanel(Main.x, 0, 750, 600);
+	panel.setTitulo("Ordenes de producci\u00F3n| Extrusi\u00F3n");
 
 	if(Main.menu.evaluar(Main.menu.getUsuario().getTipo()) == 0){
 	    fecha = "<html><body><b " + style + "></b>Plazo hasta:</body></html>";
 	}
-	
-	lblExtrusion = new ALabel("Ordenes de producci\u00F3n| Extrusi\u00F3n");
-	lblExtrusion.setFont(new Font("Calibri", Font.PLAIN, 24));
-	lblExtrusion.setForeground(Colores.titulo_normal);
-	lblExtrusion.setBounds(10, 0, 460, 50);
-	panel.add(lblExtrusion);
 
 	ordenProduccion = new AContainer("Orden de producci\u00F3n");
 	ordenProduccion.setBounds(60, 41, 630, 138);
@@ -198,7 +229,7 @@ public class OrdenExtrusor implements MouseListener {
 
 	nota = new AScrollPanel("");
 	nota.setBounds(170, 206, 400, 60);
-	nota.setBorder(new MatteBorder(1, 1, 1, 1, Colores.borde_cajaTexto));
+	nota.setBorder(new MatteBorder(1, 1, 1, 1, Colores.BORDE_CAJATEXTO));
 	nota.setHorizontalScrollBarPolicy(AScrollPanel.HORIZONTAL_SCROLLBAR_NEVER);
 	extrusion.add(nota);
 
@@ -287,7 +318,7 @@ public class OrdenExtrusor implements MouseListener {
 
 	if (s.length() > 1000) {
 	    msjMensaje.setText("La nota supera los 1000 caracteres");
-	    msjMensaje.setEstado(Estado.error);
+	    msjMensaje.setEstado(Estado.ERROR);
 	    msjMensaje.setVisible(true);
 	    cont = false;
 	} else {
@@ -303,12 +334,12 @@ public class OrdenExtrusor implements MouseListener {
 
 	if (albe == null) {
 	    msjMensaje.setText("Error desconocido :C");
-	    msjMensaje.setEstado(Estado.error);
+	    msjMensaje.setEstado(Estado.ERROR);
 	    msjMensaje.setVisible(true);
 	} else {
 	    if (albe.size() == 0) {
 		msjMensaje.setText("Error al conectarse a la base de datos");
-		msjMensaje.setEstado(Estado.error);
+		msjMensaje.setEstado(Estado.ERROR);
 		msjMensaje.setVisible(true);
 	    } else {
 		Main.caBolsa = new CABolsa();
@@ -350,13 +381,13 @@ public class OrdenExtrusor implements MouseListener {
 
 	if (s.equals("1")) {
 	    msjMensaje.setText("Error desconocido :C");
-	    msjMensaje.setEstado(Estado.error);
+	    msjMensaje.setEstado(Estado.ERROR);
 	    msjMensaje.setVisible(true);
 	}
 
 	if (s.equals("2")) {
 	    msjMensaje.setText("Error al conectarse a la base de datos");
-	    msjMensaje.setEstado(Estado.error);
+	    msjMensaje.setEstado(Estado.ERROR);
 	    msjMensaje.setVisible(true);
 	}
     }
@@ -369,7 +400,7 @@ public class OrdenExtrusor implements MouseListener {
 	String h = Main.buscarOrdenes.pendientes_extrsuion();
 	if (h.equals("")) {
 	    Main.buscarOrdenes.msjMensaje.setText(s);
-	    Main.buscarOrdenes.msjMensaje.setEstado(Estado.exito);
+	    Main.buscarOrdenes.msjMensaje.setEstado(Estado.EXITO);
 	    Main.buscarOrdenes.msjMensaje.setVisible(true);
 	    Main.buscarOrdenes.panel.setVisible(true);
 	} else {
@@ -378,7 +409,7 @@ public class OrdenExtrusor implements MouseListener {
 	    Main.menu.frame.getContentPane().add(Main.ordenes.panel);
 	    Main.esconderTodos();
 	    Main.ordenes.msjMensaje.setText(s);
-	    Main.ordenes.msjMensaje.setEstado(Estado.exito);
+	    Main.ordenes.msjMensaje.setEstado(Estado.EXITO);
 	    Main.ordenes.msjMensaje.setVisible(true);
 	    Main.ordenes.panel.setVisible(true);
 	}
@@ -412,13 +443,13 @@ public class OrdenExtrusor implements MouseListener {
 
 	if (s.equals("1")) {
 	    msjMensaje.setText("Error desconocido :C");
-	    msjMensaje.setEstado(Estado.error);
+	    msjMensaje.setEstado(Estado.ERROR);
 	    msjMensaje.setVisible(true);
 	}
 
 	if (s.equals("2")) {
 	    msjMensaje.setText("Error al conectarse a la base de datos");
-	    msjMensaje.setEstado(Estado.error);
+	    msjMensaje.setEstado(Estado.ERROR);
 	    msjMensaje.setVisible(true);
 	}
 
@@ -430,11 +461,11 @@ public class OrdenExtrusor implements MouseListener {
 
 	if (maquina.equals("")) {
 	    msjMensaje.setText("El campo de maquina est\u00E1 vac\u00EDo");
-	    msjMensaje.setEstado(Estado.error);
-	    txtMaquina.setEstado(Estado.error);
+	    msjMensaje.setEstado(Estado.ERROR);
+	    txtMaquina.setEstado(Estado.ERROR);
 	    cont = false;
 	} else {
-	    txtMaquina.setEstado(Estado.normal);
+	    txtMaquina.setEstado(Estado.NORMAL);
 	    msjMensaje.setText("");
 	}
 

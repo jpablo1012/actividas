@@ -1,17 +1,11 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package Persistencia;
 
 import Entidades.ColorE;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 
-/**
- *
- * @author JPABLO
- */
 public class DaosColor {
 
     public String crearColor(Connection con, ColorE ce) {

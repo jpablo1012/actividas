@@ -13,17 +13,24 @@ import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 
+import api.AButton;
+import api.AComboBox;
+import api.AContainer;
+import api.ALabel;
+import api.APanel;
+import api.AScrollPanel;
+import api.ATable;
+import api.ATextField;
+import api.Estado;
 import Entidades.PedidoE;
 import Negocio.Auxiliar;
 import Negocio.PedidoN;
-import api.*;
 
 public class BuscarPedido implements MouseListener, KeyListener {
 
     APanel panel;
     AContainer busq;
 
-    ALabel lblPedido;
     ALabel lblBuscar;
     ALabel msjMensaje;
     ATextField txtBuscar;
@@ -47,12 +54,7 @@ public class BuscarPedido implements MouseListener, KeyListener {
 
     public BuscarPedido() {
 	panel = new APanel(Main.x, 0, 750, 600);
-
-	lblPedido = new ALabel("Pedidos| Buscar");
-	lblPedido.setFont(new Font("Calibri", Font.PLAIN, 24));
-	lblPedido.setForeground(Colores.titulo_normal);
-	lblPedido.setBounds(10, 0, 460, 50);
-	panel.add(lblPedido);
+	panel.setTitulo("Pedidos| Buscar");
 
 	busq = new AContainer("Buscar");
 	busq.setBounds(110, 200, 530, 200);
@@ -178,7 +180,7 @@ public class BuscarPedido implements MouseListener, KeyListener {
 
 	if (buscarCon == 0) {
 	    msjMensaje.setText("Seleccione un campo de la lista desplegable");
-	    msjMensaje.setEstado(Estado.error);
+	    msjMensaje.setEstado(Estado.ERROR);
 	    msjMensaje.setVisible(true);
 	    con = false;
 	} else {
@@ -207,13 +209,13 @@ public class BuscarPedido implements MouseListener, KeyListener {
 
 	if (this.alpe == null) {
 	    msjMensaje.setText("El valor que usted busca no existe en la base de datos");
-	    msjMensaje.setEstado(Estado.error);
+	    msjMensaje.setEstado(Estado.ERROR);
 	    msjMensaje.setVisible(true);
 	} else {
 	    int alto = 0;
 	    if (alpe.size() == 0) {
 		msjMensaje.setText("El valor que usted busca no existe en la base de datos");
-		msjMensaje.setEstado(Estado.error);
+		msjMensaje.setEstado(Estado.ERROR);
 		msjMensaje.setVisible(true);
 		visibleBuscar(false);
 	    } else {
@@ -285,13 +287,13 @@ public class BuscarPedido implements MouseListener, KeyListener {
 	    Main.esconderTodos();
 	    Main.caPedido.setDatos(this.alpe.get(seleccionado));
 	    Main.caPedido.setEditable(false);
-	    Main.caPedido.lblPedido.setText("Pedidos| Ver");
+	    Main.caPedido.panel.setTitulo("Pedidos| Ver");
 	    Main.caPedido.visible(false, false, true, true);
 	    Main.caPedido.panel.setVisible(true);
 
 	} else {
 	    msjMensaje.setText("Seleccione un pedido para verlo");
-	    msjMensaje.setEstado(Estado.error);
+	    msjMensaje.setEstado(Estado.ERROR);
 	    msjMensaje.setVisible(true);
 	}
     }
@@ -316,10 +318,10 @@ public class BuscarPedido implements MouseListener, KeyListener {
 			Main.esconderTodos();
 			Main.pedido.panel.setVisible(true);
 			Main.pedido.msjMensaje.setText("El pedido ha sido rechazado");
-			Main.pedido.msjMensaje.setEstado(Estado.exito);
+			Main.pedido.msjMensaje.setEstado(Estado.EXITO);
 		    } else {
 			msjMensaje.setText("El pedido ha sido rechazado");
-			msjMensaje.setEstado(Estado.exito);
+			msjMensaje.setEstado(Estado.EXITO);
 			msjMensaje.setVisible(true);
 		    }
 
@@ -327,19 +329,19 @@ public class BuscarPedido implements MouseListener, KeyListener {
 
 		if (s.equals("1")) {
 		    msjMensaje.setText("Error desconocido :C");
-		    msjMensaje.setEstado(Estado.error);
+		    msjMensaje.setEstado(Estado.ERROR);
 		    msjMensaje.setVisible(true);
 		}
 
 		if (s.equals("2")) {
 		    msjMensaje.setText("Error al conectarse a la base de datos");
-		    msjMensaje.setEstado(Estado.error);
+		    msjMensaje.setEstado(Estado.ERROR);
 		    msjMensaje.setVisible(true);
 		}
 	    }
 	} else {
 	    msjMensaje.setText("Seleccione unun pedido para rechazar");
-	    msjMensaje.setEstado(Estado.error);
+	    msjMensaje.setEstado(Estado.ERROR);
 	    msjMensaje.setVisible(true);
 	}
     }
@@ -365,23 +367,23 @@ public class BuscarPedido implements MouseListener, KeyListener {
 			Main.esconderTodos();
 			Main.pedido.panel.setVisible(true);
 			Main.pedido.msjMensaje.setText("El pedido ha entrado en " + pe.getEstado());
-			Main.pedido.msjMensaje.setEstado(Estado.exito);
+			Main.pedido.msjMensaje.setEstado(Estado.EXITO);
 		    } else {
 			msjMensaje.setText("El pedido ha entrado en " + pe.getEstado());
-			msjMensaje.setEstado(Estado.exito);
+			msjMensaje.setEstado(Estado.EXITO);
 			msjMensaje.setVisible(true);
 		    }
 		}
 
 		if (s.equals("1")) {
 		    msjMensaje.setText("Error desconocido :C");
-		    msjMensaje.setEstado(Estado.error);
+		    msjMensaje.setEstado(Estado.ERROR);
 		    msjMensaje.setVisible(true);
 		}
 
 		if (s.equals("2")) {
 		    msjMensaje.setText("Error al conectarse a la base de datos");
-		    msjMensaje.setEstado(Estado.error);
+		    msjMensaje.setEstado(Estado.ERROR);
 		    msjMensaje.setVisible(true);
 		}
 	    }

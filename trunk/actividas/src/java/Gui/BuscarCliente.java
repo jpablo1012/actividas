@@ -4,7 +4,6 @@ import Entidades.ClienteE;
 import Entidades.UsuarioE;
 import Negocio.ClienteN;
 import Negocio.UsuarioN;
-import api.*;
 
 import java.awt.Dimension;
 import java.awt.Font;
@@ -18,6 +17,16 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
+
+import api.AButton;
+import api.AComboBox;
+import api.AContainer;
+import api.ALabel;
+import api.APanel;
+import api.AScrollPanel;
+import api.ATable;
+import api.ATextField;
+import api.Estado;
 
 public class BuscarCliente implements MouseListener, KeyListener {
 
@@ -36,16 +45,10 @@ public class BuscarCliente implements MouseListener, KeyListener {
     ATable tabla;
     DefaultTableModel dtm;
     ArrayList<ClienteE> ce;
-    ALabel lblCliente;
 
     public BuscarCliente() {
         panel = new APanel(Main.x, 0, 750, 600);
-
-        lblCliente = new ALabel("Clientes| Buscar");
-        lblCliente.setFont(new Font("Calibri", Font.PLAIN, 24));
-        lblCliente.setForeground(Colores.titulo_normal);
-        lblCliente.setBounds(10, 0, 336, 50);
-        panel.add(lblCliente);
+        panel.setTitulo("Clientes| Buscar");
 
         busq = new AContainer("Buscar");
         busq.setBounds(110, 200, 530, 200);
@@ -111,9 +114,9 @@ public class BuscarCliente implements MouseListener, KeyListener {
         String buscarCon = (String) comBuscar.getSelectedItem();
 
         if (buscarCon.equals(bus[0])) {
-            comBuscar.setEstado(Estado.error);
+            comBuscar.setEstado(Estado.ERROR);
             msjMensaje.setText("Seleccione un campo de la lista desplegable");
-            msjMensaje.setEstado(Estado.error);
+            msjMensaje.setEstado(Estado.ERROR);
             msjMensaje.setVisible(true);
             return false;
         }
@@ -145,13 +148,13 @@ public class BuscarCliente implements MouseListener, KeyListener {
                     Main.caCliente.setDatos(this.ce.get(i), actue.get(0));
                     Main.caCliente.panel.setVisible(true);
                     Main.caCliente.visibleCliente(true, false, false, true);
-                    Main.caCliente.lblCliente.setText("Cliente| Actualizar");
+                    Main.caCliente.panel.setTitulo("Cliente| Actualizar");
                     break;
                 }
             }
         } else {
             msjMensaje.setText("Seleccione una fila para actualizar");
-            msjMensaje.setEstado(Estado.error);
+            msjMensaje.setEstado(Estado.ERROR);
             msjMensaje.setVisible(true);
 
         }
@@ -175,14 +178,14 @@ public class BuscarCliente implements MouseListener, KeyListener {
         ArrayList<UsuarioE> alue = new UsuarioN().buscarUsuario("cliente_cedula", "", false);
         if (ce == null) {
             msjMensaje.setText("El valor que usted busca no existe en la base de datos");
-            msjMensaje.setEstado(Estado.error);
+            msjMensaje.setEstado(Estado.ERROR);
             msjMensaje.setVisible(true);
         } else {
             int cont = 0;
             int alto = 0;
             if (this.ce.size() == 0) {
                 msjMensaje.setText("El valor que usted busca no existe en la base de datos");
-                msjMensaje.setEstado(Estado.error);
+                msjMensaje.setEstado(Estado.ERROR);
                 msjMensaje.setVisible(true);
                 visibleBuscar(false);
             } else {
@@ -247,7 +250,7 @@ public class BuscarCliente implements MouseListener, KeyListener {
                             if (s.equals("")) {
                                 buscar();
                                 msjMensaje.setText("El cliente ha sido eliminado");
-                                msjMensaje.setEstado(Estado.exito);
+                                msjMensaje.setEstado(Estado.EXITO);
                                 msjMensaje.setVisible(true);
 
                             }
@@ -255,13 +258,13 @@ public class BuscarCliente implements MouseListener, KeyListener {
 
                         if (s.equals("1")) {
                             msjMensaje.setText("Ha ocurrido un error al eliminar el cliente :C");
-                            msjMensaje.setEstado(Estado.error);
+                            msjMensaje.setEstado(Estado.ERROR);
                             msjMensaje.setVisible(true);
                         }
 
                         if (s.equals("2")) {
                             msjMensaje.setText("Error al conectarse a la base de datos");
-                            msjMensaje.setEstado(Estado.error);
+                            msjMensaje.setEstado(Estado.ERROR);
                             msjMensaje.setVisible(true);
                         }
 
@@ -273,7 +276,7 @@ public class BuscarCliente implements MouseListener, KeyListener {
 
         } else {
             msjMensaje.setText("Seleccione una fila para eliminar");
-            msjMensaje.setEstado(Estado.error);
+            msjMensaje.setEstado(Estado.ERROR);
             msjMensaje.setVisible(true);
 
         }

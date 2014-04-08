@@ -1,32 +1,23 @@
 package Gui;
 
-import api.*;
 
-import java.awt.Font;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import javax.swing.SwingConstants;
+import api.AButton;
+import api.APanel;
 
-/**
- *
- * @author JPABLO
- */
 public class Empleado implements MouseListener {
 
     public APanel panel;
-    public AButton btnCrear, btnModificar, btnEliminar, btnBuscar;
-    ALabel lblEmpleado;
+    public AButton btnCrear;
+    public AButton btnModificar;
+    public AButton btnEliminar;
+    public AButton btnBuscar;
 
     public Empleado() {
         panel = new APanel(Main.x, 0, 750, 600);
-
-        lblEmpleado = new ALabel("Empleados");
-        lblEmpleado.setHorizontalAlignment(SwingConstants.CENTER);
-        lblEmpleado.setFont(new Font("Calibri", Font.PLAIN, 40));
-        lblEmpleado.setForeground(Colores.titulo_normal);
-        lblEmpleado.setBounds(0, 74, panel.getWidth(), 50);
-        panel.add(lblEmpleado);
+        panel.setTitulo("Empleados");
 
         btnCrear = new AButton("Crear empleado");
         btnCrear.setBounds(295, 199, 160, 60);

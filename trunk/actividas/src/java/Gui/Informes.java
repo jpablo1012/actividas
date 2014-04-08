@@ -6,23 +6,19 @@ import java.awt.event.MouseListener;
 
 import javax.swing.SwingConstants;
 
-import api.*;
+import api.AButton;
+import api.ALabel;
+import api.APanel;
 
 public class Informes implements MouseListener{
 
     APanel panel;
-    ALabel lblInformes, msjMensaje;
+    ALabel msjMensaje;
     AButton btnSellados;
 
     public Informes() {
         panel = new APanel(Main.x, 0, 750, 600);
-
-        lblInformes = new ALabel("Informes");
-        lblInformes.setHorizontalAlignment(SwingConstants.CENTER);
-        lblInformes.setFont(new Font("Calibri", Font.PLAIN, 40));
-        lblInformes.setForeground(Colores.titulo_normal);
-        lblInformes.setBounds(0, 74, panel.getWidth(), 50);
-        panel.add(lblInformes);
+        panel.setTitulo("Informes");
 
         btnSellados = new AButton("Sellador");
         btnSellados.setBounds(295, 270, 160, 60);

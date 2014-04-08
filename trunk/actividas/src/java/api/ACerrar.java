@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package api;
 
 import java.awt.Font;
@@ -19,14 +16,14 @@ public class ACerrar extends JLabel implements MouseListener {
         setFont(new Font("Calibri", Font.BOLD, 18));
         setText("X");
         setOpaque(true);
-        setBackground(Colores.fondo_normal);
-        setForeground(Colores.titulo_normal);
+        setBackground(Colores.BOTON_CERRRAR);
+        setForeground(Colores.TITULO_NORMAL);
         setFocusable(false);
         addMouseListener(this);
     }
 
     public void setAnchoVentana(int x) {
-        setBounds(x - 33, 1, 32, 32);
+        setBounds(x - 37, 1, 36, 36);
         this.repaint();
     }
 
@@ -37,18 +34,16 @@ public class ACerrar extends JLabel implements MouseListener {
     }
 
     public void mouseReleased(MouseEvent e) {
-	//File f = new File("C://Users//"+System.getProperty("user.name")+"//AppData//plastisoft");
-	//f.delete();
         System.exit(0);
     }
 
     public void mouseEntered(MouseEvent e) {
-        setBackground(Colores.fondo_hover);
-        setForeground(Colores.titulo_hover);
+        setBackground(Colores.FONDO_HOVER);
+        setForeground(Colores.TITULO_HOVER);
     }
 
     public void mouseExited(MouseEvent e) {
-        setBackground(Colores.fondo_normal);
-        setForeground(Colores.titulo_normal);
+        setBackground(Colores.BOTON_CERRRAR);
+        setForeground(Colores.TITULO_NORMAL);
     }
 }

@@ -14,6 +14,6 @@ public class ARadioButton extends JRadioButton {
     public ARadioButton(String s) {
         setText(s);
         setFont(new Font("Calibri", Font.PLAIN, 14));
-        setForeground(Colores.texto_normal);
+        setForeground(Colores.TEXTO_NORMAL);
     }
 }

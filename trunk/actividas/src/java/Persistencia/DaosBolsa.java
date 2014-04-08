@@ -11,13 +11,11 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.net.URLDecoder;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 
-/**
- *
- * @author JPABLO
- */
 public class DaosBolsa {
 
     public String crearBolsa(Connection con, BolsaE be) {

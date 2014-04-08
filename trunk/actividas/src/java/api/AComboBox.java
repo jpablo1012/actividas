@@ -20,7 +20,7 @@ import javax.swing.border.MatteBorder;
 @SuppressWarnings({ "serial", "rawtypes" })
 public class AComboBox extends JComboBox implements MouseListener {
 
-    private int estado = Estado.normal;
+    private int estado = Estado.NORMAL;
     private String[] valor;
     @SuppressWarnings("unchecked")
     public AComboBox(String[] s) {
@@ -30,8 +30,8 @@ public class AComboBox extends JComboBox implements MouseListener {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        setBorder(new MatteBorder(1, 1, 1, 1, Colores.borde_cajaTexto));
-        setBackground(Colores.fondo_normal);
+        setBorder(new MatteBorder(1, 1, 1, 1, Colores.BORDE_CAJATEXTO));
+        setBackground(Colores.FONDO_NORMAL);
         setFont(new Font("Calibri", Font.PLAIN, 14));
         setModel(new DefaultComboBoxModel(s));
         setOpaque(true);
@@ -44,8 +44,8 @@ public class AComboBox extends JComboBox implements MouseListener {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        setBorder(new MatteBorder(1, 1, 1, 1, Colores.borde_cajaTexto));
-        setBackground(Colores.fondo_normal);
+        setBorder(new MatteBorder(1, 1, 1, 1, Colores.BORDE_CAJATEXTO));
+        setBackground(Colores.FONDO_NORMAL);
         setFont(new Font("Calibri", Font.PLAIN, 14));
         setOpaque(true);
         setVisible(true);
@@ -71,15 +71,15 @@ public class AComboBox extends JComboBox implements MouseListener {
     public void setEstado(int i) {
         switch (i) {
             case 1:
-                this.setBorder(new MatteBorder(1, 1, 1, 1, Colores.borde_cajaTexto_error));
+                this.setBorder(new MatteBorder(1, 1, 1, 1, Colores.BORDE_CAJATEXTO_ERROR));
                 estado = i;
                 break;
             case 2:
-                this.setBorder(new MatteBorder(1, 1, 1, 1, Colores.borde_cajaTexto_exito));
+                this.setBorder(new MatteBorder(1, 1, 1, 1, Colores.BORDE_CAJATEXTO_EXITO));
                 estado = i;
                 break;
             default:
-                this.setBorder(new MatteBorder(1, 1, 1, 1, Colores.borde_cajaTexto));
+                this.setBorder(new MatteBorder(1, 1, 1, 1, Colores.BORDE_CAJATEXTO));
                 estado = i;
                 break;
         }
@@ -97,13 +97,13 @@ public class AComboBox extends JComboBox implements MouseListener {
     public void mouseEntered(MouseEvent e) {
         switch (estado) {
             case 1:
-                this.setBorder(new MatteBorder(1, 1, 1, 1, Colores.borde_cajaTexto_error_hover));
+                this.setBorder(new MatteBorder(1, 1, 1, 1, Colores.BORDE_CAJATEXTO_ERROR_HOVER));
                 break;
             case 2:
-                this.setBorder(new MatteBorder(1, 1, 1, 1, Colores.borde_cajaTexto_exito_hover));
+                this.setBorder(new MatteBorder(1, 1, 1, 1, Colores.BORDE_CAJATEXTO_EXITO_HOVER));
                 break;
             default:
-                this.setBorder(new MatteBorder(1, 1, 1, 1, Colores.borde_cajaTexto_hover));
+                this.setBorder(new MatteBorder(1, 1, 1, 1, Colores.BORDE_CAJA_TEXTO_HOVER));
                 break;
         }
     }
@@ -111,13 +111,13 @@ public class AComboBox extends JComboBox implements MouseListener {
     public void mouseExited(MouseEvent e) {
         switch (estado) {
             case 1:
-                this.setBorder(new MatteBorder(1, 1, 1, 1, Colores.borde_cajaTexto_error));
+                this.setBorder(new MatteBorder(1, 1, 1, 1, Colores.BORDE_CAJATEXTO_ERROR));
                 break;
             case 2:
-                this.setBorder(new MatteBorder(1, 1, 1, 1, Colores.borde_cajaTexto_exito));
+                this.setBorder(new MatteBorder(1, 1, 1, 1, Colores.BORDE_CAJATEXTO_EXITO));
                 break;
             default:
-                this.setBorder(new MatteBorder(1, 1, 1, 1, Colores.borde_cajaTexto));
+                this.setBorder(new MatteBorder(1, 1, 1, 1, Colores.BORDE_CAJATEXTO));
                 break;
         }
     }

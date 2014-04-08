@@ -7,26 +7,62 @@ import java.util.ArrayList;
 
 import javax.swing.SwingConstants;
 
+import api.AButton;
+import api.AContainer;
+import api.ADateChosser;
+import api.ALabel;
+import api.APanel;
+import api.ATextField;
+import api.Estado;
 import Entidades.BolsaE;
 import Entidades.ExtrusionE;
 import Entidades.ImpresionE;
 import Entidades.OrdenE;
 import Entidades.SelladoE;
 import Negocio.BolsaN;
-import api.*;
 
 public class OrdenFinalizar implements MouseListener {
 
     String style = "style='color:#D3362D;'";
     
     APanel panel;
-    AContainer extrusion, impresion, sellado, orden;
-    ALabel lblFechaInicioE, lblFechaFinE, lblCedulaEmpleadoE, lblFechaInicioI, lblFechaFinI, lblCedulaEmpleadoI, lblFechaInicioS, lblFechaFinS, lblCedulaEmpleadoS;
-    ADateChosser dtFechaInicioE, dtFechaFinE, dtFechaInicioI, dtFechaFinI, dtFechaInicioS, dtFechaFinS, dtFechaInicio;
-    ATextField txtCedulaEmpleadoE, txtCedulaEmpleadoI, txtCedulaEmpleadoS, txtBolsa, txtNumeroPedido, txtNumeroOrden, txtEstado;
-    AButton btnExtrusion, btnImpresion, btnSellado, btnAtras, btnBolsa;
+    AContainer extrusion;
+    AContainer impresion;
+    AContainer sellado;
+    AContainer orden;
+    ALabel lblFechaInicioE;
+    ALabel lblFechaFinE;
+    ALabel lblCedulaEmpleadoE;
+    ALabel lblFechaInicioI;
+    ALabel lblFechaFinI;
+    ALabel lblCedulaEmpleadoI;
+    ALabel lblFechaInicioS;
+    ALabel lblFechaFinS;
+    ALabel lblCedulaEmpleadoS;
+    ADateChosser dtFechaInicioE;
+    ADateChosser dtFechaFinE;
+    ADateChosser dtFechaInicioI;
+    ADateChosser dtFechaFinI;
+    ADateChosser dtFechaInicioS;
+    ADateChosser dtFechaFinS;
+    ADateChosser dtFechaInicio;
+    ATextField txtCedulaEmpleadoE;
+    ATextField txtCedulaEmpleadoI;
+    ATextField txtCedulaEmpleadoS;
+    ATextField txtBolsa;
+    ATextField txtNumeroPedido;
+    ATextField txtNumeroOrden;
+    ATextField txtEstado;
+    AButton btnExtrusion;
+    AButton btnImpresion;
+    AButton btnSellado;
+    AButton btnAtras;
+    AButton btnBolsa;
     ALabel msjMensaje;
-    ALabel lblEstado, lblNumeroPedido, lblNumeroOrden, lblBolsa, lblOrden;
+    ALabel lblEstado;
+    ALabel lblNumeroPedido;
+    ALabel lblNumeroOrden;
+    ALabel lblBolsa;
     
     OrdenE oe;
     ExtrusionE ee;
@@ -38,12 +74,7 @@ public class OrdenFinalizar implements MouseListener {
     public OrdenFinalizar() {
 
 	panel = new APanel(Main.x, 0, 750, 600);
-	
-	lblOrden = new ALabel("Ordenes de producci\u00F3n| Informaci\u00F3n");
-	lblOrden.setFont(new Font("Calibri", Font.PLAIN, 24));
-	lblOrden.setForeground(Colores.titulo_normal);
-	lblOrden.setBounds(10, 0, 460, 50);
-	panel.add(lblOrden);
+	panel.setTitulo("Ordenes de producci\u00F3n| Informaci\u00F3n");
 
 	extrusion = new AContainer("Extrusi\u00F3n");
 	extrusion.setBounds(55, 243, 200, 284);
@@ -265,12 +296,12 @@ public class OrdenFinalizar implements MouseListener {
 
 	if (albe == null) {
 	    msjMensaje.setText("Error desconocido :C");
-	    msjMensaje.setEstado(Estado.error);
+	    msjMensaje.setEstado(Estado.ERROR);
 	    msjMensaje.setVisible(true);
 	} else {
 	    if (albe.size() == 0) {
 		msjMensaje.setText("Error al conectarse a la base de datos");
-		msjMensaje.setEstado(Estado.error);
+		msjMensaje.setEstado(Estado.ERROR);
 		msjMensaje.setVisible(true);
 	    } else {
 		Main.caBolsa = new CABolsa();

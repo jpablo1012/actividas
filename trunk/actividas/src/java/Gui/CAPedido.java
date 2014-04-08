@@ -10,56 +10,65 @@ import Entidades.BolsaE;
 import Entidades.PedidoE;
 import Negocio.BolsaN;
 import Negocio.PedidoN;
-import api.*;
 
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
+
+import api.AButton;
+import api.AComboBox;
+import api.AContainer;
+import api.ADateChosser;
+import api.ALabel;
+import api.APanel;
+import api.ASpinner;
+import api.ATextField;
+import api.AToggleButton;
+import api.Estado;
 
 public class CAPedido implements MouseListener {
 
     APanel panel;
 
-    AContainer pedido,
-            procesos;
+    AContainer pedido;
+    AContainer procesos;
 
     ADateChosser dtEntrega;
 
-    ALabel lblPedido,
-            lblFechaEntrega,//
-            lblReferencia,
-            lblBolsaReferencia,//
-            lblTipoCantidad,//
-            lblCantidad,//
-            lblTipo_venta,//
-            lblExtrusion,
-            lblImpresion,
-            lblSellado,
-            lblCedulaCliente;
+    ALabel lblFechaEntrega;
+    ALabel lblReferencia;
+    ALabel lblBolsaReferencia;
+    ALabel lblTipoCantidad;
+    ALabel lblCantidad;
+    ALabel lblTipo_venta;
+    ALabel lblExtrusion;
+    ALabel lblImpresion;
+    ALabel lblSellado;
+    ALabel lblCedulaCliente;
 
     ASpinner spnCantidad;
 
-    AComboBox cmbTipo_venta,//
-            cmbBolsaReferencia,
-            cmbTipoCantidad;
+    AComboBox cmbTipo_venta;
+    AComboBox cmbBolsaReferencia;
+    AComboBox cmbTipoCantidad;
 
-    ALabel msjFechaEntrega,//
-            msjBolsaReferencia,//
-            msjCantidad,//
-            msjTipo_venta,//
-            msjReferencia,
-            msjCedulaCliente,
-            msjMensaje;
+    ALabel msjFechaEntrega;
+    ALabel msjBolsaReferencia;
+    ALabel msjCantidad;
+    ALabel msjTipo_venta;
+    ALabel msjReferencia;
+    ALabel msjCedulaCliente;
+    ALabel msjMensaje;
 
-    AToggleButton tbtnExtrusion,
-            tbtnImpresion,
-            tbtnSellado;
+    AToggleButton tbtnExtrusion;
+    AToggleButton tbtnImpresion;
+    AToggleButton tbtnSellado;
 
-    ATextField txtReferencia,
-    		txtCedulaCliente;
+    ATextField txtReferencia;
+    ATextField txtCedulaCliente;
 
-    AButton btnCrear,
-            btnNuevo,
-            btnAtras;
+    AButton btnCrear;
+    AButton btnNuevo;
+    AButton btnAtras;
 
     String style = "style='color:#D3362D;'";
     String[] tipo_venta = {"-Seleccione-", "Venta de producto", "Servicio"};
@@ -74,12 +83,7 @@ public class CAPedido implements MouseListener {
 
     public CAPedido() {
         panel = new APanel(Main.x, 0, 750, 600);
-
-        lblPedido = new ALabel("Pedidos| Crear");
-        lblPedido.setFont(new Font("Calibri", Font.PLAIN, 24));
-        lblPedido.setForeground(Colores.titulo_normal);
-        lblPedido.setBounds(10, 0, 181, 50);
-        panel.add(lblPedido);
+        panel.setTitulo("Pedidos| Crear");
 
         pedido = new AContainer("Pedido");
         pedido.setBounds(60, 48, 630, 273);
@@ -300,18 +304,18 @@ public class CAPedido implements MouseListener {
     public void limpiarCampos() {
         spnCantidad.setValue(1);
         dtEntrega.setDate(null);
-        dtEntrega.setEstado(Estado.normal);
+        dtEntrega.setEstado(Estado.NORMAL);
         cmbTipo_venta.setSelectedIndex(0);
-        cmbTipo_venta.setEstado(Estado.normal);
+        cmbTipo_venta.setEstado(Estado.NORMAL);
         
         strBolsaReferencia = devolverReferenciasBolsa();
 
         cmbBolsaReferencia.setTextos(strBolsaReferencia);
         cmbBolsaReferencia.setValores(strBolsaRef);
-        cmbBolsaReferencia.setEstado(Estado.normal);
+        cmbBolsaReferencia.setEstado(Estado.NORMAL);
         cmbBolsaReferencia.setSelectedIndex(0);
         cmbTipoCantidad.setSelectedIndex(0);
-        cmbTipoCantidad.setEstado(Estado.normal);
+        cmbTipoCantidad.setEstado(Estado.NORMAL);
 
         tbtnExtrusion.setSeleccionado(true);
         tbtnImpresion.setSeleccionado(true);
@@ -322,7 +326,7 @@ public class CAPedido implements MouseListener {
         
         try{
             txtCedulaCliente.setText("");
-            txtCedulaCliente.setEstado(Estado.normal);
+            txtCedulaCliente.setEstado(Estado.NORMAL);
         }catch(Exception e){}
     }
 
@@ -376,57 +380,57 @@ public class CAPedido implements MouseListener {
 
         if (tiempo == null) {
             msjFechaEntrega.setText("Ingrese una fecha");
-            msjFechaEntrega.setEstado(Estado.error);
-            dtEntrega.setEstado(Estado.error);
+            msjFechaEntrega.setEstado(Estado.ERROR);
+            dtEntrega.setEstado(Estado.ERROR);
             cont = false;
         } else {
             Date hoy = new Date();
             if (hoy.before(tiempo)) {
                 msjFechaEntrega.setText("");
-                dtEntrega.setEstado(Estado.exito);
+                dtEntrega.setEstado(Estado.EXITO);
             } else {
                 msjFechaEntrega.setText("<html><body>Ingrese una fecha posterior a hoy</body></html>");
-                msjFechaEntrega.setEstado(Estado.error);
-                dtEntrega.setEstado(Estado.error);
+                msjFechaEntrega.setEstado(Estado.ERROR);
+                dtEntrega.setEstado(Estado.ERROR);
                 cont = false;
             }
         }
 
         if (venta == 0) {
             msjTipo_venta.setText("<html><body>Seleccione un tipo de venta</body></html>");
-            msjTipo_venta.setEstado(Estado.error);
-            cmbTipo_venta.setEstado(Estado.error);
+            msjTipo_venta.setEstado(Estado.ERROR);
+            cmbTipo_venta.setEstado(Estado.ERROR);
             cont = false;
         } else {
             msjTipo_venta.setText("");
-            cmbTipo_venta.setEstado(Estado.exito);
+            cmbTipo_venta.setEstado(Estado.EXITO);
         }
 
         if (bolsa == 0) {
             msjBolsaReferencia.setText("<html><body>Seleccione una referencia</body></html>");
-            msjBolsaReferencia.setEstado(Estado.error);
-            cmbBolsaReferencia.setEstado(Estado.error);
+            msjBolsaReferencia.setEstado(Estado.ERROR);
+            cmbBolsaReferencia.setEstado(Estado.ERROR);
             cont = false;
         } else {
             msjBolsaReferencia.setText("");
-            cmbBolsaReferencia.setEstado(Estado.exito);
+            cmbBolsaReferencia.setEstado(Estado.EXITO);
         }
 
         if (tipoCantidad == 0) {
             msjCantidad.setText("<html><body>Seleccione un tipo de cantidad</body></html>");
-            msjCantidad.setEstado(Estado.error);
-            cmbTipoCantidad.setEstado(Estado.error);
+            msjCantidad.setEstado(Estado.ERROR);
+            cmbTipoCantidad.setEstado(Estado.ERROR);
             cont = false;
         } else {
             msjCantidad.setText("");
-            cmbTipoCantidad.setEstado(Estado.exito);
+            cmbTipoCantidad.setEstado(Estado.EXITO);
         }
 
         if (extrusion || impresion || sellado) {
             msjMensaje.setText("");
         } else {
             msjMensaje.setText("El pedido tiene que tener como m\u00EDnimo un proceso activado");
-            msjMensaje.setEstado(Estado.error);
+            msjMensaje.setEstado(Estado.ERROR);
             cont = false;
         }
         
@@ -438,11 +442,11 @@ public class CAPedido implements MouseListener {
         	    double d = Double.parseDouble(cedula);
         	}
         	msjCedulaCliente.setText("");
-    	    	txtCedulaCliente.setEstado(Estado.exito);
+    	    	txtCedulaCliente.setEstado(Estado.EXITO);
             }catch(Exception e){
         	msjCedulaCliente.setText("<html><body>Solo numeros</body></html>");
-        	msjCedulaCliente.setEstado(Estado.error);
-        	txtCedulaCliente.setEstado(Estado.error);
+        	msjCedulaCliente.setEstado(Estado.ERROR);
+        	txtCedulaCliente.setEstado(Estado.ERROR);
         	cont = false;
             }
         }catch(Exception e){}
@@ -489,23 +493,23 @@ public class CAPedido implements MouseListener {
 
         if (s.equals("")) {
             msjMensaje.setText("El pedido ha entrado en proceso de confirmacion");
-            msjMensaje.setEstado(Estado.exito);
+            msjMensaje.setEstado(Estado.EXITO);
             visible(false, true, false, false);
         }
 
         if (s.equals("1")) {
             msjMensaje.setText("Error desconocido :C");
             try{
-        	txtCedulaCliente.setEstado(Estado.error);
+        	txtCedulaCliente.setEstado(Estado.ERROR);
         	msjMensaje.setText("La cedula del cliente no existe");
             }catch(Exception e){}
-            msjMensaje.setEstado(Estado.error);
+            msjMensaje.setEstado(Estado.ERROR);
             visible(true, false, true, false);
         }
 
         if (s.equals("2")) {
             msjMensaje.setText("Error al conectarse a la base de datos");
-            msjMensaje.setEstado(Estado.error);
+            msjMensaje.setEstado(Estado.ERROR);
             visible(true, false, true, false);
         }
 

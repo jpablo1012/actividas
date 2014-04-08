@@ -22,9 +22,9 @@ public class AToggleButton extends JLabel implements MouseListener, FocusListene
         this.neg = neg;
         this.setText(this.pos);
 	
-        setBorder(new MatteBorder(1, 1, 1, 1, Colores.borde_boton));
-        setForeground(Colores.texto_boton);
-        setBackground(Colores.fondo_boton);
+        setBorder(new MatteBorder(1, 1, 1, 1, Colores.BORDE_BOTON));
+        setForeground(Colores.TEXTO_BOTON);
+        setBackground(Colores.BOTON_FONDO);
         setFont(new Font("Calibri", Font.BOLD, 14));
         setOpaque(true);
         setHorizontalAlignment(SwingConstants.LEFT);
@@ -54,14 +54,14 @@ public class AToggleButton extends JLabel implements MouseListener, FocusListene
     private void selected(){
     	if(this.isEnabled()){
 	        if(seleccionado){
-	            setBackground(Colores.fondo_boton);
-	            setBorder(new MatteBorder(1, 1, 1, 1, Colores.borde_boton));
+	            setBackground(Colores.BOTON_FONDO);
+	            setBorder(new MatteBorder(1, 1, 1, 1, Colores.BORDE_BOTON));
 	            setHorizontalAlignment(SwingConstants.LEFT);
-	            setForeground(Colores.texto_boton);
+	            setForeground(Colores.TEXTO_BOTON);
 	            setText(this.pos);
 	        }else{
-	            setBackground(Colores.fondo_boton_desactivado);
-	            setBorder(new MatteBorder(1, 1, 1, 1, Colores.borde_boton_hover_desactivado));
+	            setBackground(Colores.BOTON_FONDO_DESACTIVADO);
+	            setBorder(new MatteBorder(1, 1, 1, 1, Colores.BORDE_BOTON_DESACTIVADO_HOVER));
 	            setHorizontalAlignment(SwingConstants.RIGHT);
 	            //setForeground(Colores.texto_normal);
 	            setText(this.neg);
@@ -73,18 +73,18 @@ public class AToggleButton extends JLabel implements MouseListener, FocusListene
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g.create();
         if (seleccionado) {
-            g.setColor(Colores.suiche);
+            g.setColor(Colores.SWITCHE);
             g.fillRect(this.getWidth() - (int)(this.getWidth()*0.4), 0, (int)(this.getWidth()*0.4), this.getHeight());
-            g.setColor(Colores.texto_desactivado);
+            g.setColor(Colores.TEXTO_DESACTIVADO);
             g.drawRect(this.getWidth() - (int)(this.getWidth()*0.4), 0, (int)(this.getWidth()*0.4), this.getHeight());
         }else{
-            g.setColor(Colores.suiche);
+            g.setColor(Colores.SWITCHE);
             g.fillRect(0, 0, (int)(this.getWidth()*0.4), this.getHeight());
-            g.setColor(Colores.fondo_rojo);
+            g.setColor(Colores.FONDO_ROJO);
             g.drawRect(0, 0, (int)(this.getWidth()*0.4), this.getHeight());
         }
         if(!this.isEnabled() && seleccionado){
-        	setBackground(Colores.texto_desactivado_hover);
+        	setBackground(Colores.TEXTO_DESACTIVADO_HOVER);
         	//setForeground(Colores.texto_boton);
         }
         g2.dispose();
@@ -109,11 +109,11 @@ public class AToggleButton extends JLabel implements MouseListener, FocusListene
     public void mouseEntered(MouseEvent e) {
     	if(isEnabled()){
 	        if(seleccionado){
-	            setBackground(Colores.fondo_boton_hover);
-	            setBorder(new MatteBorder(1, 1, 1, 1, Colores.borde_boton_hover));
+	            setBackground(Colores.BOTON_FONDO_HOVER);
+	            setBorder(new MatteBorder(1, 1, 1, 1, Colores.BORDE_BOTON_HOVER));
 	        }else{
-	            setBackground(Colores.texto_desactivado_hover);
-	            setBorder(new MatteBorder(1, 1, 1, 1, Colores.borde_boton_hover_desactivado));
+	            setBackground(Colores.TEXTO_DESACTIVADO_HOVER);
+	            setBorder(new MatteBorder(1, 1, 1, 1, Colores.BORDE_BOTON_DESACTIVADO_HOVER));
 	        }
     	}
     }
@@ -121,11 +121,11 @@ public class AToggleButton extends JLabel implements MouseListener, FocusListene
     public void mouseExited(MouseEvent e) {
     	if(isEnabled()){
 	         if(seleccionado){
-	            setBackground(Colores.fondo_boton);
-	            setBorder(new MatteBorder(1, 1, 1, 1, Colores.borde_boton));
+	            setBackground(Colores.BOTON_FONDO);
+	            setBorder(new MatteBorder(1, 1, 1, 1, Colores.BORDE_BOTON));
 	        }else{
-	            setBackground(Colores.fondo_boton_desactivado);
-	            setBorder(new MatteBorder(1, 1, 1, 1, Colores.borde_boton_desactivado));
+	            setBackground(Colores.BOTON_FONDO_DESACTIVADO);
+	            setBorder(new MatteBorder(1, 1, 1, 1, Colores.BORDE_BOTON_DESACTIVADO));
 	        }
     	}
     }
@@ -133,11 +133,11 @@ public class AToggleButton extends JLabel implements MouseListener, FocusListene
     public void focusGained(FocusEvent e) {
     	if(isEnabled()){
 	        if(seleccionado){
-	            setBackground(Colores.fondo_boton_hover);
-	            setBorder(new MatteBorder(1, 1, 1, 1, Colores.borde_boton_hover));
+	            setBackground(Colores.BOTON_FONDO_HOVER);
+	            setBorder(new MatteBorder(1, 1, 1, 1, Colores.BORDE_BOTON_HOVER));
 	        }else{
-	            setBackground(Colores.texto_desactivado_hover);
-	            setBorder(new MatteBorder(1, 1, 1, 1, Colores.borde_boton_hover_desactivado));
+	            setBackground(Colores.TEXTO_DESACTIVADO_HOVER);
+	            setBorder(new MatteBorder(1, 1, 1, 1, Colores.BORDE_BOTON_DESACTIVADO_HOVER));
 	        }
     	}
     }
@@ -145,11 +145,11 @@ public class AToggleButton extends JLabel implements MouseListener, FocusListene
     public void focusLost(FocusEvent e) {
     	if(isEnabled()){
 	         if(seleccionado){
-	            setBackground(Colores.fondo_boton);
-	            setBorder(new MatteBorder(1, 1, 1, 1, Colores.borde_boton));
+	            setBackground(Colores.BOTON_FONDO);
+	            setBorder(new MatteBorder(1, 1, 1, 1, Colores.BORDE_BOTON));
 	        }else{
-	            setBackground(Colores.fondo_boton_desactivado);
-	            setBorder(new MatteBorder(1, 1, 1, 1, Colores.borde_boton_desactivado));
+	            setBackground(Colores.BOTON_FONDO_DESACTIVADO);
+	            setBorder(new MatteBorder(1, 1, 1, 1, Colores.BORDE_BOTON_DESACTIVADO));
 	        }
     	}
     }

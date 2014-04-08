@@ -6,25 +6,25 @@ import java.awt.event.MouseListener;
 
 import javax.swing.SwingConstants;
 
+import api.AButton;
+import api.ALabel;
+import api.APanel;
+import api.Estado;
 import Entidades.UsuarioE;
-import api.*;
 
 public class Ordenes implements MouseListener{
 
     APanel panel;
-    ALabel lblOrdenes;
-    AButton btnExtrusion, btnImpresion, btnSellado, btnBuscar, btnFinalizadas;
+    AButton btnExtrusion;
+    AButton btnImpresion;
+    AButton btnSellado;
+    AButton btnBuscar;
+    AButton btnFinalizadas;
     ALabel msjMensaje;
 
     public Ordenes() {
         panel = new APanel(Main.x, 0, 750, 600);
-
-        lblOrdenes = new ALabel("Ordenes de producci\u00F3n");
-        lblOrdenes.setHorizontalAlignment(SwingConstants.CENTER);
-        lblOrdenes.setFont(new Font("Calibri", Font.PLAIN, 40));
-        lblOrdenes.setForeground(Colores.titulo_normal);
-        lblOrdenes.setBounds(0, 74, panel.getWidth(), 50);
-        panel.add(lblOrdenes);
+        panel.setTitulo("Ordenes de producci\u00F3n");
 
         btnExtrusion = new AButton("En extrusi\u00F3n");
         btnExtrusion.setBounds(295, 230, 160, 60);
@@ -105,7 +105,7 @@ public class Ordenes implements MouseListener{
 		Main.esconderTodos();
 		Main.ordenes.panel.setVisible(true);
 		Main.ordenes.msjMensaje.setText("No hay procesos de extrusi\u00F3n pendientes");
-		Main.ordenes.msjMensaje.setEstado(Estado.error);
+		Main.ordenes.msjMensaje.setEstado(Estado.ERROR);
 		Main.ordenes.msjMensaje.setVisible(true);
 	    }
 	    Main.dialog.ocultar();
@@ -126,7 +126,7 @@ public class Ordenes implements MouseListener{
 		Main.esconderTodos();
 		Main.ordenes.panel.setVisible(true);
 		Main.ordenes.msjMensaje.setText("No hay procesos de impresi\u00F3n pendientes");
-		Main.ordenes.msjMensaje.setEstado(Estado.error);
+		Main.ordenes.msjMensaje.setEstado(Estado.ERROR);
 		Main.ordenes.msjMensaje.setVisible(true);
 	    }
 	    Main.dialog.ocultar();
@@ -147,7 +147,7 @@ public class Ordenes implements MouseListener{
 		Main.esconderTodos();
 		Main.ordenes.panel.setVisible(true);
 		Main.ordenes.msjMensaje.setText("No hay procesos de sellado pendientes");
-		Main.ordenes.msjMensaje.setEstado(Estado.error);
+		Main.ordenes.msjMensaje.setEstado(Estado.ERROR);
 		Main.ordenes.msjMensaje.setVisible(true);
 	    }
 	    Main.dialog.ocultar();
@@ -178,7 +178,7 @@ public class Ordenes implements MouseListener{
 		Main.esconderTodos();
 		Main.ordenes.panel.setVisible(true);
 		Main.ordenes.msjMensaje.setText("No hay ordenes de producci\u00F3n finalizadas");
-		Main.ordenes.msjMensaje.setEstado(Estado.error);
+		Main.ordenes.msjMensaje.setEstado(Estado.ERROR);
 		Main.ordenes.msjMensaje.setVisible(true);
 	    }
 	    Main.dialog.ocultar();
