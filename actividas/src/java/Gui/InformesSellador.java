@@ -19,8 +19,17 @@ import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 
+import api.AButton;
+import api.AContainer;
+import api.ADateChosser;
+import api.ALabel;
+import api.APanel;
+import api.ARendered;
+import api.AScrollPanel;
+import api.ATable;
+import api.Colores;
+import api.Estado;
 import Negocio.EmpleadoN;
-import api.*;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeEvent;
@@ -31,12 +40,19 @@ public class InformesSellador implements MouseListener, PropertyChangeListener {
 
     APanel panel;
     AContainer busq;
-    ALabel lblInforme, lblTexto, lblY, lblGrafico;
-    AButton btnInforme, btnNueva, btnInicio, btnGrafico;
+    ALabel lblTexto;
+    ALabel lblY;
+    ALabel lblGrafico;
+    AButton btnInforme;
+    AButton btnNueva;
+    AButton btnInicio;
+    AButton btnGrafico;
     ALabel msjMensaje;
-    AScrollPanel resultado, grafico;
+    AScrollPanel resultado;
+    AScrollPanel grafico;
     ATable tabla;
-    ADateChosser dtFechaInicio, dtFechaFinal;
+    ADateChosser dtFechaInicio;
+    ADateChosser dtFechaFinal;
     AButton btnGuardar;
 
     DefaultTableModel dtm;
@@ -48,12 +64,7 @@ public class InformesSellador implements MouseListener, PropertyChangeListener {
     public InformesSellador() {
 
 	panel = new APanel(Main.x, 0, 750, 600);
-
-	lblInforme = new ALabel("Informes| Sellador");
-	lblInforme.setFont(new Font("Calibri", Font.PLAIN, 24));
-	lblInforme.setForeground(Colores.titulo_normal);
-	lblInforme.setBounds(10, 0, 336, 50);
-	panel.add(lblInforme);
+	panel.setTitulo("Informes| Sellador");
 
 	busq = new AContainer("Informe");
 	busq.setBounds(110, 200, 530, 171);
@@ -173,21 +184,21 @@ public class InformesSellador implements MouseListener, PropertyChangeListener {
 
 	try {
 	    msjMensaje.setText("");
-	    dtFechaInicio.setEstado(Estado.normal);
+	    dtFechaInicio.setEstado(Estado.NORMAL);
 	    if (inicio.compareTo(fin) > 1) {
 		msjMensaje.setText("No debes seleccionar una fecha anterior al primer campo de fecha");
-		msjMensaje.setEstado(Estado.error);
-		dtFechaFinal.setEstado(Estado.error);
+		msjMensaje.setEstado(Estado.ERROR);
+		dtFechaFinal.setEstado(Estado.ERROR);
 		cont = false;
 	    } else {
 		msjMensaje.setText("");
-		dtFechaFinal.setEstado(Estado.normal);
+		dtFechaFinal.setEstado(Estado.NORMAL);
 	    }
 
 	} catch (Exception e) {
 	    msjMensaje.setText("El primer campo de fecha esta Campo vac\u00EDo");
-	    msjMensaje.setEstado(Estado.error);
-	    dtFechaInicio.setEstado(Estado.error);
+	    msjMensaje.setEstado(Estado.ERROR);
+	    dtFechaInicio.setEstado(Estado.ERROR);
 	    cont = false;
 	}
 
@@ -249,7 +260,7 @@ public class InformesSellador implements MouseListener, PropertyChangeListener {
 	}
 
 	barra = ChartFactory.createBarChart("Informe sellador", "C\u00E9dula", "Bolsas selladas", datos, PlotOrientation.HORIZONTAL, false, false, true);
-	barra.setBackgroundPaint(Colores.fondo_normal);
+	barra.setBackgroundPaint(Colores.FONDO_NORMAL);
 	barra.setBackgroundImageAlpha(0f);
 	barra.setBorderVisible(false);
 	final CategoryPlot plot = barra.getCategoryPlot();
@@ -291,7 +302,7 @@ public class InformesSellador implements MouseListener, PropertyChangeListener {
 	    fileOut.close();
 	    
 	    msjMensaje.setText("La grafica se ha guardado en Escritorio/Gr\u00E1ficos");
-	    msjMensaje.setEstado(Estado.exito);
+	    msjMensaje.setEstado(Estado.EXITO);
 
 	    String s = imagen.getAbsolutePath();
 	    String h = s.substring(3, s.length());
@@ -328,7 +339,7 @@ public class InformesSellador implements MouseListener, PropertyChangeListener {
 	    } else {
 		visibleInforme(false);
 		msjMensaje.setText("No hay datos para generar un informe");
-		msjMensaje.setEstado(Estado.error);
+		msjMensaje.setEstado(Estado.ERROR);
 	    }
 	    Main.dialog.ocultar();
 	}
@@ -342,7 +353,7 @@ public class InformesSellador implements MouseListener, PropertyChangeListener {
 		} else {
 		    visibleInforme(false);
 		    msjMensaje.setText("No hay datos para generar un informe");
-		    msjMensaje.setEstado(Estado.error);
+		    msjMensaje.setEstado(Estado.ERROR);
 		}
 	    }
 	    Main.dialog.ocultar();

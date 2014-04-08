@@ -16,9 +16,6 @@ import java.awt.event.ItemListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.File;
-
-import api.*;
-
 import java.util.ArrayList;
 
 import javax.swing.JFileChooser;
@@ -26,6 +23,16 @@ import javax.swing.SwingConstants;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.filechooser.FileNameExtensionFilter;
+
+import api.AButton;
+import api.AComboBox;
+import api.AContainer;
+import api.ALabel;
+import api.APanel;
+import api.AScrollPanel;
+import api.ASpinner;
+import api.AToggleButton;
+import api.Estado;
 
 import java.awt.Dimension;
 import java.awt.Font;
@@ -46,39 +53,66 @@ public class CABolsa implements MouseListener, ItemListener, ChangeListener {
     AContainer bolsa;
     AScrollPanel superior;
     ALabel lblObligatorio;
-    ALabel lblColorCodigo,//
-	    lblMaterialReferencia,//
-	    lblMedida,//
-	    lblAncho,//
-	    lblLargo,//
-	    lblCalibre,//
-	    lblTratado,//
-	    lblTransArriba,//
-	    lblTransAbajo,//
-	    lblFuelleFondo,//
-	    lblFuelleSuperior,//
-	    lblFuelleLateral,//
-	    lblImagen,//
-	    lblSolapa, lblTroquel;
-    ALabel msjColorCodigo, msjMaterialReferencia, msjMedida, msjAncho, msjLargo, msjCalibre, msjImagen, msjTroquel, msjMensaje;
-    ASpinner spnAncho, spnLargo, spnCalibre, spnTransArriba, spnTransAbajo, spnFuelleFondo, spnFuelleSuperior, spnFuelleLateral, spnSolapa;
-    ALabel mddAncho, mddLargo, mddTransArriba, mddTransAbajo, mddFuelleFondo, mddFuelleSuperior, mddFuelleLateral, mddSolapa;
-    AComboBox cmbColorCodigo, cmbMaterialReferencia, cmbMedida, cmbTroquel;
-    AButton btnCrear, btnGuardar, btnCancelar, btnNuevo, btnImagen, btnQuitar, btnVer;
+    ALabel lblColorCodigo;
+    ALabel lblMaterialReferencia;
+    ALabel lblMedida;
+    ALabel lblAncho;
+    ALabel lblLargo;
+    ALabel lblCalibre;
+    ALabel lblTratado;
+    ALabel lblTransArriba;
+    ALabel lblTransAbajo;
+    ALabel lblFuelleFondo;
+    ALabel lblFuelleSuperior;
+    ALabel lblFuelleLateral;
+    ALabel lblImagen;
+    ALabel lblSolapa;
+    ALabel lblTroquel;
+    ALabel msjColorCodigo;
+    ALabel msjMaterialReferencia;
+    ALabel msjMedida;
+    ALabel msjAncho;
+    ALabel msjLargo;
+    ALabel msjCalibre;
+    ALabel msjImagen;
+    ALabel msjTroquel;
+    ALabel msjMensaje;
+    ASpinner spnAncho;
+    ASpinner spnLargo;
+    ASpinner spnCalibre;
+    ASpinner spnTransArriba;
+    ASpinner spnTransAbajo;
+    ASpinner spnFuelleFondo;
+    ASpinner spnFuelleSuperior;
+    ASpinner spnFuelleLateral;
+    ASpinner spnSolapa;
+    ALabel mddAncho;
+    ALabel mddLargo;
+    ALabel mddTransArriba;
+    ALabel mddTransAbajo;
+    ALabel mddFuelleFondo;
+    ALabel mddFuelleSuperior;
+    ALabel mddFuelleLateral;
+    ALabel mddSolapa;
+    AComboBox cmbColorCodigo;
+    AComboBox cmbMaterialReferencia;
+    AComboBox cmbMedida;
+    AComboBox cmbTroquel;
+    AButton btnCrear;
+    AButton btnGuardar;
+    AButton btnCancelar;
+    AButton btnNuevo;
+    AButton btnImagen;
+    AButton btnQuitar;
+    AButton btnVer;
     AToggleButton tbtnTratado;
-    ALabel lblBolsa;
     File file;
 
     int modo = 0;
 
     public CABolsa() {
 	panel = new APanel(Main.x, 0, 750, 600);
-
-	lblBolsa = new ALabel("Insumos| Crear bolsa");
-	lblBolsa.setFont(new Font("Calibri", Font.PLAIN, 24));
-	lblBolsa.setForeground(Colores.titulo_normal);
-	lblBolsa.setBounds(10, 0, 503, 50);
-	panel.add(lblBolsa);
+	panel.setTitulo("Insumos| Crear bolsa");
 
 	btnNuevo = new AButton("Crear otra bolsa");
 	btnNuevo.setBounds(295, 270, 160, 60);
@@ -453,16 +487,16 @@ public class CABolsa implements MouseListener, ItemListener, ChangeListener {
 
 	cmbColorCodigo.setTextos(strColor);
 	cmbColorCodigo.setValores(codigoColor);
-	cmbColorCodigo.setEstado(Estado.normal);
+	cmbColorCodigo.setEstado(Estado.NORMAL);
 	cmbColorCodigo.setSelectedIndex(0);
 
 	cmbMaterialReferencia.setTextos(strMaterial);
 	cmbMaterialReferencia.setValores(refenciaMaterial);
-	cmbMaterialReferencia.setEstado(Estado.normal);
+	cmbMaterialReferencia.setEstado(Estado.NORMAL);
 	cmbMaterialReferencia.setSelectedIndex(0);
 
 	cmbTroquel.setSelectedIndex(0);
-	cmbTroquel.setEstado(Estado.normal);
+	cmbTroquel.setEstado(Estado.NORMAL);
 
 	cmbMedida.setSelectedIndex(0);
 	setMedidas("<html><body><b " + style + ">Cm</b></body></html>");
@@ -575,31 +609,31 @@ public class CABolsa implements MouseListener, ItemListener, ChangeListener {
 
 	if (color.equals(strColor[0])) {
 	    msjColorCodigo.setText("Seleccion una referencia");
-	    msjColorCodigo.setEstado(Estado.error);
-	    cmbColorCodigo.setEstado(Estado.error);
+	    msjColorCodigo.setEstado(Estado.ERROR);
+	    cmbColorCodigo.setEstado(Estado.ERROR);
 	    cont = false;
 	} else {
 	    msjColorCodigo.setText("");
-	    cmbColorCodigo.setEstado(Estado.exito);
+	    cmbColorCodigo.setEstado(Estado.EXITO);
 	}
 
 	if (material.equals(strMaterial[0])) {
 	    msjMaterialReferencia.setText("Seleccione una referencia");
-	    msjMaterialReferencia.setEstado(Estado.error);
-	    cmbMaterialReferencia.setEstado(Estado.error);
+	    msjMaterialReferencia.setEstado(Estado.ERROR);
+	    cmbMaterialReferencia.setEstado(Estado.ERROR);
 	    cont = false;
 	} else {
 	    msjMaterialReferencia.setText("");
-	    cmbMaterialReferencia.setEstado(Estado.exito);
+	    cmbMaterialReferencia.setEstado(Estado.EXITO);
 	}
 
 	if (troquel == 0) {
-	    cmbTroquel.setEstado(Estado.error);
+	    cmbTroquel.setEstado(Estado.ERROR);
 	    msjTroquel.setText("Seleccione un troquel");
-	    msjTroquel.setEstado(Estado.error);
+	    msjTroquel.setEstado(Estado.ERROR);
 	    cont = false;
 	} else {
-	    cmbTroquel.setEstado(Estado.exito);
+	    cmbTroquel.setEstado(Estado.EXITO);
 	    msjTroquel.setText("");
 	}
 	return cont;
@@ -646,19 +680,19 @@ public class CABolsa implements MouseListener, ItemListener, ChangeListener {
 	String s = new BolsaN().crearBolsa(cbe);
 	if (s.equals("")) {
 	    msjMensaje.setText("La bolsa ha sido creada exitosamente");
-	    msjMensaje.setEstado(Estado.exito);
+	    msjMensaje.setEstado(Estado.EXITO);
 	    visible(true, false, false, false);
 	}
 
 	if (s.equals("1")) {
 	    msjMensaje.setText("Error desconocido :C");
-	    msjMensaje.setEstado(Estado.error);
+	    msjMensaje.setEstado(Estado.ERROR);
 	    visible(false, false, true, true);
 	}
 
 	if (s.equals("2")) {
 	    msjMensaje.setText("Error al conectarse a la base de datos");
-	    msjMensaje.setEstado(Estado.error);
+	    msjMensaje.setEstado(Estado.ERROR);
 	    visible(false, false, true, true);
 	}
     }
@@ -725,7 +759,7 @@ public class CABolsa implements MouseListener, ItemListener, ChangeListener {
 	    Main.esconderTodos();
 	    Main.buscarInsumos.buscar();
 	    Main.buscarInsumos.msjMensaje.setText("La bolsa se ha actualizado");
-	    Main.buscarInsumos.msjMensaje.setEstado(Estado.exito);
+	    Main.buscarInsumos.msjMensaje.setEstado(Estado.EXITO);
 	    Main.buscarInsumos.msjMensaje.setVisible(true);
 	    Main.buscarInsumos.panel.setVisible(true);
 	    Main.dialog.ocultar();
@@ -733,13 +767,13 @@ public class CABolsa implements MouseListener, ItemListener, ChangeListener {
 
 	if (s.equals("1")) {
 	    msjMensaje.setText("Error desconocido :C");
-	    msjMensaje.setEstado(Estado.error);
+	    msjMensaje.setEstado(Estado.ERROR);
 	    visible(false, true, false, true);
 	}
 
 	if (s.equals("2")) {
 	    msjMensaje.setText("Error al conectarse a la base de datos");
-	    msjMensaje.setEstado(Estado.error);
+	    msjMensaje.setEstado(Estado.ERROR);
 	    visible(false, true, false, true);
 	}
     }

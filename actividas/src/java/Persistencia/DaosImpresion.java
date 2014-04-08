@@ -1,16 +1,14 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package Persistencia;
+
 import Entidades.ImpresionE;
-import java.sql.*;
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Types;
 import java.util.ArrayList;
-/**
- *
- * @author Usuario
- */
+
 public class DaosImpresion {
 
     public String crearImpresion(Connection con, ImpresionE ie){

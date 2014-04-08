@@ -4,7 +4,6 @@ import Entidades.EmpleadoE;
 import Entidades.UsuarioE;
 import Negocio.EmpleadoN;
 import Negocio.UsuarioN;
-import api.*;
 
 import java.awt.Font;
 import java.awt.event.MouseEvent;
@@ -14,6 +13,15 @@ import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.SwingConstants;
 import javax.swing.filechooser.FileNameExtensionFilter;
+
+import api.AButton;
+import api.AComboBox;
+import api.AContainer;
+import api.ALabel;
+import api.APanel;
+import api.APassword;
+import api.ATextField;
+import api.Estado;
 
 public class ResultadoEmpleado implements MouseListener {
 
@@ -31,37 +39,34 @@ public class ResultadoEmpleado implements MouseListener {
     ALabel lblApellido;
     ALabel lblObligatorio;
     AComboBox comCargo;
-    ALabel msjNombre,
-            msjCedula,
-            msjCodigo,
-            msjApellido,
-            msjCargo;
-    ATextField txtCedula,
-            txtNombre,
-            txtApellido;
-    APassword pswClave,
-            pswConfirmar;
-    AButton btnGuardar,
-            btnCancelar;
+    ALabel msjNombre;
+    ALabel msjCedula;
+    ALabel msjCodigo;
+    ALabel msjApellido;
+    ALabel msjCargo;
+    ATextField txtCedula;
+    ATextField txtNombre;
+    ATextField txtApellido;
+    APassword pswClave;
+    APassword pswConfirmar;
+    AButton btnGuardar;
+    AButton btnCancelar;
     UsuarioE ue;
     EmpleadoE ee;
-    ALabel lblRsultado;
     private boolean aBuscar = true;
 
-    ALabel lblImagen, msjImagen;
-    AButton btnSeleccionar, btnVer, btnQuitar;
+    ALabel lblImagen;
+    ALabel msjImagen;
+    AButton btnSeleccionar;
+    AButton btnVer;
+    AButton btnQuitar;
 
     File file;
 
     public ResultadoEmpleado() {
 
         panel = new APanel(Main.x, 0, 750, 600);
-
-        lblRsultado = new ALabel("Empleado| Actualizar");
-        lblRsultado.setFont(new Font("Calibri", Font.PLAIN, 24));
-        lblRsultado.setForeground(Colores.titulo_normal);
-        lblRsultado.setBounds(10, 0, 400, 50);
-        panel.add(lblRsultado);
+        panel.setTitulo("Empleado| Actualizar");
 
         emple = new AContainer("Empleado");
         emple.setBounds(110, 90, 530, 150);
@@ -265,26 +270,26 @@ public class ResultadoEmpleado implements MouseListener {
         boolean cont = true;
 
         if (cedula.equals("")) {
-            txtCedula.setEstado(Estado.error);
-            msjCedula.setEstado(Estado.error);
+            txtCedula.setEstado(Estado.ERROR);
+            msjCedula.setEstado(Estado.ERROR);
             msjCedula.setText("Campo vaci\u00F3");
             msjCedula.setVisible(true);
             cont = false;
         } else {
             try {
                 double d = Double.parseDouble(cedula);
-                txtCedula.setEstado(Estado.exito);
+                txtCedula.setEstado(Estado.EXITO);
 
                 if (cedula.length() < 6 || cedula.length() > 13) {
-                    txtCedula.setEstado(Estado.error);
-                    msjCedula.setEstado(Estado.error);
+                    txtCedula.setEstado(Estado.ERROR);
+                    msjCedula.setEstado(Estado.ERROR);
                     msjCedula.setText("C\u00E9dula invalida");
                     msjCedula.setVisible(true);
                     cont = false;
                 }
             } catch (Exception e) {
-                txtCedula.setEstado(Estado.error);
-                msjCedula.setEstado(Estado.error);
+                txtCedula.setEstado(Estado.ERROR);
+                msjCedula.setEstado(Estado.ERROR);
                 msjCedula.setText("S\u00F3lo n\u00FAmeros");
                 msjCedula.setVisible(true);
                 cont = false;
@@ -292,52 +297,52 @@ public class ResultadoEmpleado implements MouseListener {
         }
 
         if (nombre.equals("")) {
-            txtNombre.setEstado(Estado.error);
-            msjNombre.setEstado(Estado.error);
+            txtNombre.setEstado(Estado.ERROR);
+            msjNombre.setEstado(Estado.ERROR);
             msjNombre.setText("Campo vaci\u00F3");
             msjNombre.setVisible(true);
             cont = false;
         } else {
-            txtNombre.setEstado(Estado.exito);
+            txtNombre.setEstado(Estado.EXITO);
         }
 
         if (apellido.equals("")) {
-            txtApellido.setEstado(Estado.error);
-            msjApellido.setEstado(Estado.error);
+            txtApellido.setEstado(Estado.ERROR);
+            msjApellido.setEstado(Estado.ERROR);
             msjApellido.setText("Campo vaci\u00F3");
             msjApellido.setVisible(true);
             cont = false;
         } else {
-            txtApellido.setEstado(Estado.exito);
+            txtApellido.setEstado(Estado.EXITO);
         }
 
         if (cargo.equals((String) comCargo.getItemAt(0))) {
-            msjCargo.setEstado(Estado.error);
+            msjCargo.setEstado(Estado.ERROR);
             msjCargo.setText("Seleccione un cargo");
             msjCargo.setVisible(true);
-            comCargo.setEstado(Estado.error);
+            comCargo.setEstado(Estado.ERROR);
             cont = false;
         } else {
-            comCargo.setEstado(Estado.exito);
+            comCargo.setEstado(Estado.EXITO);
         }
 
         if (codigo.length() < 4) {
-            pswClave.setEstado(Estado.error);
-            msjCodigo.setEstado(Estado.error);
+            pswClave.setEstado(Estado.ERROR);
+            msjCodigo.setEstado(Estado.ERROR);
             msjCodigo.setText("<html><body>La contrase\u00F1a debe ser m\u00E1s de 3 caracteres</body></html>");
             msjCodigo.setVisible(true);
             cont = false;
         } else {
             if (!(codigo.equals(confirmar))) {
-                pswClave.setEstado(Estado.error);
-                pswConfirmar.setEstado(Estado.error);
-                msjCodigo.setEstado(Estado.error);
+                pswClave.setEstado(Estado.ERROR);
+                pswConfirmar.setEstado(Estado.ERROR);
+                msjCodigo.setEstado(Estado.ERROR);
                 msjCodigo.setText("<html><body>Las contrase\u00F1a no coinciden<body></html>");
                 msjCodigo.setVisible(true);
                 cont = false;
             } else {
-                pswClave.setEstado(Estado.exito);
-                pswConfirmar.setEstado(Estado.exito);
+                pswClave.setEstado(Estado.EXITO);
+                pswConfirmar.setEstado(Estado.EXITO);
             }
         }
 
@@ -373,7 +378,7 @@ public class ResultadoEmpleado implements MouseListener {
                         Main.esconderTodos();
                         Main.buscarEmpleado.panel.setVisible(true);
                         Main.buscarEmpleado.msjMensaje.setText("El empleado ha sido modificado exitosamente");
-                        Main.buscarEmpleado.msjMensaje.setEstado(Estado.exito);
+                        Main.buscarEmpleado.msjMensaje.setEstado(Estado.EXITO);
                         Main.buscarEmpleado.msjMensaje.setVisible(true);
                     } else {
                         Main.dialog.mostrar(Main.menu.frame.getLocation(), Main.menu.frame.getSize());
@@ -382,7 +387,7 @@ public class ResultadoEmpleado implements MouseListener {
                         Main.esconderTodos();
                         Main.ajustes.panel.setVisible(true);
                         Main.ajustes.msjMensaje.setText("Te has modificado exitosamente");
-                        Main.ajustes.msjMensaje.setEstado(Estado.exito);
+                        Main.ajustes.msjMensaje.setEstado(Estado.EXITO);
                         Main.ajustes.msjMensaje.setVisible(true);
                     }
 
@@ -391,13 +396,13 @@ public class ResultadoEmpleado implements MouseListener {
 
             if (s.equals("1")) {
                 msjMensaje.setText("Oh, ha ocurrido un error y no sabemos que es. :C");
-                msjMensaje.setEstado(Estado.error);
+                msjMensaje.setEstado(Estado.ERROR);
                 msjMensaje.setVisible(true);
             }
 
             if (s.equals("2")) {
                 msjMensaje.setText("Error al conectarse a la base de datos");
-                msjMensaje.setEstado(Estado.error);
+                msjMensaje.setEstado(Estado.ERROR);
                 msjMensaje.setVisible(true);
             }
         }

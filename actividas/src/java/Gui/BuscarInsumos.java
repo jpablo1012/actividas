@@ -20,12 +20,21 @@ import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 
-import api.*;
-
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
+
+import api.AButton;
+import api.AComboBox;
+import api.AContainer;
+import api.ALabel;
+import api.APanel;
+import api.ARadioButton;
+import api.AScrollPanel;
+import api.ATable;
+import api.ATextField;
+import api.Estado;
 
 public class BuscarInsumos implements MouseListener, ActionListener, KeyListener {
 
@@ -45,9 +54,10 @@ public class BuscarInsumos implements MouseListener, ActionListener, KeyListener
     AButton btnEliminar;
     AScrollPanel resultado;
     ATable tabla;
-
     ButtonGroup arb;
-    ARadioButton arbColor, arbMaterial, arbBolsa;
+    ARadioButton arbColor;
+    ARadioButton arbMaterial;
+    ARadioButton arbBolsa;
     DefaultTableModel dtm;
 
     ArrayList<BolsaE> albe = null;
@@ -56,16 +66,10 @@ public class BuscarInsumos implements MouseListener, ActionListener, KeyListener
 
     int modo = 0;//0 = bolsa, 1 = material, 2 = color
 
-    ALabel lblInsumos;
 
     public BuscarInsumos() {
         panel = new APanel(Main.x, 0, 750, 600);
-
-        lblInsumos = new ALabel("Insumos| Buscar");
-        lblInsumos.setFont(new Font("Calibri", Font.PLAIN, 24));
-        lblInsumos.setForeground(Colores.titulo_normal);
-        lblInsumos.setBounds(10, 0, 336, 50);
-        panel.add(lblInsumos);
+        panel.setTitulo("Insumos| Buscar");
 
         busq = new AContainer("Buscar");
         busq.setBounds(110, 200, 530, 200);
@@ -156,9 +160,8 @@ public class BuscarInsumos implements MouseListener, ActionListener, KeyListener
             btnEliminar.setBounds(385, 480, 130, 30);
             comBuscar.setSelectedIndex(3);
             panel.remove(btnNueva);
-            //panel.remove(busq);
             buscar();
-            lblInsumos.setText("Insumos| Mis bolsas");
+            panel.setTitulo("Insumos| Mis bolsas");
             btnEliminar.setVisible(true);
         }
 
@@ -174,7 +177,7 @@ public class BuscarInsumos implements MouseListener, ActionListener, KeyListener
         Main.menu.frame.getContentPane().add(Main.caInsumos.panel);
         Main.caInsumos.datosMaterial(me);
         Main.caInsumos.visibleMaterial(true, false, false, true);
-        Main.caInsumos.lblInsumos.setText("Insumos| Actualizar");
+        Main.caInsumos.panel.setTitulo("Insumos| Actualizar");
         Main.caInsumos.color.setVisible(false);
         Main.caInsumos.material.setLocation((Main.caInsumos.panel.getWidth() / 2) - (Main.caInsumos.material.getWidth() / 2),
                 (Main.caInsumos.panel.getHeight() / 2) - (Main.caInsumos.material.getHeight() / 2));
@@ -192,7 +195,7 @@ public class BuscarInsumos implements MouseListener, ActionListener, KeyListener
         Main.menu.frame.getContentPane().add(Main.caInsumos.panel);
         Main.caInsumos.datosColor(ce);
         Main.caInsumos.visibleColor(true, false, false, true);
-        Main.caInsumos.lblInsumos.setText("Insumos| Actualizar");
+        Main.caInsumos.panel.setTitulo("Insumos| Actualizar");
         Main.caInsumos.material.setVisible(false);
         Main.caInsumos.color.setLocation((Main.caInsumos.panel.getWidth() / 2) - (Main.caInsumos.color.getWidth() / 2),
                 (Main.caInsumos.panel.getHeight() / 2) - (Main.caInsumos.color.getHeight() / 2));
@@ -210,7 +213,7 @@ public class BuscarInsumos implements MouseListener, ActionListener, KeyListener
         Main.menu.frame.getContentPane().add(Main.caBolsa.panel);
         Main.caBolsa.setDatos(be);
         Main.caBolsa.visible(false, true, false, true);
-        Main.caBolsa.lblBolsa.setText("Insumos| Actualizar");
+        Main.caBolsa.panel.titulo.setText("Insumos| Actualizar");
         Main.caBolsa.panel.setVisible(true);
 
         Main.dialog.ocultar();
@@ -237,7 +240,7 @@ public class BuscarInsumos implements MouseListener, ActionListener, KeyListener
             } else {
                 msjMensaje.setText("Seleccione una fila para actualizar");
             }
-            msjMensaje.setEstado(Estado.error);
+            msjMensaje.setEstado(Estado.ERROR);
             msjMensaje.setVisible(true);
         }
     }
@@ -249,17 +252,17 @@ public class BuscarInsumos implements MouseListener, ActionListener, KeyListener
         buscar();
         if (s.equals("")) {
             msjMensaje.setText("El color ha sido eliminado");
-            msjMensaje.setEstado(Estado.exito);
+            msjMensaje.setEstado(Estado.EXITO);
             msjMensaje.setVisible(true);
         }
         if (s.equals("1")) {
             msjMensaje.setText("Upps. Este color esta en uso");
-            msjMensaje.setEstado(Estado.error);
+            msjMensaje.setEstado(Estado.ERROR);
             msjMensaje.setVisible(true);
         }
         if (s.equals("2")) {
             msjMensaje.setText("Error al conectarse a la base de datos");
-            msjMensaje.setEstado(Estado.error);
+            msjMensaje.setEstado(Estado.ERROR);
             msjMensaje.setVisible(true);
         }
 
@@ -272,18 +275,18 @@ public class BuscarInsumos implements MouseListener, ActionListener, KeyListener
         buscar();
         if (s.equals("")) {
             msjMensaje.setText("El material ha sido eliminado");
-            msjMensaje.setEstado(Estado.exito);
+            msjMensaje.setEstado(Estado.EXITO);
             msjMensaje.setVisible(true);
 
         }
         if (s.equals("1")) {
             msjMensaje.setText("Upps. Este material esta en uso");
-            msjMensaje.setEstado(Estado.error);
+            msjMensaje.setEstado(Estado.ERROR);
             msjMensaje.setVisible(true);
         }
         if (s.equals("2")) {
             msjMensaje.setText("Error al conectarse a la base de datos");
-            msjMensaje.setEstado(Estado.error);
+            msjMensaje.setEstado(Estado.ERROR);
             msjMensaje.setVisible(true);
         }
     }
@@ -296,18 +299,18 @@ public class BuscarInsumos implements MouseListener, ActionListener, KeyListener
             buscar();
             if (s.equals("")) {
                 msjMensaje.setText("La bolsa ha sido eliminada");
-                msjMensaje.setEstado(Estado.exito);
+                msjMensaje.setEstado(Estado.EXITO);
                 msjMensaje.setVisible(true);
 
             }
             if (s.equals("1")) {
                 msjMensaje.setText("Error desconocido al eliminar la bolsa :C");
-                msjMensaje.setEstado(Estado.error);
+                msjMensaje.setEstado(Estado.ERROR);
                 msjMensaje.setVisible(true);
             }
             if (s.equals("2")) {
                 msjMensaje.setText("Error al conectarse a la base de datos");
-                msjMensaje.setEstado(Estado.error);
+                msjMensaje.setEstado(Estado.ERROR);
                 msjMensaje.setVisible(true);
             }
         } else if (Main.menu.evaluar(Main.menu.getUsuario().getTipo()) == 1) {
@@ -317,18 +320,18 @@ public class BuscarInsumos implements MouseListener, ActionListener, KeyListener
             buscar();
             if (s.equals("")) {
                 msjMensaje.setText("La bolsa ha sido eliminada");
-                msjMensaje.setEstado(Estado.exito);
+                msjMensaje.setEstado(Estado.EXITO);
                 msjMensaje.setVisible(true);
 
             }
             if (s.equals("1")) {
                 msjMensaje.setText("Upps. Esta bolsa esta en uso");
-                msjMensaje.setEstado(Estado.error);
+                msjMensaje.setEstado(Estado.ERROR);
                 msjMensaje.setVisible(true);
             }
             if (s.equals("2")) {
                 msjMensaje.setText("Error al conectarse a la base de datos");
-                msjMensaje.setEstado(Estado.error);
+                msjMensaje.setEstado(Estado.ERROR);
                 msjMensaje.setVisible(true);
             }
         }
@@ -355,7 +358,7 @@ public class BuscarInsumos implements MouseListener, ActionListener, KeyListener
             }
         } else {
             msjMensaje.setText("Seleccione una fila para eliminar");
-            msjMensaje.setEstado(Estado.error);
+            msjMensaje.setEstado(Estado.ERROR);
             msjMensaje.setVisible(true);
         }
     }
@@ -366,13 +369,13 @@ public class BuscarInsumos implements MouseListener, ActionListener, KeyListener
 
         if (albe == null) {
             msjMensaje.setText("El valor que usted busca no existe");
-            msjMensaje.setEstado(Estado.error);
+            msjMensaje.setEstado(Estado.ERROR);
             msjMensaje.setVisible(true);
             visibleBuscar(false);
         } else {
             if (albe.size() == 0) {
                 msjMensaje.setText("El valor que usted busca no existe");
-                msjMensaje.setEstado(Estado.error);
+                msjMensaje.setEstado(Estado.ERROR);
                 msjMensaje.setVisible(true);
                 visibleBuscar(false);
             } else {
@@ -432,7 +435,8 @@ public class BuscarInsumos implements MouseListener, ActionListener, KeyListener
                     btnActualizar.setBounds(235, 480, 130, 30);
                     btnEliminar.setBounds(385, 480, 130, 30);
                     comBuscar.setSelectedIndex(3);
-                    lblInsumos.setText("Insumos| Mis bolsas");
+                    panel.setTitulo("Insumos| Mis bolsas");
+                    //lblInsumos.setText("Insumos| Mis bolsas");
                     btnEliminar.setVisible(true);
                 } else {
                     btnActualizar.setText("Ver insumo");
@@ -451,13 +455,13 @@ public class BuscarInsumos implements MouseListener, ActionListener, KeyListener
 
         if (alce == null) {
             msjMensaje.setText("El valor que usted busca no existe");
-            msjMensaje.setEstado(Estado.error);
+            msjMensaje.setEstado(Estado.ERROR);
             msjMensaje.setVisible(true);
             visibleBuscar(false);
         } else {
             if (alce.size() == 0) {
                 msjMensaje.setText("El valor que usted busca no existe");
-                msjMensaje.setEstado(Estado.error);
+                msjMensaje.setEstado(Estado.ERROR);
                 msjMensaje.setVisible(true);
                 visibleBuscar(false);
             } else {
@@ -492,13 +496,13 @@ public class BuscarInsumos implements MouseListener, ActionListener, KeyListener
 
         if (alme == null) {
             msjMensaje.setText("El valor que usted busca no existe");
-            msjMensaje.setEstado(Estado.error);
+            msjMensaje.setEstado(Estado.ERROR);
             msjMensaje.setVisible(true);
             visibleBuscar(false);
         } else {
             if (alme.size() == 0) {
                 msjMensaje.setText("El valor que usted busca no existe");
-                msjMensaje.setEstado(Estado.error);
+                msjMensaje.setEstado(Estado.ERROR);
                 msjMensaje.setVisible(true);
                 visibleBuscar(false);
             } else {
@@ -543,7 +547,7 @@ public class BuscarInsumos implements MouseListener, ActionListener, KeyListener
                 Main.esconderTodos();
                 Main.insumos.panel.setVisible(true);
                 Main.insumos.msjMensaje.setText("No tienes bolsas :C");
-                Main.insumos.msjMensaje.setEstado(Estado.error);
+                Main.insumos.msjMensaje.setEstado(Estado.ERROR);
                 Main.dialog.ocultar();
             }
 
@@ -594,15 +598,15 @@ public class BuscarInsumos implements MouseListener, ActionListener, KeyListener
         boolean b = true;
 
         if (s.equals(busColor[0]) || s.equals(busMaterial[0]) || s.equals(busBolsa[0])) {
-            comBuscar.setEstado(Estado.error);
+            comBuscar.setEstado(Estado.ERROR);
             msjMensaje.setText("Seleccione un campo");
-            msjMensaje.setEstado(Estado.error);
+            msjMensaje.setEstado(Estado.ERROR);
             msjMensaje.setVisible(true);
             b = false;
         } else {
-            comBuscar.setEstado(Estado.normal);
+            comBuscar.setEstado(Estado.NORMAL);
             msjMensaje.setText("");
-            msjMensaje.setEstado(Estado.normal);
+            msjMensaje.setEstado(Estado.NORMAL);
             msjMensaje.setVisible(false);
         }
 

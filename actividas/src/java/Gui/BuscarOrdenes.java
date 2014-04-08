@@ -12,15 +12,25 @@ import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 
+import api.AButton;
+import api.AComboBox;
+import api.AContainer;
+import api.ALabel;
+import api.APanel;
+import api.AScrollPanel;
+import api.ATable;
+import api.ATextField;
+import api.Estado;
+
 import Entidades.ExtrusionE;
 import Entidades.ImpresionE;
 import Entidades.OrdenE;
 import Entidades.SelladoE;
+
 import Negocio.ExtrusionN;
 import Negocio.ImpresionN;
 import Negocio.OrdenN;
 import Negocio.SelladoN;
-import api.*;
 
 public class BuscarOrdenes implements MouseListener, KeyListener {
 
@@ -29,7 +39,6 @@ public class BuscarOrdenes implements MouseListener, KeyListener {
     APanel panel;
     AContainer busq;
 
-    ALabel lblOrdenes;
     ALabel lblBuscar;
     ALabel msjMensaje;
     ATextField txtBuscar;
@@ -50,12 +59,7 @@ public class BuscarOrdenes implements MouseListener, KeyListener {
 
     public BuscarOrdenes() {
 	panel = new APanel(Main.x, 0, 750, 600);
-
-	lblOrdenes = new ALabel("Ordenes de producci\u00F3n| Buscar");
-	lblOrdenes.setFont(new Font("Calibri", Font.PLAIN, 24));
-	lblOrdenes.setForeground(Colores.titulo_normal);
-	lblOrdenes.setBounds(10, 0, 460, 50);
-	panel.add(lblOrdenes);
+	panel.setTitulo("Ordenes de producci\u00F3n| Buscar");
 
 	busq = new AContainer("Buscar");
 	busq.setBounds(110, 200, 530, 200);
@@ -245,7 +249,8 @@ public class BuscarOrdenes implements MouseListener, KeyListener {
 			tabla.setModel(dtm);
 			tabla.setPreferredSize(new Dimension(650, alto));
 			tabla.repaint();
-			lblOrdenes.setText("Ordenes de producci\u00F3n| Impresi\u00F3n");
+			panel.setTitulo("Ordenes de producci\u00F3n| Impresi\u00F3n");
+			//lblOrdenes.setText("Ordenes de producci\u00F3n| Impresi\u00F3n");
 			visibleBuscar(true);
 		    }
 		}
@@ -291,7 +296,8 @@ public class BuscarOrdenes implements MouseListener, KeyListener {
 			tabla.setModel(dtm);
 			tabla.setPreferredSize(new Dimension(650, alto));
 			tabla.repaint();
-			lblOrdenes.setText("Ordenes de producci\u00F3n| Extrusi\u00F3n");
+			panel.setTitulo("Ordenes de producci\u00F3n| Extrusi\u00F3n");
+			//lblOrdenes.setText("Ordenes de producci\u00F3n| Extrusi\u00F3n");
 			visibleBuscar(true);
 		    }
 		}
@@ -357,7 +363,8 @@ public class BuscarOrdenes implements MouseListener, KeyListener {
 	    tabla.setTableHeader(p);
 	    tabla.repaint();
 	    visibleBuscar(true);
-            lblOrdenes.setText("Ordenes de producci\u00F3n| Finalizadas");
+	    panel.setTitulo("Ordenes de producci\u00F3n| Finalizadas");
+            //lblOrdenes.setText("Ordenes de producci\u00F3n| Finalizadas");
 	}
 	
 	return "";
@@ -402,7 +409,8 @@ public class BuscarOrdenes implements MouseListener, KeyListener {
 		tabla.setModel(dtm);
 		tabla.setPreferredSize(new Dimension(650, alto));
 		tabla.repaint();
-		lblOrdenes.setText("Ordenes de producci\u00F3n| Sellado");
+		panel.setTitulo("Ordenes de producci\u00F3n| Sellado");
+		//lblOrdenes.setText("Ordenes de producci\u00F3n| Sellado");
 		visibleBuscar(true);
 	    }
 	}
@@ -480,7 +488,7 @@ public class BuscarOrdenes implements MouseListener, KeyListener {
 	    }
 	} else {
 	    msjMensaje.setText("Seleccione una fila para ver mas informaci\u00F3n");
-	    msjMensaje.setEstado(Estado.error);
+	    msjMensaje.setEstado(Estado.ERROR);
 	    msjMensaje.setVisible(true);
 	}
 
@@ -492,7 +500,7 @@ public class BuscarOrdenes implements MouseListener, KeyListener {
 
 	if (buscarCon == 0) {
 	    msjMensaje.setText("Seleccione un campo de la lista desplegable");
-	    msjMensaje.setEstado(Estado.error);
+	    msjMensaje.setEstado(Estado.ERROR);
 	    msjMensaje.setVisible(true);
 	    con = false;
 	} else {
@@ -525,7 +533,7 @@ public class BuscarOrdenes implements MouseListener, KeyListener {
 		if (s.equals("1")) {
 		    visibleBuscar(false);
 		    msjMensaje.setText("El dato que usted busca no existe en la base de datos");
-		    msjMensaje.setEstado(Estado.error);
+		    msjMensaje.setEstado(Estado.ERROR);
 		    msjMensaje.setVisible(true);
 		}
 	    }

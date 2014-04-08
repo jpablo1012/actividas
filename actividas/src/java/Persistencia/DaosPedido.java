@@ -1,17 +1,13 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package Persistencia;
 
 import Entidades.PedidoE;
-import java.sql.*;
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 
-/**
- *
- * @author Usuario
- */
 public class DaosPedido {
 
     public String crearPedido(Connection con, PedidoE pe) {

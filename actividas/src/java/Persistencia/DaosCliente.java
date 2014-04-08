@@ -2,13 +2,11 @@ package Persistencia;
 
 import Entidades.ClienteE;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 
-/**
- *
- * @author Usuario
- */
 public class DaosCliente {
 
     public String crearCliente(Connection con, ClienteE ee) {

@@ -15,14 +15,14 @@ public class AMinimizar extends JLabel implements MouseListener {
         setFont(new Font("Calibri", Font.BOLD, 18));
         setText("_");
         setOpaque(true);
-        setBackground(Colores.fondo_normal);
-        setForeground(Colores.titulo_normal);
+        setBackground(Colores.BOTON_MINIMIZAR);
+        setForeground(Colores.TITULO_NORMAL);
         setFocusable(false);
         addMouseListener(this);
     }
 
     public void setAnchoVentana(int x) {
-        setBounds(x - 65, 1, 32, 32);
+        setBounds(x - 73, 1, 36, 36);
         this.repaint();
     }
 
@@ -36,12 +36,12 @@ public class AMinimizar extends JLabel implements MouseListener {
     }
 
     public void mouseEntered(MouseEvent e) {
-        setBackground(Colores.fondo_hover);
-        setForeground(Colores.titulo_hover);
+        setBackground(Colores.FONDO_HOVER);
+        setForeground(Colores.TITULO_HOVER);
     }
 
     public void mouseExited(MouseEvent e) {
-        setBackground(Colores.fondo_normal);
-        setForeground(Colores.titulo_normal);
+        setBackground(Colores.BOTON_MINIMIZAR);
+        setForeground(Colores.TITULO_NORMAL);
     }
 }

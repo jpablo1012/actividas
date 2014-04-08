@@ -4,7 +4,6 @@ import Entidades.EmpleadoE;
 import Entidades.UsuarioE;
 import Negocio.EmpleadoN;
 import Negocio.UsuarioN;
-import api.*;
 
 import java.awt.Font;
 import java.awt.event.MouseEvent;
@@ -14,6 +13,15 @@ import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.SwingConstants;
 import javax.swing.filechooser.FileNameExtensionFilter;
+
+import api.AButton;
+import api.AComboBox;
+import api.AContainer;
+import api.ALabel;
+import api.APanel;
+import api.APassword;
+import api.ATextField;
+import api.Estado;
 
 public class CrearEmpleado implements MouseListener {
 
@@ -29,21 +37,30 @@ public class CrearEmpleado implements MouseListener {
     ALabel lblClave;
     ALabel lblConfirmar;
     ALabel lblApellido;
-    ALabel lblCrearEmpleado;
-    ALabel msjNombre, msjCedula, msjCodigo, msjApellido, msjMensaje, msjCargo;
+    ALabel msjNombre;
+    ALabel msjCedula;
+    ALabel msjCodigo;
+    ALabel msjApellido;
+    ALabel msjMensaje;
+    ALabel msjCargo;
     ALabel lblObligatorio;
-    ATextField txtCedula, txtNombre, txtApellido;
-    APassword pswClave, pswConfirmar;
+    ATextField txtCedula;
+    ATextField txtNombre;
+    ATextField txtApellido;
+    APassword pswClave;
+    APassword pswConfirmar;
     AButton btnCrear;
     AButton btnNuevo;
-
-    ALabel lblImagen, msjImagen;
-    AButton btnSeleccionar, btnVer, btnQuitar;
-
+    ALabel lblImagen;
+    ALabel msjImagen;
+    AButton btnSeleccionar;
+    AButton btnVer;
+    AButton btnQuitar;
     File file;
 
     public CrearEmpleado() {
         panel = new APanel(Main.x, 0, 750, 600);
+        panel.setTitulo("Empleado| Crear");
 
         emple = new AContainer("Empleado");
         emple.setBounds(110, 90, 530, 150);
@@ -52,12 +69,6 @@ public class CrearEmpleado implements MouseListener {
         usua = new AContainer("Usuario");
         usua.setBounds(110, 260, 530, 160);
         panel.add(usua);
-
-        lblCrearEmpleado = new ALabel("Empleado| Crear");
-        lblCrearEmpleado.setFont(new Font("Calibri", Font.PLAIN, 24));
-        lblCrearEmpleado.setForeground(Colores.titulo_normal);
-        lblCrearEmpleado.setBounds(10, 0, 181, 50);
-        panel.add(lblCrearEmpleado);
 
         lblNombre = new ALabel("<html><body><b " + style + ">*</b>Nombre:</body></html>");
         lblNombre.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -90,7 +101,7 @@ public class CrearEmpleado implements MouseListener {
         usua.add(lblConfirmar);
 
         lblObligatorio = new ALabel("<html><body><b " + style + ">*</b>Campo obligatorio</body></html>");
-        lblObligatorio.setBounds(315, 20, 120, 24);
+        lblObligatorio.setBounds(315, 50, 120, 24);
         panel.add(lblObligatorio);
 
         msjNombre = new ALabel("");
@@ -207,26 +218,26 @@ public class CrearEmpleado implements MouseListener {
         boolean cont = true;
 
         if (cedula.equals("")) {
-            txtCedula.setEstado(Estado.error);
-            msjCedula.setEstado(Estado.error);
+            txtCedula.setEstado(Estado.ERROR);
+            msjCedula.setEstado(Estado.ERROR);
             msjCedula.setText("Campo vaci\u00F3");
             msjCedula.setVisible(true);
             cont = false;
         } else {
             try {
                 double d = Double.parseDouble(cedula);
-                txtCedula.setEstado(Estado.exito);
+                txtCedula.setEstado(Estado.EXITO);
 
                 if (cedula.length() < 6 || cedula.length() > 13) {
-                    txtCedula.setEstado(Estado.error);
-                    msjCedula.setEstado(Estado.error);
+                    txtCedula.setEstado(Estado.ERROR);
+                    msjCedula.setEstado(Estado.ERROR);
                     msjCedula.setText("C\u00E9dula invalida");
                     msjCedula.setVisible(true);
                     cont = false;
                 }
             } catch (Exception e) {
-                txtCedula.setEstado(Estado.error);
-                msjCedula.setEstado(Estado.error);
+                txtCedula.setEstado(Estado.ERROR);
+                msjCedula.setEstado(Estado.ERROR);
                 msjCedula.setText("S\u00F3lo n\u00FAmeros");
                 msjCedula.setVisible(true);
                 cont = false;
@@ -234,52 +245,52 @@ public class CrearEmpleado implements MouseListener {
         }
 
         if (nombre.equals("")) {
-            txtNombre.setEstado(Estado.error);
-            msjNombre.setEstado(Estado.error);
+            txtNombre.setEstado(Estado.ERROR);
+            msjNombre.setEstado(Estado.ERROR);
             msjNombre.setText("Campo vaci\u00F3");
             msjNombre.setVisible(true);
             cont = false;
         } else {
-            txtNombre.setEstado(Estado.exito);
+            txtNombre.setEstado(Estado.EXITO);
         }
 
         if (apellido.equals("")) {
-            txtApellido.setEstado(Estado.error);
-            msjApellido.setEstado(Estado.error);
+            txtApellido.setEstado(Estado.ERROR);
+            msjApellido.setEstado(Estado.ERROR);
             msjApellido.setText("Campo vaci\u00F3");
             msjApellido.setVisible(true);
             cont = false;
         } else {
-            txtApellido.setEstado(Estado.exito);
+            txtApellido.setEstado(Estado.EXITO);
         }
 
         if (cargo.equals(emp[0])) {
-            msjCargo.setEstado(Estado.error);
+            msjCargo.setEstado(Estado.ERROR);
             msjCargo.setText("Seleccione un cargo");
             msjCargo.setVisible(true);
-            comCargo.setEstado(Estado.error);
+            comCargo.setEstado(Estado.ERROR);
             cont = false;
         } else {
-            comCargo.setEstado(Estado.exito);
+            comCargo.setEstado(Estado.EXITO);
         }
 
         if (codigo.length() < 4) {
-            pswClave.setEstado(Estado.error);
-            msjCodigo.setEstado(Estado.error);
+            pswClave.setEstado(Estado.ERROR);
+            msjCodigo.setEstado(Estado.ERROR);
             msjCodigo.setText("<html><body>La contrase\u00F1a debe ser m\u00E1s de 3 caracteres</body></html>");
             msjCodigo.setVisible(true);
             cont = false;
         } else {
             if (!(codigo.equals(confirmar))) {
-                pswClave.setEstado(Estado.error);
-                pswConfirmar.setEstado(Estado.error);
-                msjCodigo.setEstado(Estado.error);
+                pswClave.setEstado(Estado.ERROR);
+                pswConfirmar.setEstado(Estado.ERROR);
+                msjCodigo.setEstado(Estado.ERROR);
                 msjCodigo.setText("<html><body>Las contrase\u00F1as no coinciden<body></html>");
                 msjCodigo.setVisible(true);
                 cont = false;
             } else {
-                pswClave.setEstado(Estado.exito);
-                pswConfirmar.setEstado(Estado.exito);
+                pswClave.setEstado(Estado.EXITO);
+                pswConfirmar.setEstado(Estado.EXITO);
             }
         }
 
@@ -320,27 +331,27 @@ public class CrearEmpleado implements MouseListener {
             s = un.crearUsuario(ue);
             if (s.equals("")) {
 
-                msjMensaje.setEstado(Estado.exito);
+                msjMensaje.setEstado(Estado.EXITO);
                 msjMensaje.setText("El empleado ha sido creado exitosamente");
                 visible(false);
                 msjMensaje.setVisible(true);
             } else {
                 if (s.equals("1")) {//el usuario ya existe
-                    txtCedula.setEstado(Estado.error);
-                    msjMensaje.setEstado(Estado.error);
+                    txtCedula.setEstado(Estado.ERROR);
+                    msjMensaje.setEstado(Estado.ERROR);
                     msjMensaje.setText("El empleado ya existe");
                     msjMensaje.setVisible(true);
                 }
             }
         } else {
             if (s.equals("1")) {//el empleado ya existe
-                txtCedula.setEstado(Estado.error);
-                msjMensaje.setEstado(Estado.error);
+                txtCedula.setEstado(Estado.ERROR);
+                msjMensaje.setEstado(Estado.ERROR);
                 msjMensaje.setText("El empleado ya existe");
                 msjMensaje.setVisible(true);
             }
             if (s.equals("2")) {//"Error al conectarse a la base de datos"
-                msjMensaje.setEstado(Estado.error);
+                msjMensaje.setEstado(Estado.ERROR);
                 msjMensaje.setText("Error al conectarse a la base de datos");
                 msjMensaje.setVisible(true);
             }
@@ -360,12 +371,12 @@ public class CrearEmpleado implements MouseListener {
 
         comCargo.setSelectedIndex(0);
 
-        txtCedula.setEstado(Estado.normal);
-        txtNombre.setEstado(Estado.normal);
-        txtApellido.setEstado(Estado.normal);
-        pswConfirmar.setEstado(Estado.normal);
-        pswClave.setEstado(Estado.normal);
-        comCargo.setEstado(Estado.normal);
+        txtCedula.setEstado(Estado.NORMAL);
+        txtNombre.setEstado(Estado.NORMAL);
+        txtApellido.setEstado(Estado.NORMAL);
+        pswConfirmar.setEstado(Estado.NORMAL);
+        pswClave.setEstado(Estado.NORMAL);
+        comCargo.setEstado(Estado.NORMAL);
 
         msjNombre.setVisible(false);
         msjCedula.setVisible(false);
@@ -433,11 +444,11 @@ public class CrearEmpleado implements MouseListener {
 
     public void mousePressed(MouseEvent e) {
         if (e.getSource() == btnCrear) {
-            txtCedula.setEstado(Estado.normal);
-            txtNombre.setEstado(Estado.normal);
-            pswConfirmar.setEstado(Estado.normal);
-            pswClave.setEstado(Estado.normal);
-            comCargo.setEstado(Estado.normal);
+            txtCedula.setEstado(Estado.NORMAL);
+            txtNombre.setEstado(Estado.NORMAL);
+            pswConfirmar.setEstado(Estado.NORMAL);
+            pswClave.setEstado(Estado.NORMAL);
+            comCargo.setEstado(Estado.NORMAL);
             msjNombre.setVisible(false);
             msjCedula.setVisible(false);
             msjCodigo.setVisible(false);

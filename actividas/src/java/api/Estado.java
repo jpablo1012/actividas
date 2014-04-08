@@ -6,7 +6,7 @@ package api;
  */
 public class Estado {
 
-    public static final int normal = 0;
-    public static final int error = 1;
-    public static final int exito = 2;
+    public static final int NORMAL = 0;
+    public static final int ERROR = 1;
+    public static final int EXITO = 2;
 }

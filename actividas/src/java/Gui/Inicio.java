@@ -20,7 +20,6 @@ import Negocio.OrdenN;
 import Negocio.PedidoN;
 import Negocio.SelladoN;
 import Negocio.UsuarioN;
-import api.*;
 
 import java.awt.Image;
 import java.util.ArrayList;
@@ -28,6 +27,12 @@ import java.util.ArrayList;
 import javax.swing.Icon;
 import javax.swing.border.MatteBorder;
 import javax.swing.table.DefaultTableModel;
+
+import api.ALabel;
+import api.APanel;
+import api.AScrollPanel;
+import api.ATable;
+import api.Colores;
 
 public class Inicio implements MouseListener {
 
@@ -41,19 +46,20 @@ public class Inicio implements MouseListener {
 
     public Inicio() {
 	panel = new APanel(Main.x, 0, 750, 600);
+	panel.setTitulo("Inicio");
 
 	lblUsuario = new ALabel("");
-	lblUsuario.setBounds(0, 30, panel.getWidth(), 30);
+	lblUsuario.setBounds(0, 50, panel.getWidth(), 30);
 	lblUsuario.setFont(new Font("Calibri", Font.PLAIN, 34));
 	lblUsuario.setHorizontalAlignment(SwingConstants.CENTER);
-	lblUsuario.setForeground(Colores.titulo_normal);
+	lblUsuario.setForeground(Colores.TITULO_NORMAL);
 	panel.add(lblUsuario);
 
 	lblCargo = new ALabel("");
-	lblCargo.setBounds(0, 60, panel.getWidth(), 24);
+	lblCargo.setBounds(0, 80, panel.getWidth(), 24);
 	lblCargo.setFont(new Font("Calibri", Font.PLAIN, 22));
 	lblCargo.setHorizontalAlignment(SwingConstants.CENTER);
-	lblCargo.setForeground(Colores.titulo_normal);
+	lblCargo.setForeground(Colores.TITULO_NORMAL);
 	panel.add(lblCargo);
 
 	imagen = new ALabel("");
@@ -92,7 +98,7 @@ public class Inicio implements MouseListener {
 	    imagen.setIcon(icono);
 
 	    if (ue.getImagen() != null) {
-		imagen.setBorder(new MatteBorder(1, 1, 1, 1, Colores.borde_container));
+		imagen.setBorder(new MatteBorder(1, 1, 1, 1, Colores.BORDE_CONTENEDOR));
 	    }
 	} catch (Exception e) {
 	}

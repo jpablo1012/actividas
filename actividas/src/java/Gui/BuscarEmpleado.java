@@ -12,11 +12,20 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 
+import api.AButton;
+import api.AComboBox;
+import api.AContainer;
+import api.ALabel;
+import api.APanel;
+import api.AScrollPanel;
+import api.ATable;
+import api.ATextField;
+import api.Estado;
+
 import Entidades.EmpleadoE;
 import Entidades.UsuarioE;
 import Negocio.EmpleadoN;
 import Negocio.UsuarioN;
-import api.*;
 
 public class BuscarEmpleado implements MouseListener, KeyListener {
 
@@ -35,16 +44,10 @@ public class BuscarEmpleado implements MouseListener, KeyListener {
     ATable tabla;
     DefaultTableModel dtm;
     ArrayList<EmpleadoE> alee;
-    ALabel lblEmpleado;
 
     public BuscarEmpleado() {
 	panel = new APanel(Main.x, 0, 750, 600);
-
-	lblEmpleado = new ALabel("Empleado| Buscar");
-	lblEmpleado.setFont(new Font("Calibri", Font.PLAIN, 24));
-	lblEmpleado.setForeground(Colores.titulo_normal);
-	lblEmpleado.setBounds(10, 0, 336, 50);
-	panel.add(lblEmpleado);
+	panel.setTitulo("Empleado| Buscar");
 
 	busq = new AContainer("Buscar");
 	busq.setBounds(110, 200, 530, 200);
@@ -118,9 +121,9 @@ public class BuscarEmpleado implements MouseListener, KeyListener {
 	var = var.toLowerCase();
 
 	if (var.equals("-seleccionar-")) {
-	    comBuscar.setEstado(Estado.error);
+	    comBuscar.setEstado(Estado.ERROR);
 	    msjMensaje.setText("Seleccione un campo de la lista desplegable");
-	    msjMensaje.setEstado(Estado.error);
+	    msjMensaje.setEstado(Estado.ERROR);
 	    msjMensaje.setVisible(true);
 	    cont = false;
 	}
@@ -149,14 +152,14 @@ public class BuscarEmpleado implements MouseListener, KeyListener {
 
 	if (this.alee == null) {
 	    msjMensaje.setText("El valor que usted busca no existe en la base de datos");
-	    msjMensaje.setEstado(Estado.error);
+	    msjMensaje.setEstado(Estado.ERROR);
 	    msjMensaje.setVisible(true);
 	} else {
 	    int alto = 0;
 	    int cont = 0;
 	    if (alee.size() == 0) {
 		msjMensaje.setText("El valor que usted busca no existe en la base de datos");
-		msjMensaje.setEstado(Estado.error);
+		msjMensaje.setEstado(Estado.ERROR);
 		msjMensaje.setVisible(true);
 		visibleBuscar(false);
 	    } else {
@@ -167,7 +170,6 @@ public class BuscarEmpleado implements MouseListener, KeyListener {
 			UsuarioE ueh = alue.get(j);
 
 			if (eeh.getCedula().equals(ueh.getEmpleadoCedula())) {
-			    System.out.println(eeh.getNombre());
 			    result[i][0] = eeh.getCedula();
 			    result[i][1] = eeh.getNombre();
 			    result[i][2] = eeh.getApellido();
@@ -211,7 +213,7 @@ public class BuscarEmpleado implements MouseListener, KeyListener {
 	    }
 	} else {
 	    msjMensaje.setText("Seleccione una fila para actualizar");
-	    msjMensaje.setEstado(Estado.error);
+	    msjMensaje.setEstado(Estado.ERROR);
 	    msjMensaje.setVisible(true);
 
 	}
@@ -224,7 +226,7 @@ public class BuscarEmpleado implements MouseListener, KeyListener {
 	    String valor = (String) tabla.getModel().getValueAt(seleccionado, 0);
 	    if (Main.menu.getUsuario().getEmpleadoCedula().equals(valor)) {
 		msjMensaje.setText("No te puedes eliminar");
-		msjMensaje.setEstado(Estado.error);
+		msjMensaje.setEstado(Estado.ERROR);
 		msjMensaje.setVisible(true);
 	    } else {
 		int cont = JOptionPane.showConfirmDialog(Main.menu.frame, "\u00BFDesea eliminar este empleado?", "Eliminar empleado", JOptionPane.YES_NO_OPTION);
@@ -242,20 +244,20 @@ public class BuscarEmpleado implements MouseListener, KeyListener {
 				if (s.equals("")) {
 				    buscar();
 				    msjMensaje.setText("El empleado ha sido eliminado");
-				    msjMensaje.setEstado(Estado.exito);
+				    msjMensaje.setEstado(Estado.EXITO);
 				    msjMensaje.setVisible(true);
 				}
 			    }
 
 			    if (s.equals("1")) {
 				msjMensaje.setText("Ha ocurrido un error al eliminar el empleado :C");
-				msjMensaje.setEstado(Estado.error);
+				msjMensaje.setEstado(Estado.ERROR);
 				msjMensaje.setVisible(true);
 			    }
 
 			    if (s.equals("2")) {
 				msjMensaje.setText("Error al conectarse a la base de datos");
-				msjMensaje.setEstado(Estado.error);
+				msjMensaje.setEstado(Estado.ERROR);
 				msjMensaje.setVisible(true);
 			    }
 
@@ -267,7 +269,7 @@ public class BuscarEmpleado implements MouseListener, KeyListener {
 
 	} else {
 	    msjMensaje.setText("Seleccione una fila para eliminar");
-	    msjMensaje.setEstado(Estado.error);
+	    msjMensaje.setEstado(Estado.ERROR);
 	    msjMensaje.setVisible(true);
 
 	}

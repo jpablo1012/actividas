@@ -1,36 +1,24 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package Gui;
 
-import api.*;
 
-import java.awt.Font;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import javax.swing.SwingConstants;
+import api.AButton;
+import api.ALabel;
+import api.APanel;
 
-/**
- *
- * @author JPABLO
- */
+
 public class Cliente implements MouseListener {
 
     public APanel panel;
     ALabel lblCliente;
-    public AButton btnCrear, btnBuscar;
+    public AButton btnCrear;
+    public AButton btnBuscar;
 
     public Cliente() {
         panel = new APanel(Main.x, 0, 750, 600);
-
-        lblCliente = new ALabel("Clientes");
-        lblCliente.setHorizontalAlignment(SwingConstants.CENTER);
-        lblCliente.setFont(new Font("Calibri", Font.PLAIN, 40));
-        lblCliente.setForeground(Colores.titulo_normal);
-        lblCliente.setBounds(0, 74, panel.getWidth(), 50);
-        panel.add(lblCliente);
+        panel.setTitulo("Clientes");
 
         btnCrear = new AButton("Crear cliente");
         btnCrear.setBounds(295, 199, 160, 60);

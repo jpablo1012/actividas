@@ -15,10 +15,8 @@ import javax.swing.UIManager;
 @SuppressWarnings("serial")
 public class APanel extends JPanel implements MouseListener {
 
-    // JLabel Cerrar;
-    // public JLabel Minimizar;
-    public JLabel Actividas;
-    public APlastiser plastiser;
+    public JLabel acercaDe;
+    public JLabel titulo;
 
     public APanel(int x, int y, int w, int h) {
         try {
@@ -27,40 +25,52 @@ public class APanel extends JPanel implements MouseListener {
             e.printStackTrace();
         }
 
-        setBackground(Colores.fondo_normal);
+        setBackground(Colores.FONDO_NORMAL);
         setOpaque(true);
         setLayout(null);
         setLocation(x, y);
         setSize(w, h);
-        setBorder(new MatteBorder(1, 0, 1, 1, Colores.borde_ventana));
+        setBorder(new MatteBorder(1, 0, 1, 1, Colores.BORDE_VENTANA));
 
-        Actividas = new JLabel();
-        Actividas.setBounds(getWidth() - 75, getHeight() - 21, 71, 20);
-        Actividas.setText("Acerca de");
-        Actividas.setFont(new Font("Calibri", Font.BOLD, 16));
-        Actividas.setForeground(Colores.texto_desactivado);
-        Actividas.setVerticalAlignment(SwingConstants.BOTTOM);
-        Actividas.setHorizontalAlignment(SwingConstants.RIGHT);
-        Actividas.setFocusable(false);
-        Actividas.addMouseListener(this);
-        Actividas.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        add(Actividas);
+        acercaDe = new JLabel();
+        acercaDe.setBounds(getWidth() - 75, getHeight() - 21, 71, 20);
+        acercaDe.setText("Acerca de");
+        acercaDe.setFont(new Font("Calibri", Font.BOLD, 16));
+        acercaDe.setForeground(Colores.TEXTO_DESACTIVADO);
+        acercaDe.setVerticalAlignment(SwingConstants.BOTTOM);
+        acercaDe.setHorizontalAlignment(SwingConstants.RIGHT);
+        acercaDe.setFocusable(false);
+        acercaDe.addMouseListener(this);
+        acercaDe.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        add(acercaDe);
+        
+        titulo = new JLabel();
+        titulo.setBounds(0, 1, w - 2, 36);
+        titulo.setFont(new Font("Calibri", Font.BOLD, 28));
+        titulo.setBorder(new MatteBorder(5, 10, 0, 0, Colores.FONDO_TITULO_PANEL));
+        titulo.setForeground(Colores.TITULO_NORMAL);
+        titulo.setOpaque(true);
+        titulo.setBackground(Colores.FONDO_TITULO_PANEL);
+        add(titulo);
 
-        plastiser = new APlastiser();
+    }
+    
+    public void setTitulo(String titulo){
+	this.titulo.setText(titulo);
     }
 
     public void mouseClicked(MouseEvent e) {
     }
 
     public void mouseEntered(MouseEvent e) {
-        if (e.getSource() == Actividas) {
-            Actividas.setForeground(Colores.texto_desactivado_hover);
+        if (e.getSource() == acercaDe) {
+            acercaDe.setForeground(Colores.TEXTO_DESACTIVADO_HOVER);
         }
     }
 
     public void mouseExited(MouseEvent e) {
-        if (e.getSource() == Actividas) {
-            Actividas.setForeground(Colores.texto_desactivado);
+        if (e.getSource() == acercaDe) {
+            acercaDe.setForeground(Colores.TEXTO_DESACTIVADO);
         }
     }
 
@@ -68,7 +78,7 @@ public class APanel extends JPanel implements MouseListener {
     }
 
     public void mouseReleased(MouseEvent e) {
-        if (e.getSource() == Actividas) {
+        if (e.getSource() == acercaDe) {
             AcercaDe a = new AcercaDe();
             a.frame.setLocationRelativeTo(this);
         }

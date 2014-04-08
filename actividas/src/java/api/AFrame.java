@@ -28,9 +28,9 @@ public class AFrame extends JFrame implements MouseListener, MouseMotionListener
         setLayout(null);
         setSize(w, h);
         setResizable(false);
-        setTitle("Plastiser S.A.");
+        setTitle("Plastiser");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBackground(Colores.fondo_normal);
+        setBackground(Colores.FONDO_NORMAL);
         addMouseListener(this);
         addMouseMotionListener(this);
 
@@ -50,8 +50,11 @@ public class AFrame extends JFrame implements MouseListener, MouseMotionListener
     }
 
     public void mouseDragged(MouseEvent e) {
-        Point point = MouseInfo.getPointerInfo().getLocation();
-        setLocation(point.x - x, point.y - y);
+	if(y <= 36){
+	    Point point = MouseInfo.getPointerInfo().getLocation();
+	    setLocation(point.x - x, point.y - y);
+	}
+        
     }
 
     public void mouseMoved(MouseEvent e) {

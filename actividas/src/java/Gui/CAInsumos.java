@@ -6,45 +6,54 @@ import java.awt.event.MouseListener;
 
 import javax.swing.SwingConstants;
 
+import api.AButton;
+import api.AContainer;
+import api.ALabel;
+import api.APanel;
+import api.ATextField;
+import api.Estado;
 import Entidades.ColorE;
 import Entidades.MaterialE;
 import Negocio.ColorN;
 import Negocio.MaterialN;
-import api.*;
 
 public class CAInsumos implements MouseListener {
 
     public APanel panel;
     String style = "style='color:#D3362D;'";
-    ALabel lblInsumos;
-    ALabel lblObligatorio;
 
-    // material
+    ALabel lblObligatorio;
     AContainer material;
-    ALabel lblMat_nombre, msjMat_nombre, lblMat_cantidad, msjMat_cantidad,
-            msjMaterial;
-    ATextField txtMat_nombre, txtMat_cantidad;
-    AButton btnMat_crear, btnMat_guardar, btnMat_cancelar, btnMat_nuevo;
-    // fin material
-    // Color
+    ALabel lblMat_nombre;
+    ALabel msjMat_nombre;
+    ALabel lblMat_cantidad;
+    ALabel msjMat_cantidad;
+    ALabel msjMaterial;
+    ATextField txtMat_nombre;
+    ATextField txtMat_cantidad;
+    AButton btnMat_crear;
+    AButton btnMat_guardar;
+    AButton btnMat_cancelar;
+    AButton btnMat_nuevo;
     AContainer color;
-    ALabel lblCo_cantidad, lblCo_referencia, msjCo_cantidad, msjCo_referencia,
-            msjColor;
+    ALabel lblCo_cantidad;
+    ALabel lblCo_referencia;
+    ALabel msjCo_cantidad;
+    ALabel msjCo_referencia;
+    ALabel msjColor;
     ATextField txtCo_nombre;
     ATextField txtCo_cantidad;
-    AButton btnCo_crear, btnCo_nuevo, btnCo_guardar, btnCo_cancelar;
-    // fin Color
+    AButton btnCo_crear;
+    AButton btnCo_nuevo;
+    AButton btnCo_guardar;
+    AButton btnCo_cancelar;
+
     ColorE ce = null;
     MaterialE me = null;
 
     public CAInsumos() {
         panel = new APanel(Main.x, 0, 750, 600);
-
-        lblInsumos = new ALabel("Insumos| Crear");
-        lblInsumos.setFont(new Font("Calibri", Font.PLAIN, 24));
-        lblInsumos.setForeground(Colores.titulo_normal);
-        lblInsumos.setBounds(10, 0, 250, 50);
-        panel.add(lblInsumos);
+        panel.setTitulo("Insumos| Crear");
 
         lblObligatorio = new ALabel("<html><body><b " + style + ">*</b>Campo obligatorio</body></html>");
         lblObligatorio.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -200,20 +209,20 @@ public class CAInsumos implements MouseListener {
             Main.buscarInsumos.buscar();
             Main.buscarInsumos.panel.setVisible(true);
             Main.buscarInsumos.msjMensaje.setText("El material ha sido actualizado correctamente");
-            Main.buscarInsumos.msjMensaje.setEstado(Estado.exito);
+            Main.buscarInsumos.msjMensaje.setEstado(Estado.EXITO);
             Main.buscarInsumos.msjMensaje.setVisible(true);
         }
 
         if (s.equals("1")) {
             visibleMaterial(true, true, false, false);
-            msjMaterial.setEstado(Estado.error);
+            msjMaterial.setEstado(Estado.ERROR);
             msjMaterial.setText("Ha ocurrido un error al actualizar :C");
             msjMaterial.setVisible(true);
         }
 
         if (s.equals("2")) {
             visibleMaterial(true, true, false, false);
-            msjMaterial.setEstado(Estado.error);
+            msjMaterial.setEstado(Estado.ERROR);
             msjMaterial.setText("Error al conectarse con la base de datos");
             msjMaterial.setVisible(true);
         }
@@ -248,20 +257,20 @@ public class CAInsumos implements MouseListener {
             Main.buscarInsumos.buscar();
             Main.buscarInsumos.panel.setVisible(true);
             Main.buscarInsumos.msjMensaje.setText("El color ha sido actualizado correctamente");
-            Main.buscarInsumos.msjMensaje.setEstado(Estado.exito);
+            Main.buscarInsumos.msjMensaje.setEstado(Estado.EXITO);
             Main.buscarInsumos.msjMensaje.setVisible(true);
         }
 
         if (s.equals("1")) {
             visibleColor(true, true, false, false);
-            msjColor.setEstado(Estado.error);
+            msjColor.setEstado(Estado.ERROR);
             msjColor.setText("Ha ocurrido un error al actualizar :C");
             msjColor.setVisible(true);
         }
 
         if (s.equals("2")) {
             visibleColor(true, true, false, false);
-            msjColor.setEstado(Estado.error);
+            msjColor.setEstado(Estado.ERROR);
             msjColor.setText("Error al conectarse con la base de datos");
             msjColor.setVisible(true);
         }
@@ -281,33 +290,33 @@ public class CAInsumos implements MouseListener {
         boolean b = true;
 
         if (referencia.equals("")) {
-            txtCo_nombre.setEstado(Estado.error);
-            msjCo_referencia.setEstado(Estado.error);
+            txtCo_nombre.setEstado(Estado.ERROR);
+            msjCo_referencia.setEstado(Estado.ERROR);
             msjCo_referencia.setText("Campo vac\u00EDo");
             msjCo_referencia.setVisible(true);
             b = false;
         } else {
-            txtCo_nombre.setEstado(Estado.exito);
-            msjCo_referencia.setEstado(Estado.exito);
+            txtCo_nombre.setEstado(Estado.EXITO);
+            msjCo_referencia.setEstado(Estado.EXITO);
             msjCo_referencia.setText("");
             msjCo_referencia.setVisible(false);
         }
 
         if (cantidad.equals("")) {
-            txtCo_cantidad.setEstado(Estado.exito);
-            msjCo_cantidad.setEstado(Estado.exito);
+            txtCo_cantidad.setEstado(Estado.EXITO);
+            msjCo_cantidad.setEstado(Estado.EXITO);
             msjCo_cantidad.setText("");
             msjCo_cantidad.setVisible(false);
         } else {
             try {
                 double d = Double.parseDouble(cantidad);
-                txtCo_cantidad.setEstado(Estado.exito);
-                msjCo_cantidad.setEstado(Estado.exito);
+                txtCo_cantidad.setEstado(Estado.EXITO);
+                msjCo_cantidad.setEstado(Estado.EXITO);
                 msjCo_cantidad.setText("");
                 msjCo_cantidad.setVisible(false);
             } catch (Exception e) {
-                txtCo_cantidad.setEstado(Estado.error);
-                msjCo_cantidad.setEstado(Estado.error);
+                txtCo_cantidad.setEstado(Estado.ERROR);
+                msjCo_cantidad.setEstado(Estado.ERROR);
                 msjCo_cantidad.setText("S\u00F3lo n\u00FAmeros");
                 msjCo_cantidad.setVisible(true);
                 b = false;
@@ -332,21 +341,21 @@ public class CAInsumos implements MouseListener {
         String s = new ColorN().crearColor(ce);
 
         if (s.equals("")) {
-            msjColor.setEstado(Estado.exito);
+            msjColor.setEstado(Estado.EXITO);
             msjColor.setText("El color ha sido creado correctamente");
             msjColor.setVisible(true);
             visibleColor(false, false, true, false);
         }
 
         if (s.equals("1")) {
-            msjColor.setEstado(Estado.error);
+            msjColor.setEstado(Estado.ERROR);
             msjColor.setText("Ha ocurrido un error al crear el material :C");
             msjColor.setVisible(true);
             visibleColor(true, true, false, false);
         }
 
         if (s.equals("2")) {
-            msjColor.setEstado(Estado.error);
+            msjColor.setEstado(Estado.ERROR);
             msjColor.setText("Error al conectarse con la base de datos");
             msjColor.setVisible(true);
             visibleColor(true, true, false, false);
@@ -355,9 +364,9 @@ public class CAInsumos implements MouseListener {
 
     public void limpiarColor() {
         txtCo_cantidad.setText("");
-        txtCo_cantidad.setEstado(Estado.normal);
+        txtCo_cantidad.setEstado(Estado.NORMAL);
         txtCo_nombre.setText("");
-        txtCo_nombre.setEstado(Estado.normal);
+        txtCo_nombre.setEstado(Estado.NORMAL);
         msjColor.setText("");
 
     }
@@ -379,33 +388,33 @@ public class CAInsumos implements MouseListener {
         String cantidad = txtMat_cantidad.getText().replaceAll(",", ".");
         boolean b = true;
         if (nombre.equals("")) {
-            txtMat_nombre.setEstado(Estado.error);
-            msjMat_nombre.setEstado(Estado.error);
+            txtMat_nombre.setEstado(Estado.ERROR);
+            msjMat_nombre.setEstado(Estado.ERROR);
             msjMat_nombre.setText("Campo vac\u00EDo");
             msjMat_nombre.setVisible(true);
             b = false;
         } else {
-            txtMat_nombre.setEstado(Estado.exito);
-            msjMat_nombre.setEstado(Estado.exito);
+            txtMat_nombre.setEstado(Estado.EXITO);
+            msjMat_nombre.setEstado(Estado.EXITO);
             msjMat_nombre.setText("");
             msjMat_nombre.setVisible(false);
         }
 
         if (cantidad.equals("")) {
-            txtMat_cantidad.setEstado(Estado.exito);
-            msjMat_cantidad.setEstado(Estado.exito);
+            txtMat_cantidad.setEstado(Estado.EXITO);
+            msjMat_cantidad.setEstado(Estado.EXITO);
             msjMat_cantidad.setText("");
             msjMat_cantidad.setVisible(false);
         } else {
             try {
                 double d = Double.parseDouble(cantidad);
-                txtMat_cantidad.setEstado(Estado.exito);
-                msjMat_cantidad.setEstado(Estado.exito);
+                txtMat_cantidad.setEstado(Estado.EXITO);
+                msjMat_cantidad.setEstado(Estado.EXITO);
                 msjMat_cantidad.setText("");
                 msjMat_cantidad.setVisible(false);
             } catch (Exception e) {
-                txtMat_cantidad.setEstado(Estado.error);
-                msjMat_cantidad.setEstado(Estado.error);
+                txtMat_cantidad.setEstado(Estado.ERROR);
+                msjMat_cantidad.setEstado(Estado.ERROR);
                 msjMat_cantidad.setText("S\u00F3olo n\u00FAmeros");
                 msjMat_cantidad.setVisible(true);
                 b = false;
@@ -430,21 +439,21 @@ public class CAInsumos implements MouseListener {
         String s = new MaterialN().crearMaterial(me);
 
         if (s.equals("")) {
-            msjMaterial.setEstado(Estado.exito);
+            msjMaterial.setEstado(Estado.EXITO);
             msjMaterial.setText("El material ha sido creado exitosamente");
             msjMaterial.setVisible(true);
             visibleMaterial(false, false, true, false);
         }
 
         if (s.equals("1")) {
-            msjMaterial.setEstado(Estado.exito);
+            msjMaterial.setEstado(Estado.EXITO);
             msjMaterial.setText("Ha ocurrido un error al crear el material :C");
             msjMaterial.setVisible(true);
             visibleMaterial(true, true, false, false);
         }
 
         if (s.equals("2")) {
-            msjMaterial.setEstado(Estado.exito);
+            msjMaterial.setEstado(Estado.EXITO);
             msjMaterial.setText("Error al comunicarse con la base de datos");
             msjMaterial.setVisible(true);
             visibleMaterial(true, true, false, false);
@@ -453,9 +462,9 @@ public class CAInsumos implements MouseListener {
 
     public void limpiarMaterial() {
         txtMat_cantidad.setText("");
-        txtMat_cantidad.setEstado(Estado.normal);
+        txtMat_cantidad.setEstado(Estado.NORMAL);
         txtMat_nombre.setText("");
-        txtMat_nombre.setEstado(Estado.normal);
+        txtMat_nombre.setEstado(Estado.NORMAL);
         msjMaterial.setText("");
 
     }

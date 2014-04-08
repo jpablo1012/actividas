@@ -40,11 +40,12 @@ public class AcercaDe implements MouseListener{
 	frame.setDefaultCloseOperation(AFrame.DISPOSE_ON_CLOSE);
 	
 	panel = new APanel(0, 0, frame.getWidth(), frame.getHeight());
-	panel.Actividas.setVisible(false);
-	panel.setBorder(new MatteBorder(2, 2, 2, 2, Colores.borde_cajaTexto_error));
+	panel.titulo.setVisible(false);
+	panel.acercaDe.setVisible(false);
+	panel.setBorder(new MatteBorder(2, 2, 2, 2, Colores.BORDE_CAJATEXTO_ERROR));
 	frame.getContentPane().add(panel);
 	
-	plastisoft = new APlastiser();
+	plastisoft = new APlastiser(0);
 	plastisoft.setFont(new Font("Brush Script MT", Font.PLAIN, 74));
 	plastisoft.setHorizontalAlignment(SwingConstants.CENTER);
 	plastisoft.setText("Plastisoft");

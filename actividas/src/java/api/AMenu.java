@@ -4,9 +4,6 @@
  */
 package api;
 
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-
 import javax.swing.JCheckBox;
 import javax.swing.JPanel;
 import javax.swing.border.MatteBorder;
@@ -16,7 +13,7 @@ import javax.swing.border.MatteBorder;
  * @author Usuario
  */
 @SuppressWarnings("serial")
-public class AMenu extends JPanel implements MouseListener {
+public class AMenu extends JPanel {
 
     public String[] administrador = {"Inicio","Insumos", "Pedidos", "<html><body>Ordenes de producci&oacute;n</body></html>", "Clientes", "Empleados", "Informes","Perfil", "<html><body>Cerrar sesi&oacute;n</body></html>"};
     public String[] empleado = {"Inicio","<html><body>Ordenes de producci&oacute;n</body></html>", "Perfil", "<html><body>Cerrar sesi&oacute;n</body></html>"};
@@ -25,31 +22,18 @@ public class AMenu extends JPanel implements MouseListener {
     public int ultimo, penultimo;
     public AButton[] botones;
     APlastiser plastiser;
-    private boolean hover = false;
     public JCheckBox jcb;
 
     public AMenu() {
         setLayout(null);
-        setBounds(0, 0, 50, 600);
-        setBackground(Colores.fondo_rojo);
-        setBorder(new MatteBorder(1, 1, 1, 0, Colores.borde_ventana));
+        setBounds(0, 0, 170, 600);
+        setBackground(Colores.FONDO_ROJO);
+        setBorder(new MatteBorder(1, 1, 1, 0, Colores.BORDE_VENTANA));
 
-        plastiser = new APlastiser();
-        plastiser.setTipo(1);
+        plastiser = new APlastiser(this.getWidth());
+        //plastiser.setTipo(1);
         add(plastiser);
-        plastiser.addMouseListener(this);
-        addMouseListener(this);
 
-        setHover(false);
-    }
-
-    public void setHover(boolean b){
-        hover = b;
-        if(hover){
-            setSize(50, 600);
-        }else{
-            setSize(170, 600);
-        }
     }
 
     public void setTipo(int tipo) {
@@ -97,33 +81,9 @@ public class AMenu extends JPanel implements MouseListener {
                     y += 20;
                 }
             }
-            botones[i].addMouseListener(this);
             botones[i].setFocusable(false);
             this.add(botones[i]);
             y += 50;
         }
-    }
-
-    public void mouseClicked(MouseEvent e) {
-    }
-
-    public void mousePressed(MouseEvent e) {
-    }
-
-    public void mouseReleased(MouseEvent e) {
-    }
-
-    public void mouseEntered(MouseEvent e) {
-       /* if(hover){
-            this.setSize(170, 600);
-        }*/
-        
-    }
-
-    public void mouseExited(MouseEvent e) {
-        /*if(hover){
-          this.setSize(50, 600);
-        }*/
-        
     }
 }

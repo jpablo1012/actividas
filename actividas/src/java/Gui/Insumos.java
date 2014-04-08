@@ -6,23 +6,23 @@ import java.awt.event.MouseListener;
 
 import javax.swing.SwingConstants;
 
-import api.*;
+import api.AButton;
+import api.ALabel;
+import api.APanel;
+import api.Estado;
+
 
 public class Insumos implements MouseListener {
 
     public APanel panel;
-    AButton btnCrearInsumos, btnCrearBolsa, btnBAEInsumos;
-    ALabel lblInsumos, msjMensaje;
+    AButton btnCrearInsumos;
+    AButton btnCrearBolsa;
+    AButton btnBAEInsumos;
+    ALabel  msjMensaje;
 
     public Insumos() {
         panel = new APanel(Main.x, 0, 750, 600);
-
-        lblInsumos = new ALabel("Insumos");
-        lblInsumos.setHorizontalAlignment(SwingConstants.CENTER);
-        lblInsumos.setFont(new Font("Calibri", Font.PLAIN, 40));
-        lblInsumos.setForeground(Colores.titulo_normal);
-        lblInsumos.setBounds(0, 74, panel.getWidth(), 50);
-        panel.add(lblInsumos);
+        panel.setTitulo("Insumos");
 
         btnCrearInsumos = new AButton("<html><body>Crear Color o material</body></html>");
         btnCrearInsumos.addMouseListener(this);
@@ -46,8 +46,9 @@ public class Insumos implements MouseListener {
         if (Main.menu.getUsuario().getTipo().equals("cliente")) {
             btnCrearBolsa.setBounds(295, 230, 160, 60);
             btnBAEInsumos.setBounds(295, 310, 160, 60);
-
-            lblInsumos.setText("Bolsa");
+            
+            panel.setTitulo("Bolsa");
+            //lblInsumos.setText("Bolsa");
             btnBAEInsumos.setText("<html><body align='center'>Mis bolsas</body></html>");
 
             btnCrearInsumos.setVisible(false);
@@ -58,7 +59,6 @@ public class Insumos implements MouseListener {
         }
 
         panel.setVisible(false);
-        //Main.dialog = new ADialog("Cargando...", Main.menu.frame.getLocation(), Main.menu.frame.getSize());
     }
 
     public void mouseClicked(MouseEvent e) {
@@ -98,7 +98,7 @@ public class Insumos implements MouseListener {
                 Main.esconderTodos();
                 Main.insumos.panel.setVisible(true);
                 Main.insumos.msjMensaje.setText("No tienes bolsas :C");
-                Main.insumos.msjMensaje.setEstado(Estado.error);
+                Main.insumos.msjMensaje.setEstado(Estado.ERROR);
             }
         }
 

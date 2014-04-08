@@ -10,7 +10,7 @@ public class ARendered extends BarRenderer {
     private Paint[] colors;
 
     public ARendered() {
-	this.colors = new Paint[] { Colores.fondo_rojo, new Color(66, 126, 236), Colores.borde_cajaTexto_exito};
+	this.colors = new Paint[] { Colores.FONDO_ROJO, new Color(66, 126, 236), Colores.BORDE_CAJATEXTO_EXITO};
     }
 
     public Paint getItemPaint(final int row, final int column) {

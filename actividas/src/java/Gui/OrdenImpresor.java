@@ -9,30 +9,68 @@ import java.util.Date;
 import javax.swing.SwingConstants;
 import javax.swing.border.MatteBorder;
 
+import api.AButton;
+import api.AContainer;
+import api.ADateChosser;
+import api.AEditorPane;
+import api.ALabel;
+import api.APanel;
+import api.AScrollPanel;
+import api.ASpinner;
+import api.ATextField;
+import api.Colores;
+import api.Estado;
 import Entidades.BolsaE;
 import Entidades.ImpresionE;
 import Entidades.OrdenE;
 import Negocio.Auxiliar;
 import Negocio.BolsaN;
 import Negocio.ImpresionN;
-import api.*;
 
 public class OrdenImpresor implements MouseListener {
 
     String style = "style='color:#D3362D;'";
 
     APanel panel;
-    ALabel lblImpresion, lblOrden, lblCodigo, lblBolsa, lblFechaInicio, lblFechaFin, lblPesoInicial, lblPesoFinal, lblRodillo, lblNota, lblImpreso, lblTipoCantidad, lblCantidad, lblObligatorio;
-    ALabel msjOrden, msjCodigo, msjBolsa, msjFechaInicio, msjFechaFin, msjPesoInicial, msjPesoFinal;
+    ALabel lblOrden;
+    ALabel lblCodigo;
+    ALabel lblBolsa;
+    ALabel lblFechaInicio;
+    ALabel lblFechaFin;
+    ALabel lblPesoInicial;
+    ALabel lblPesoFinal;
+    ALabel lblRodillo;
+    ALabel lblNota;
+    ALabel lblImpreso;
+    ALabel lblTipoCantidad;
+    ALabel lblCantidad;
+    ALabel lblObligatorio;
+    ALabel msjOrden;
+    ALabel msjCodigo;
+    ALabel msjBolsa;
+    ALabel msjFechaInicio;
+    ALabel msjFechaFin;
+    ALabel msjPesoInicial;
+    ALabel msjPesoFinal;
     ALabel msjMensaje;
-    ASpinner spnPesoInicial, spnPesoFinal, spnCantidad;
-    ATextField txtOrden, txtCodigo, txtBolsa, txtImpreso, txtTipoCantidad;
-    AContainer ordenProduccion, impresion;
-    ADateChosser dtFechaInicio, dtFechaFin;
+    ASpinner spnPesoInicial;
+    ASpinner spnPesoFinal;
+    ASpinner spnCantidad;
+    ATextField txtOrden;
+    ATextField txtCodigo;
+    ATextField txtBolsa;
+    ATextField txtImpreso;
+    ATextField txtTipoCantidad;
+    AContainer ordenProduccion;
+    AContainer impresion;
+    ADateChosser dtFechaInicio;
+    ADateChosser dtFechaFin;
     AButton btnBolsa;
     AEditorPane editNota;
     AScrollPanel nota;
-    AButton btnGuardar, btnFinalizar, btnRegresar;
+    AButton btnGuardar;
+    AButton btnFinalizar;
+    AButton btnRegresar;
     OrdenE oe;
     ImpresionE ie;
 
@@ -42,16 +80,11 @@ public class OrdenImpresor implements MouseListener {
 
     public OrdenImpresor() {
 	panel = new APanel(Main.x, 0, 750, 600);
+	panel.setTitulo("Ordenes de producci\u00F3n| Impresi\u00F3n");
 	
 	if(Main.menu.evaluar(Main.menu.getUsuario().getTipo()) == 0){
 	    fecha = "<html><body><b " + style + "></b>Plazo hasta:</body></html>";
 	}
-
-	lblImpresion = new ALabel("Ordenes de producci\u00F3n| Impresi\u00F3n");
-	lblImpresion.setFont(new Font("Calibri", Font.PLAIN, 24));
-	lblImpresion.setForeground(Colores.titulo_normal);
-	lblImpresion.setBounds(10, 0, 460, 50);
-	panel.add(lblImpresion);
 
 	ordenProduccion = new AContainer("Orden de producci\u00F3n");
 	ordenProduccion.setBounds(60, 40, 630, 138);
@@ -205,7 +238,7 @@ public class OrdenImpresor implements MouseListener {
 
 	nota = new AScrollPanel("");
 	nota.setBounds(170, 206, 400, 60);
-	nota.setBorder(new MatteBorder(1, 1, 1, 1, Colores.borde_cajaTexto));
+	nota.setBorder(new MatteBorder(1, 1, 1, 1, Colores.BORDE_CAJATEXTO));
 	nota.setHorizontalScrollBarPolicy(AScrollPanel.HORIZONTAL_SCROLLBAR_NEVER);
 	impresion.add(nota);
 
@@ -260,12 +293,12 @@ public class OrdenImpresor implements MouseListener {
 
 	if (albe == null) {
 	    msjMensaje.setText("Error desconocido :C");
-	    msjMensaje.setEstado(Estado.error);
+	    msjMensaje.setEstado(Estado.ERROR);
 	    msjMensaje.setVisible(true);
 	} else {
 	    if (albe.size() == 0) {
 		msjMensaje.setText("Error al conectarse a la base de datos");
-		msjMensaje.setEstado(Estado.error);
+		msjMensaje.setEstado(Estado.ERROR);
 		msjMensaje.setVisible(true);
 	    } else {
 		Main.caBolsa = new CABolsa();
@@ -314,7 +347,7 @@ public class OrdenImpresor implements MouseListener {
 	String h = Main.buscarOrdenes.pendientes_impresion();
 	if (h.equals("")) {
 	    Main.buscarOrdenes.msjMensaje.setText(s);
-	    Main.buscarOrdenes.msjMensaje.setEstado(Estado.exito);
+	    Main.buscarOrdenes.msjMensaje.setEstado(Estado.EXITO);
 	    Main.buscarOrdenes.msjMensaje.setVisible(true);
 	    Main.buscarOrdenes.panel.setVisible(true);
 	} else {
@@ -323,7 +356,7 @@ public class OrdenImpresor implements MouseListener {
 	    Main.menu.frame.getContentPane().add(Main.ordenes.panel);
 	    Main.esconderTodos();
 	    Main.ordenes.msjMensaje.setText(s);
-	    Main.ordenes.msjMensaje.setEstado(Estado.exito);
+	    Main.ordenes.msjMensaje.setEstado(Estado.EXITO);
 	    Main.ordenes.msjMensaje.setVisible(true);
 	    Main.ordenes.panel.setVisible(true);
 	}
@@ -357,13 +390,13 @@ public class OrdenImpresor implements MouseListener {
 
 	if (s.equals("1")) {
 	    msjMensaje.setText("Error desconocido :C");
-	    msjMensaje.setEstado(Estado.error);
+	    msjMensaje.setEstado(Estado.ERROR);
 	    msjMensaje.setVisible(true);
 	}
 
 	if (s.equals("2")) {
 	    msjMensaje.setText("Error al conectarse a la base de datos");
-	    msjMensaje.setEstado(Estado.error);
+	    msjMensaje.setEstado(Estado.ERROR);
 	    msjMensaje.setVisible(true);
 	}
     }
@@ -374,7 +407,7 @@ public class OrdenImpresor implements MouseListener {
 
 	if (s.length() > 1000) {
 	    msjMensaje.setText("La nota supera los 1000 caracteres");
-	    msjMensaje.setEstado(Estado.error);
+	    msjMensaje.setEstado(Estado.ERROR);
 	    msjMensaje.setVisible(true);
 	    cont = false;
 	} else {
@@ -394,22 +427,22 @@ public class OrdenImpresor implements MouseListener {
 	boolean cont = true;
 
 	if (pesoInicial.equals("0.0")) {
-	    spnPesoInicial.setEstado(Estado.error);
+	    spnPesoInicial.setEstado(Estado.ERROR);
 	    msjMensaje.setText("Peso inicial y/o peso final no pueden ser 0");
-	    msjMensaje.setEstado(Estado.error);
+	    msjMensaje.setEstado(Estado.ERROR);
 	    cont = false;
 	} else {
-	    spnPesoInicial.setEstado(Estado.normal);
+	    spnPesoInicial.setEstado(Estado.NORMAL);
 	    msjMensaje.setText("");
 	}
 
 	if (pesoFinal.equals("0.0")) {
-	    spnPesoFinal.setEstado(Estado.error);
+	    spnPesoFinal.setEstado(Estado.ERROR);
 	    msjMensaje.setText("Peso inicial y/o peso final no pueden ser 0");
-	    msjMensaje.setEstado(Estado.error);
+	    msjMensaje.setEstado(Estado.ERROR);
 	    cont = false;
 	} else {
-	    spnPesoFinal.setEstado(Estado.normal);
+	    spnPesoFinal.setEstado(Estado.NORMAL);
 	    msjMensaje.setText("");
 	}
 
@@ -444,13 +477,13 @@ public class OrdenImpresor implements MouseListener {
 
 	if (s.equals("1")) {
 	    msjMensaje.setText("Error desconocido :C");
-	    msjMensaje.setEstado(Estado.error);
+	    msjMensaje.setEstado(Estado.ERROR);
 	    msjMensaje.setVisible(true);
 	}
 
 	if (s.equals("2")) {
 	    msjMensaje.setText("Error desconocido :C");
-	    msjMensaje.setEstado(Estado.error);
+	    msjMensaje.setEstado(Estado.ERROR);
 	    msjMensaje.setVisible(true);
 	}
     }

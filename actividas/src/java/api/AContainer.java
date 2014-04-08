@@ -13,8 +13,8 @@ public class AContainer extends JPanel {
 
     public AContainer(String s) {
         setLayout(null);
-        setBorder(new TitledBorder(new MatteBorder(1, 1, 1, 1, Colores.borde_container), s, TitledBorder.LEFT, TitledBorder.TOP, new Font("Calibri", Font.PLAIN, 20), Colores.titulo_hover));
-        setBackground(Colores.fondo_normal);
+        setBorder(new TitledBorder(new MatteBorder(1, 1, 1, 1, Colores.BORDE_CONTENEDOR), s, TitledBorder.LEFT, TitledBorder.TOP, new Font("Calibri", Font.PLAIN, 20), Colores.TITULO_HOVER));
+        setBackground(Colores.FONDO_NORMAL);
         setOpaque(true);
         setLayout(null);
         setVisible(true);
@@ -23,7 +23,7 @@ public class AContainer extends JPanel {
 
     public void setText(String s){
         this.text = s;
-        setBorder(new TitledBorder(new MatteBorder(1, 1, 1, 1, Colores.borde_container), s, TitledBorder.LEFT, TitledBorder.TOP, new Font("Calibri", Font.PLAIN, 20), Colores.titulo_hover));
+        setBorder(new TitledBorder(new MatteBorder(1, 1, 1, 1, Colores.BORDE_CONTENEDOR), s, TitledBorder.LEFT, TitledBorder.TOP, new Font("Calibri", Font.PLAIN, 20), Colores.TITULO_HOVER));
         this.repaint();
     }
 

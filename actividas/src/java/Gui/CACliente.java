@@ -9,7 +9,13 @@ import javax.swing.JFileChooser;
 import javax.swing.SwingConstants;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-import api.*;
+import api.AButton;
+import api.AContainer;
+import api.ALabel;
+import api.APanel;
+import api.APassword;
+import api.ATextField;
+import api.Estado;
 import Entidades.ClienteE;
 import Entidades.UsuarioE;
 import Negocio.ClienteN;
@@ -22,52 +28,54 @@ public class CACliente implements MouseListener {
 
     String style = "style='color:#D3362D;'";
     public APanel panel;
-    ALabel lblbnombre,
-            lblapedillo,
-            lblcedula,
-            lbldireccion,
-            lbltelefono,
-            lblcorreo,
-            lblcodigo,
-            lblconfirmar,
-            msjNombre,
-            msjApellido,
-            msjCedula,
-            msjDireccion,
-            msjTelefono,
-            msjCorreo,
-            msjCodigo,
-            msjMensaje,
-            msjCiudad,
-            lblObligatorio,
-            lblCiudad;
-    ATextField txtnombre,
-            txtapellido,
-            txtcedula,
-            txtdireccion,
-            txttelefono,
-            txtcorreo,
-            txtCiudad;
-    APassword pswcodigo,
-            pswconfirmar;
-    AButton btncrear,
-            btnNuevo,
-            btnGuardar,
-            btnCancelar;
+    ALabel lblbnombre;
+    ALabel lblapedillo;
+    ALabel lblcedula;
+    ALabel lbldireccion;
+    ALabel lbltelefono;
+    ALabel lblcorreo;
+    ALabel lblcodigo;
+    ALabel lblconfirmar;
+    ALabel msjNombre;
+    ALabel msjApellido;
+    ALabel msjCedula;
+    ALabel msjDireccion;
+    ALabel msjTelefono;
+    ALabel msjCorreo;
+    ALabel msjCodigo;
+    ALabel msjMensaje;
+    ALabel msjCiudad;
+    ALabel lblObligatorio;
+    ALabel lblCiudad;
+    ATextField txtnombre;
+    ATextField txtapellido;
+    ATextField txtcedula;
+    ATextField txtdireccion;
+    ATextField txttelefono;
+    ATextField txtcorreo;
+    ATextField txtCiudad;
+    APassword pswcodigo;
+    APassword pswconfirmar;
+    AButton btncrear;
+    AButton btnNuevo;
+    AButton btnGuardar;
+    AButton btnCancelar;
     AContainer clie;
     AContainer usua;
-    public ALabel lblCliente;
+    ALabel lblImagen;
+    ALabel msjImagen;
+    AButton btnSeleccionar;
+    AButton btnVer;
+    AButton btnQuitar;
+
     ClienteE ce = new ClienteE();
     UsuarioE ue = new UsuarioE();
     private boolean aBuscar = true;
-
-    ALabel lblImagen, msjImagen;
-    AButton btnSeleccionar, btnVer, btnQuitar;
-
     File file;
 
     public CACliente() {
         panel = new APanel(Main.x, 0, 750, 600);
+        panel.setTitulo("Cliente| Crear");
 
         clie = new AContainer("Cliente");
         clie.setBounds(110, 51, 530, 251);
@@ -77,11 +85,11 @@ public class CACliente implements MouseListener {
         lblObligatorio.setBounds(315, 20, 120, 24);
         panel.add(lblObligatorio);
 
-        lblCliente = new ALabel("Cliente| Crear");
+        /*lblCliente = new ALabel("Cliente| Crear");
         lblCliente.setFont(new Font("Calibri", Font.PLAIN, 24));
-        lblCliente.setForeground(Colores.titulo_normal);
+        lblCliente.setForeground(Colores.TITULO_NORMAL);
         lblCliente.setBounds(10, 0, 400, 50);
-        panel.add(lblCliente);
+        panel.add(lblCliente);*/
 
         usua = new AContainer("Usuario");
         usua.setBounds(110, 322, 530, 160);
@@ -309,16 +317,16 @@ public class CACliente implements MouseListener {
         pswconfirmar.setText("");
         msjMensaje.setText("");
 
-        txtnombre.setEstado(Estado.normal);
-        txtapellido.setEstado(Estado.normal);
-        txtcedula.setEstado(Estado.normal);
-        txtdireccion.setEstado(Estado.normal);
-        txttelefono.setEstado(Estado.normal);
-        txtcorreo.setEstado(Estado.normal);
-        txtCiudad.setEstado(Estado.normal);
-        pswcodigo.setEstado(Estado.normal);
-        pswconfirmar.setEstado(Estado.normal);
-        msjMensaje.setEstado(Estado.normal);
+        txtnombre.setEstado(Estado.NORMAL);
+        txtapellido.setEstado(Estado.NORMAL);
+        txtcedula.setEstado(Estado.NORMAL);
+        txtdireccion.setEstado(Estado.NORMAL);
+        txttelefono.setEstado(Estado.NORMAL);
+        txtcorreo.setEstado(Estado.NORMAL);
+        txtCiudad.setEstado(Estado.NORMAL);
+        pswcodigo.setEstado(Estado.NORMAL);
+        pswconfirmar.setEstado(Estado.NORMAL);
+        msjMensaje.setEstado(Estado.NORMAL);
 
         quitarImagen();
     }
@@ -392,11 +400,11 @@ public class CACliente implements MouseListener {
 
         if (s.equals("")) {
             if (aBuscar) {
-                msjMensaje.setEstado(Estado.exito);
+                msjMensaje.setEstado(Estado.EXITO);
                 Main.buscarCliente.buscar();
                 Main.buscarCliente.msjMensaje.setText("El cliente ha sido actualizado exitosamente");
                 Main.buscarCliente.msjMensaje.setVisible(true);
-                Main.buscarCliente.msjMensaje.setEstado(Estado.exito);
+                Main.buscarCliente.msjMensaje.setEstado(Estado.EXITO);
                 Main.esconderTodos();
                 Main.buscarCliente.panel.setVisible(true);
                 this.ce = ace;
@@ -408,7 +416,7 @@ public class CACliente implements MouseListener {
                 Main.esconderTodos();
                 Main.ajustes.panel.setVisible(true);
                 Main.ajustes.msjMensaje.setText("Te has modificado exitosamente");
-                Main.ajustes.msjMensaje.setEstado(Estado.exito);
+                Main.ajustes.msjMensaje.setEstado(Estado.EXITO);
                 Main.ajustes.msjMensaje.setVisible(true);
                 Main.dialog.ocultar();
             }
@@ -416,13 +424,13 @@ public class CACliente implements MouseListener {
         }
 
         if (s.equals("1")) {
-            msjMensaje.setEstado(Estado.error);
+            msjMensaje.setEstado(Estado.ERROR);
             msjMensaje.setText("Ha ocurrido un error y no sabemos que es :C");
             msjMensaje.setVisible(true);
         }
 
         if (s.equals("2")) {
-            msjMensaje.setEstado(Estado.error);
+            msjMensaje.setEstado(Estado.ERROR);
             msjMensaje.setText("Error al conectarse a la base de datos");
             msjMensaje.setVisible(true);
         }
@@ -448,95 +456,95 @@ public class CACliente implements MouseListener {
         String conCodigo = pswconfirmar.getText();
 
         if (nombre.equals("")) {
-            txtnombre.setEstado(Estado.error);
-            msjNombre.setEstado(Estado.error);
+            txtnombre.setEstado(Estado.ERROR);
+            msjNombre.setEstado(Estado.ERROR);
             msjNombre.setText("Campo vac\u00EDo");
             msjNombre.setVisible(true);
             cont = false;
         } else {
-            txtnombre.setEstado(Estado.exito);
-            msjNombre.setEstado(Estado.exito);
+            txtnombre.setEstado(Estado.EXITO);
+            msjNombre.setEstado(Estado.EXITO);
             msjNombre.setText("");
             msjNombre.setVisible(false);
         }
 
         if (apellido.equals("")) {
-            txtapellido.setEstado(Estado.error);
-            msjApellido.setEstado(Estado.error);
+            txtapellido.setEstado(Estado.ERROR);
+            msjApellido.setEstado(Estado.ERROR);
             msjApellido.setText("Campo vac\u00EDo");
             msjApellido.setVisible(true);
             cont = false;
         } else {
-            txtapellido.setEstado(Estado.exito);
-            msjApellido.setEstado(Estado.exito);
+            txtapellido.setEstado(Estado.EXITO);
+            msjApellido.setEstado(Estado.EXITO);
             msjApellido.setText("");
             msjApellido.setVisible(false);
         }
 
         try {
             double d = Double.parseDouble(cedula);
-            txtcedula.setEstado(Estado.exito);
-            msjCedula.setEstado(Estado.exito);
+            txtcedula.setEstado(Estado.EXITO);
+            msjCedula.setEstado(Estado.EXITO);
             msjCedula.setText("");
             msjCedula.setVisible(false);
 
             if (cedula.length() < 6 || cedula.length() > 13) {
-                txtcedula.setEstado(Estado.error);
-                msjCedula.setEstado(Estado.error);
+                txtcedula.setEstado(Estado.ERROR);
+                msjCedula.setEstado(Estado.ERROR);
                 msjCedula.setText("C\u00E9dula invalida");
                 msjCedula.setVisible(true);
                 cont = false;
             }
         } catch (Exception e) {
-            txtcedula.setEstado(Estado.error);
-            msjCedula.setEstado(Estado.error);
+            txtcedula.setEstado(Estado.ERROR);
+            msjCedula.setEstado(Estado.ERROR);
             msjCedula.setText("Campo vac\u00EDo");
             msjCedula.setVisible(true);
             cont = false;
         }
 
         if (direccion.equals("")) {
-            txtdireccion.setEstado(Estado.error);
-            msjDireccion.setEstado(Estado.error);
+            txtdireccion.setEstado(Estado.ERROR);
+            msjDireccion.setEstado(Estado.ERROR);
             msjDireccion.setText("Campo vac\u00EDo");
             msjDireccion.setVisible(true);
             cont = false;
         } else {
-            txtdireccion.setEstado(Estado.exito);
-            msjDireccion.setEstado(Estado.exito);
+            txtdireccion.setEstado(Estado.EXITO);
+            msjDireccion.setEstado(Estado.EXITO);
             msjDireccion.setText("");
             msjDireccion.setVisible(false);
         }
         try {
             double d = Double.parseDouble(telefono);
 
-            txttelefono.setEstado(Estado.exito);
-            msjTelefono.setEstado(Estado.exito);
+            txttelefono.setEstado(Estado.EXITO);
+            msjTelefono.setEstado(Estado.EXITO);
             msjTelefono.setText("");
             msjTelefono.setVisible(false);
         } catch (Exception e) {
-            txttelefono.setEstado(Estado.error);
-            msjTelefono.setEstado(Estado.error);
+            txttelefono.setEstado(Estado.ERROR);
+            msjTelefono.setEstado(Estado.ERROR);
             msjTelefono.setText("S\u00F3lo numeros");
             msjTelefono.setVisible(true);
             cont = false;
         }
 
         if (correo.equals("")) {
-            txtcorreo.setEstado(Estado.error);
-            msjCorreo.setEstado(Estado.error);
+            txtcorreo.setEstado(Estado.ERROR);
+            msjCorreo.setEstado(Estado.ERROR);
             msjCorreo.setText("Campo vac\u00EDo");
             msjCorreo.setVisible(true);
             cont = false;
         } else {
             if (comprobarEmail(correo)) {
-                txtcorreo.setEstado(Estado.exito);
-                msjCorreo.setEstado(Estado.exito);
+                txtcorreo.setEstado(Estado.EXITO);
+                msjCorreo.setEstado(Estado.EXITO);
                 msjCorreo.setText("");
                 msjCorreo.setVisible(false);
             } else {
-                txtcorreo.setEstado(Estado.error);
-                msjCorreo.setEstado(Estado.error);
+                txtcorreo.setEstado(Estado.ERROR);
+                msjCorreo.setEstado(Estado.ERROR);
                 msjCorreo.setText("E-mail invalido");
                 msjCorreo.setVisible(true);
                 cont = false;
@@ -545,37 +553,37 @@ public class CACliente implements MouseListener {
         }
 
         if (ciudad.equals("")) {
-            txtCiudad.setEstado(Estado.error);
-            msjCiudad.setEstado(Estado.error);
+            txtCiudad.setEstado(Estado.ERROR);
+            msjCiudad.setEstado(Estado.ERROR);
             msjCiudad.setText("Campo vac\u00EDo");
             msjCiudad.setVisible(true);
             cont = false;
         } else {
-            txtCiudad.setEstado(Estado.exito);
-            msjCiudad.setEstado(Estado.exito);
+            txtCiudad.setEstado(Estado.EXITO);
+            msjCiudad.setEstado(Estado.EXITO);
             msjCiudad.setText("");
             msjCiudad.setVisible(false);
         }
 
         if (codigo.length() < 4) {
-            pswcodigo.setEstado(Estado.error);
-            msjCodigo.setEstado(Estado.error);
+            pswcodigo.setEstado(Estado.ERROR);
+            msjCodigo.setEstado(Estado.ERROR);
             msjCodigo.setText("<html><body>La contrase\u00F1a debe ser m\u00E1s de 3 caracteres</body></html>");
             msjCodigo.setVisible(true);
             cont = false;
         } else {
             if (!(codigo.equals(conCodigo))) {
-                pswcodigo.setEstado(Estado.error);
-                pswconfirmar.setEstado(Estado.error);
-                msjCodigo.setEstado(Estado.error);
+                pswcodigo.setEstado(Estado.ERROR);
+                pswconfirmar.setEstado(Estado.ERROR);
+                msjCodigo.setEstado(Estado.ERROR);
                 msjCodigo.setText("<html><body>Las contrase\u00F1as no coinciden</body></html>");
                 msjCodigo.setVisible(true);
                 cont = false;
             } else {
-                pswcodigo.setEstado(Estado.exito);
-                pswconfirmar.setEstado(Estado.exito);
+                pswcodigo.setEstado(Estado.EXITO);
+                pswconfirmar.setEstado(Estado.EXITO);
 
-                msjCodigo.setEstado(Estado.exito);
+                msjCodigo.setEstado(Estado.EXITO);
                 msjCodigo.setText("");
                 msjCodigo.setVisible(false);
             }
@@ -633,7 +641,7 @@ public class CACliente implements MouseListener {
         }
 
         if (s.equals("")) {
-            msjMensaje.setEstado(Estado.exito);
+            msjMensaje.setEstado(Estado.EXITO);
             msjMensaje.setText("El cliente ha sido creado exitosamente");
             msjMensaje.setVisible(true);
             visibleCliente(false, false, true, false);
@@ -642,15 +650,15 @@ public class CACliente implements MouseListener {
         }
 
         if (s.equals("1")) {
-            txtcedula.setEstado(Estado.error);
-            msjMensaje.setEstado(Estado.error);
+            txtcedula.setEstado(Estado.ERROR);
+            msjMensaje.setEstado(Estado.ERROR);
             msjMensaje.setText("El cliente ya existe en la base de datos");
             msjMensaje.setVisible(true);
             visibleCliente(true, true, false, false);
         }
 
         if (s.equals("2")) {
-            msjMensaje.setEstado(Estado.error);
+            msjMensaje.setEstado(Estado.ERROR);
             msjMensaje.setText("Error al conectarse a la base de datos");
             msjMensaje.setVisible(true);
             visibleCliente(true, true, false, false);
