@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+
+        <div class="menubar">
+            <ul class="art-hmenu" id="barra">
+                <li><a href="/Actividas"  class="active">Inicio</a></li>
+                <li><a href="quienessm.jsp">¿Quienes somos?</a></li>
+                <li><a href="productos.jsp">Productos</a><ul class="active"></ul></li>
+                <li><a href="contactenos.jsp">Cont&aacutectenos</a></li>
+                <li class="log"><a  id="button" href="#">Iniciar sesión</a></li>
+            </ul>
+        </div>
