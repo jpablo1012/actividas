@@ -1,0 +1,138 @@
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\Assets\ApplicationIcon.png
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\Plastisoft.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\Plastisoft.pdb
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\AppManifest.xaml
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\Properties\WMAppManifest.xml
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\Plastisoft_Debug_AnyCPU.xap
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\obj\Debug\App.g.cs
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\obj\Debug\Plastisoft.g.resources
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\obj\Debug\Plastisoft.Resources.AppResources.resources
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\obj\Debug\Plastisoft.csproj.GenerateResource.Cache
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\obj\Debug\Plastisoft.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\obj\Debug\Plastisoft.pdb
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\obj\Debug\XapCacheFile.xml
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\Microsoft.Phone.Controls.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\obj\Debug\MainPage.g.cs
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\obj\Debug\Views\Empleado\crear.g.cs
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\Microsoft.Phone.Controls.Toolkit.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\ar-SA\Microsoft.Phone.Controls.Toolkit.resources.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\az-Latn-AZ\Microsoft.Phone.Controls.Toolkit.resources.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\be-BY\Microsoft.Phone.Controls.Toolkit.resources.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\bg-BG\Microsoft.Phone.Controls.Toolkit.resources.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\ca-ES\Microsoft.Phone.Controls.Toolkit.resources.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\cs-CZ\Microsoft.Phone.Controls.Toolkit.resources.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\da-DK\Microsoft.Phone.Controls.Toolkit.resources.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\de-DE\Microsoft.Phone.Controls.Toolkit.resources.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\el-GR\Microsoft.Phone.Controls.Toolkit.resources.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\en-GB\Microsoft.Phone.Controls.Toolkit.resources.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\es-ES\Microsoft.Phone.Controls.Toolkit.resources.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\es-MX\Microsoft.Phone.Controls.Toolkit.resources.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\et-EE\Microsoft.Phone.Controls.Toolkit.resources.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\fa-IR\Microsoft.Phone.Controls.Toolkit.resources.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\fi-FI\Microsoft.Phone.Controls.Toolkit.resources.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\fil-PH\Microsoft.Phone.Controls.Toolkit.resources.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\fr-CA\Microsoft.Phone.Controls.Toolkit.resources.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\fr-FR\Microsoft.Phone.Controls.Toolkit.resources.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\he-IL\Microsoft.Phone.Controls.Toolkit.resources.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\hi-IN\Microsoft.Phone.Controls.Toolkit.resources.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\hr-HR\Microsoft.Phone.Controls.Toolkit.resources.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\hu-HU\Microsoft.Phone.Controls.Toolkit.resources.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\id-ID\Microsoft.Phone.Controls.Toolkit.resources.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\it-IT\Microsoft.Phone.Controls.Toolkit.resources.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\ja-JP\Microsoft.Phone.Controls.Toolkit.resources.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\kk-KZ\Microsoft.Phone.Controls.Toolkit.resources.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\ko-KR\Microsoft.Phone.Controls.Toolkit.resources.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\lt-LT\Microsoft.Phone.Controls.Toolkit.resources.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\lv-LV\Microsoft.Phone.Controls.Toolkit.resources.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\mk-MK\Microsoft.Phone.Controls.Toolkit.resources.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\ms-MY\Microsoft.Phone.Controls.Toolkit.resources.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\nb-NO\Microsoft.Phone.Controls.Toolkit.resources.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\nl-NL\Microsoft.Phone.Controls.Toolkit.resources.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\pl-PL\Microsoft.Phone.Controls.Toolkit.resources.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\pt-BR\Microsoft.Phone.Controls.Toolkit.resources.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\pt-PT\Microsoft.Phone.Controls.Toolkit.resources.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\ro-RO\Microsoft.Phone.Controls.Toolkit.resources.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\ru-RU\Microsoft.Phone.Controls.Toolkit.resources.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\sk-SK\Microsoft.Phone.Controls.Toolkit.resources.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\sl-SI\Microsoft.Phone.Controls.Toolkit.resources.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\sq-AL\Microsoft.Phone.Controls.Toolkit.resources.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\sr-Latn-CS\Microsoft.Phone.Controls.Toolkit.resources.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\sv-SE\Microsoft.Phone.Controls.Toolkit.resources.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\th-TH\Microsoft.Phone.Controls.Toolkit.resources.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\tr-TR\Microsoft.Phone.Controls.Toolkit.resources.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\uk-UA\Microsoft.Phone.Controls.Toolkit.resources.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\uz-Latn-UZ\Microsoft.Phone.Controls.Toolkit.resources.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\vi-VN\Microsoft.Phone.Controls.Toolkit.resources.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\zh-CN\Microsoft.Phone.Controls.Toolkit.resources.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\Bin\Debug\zh-TW\Microsoft.Phone.Controls.Toolkit.resources.dll
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\obj\Debug\Plastisoft.csprojResolveAssemblyReference.cache
+d:\documentos\visual studio 2013\Projects\Plastisoft\Plastisoft\obj\Debug\Views\Utils\VerImagen.g.cs
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\Assets\ApplicationIcon.png
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\Plastisoft.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\Plastisoft.pdb
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\AppManifest.xaml
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\Properties\WMAppManifest.xml
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\Plastisoft_Debug_AnyCPU.xap
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\Microsoft.Phone.Controls.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\Microsoft.Phone.Controls.Toolkit.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\ar-SA\Microsoft.Phone.Controls.Toolkit.resources.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\az-Latn-AZ\Microsoft.Phone.Controls.Toolkit.resources.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\be-BY\Microsoft.Phone.Controls.Toolkit.resources.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\bg-BG\Microsoft.Phone.Controls.Toolkit.resources.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\ca-ES\Microsoft.Phone.Controls.Toolkit.resources.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\cs-CZ\Microsoft.Phone.Controls.Toolkit.resources.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\da-DK\Microsoft.Phone.Controls.Toolkit.resources.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\de-DE\Microsoft.Phone.Controls.Toolkit.resources.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\el-GR\Microsoft.Phone.Controls.Toolkit.resources.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\en-GB\Microsoft.Phone.Controls.Toolkit.resources.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\es-ES\Microsoft.Phone.Controls.Toolkit.resources.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\es-MX\Microsoft.Phone.Controls.Toolkit.resources.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\et-EE\Microsoft.Phone.Controls.Toolkit.resources.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\fa-IR\Microsoft.Phone.Controls.Toolkit.resources.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\fi-FI\Microsoft.Phone.Controls.Toolkit.resources.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\fil-PH\Microsoft.Phone.Controls.Toolkit.resources.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\fr-CA\Microsoft.Phone.Controls.Toolkit.resources.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\fr-FR\Microsoft.Phone.Controls.Toolkit.resources.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\he-IL\Microsoft.Phone.Controls.Toolkit.resources.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\hi-IN\Microsoft.Phone.Controls.Toolkit.resources.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\hr-HR\Microsoft.Phone.Controls.Toolkit.resources.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\hu-HU\Microsoft.Phone.Controls.Toolkit.resources.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\id-ID\Microsoft.Phone.Controls.Toolkit.resources.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\it-IT\Microsoft.Phone.Controls.Toolkit.resources.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\ja-JP\Microsoft.Phone.Controls.Toolkit.resources.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\kk-KZ\Microsoft.Phone.Controls.Toolkit.resources.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\ko-KR\Microsoft.Phone.Controls.Toolkit.resources.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\lt-LT\Microsoft.Phone.Controls.Toolkit.resources.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\lv-LV\Microsoft.Phone.Controls.Toolkit.resources.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\mk-MK\Microsoft.Phone.Controls.Toolkit.resources.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\ms-MY\Microsoft.Phone.Controls.Toolkit.resources.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\nb-NO\Microsoft.Phone.Controls.Toolkit.resources.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\nl-NL\Microsoft.Phone.Controls.Toolkit.resources.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\pl-PL\Microsoft.Phone.Controls.Toolkit.resources.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\pt-BR\Microsoft.Phone.Controls.Toolkit.resources.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\pt-PT\Microsoft.Phone.Controls.Toolkit.resources.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\ro-RO\Microsoft.Phone.Controls.Toolkit.resources.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\ru-RU\Microsoft.Phone.Controls.Toolkit.resources.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\sk-SK\Microsoft.Phone.Controls.Toolkit.resources.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\sl-SI\Microsoft.Phone.Controls.Toolkit.resources.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\sq-AL\Microsoft.Phone.Controls.Toolkit.resources.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\sr-Latn-CS\Microsoft.Phone.Controls.Toolkit.resources.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\sv-SE\Microsoft.Phone.Controls.Toolkit.resources.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\th-TH\Microsoft.Phone.Controls.Toolkit.resources.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\tr-TR\Microsoft.Phone.Controls.Toolkit.resources.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\uk-UA\Microsoft.Phone.Controls.Toolkit.resources.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\uz-Latn-UZ\Microsoft.Phone.Controls.Toolkit.resources.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\vi-VN\Microsoft.Phone.Controls.Toolkit.resources.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\zh-CN\Microsoft.Phone.Controls.Toolkit.resources.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\Bin\Debug\zh-TW\Microsoft.Phone.Controls.Toolkit.resources.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\obj\Debug\Plastisoft.csprojResolveAssemblyReference.cache
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\obj\Debug\App.g.cs
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\obj\Debug\MainPage.g.cs
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\obj\Debug\Views\Empleado\crear.g.cs
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\obj\Debug\Views\Utils\VerImagen.g.cs
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\obj\Debug\Plastisoft.g.resources
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\obj\Debug\Plastisoft.Resources.AppResources.resources
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\obj\Debug\Plastisoft.csproj.GenerateResource.Cache
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\obj\Debug\Plastisoft.dll
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\obj\Debug\Plastisoft.pdb
+D:\documentos\Visual Studio 2013\Projects\Plastisoft WP\Plastisoft\obj\Debug\XapCacheFile.xml
