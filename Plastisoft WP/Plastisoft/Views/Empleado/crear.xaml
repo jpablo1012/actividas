@@ -1,0 +1,101 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="Plastisoft.Views.Empleado.crear"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True"
+    shell:SystemTray.ForegroundColor="#FFD3362D"
+    shell:SystemTray.BackgroundColor="#f2f2f2"
+    shell:SystemTray.Opacity="0">
+
+    <!--LayoutRoot es la cuadrícula raíz donde se coloca todo el contenido de la página-->
+    <Grid x:Name="LayoutRoot" Background="#f2f2f2">
+        <!--Control Pivot-->
+        <phone:Pivot>
+            
+            <!--<phone:Pivot.Title>
+                <TextBlock Text="{Binding LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}" 
+                           FontFamily="/Fonts/BRUSHSCI.TTF#Brush Script MT" 
+                           Foreground="#FFD3362D" 
+                           Margin="0,0,0,0" 
+                           FontSize="28"></TextBlock>
+            </phone:Pivot.Title>-->
+            
+            <!--Elemento Pivot uno-->
+            
+            <phone:PivotItem Header="crear empleado">
+                <ScrollViewer>
+                    <StackPanel Margin="15,0,0,0">
+                        
+                        <TextBlock Text="Foto" Style="{StaticResource lbl}"/>
+                        <Grid Margin="0,0,0,10">
+                            <Border Style="{StaticResource borderImage}">
+                                <Image x:Name="imgEmpleado" Style="{StaticResource img180}" Tap="imgEmpleado_Tap" />
+                            </Border>
+                            
+                            <StackPanel Margin="185,0,0,0">
+                                <Button x:Name="btnElegirFoto" Style="{StaticResource btnImagen}" Tap="btnElegirFoto_Tap">Elegir foto</Button>
+                                <Button x:Name="btnTomarFoto" Style="{StaticResource btnImagen}" Tap="btnTomarFoto_Tap">Tomar foto</Button>
+                                <TextBlock x:Name="btnQuitarFoto" TextDecorations="Underline" Margin="15,5,0,0" Tap="btnQuitarFoto_Tap">Quitar</TextBlock>
+                                
+                            </StackPanel>
+                        </Grid>
+                        
+                        <toolkit:Separator Margin="0,4"></toolkit:Separator>
+                        
+                        <TextBlock Text="Nombre" Style="{StaticResource lbl}" />
+                        <toolkit:PhoneTextBox x:Name="txtNombre" Hint="Ej. Julio Roberto"></toolkit:PhoneTextBox>
+
+                        <TextBlock Text="Apellido" Style="{StaticResource lbl}" />
+                        <toolkit:PhoneTextBox x:Name="txtApellido" Hint="Ej. Zapata Avedaño"></toolkit:PhoneTextBox>
+
+                        <TextBlock Text="Cédula" Style="{StaticResource lbl}" />
+                        <toolkit:PhoneTextBox x:Name="txtCedula" InputScope="Number" Hint="Ej. 72654683"/>
+
+                        <toolkit:ListPicker Margin="2,0,12,12"
+                                            x:Name="lstpCargo">
+                            <toolkit:ListPicker.Header>
+                                <TextBlock Text="Cargo" 
+                                           Style="{StaticResource lbl}" 
+                                           Foreground="#FF1A1A1A" />
+                            </toolkit:ListPicker.Header>
+                            <toolkit:ListPickerItem Content="Administrador" />
+                            <toolkit:ListPickerItem Content="Extrusor" />
+                            <toolkit:ListPickerItem Content="Impresor" />
+                            <toolkit:ListPickerItem Content="Sellador" />
+                        </toolkit:ListPicker>
+
+                        <TextBlock Text="Contraseña" Style="{StaticResource lbl}" />
+                        <PasswordBox x:Name="pswContraseña"></PasswordBox>
+
+                        <TextBlock Text="Confirmar contraseña" Style="{StaticResource lbl}" />
+                        <PasswordBox x:Name="pswConfirmar"></PasswordBox>
+
+                    </StackPanel>
+                </ScrollViewer>
+                
+            </phone:PivotItem>
+            
+        </phone:Pivot>
+    </Grid>
+
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True" Mode="Default">
+            <shell:ApplicationBarIconButton x:Name="btnCrear" Text="Crear" IconUri="/Assets/AppBar/check.png" IsEnabled="True" />
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="Opciones" />
+                <shell:ApplicationBarMenuItem Text="Cerrar Sesión" />
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+</phone:PhoneApplicationPage>
