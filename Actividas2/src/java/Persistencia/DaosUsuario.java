@@ -49,6 +49,43 @@ public class DaosUsuario {
         }
         return ue;
     }
+    
+    public UsuarioE validarUsuario(Connection con, String cedula, String contraseña){
+        UsuarioE ue = new UsuarioE();
+        ue.setIdUsuario("-0");
+        try{
+            String sql = sqlValidarUsuario2();
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, cedula);
+            ps.setString(2, cedula);
+            ps.setString(3, contraseña);
+            
+            ResultSet rs = ps.executeQuery();
+            
+            if(rs.next()){
+                ue.setApellido(rs.getString("apellido"));
+                ue.setIdUsuario(rs.getString("idusuario"));
+                ue.setNombre(rs.getString("nombre"));
+                ue.setTipo(rs.getString("tipo"));
+                ue.setClienteCedula(rs.getString("cliente_cedula"));
+                ue.setEmpleadoCedula(rs.getString("empleado_cedula"));
+                ue.setCodigo(rs.getString("codigod"));
+                
+                return ue;
+            }
+        }catch(Exception e){
+            System.out.println("Error 11 DaosUsuario: " + e.getMessage());
+            ue.setIdUsuario("-1");
+        }finally{
+            try{
+                con.close();
+            }catch(Exception ee){
+                System.out.println("Error 12 DaosUsuario: " + ee.getMessage());
+                ue.setIdUsuario("-2");
+            }
+        }
+        return ue;
+    }
 
     public String crearUsuario(Connection con, UsuarioE ue) {
         try {
@@ -101,7 +138,7 @@ public class DaosUsuario {
 
             String clase = this.getClass().getResource("").toString();
 
-            clase = clase.replaceAll("file:/", "");
+            clase = clase.replaceAll("file:", "");
             clase = clase.replaceAll("/", "//");
             try {
                 clase = URLDecoder.decode(clase, "UTF-8");
@@ -176,7 +213,6 @@ public class DaosUsuario {
             ps.setString(4, ue.getEmpleadoCedula());
             ps.setString(5, ue.getCodigo());
             ps.setString(6, ue.getApellido());
-            System.out.println(ue.getImagen().getName() + "dsf");
             FileInputStream file = new FileInputStream(ue.getImagen());
     	    ps.setBinaryStream(7, file, (int) ue.getImagen().length());
             ps.setString(8, ue.getIdUsuario());
@@ -221,6 +257,10 @@ public class DaosUsuario {
 
     public static String sqlValidarUsuario() {
         return "select *, AES_DECRYPT(codigo, 'sadivitca') as codigod from usuario where cliente_cedula = ? or empleado_cedula=?";
+    }
+    
+    public static String sqlValidarUsuario2() {
+        return "select *, AES_DECRYPT(codigo, 'sadivitca') as codigod from usuario where (cliente_cedula = ? or empleado_cedula= ?) and AES_DECRYPT(codigo, 'sadivitca') = ?";
     }
 
     public static String sqlCrearUsuario() {

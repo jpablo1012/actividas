@@ -33,7 +33,24 @@ public class EmpleadoN {
     public ArrayList<EmpleadoE> buscarEmpleado(String variable, String valor, boolean exactamente) {
         Conexion con = new Conexion();
         Connection c = con.getCon();
-        return dao.buscarEmpleado(c, variable, valor, exactamente);
+        
+        if(buscarEmpleadoCont(variable)){
+           return dao.buscarEmpleado(c, variable, valor, exactamente);
+        }
+        
+        return null;
+    }
+    
+    private boolean buscarEmpleadoCont(String variable){
+         String[] variables = {"cedula", "nombre", "apellido", "cargo"};
+        
+        for(String s: variables){
+            if(variable.equals(s)){
+                return true;
+            }
+        }
+        
+        return false;
     }
 
     public String actualizarEmpleado(EmpleadoE ee) {
