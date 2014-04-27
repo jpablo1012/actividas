@@ -1,5 +1,5 @@
-var cl;
-var m = false;
+var cl; //Loader
+var l = 1; //For confirmation message
 cl = new CanvasLoader('canvasloader-container');
 cl.setColor('#adadad'); // default is '#000000'
 cl.setDiameter(55); // default is 40
@@ -139,47 +139,51 @@ function cli(j) {
         //}catch(e){}
     });
     $("#eliminarl").click(function() {
-        m = confirm("¿Seguro que desea eliminar este empleado?");
-        if (m) {
-            var s = $(".seleccionado").children().eq(2).text();
-            console.log(s);
-            var n = 0;
-            var cedulae, codigoe, nombree, apellidoe, cargoe, idusuarioe;
-            for (n = 0; n < j.buscar.length; n++) {
+        if (l == 1) {
+            var m = confirm("¿Seguro que desea eliminar este empleado?");
+            if (m) {
+                var s = $(".seleccionado").children().eq(2).text();
+                console.log(s);
+                var n = 0;
+                var cedulae, codigoe, nombree, apellidoe, cargoe, idusuarioe;
+                for (n = 0; n < j.buscar.length; n++) {
 
-                if (j.buscar[n].cedula == s) {
-                    cedulae = j.buscar[n].cedula;
-                    nombree = j.buscar[n].nombre;
-                    apellidoe = j.buscar[n].apellido;
-                    codigoe = j.buscar[n].codigo;
-                    cargoe = j.buscar[n].cargo;
-                    idusuarioe = j.buscar[n].IdUsuario;
+                    if (j.buscar[n].cedula == s) {
+                        cedulae = j.buscar[n].cedula;
+                        nombree = j.buscar[n].nombre;
+                        apellidoe = j.buscar[n].apellido;
+                        codigoe = j.buscar[n].codigo;
+                        cargoe = j.buscar[n].cargo;
+                        idusuarioe = j.buscar[n].IdUsuario;
+                    }
                 }
+                $.ajax({
+                    url: '/Actividas/SvlEmpleado', //indica la direccion a la cual se va a enviar la informacion
+                    type: 'POST', //establece el metodo de envio
+                    timeout: 20000, //establece el tiempo maximo de espera en milisegundos
+                    dataType: 'text', //establece el tipo de datos
+                    data: {//datos que se envian al servidor
+                        cedula: (cedulae),
+                        nombre: (nombree),
+                        apellido: (apellidoe),
+                        codigo: (codigoe),
+                        cargo: (cargoe),
+                        IdUsuario: (idusuarioe),
+                        tipo: "eliminar"
+
+                    }
+                }).done(function(responseText) {//cuando el servidor entrega una respuesta se ejecuta esta funcion anonima
+                    var k = JSON.parse(responseText); //convierte la respuesta en un JSON
+                }).fail(function() { //si el tiempo de espera se acaba ejecuta esta funcion anonima
+                    $("#mensaje").text("Error al comunicarse con el servidor");
+                });
             }
-            $.ajax({
-                url: '/Actividas/SvlEmpleado', //indica la direccion a la cual se va a enviar la informacion
-                type: 'POST', //establece el metodo de envio
-                timeout: 20000, //establece el tiempo maximo de espera en milisegundos
-                dataType: 'text', //establece el tipo de datos
-                data: {//datos que se envian al servidor
-                    cedula: (cedulae),
-                    nombre: (nombree),
-                    apellido: (apellidoe),
-                    codigo: (codigoe),
-                    cargo: (cargoe),
-                    IdUsuario: (idusuarioe),
-                    tipo: "eliminar"
-
-                }
-            }).done(function(responseText) {//cuando el servidor entrega una respuesta se ejecuta esta funcion anonima
-                var k = JSON.parse(responseText); //convierte la respuesta en un JSON
-            }).fail(function() { //si el tiempo de espera se acaba ejecuta esta funcion anonima
-                $("#mensaje").text("Error al comunicarse con el servidor");
-            });
+            l = 2;
         }
         cl.show();
         comprobar();
     });
+    l = 1;
 }
 $("#modificate").click(function() {
     cl.show();
