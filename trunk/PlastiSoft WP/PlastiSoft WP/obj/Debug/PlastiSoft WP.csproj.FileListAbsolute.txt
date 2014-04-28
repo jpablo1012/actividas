@@ -1,0 +1,37 @@
+d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\obj\Debug\App.g.i.cs
+d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\obj\Debug\App.g.cs
+d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\obj\Debug\MainView.g.i.cs
+d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\obj\Debug\MainView.g.cs
+d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\obj\Debug\XamlTypeInfo.g.cs
+d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\obj\Debug\XamlSaveStateFile.xml
+d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\bin\Debug\App.xbf
+d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\bin\Debug\MainView.xbf
+d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\bin\Debug\PlastiSoft WP.xr.xml
+d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\bin\Debug\PlastiSoft WP.exe
+d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\bin\Debug\PlastiSoft WP.pdb
+d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\bin\Debug\resources.pri
+d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\bin\Debug\AppxManifest.xml
+d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\bin\Debug\PlastiSoft WP.build.appxrecipe
+d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\obj\Debug\App.xaml
+d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\obj\Debug\MainView.xaml
+d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\obj\Debug\App.xbf
+d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\obj\Debug\MainView.xbf
+d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\obj\Debug\PlastiSoft WP.exe
+d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\obj\Debug\PlastiSoft WP.pdb
+d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\obj\Debug\priconfig.xml
+d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\obj\Debug\priconfig.xml.intermediate
+d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\obj\Debug\layout.resfiles
+d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\obj\Debug\layout.resfiles.intermediate
+d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\obj\Debug\resources.resfiles
+d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\obj\Debug\resources.resfiles.intermediate
+d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\obj\Debug\pri.resfiles
+d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\obj\Debug\pri.resfiles.intermediate
+d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\obj\Debug\qualifiers.txt
+d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\obj\Debug\qualifiers.txt.intermediate
+d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\obj\Debug\MultipleQualifiersPerDimensionFound.txt
+d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\obj\Debug\ProjectArchitectures.txt
+d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\obj\Debug\UserControls\PedidoGallery.g.i.cs
+d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\obj\Debug\UserControls\PedidoGallery.g.cs
+d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\bin\Debug\UserControls\PedidoGallery.xbf
+d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\obj\Debug\UserControls\PedidoGallery.xaml
+d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\obj\Debug\UserControls\PedidoGallery.xbf
