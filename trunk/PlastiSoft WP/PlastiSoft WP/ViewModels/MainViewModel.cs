@@ -11,23 +11,16 @@ namespace PlastiSoft_WP.ViewModels
 {
     public class MainViewModel
     {
+        public int usuario { get; set; }
         public AppBarFlyoutViewModel barraInferior { get; set; }
         public ListaPedidoViewModel ListaPedido { get; set; }
 
         public MainViewModel()
         {
+            usuario = 0;
             barraInferior = new AppBarFlyoutViewModel();
+            barraInferior.Usuario = usuario;
             ListaPedido = new ListaPedidoViewModel();
-        }
-
-        public void item_crear_tap(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
-        {
-            Debug.WriteLine(sender);
-        }
-
-        internal void item_buscar_tap(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
-        {
-            throw new NotImplementedException();
         }
 
         internal void llenarCrear(object sender, object e)
@@ -42,7 +35,7 @@ namespace PlastiSoft_WP.ViewModels
                 flyout.ItemsSource = lista;
             }
 
-            
+
         }
 
         internal void llenarBuscar(object sender, object e)
@@ -57,5 +50,6 @@ namespace PlastiSoft_WP.ViewModels
                 flyout.ItemsSource = lista;
             }
         }
+
     }
 }

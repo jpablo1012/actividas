@@ -13,9 +13,10 @@ namespace PlastiSoft_WP.ViewModels.Utils
     {
         private int _usuario = 0;
 
-        public int MyProperty
+        public int Usuario
         {
             set { _usuario = value; }
+            get { return _usuario; }
         }
         
 

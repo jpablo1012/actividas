@@ -10,19 +10,25 @@ namespace PlastiSoft_WP.Services
     public class Spedido
     {
         private string[] estado = {"pendiente", "rechazado", "en extrusíon", "en impresión", "en extrusión", "finalizado"};
+        private int id = 1000;
         public List<Pedido> getPedidos(int count = 10)
         {
             var lista = new List<Pedido>();
             var random = new Random();
             for (int i = 0; i < count; i++)
             {
-                var pedido = new Pedido();
-                pedido.numeroPedido = random.Next(1000);
-                pedido.cliente_cedula = (random.Next() * 999999999) + "";
-                pedido.fecha_creacion = RandomDay();
-                pedido.estado = estado[random.Next(estado.Length)];
+                if (id >= 0)
+                {
+                    var pedido = new Pedido();
+                    pedido.numeroPedido = id;
+                    pedido.cliente_cedula = (random.Next() * 999999999) + "";
+                    pedido.fecha_creacion = RandomDay();
+                    pedido.estado = estado[random.Next(estado.Length)];
 
-                lista.Add(pedido);
+                    lista.Add(pedido);
+
+                    id--;
+                }
             }
 
             return lista;

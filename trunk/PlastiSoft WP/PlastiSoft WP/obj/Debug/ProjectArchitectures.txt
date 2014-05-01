@@ -1,1 +1,1 @@
-d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\PlastiSoft WP.csproj;neutral
+D:\actividas\PlastiSoft WP\PlastiSoft WP\PlastiSoft WP.csproj;neutral

@@ -21,7 +21,10 @@ Assets\WideLogo.scale-100.png
 Assets\WideLogo.scale-140.png
 Assets\WideLogo.scale-240.png
 App.xbf
-MainView.xbf
 PlastiSoft WP.xr.xml
 UserControls\PedidoGallery.xbf
+Views\Cliente\CrearClienteView.xbf
+Views\Empleado\CrearEmpleadoView.xbf
+Views\MainView.xbf
+Views\Utils\VerImagen.xbf
 Common\ReadMe.txt
