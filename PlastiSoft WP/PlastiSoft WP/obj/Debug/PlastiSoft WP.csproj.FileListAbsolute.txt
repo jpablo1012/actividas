@@ -35,3 +35,55 @@ d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\obj\Debug\
 d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\bin\Debug\UserControls\PedidoGallery.xbf
 d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\obj\Debug\UserControls\PedidoGallery.xaml
 d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\obj\Debug\UserControls\PedidoGallery.xbf
+D:\actividas\PlastiSoft WP\PlastiSoft WP\obj\Debug\App.g.i.cs
+D:\actividas\PlastiSoft WP\PlastiSoft WP\obj\Debug\App.g.cs
+D:\actividas\PlastiSoft WP\PlastiSoft WP\obj\Debug\UserControls\PedidoGallery.g.i.cs
+D:\actividas\PlastiSoft WP\PlastiSoft WP\obj\Debug\UserControls\PedidoGallery.g.cs
+D:\actividas\PlastiSoft WP\PlastiSoft WP\obj\Debug\Views\MainView.g.i.cs
+D:\actividas\PlastiSoft WP\PlastiSoft WP\obj\Debug\Views\MainView.g.cs
+D:\actividas\PlastiSoft WP\PlastiSoft WP\obj\Debug\XamlTypeInfo.g.cs
+D:\actividas\PlastiSoft WP\PlastiSoft WP\obj\Debug\App.xaml
+D:\actividas\PlastiSoft WP\PlastiSoft WP\obj\Debug\UserControls\PedidoGallery.xaml
+D:\actividas\PlastiSoft WP\PlastiSoft WP\obj\Debug\Views\MainView.xaml
+D:\actividas\PlastiSoft WP\PlastiSoft WP\obj\Debug\App.xbf
+D:\actividas\PlastiSoft WP\PlastiSoft WP\obj\Debug\UserControls\PedidoGallery.xbf
+D:\actividas\PlastiSoft WP\PlastiSoft WP\obj\Debug\Views\MainView.xbf
+D:\actividas\PlastiSoft WP\PlastiSoft WP\obj\Debug\XamlSaveStateFile.xml
+D:\actividas\PlastiSoft WP\PlastiSoft WP\obj\Debug\PlastiSoft WP.exe
+D:\actividas\PlastiSoft WP\PlastiSoft WP\obj\Debug\PlastiSoft WP.pdb
+D:\actividas\PlastiSoft WP\PlastiSoft WP\bin\Debug\App.xbf
+D:\actividas\PlastiSoft WP\PlastiSoft WP\bin\Debug\UserControls\PedidoGallery.xbf
+D:\actividas\PlastiSoft WP\PlastiSoft WP\bin\Debug\Views\MainView.xbf
+D:\actividas\PlastiSoft WP\PlastiSoft WP\bin\Debug\PlastiSoft WP.xr.xml
+D:\actividas\PlastiSoft WP\PlastiSoft WP\bin\Debug\PlastiSoft WP.exe
+D:\actividas\PlastiSoft WP\PlastiSoft WP\bin\Debug\PlastiSoft WP.pdb
+D:\actividas\PlastiSoft WP\PlastiSoft WP\bin\Debug\resources.pri
+D:\actividas\PlastiSoft WP\PlastiSoft WP\bin\Debug\AppxManifest.xml
+D:\actividas\PlastiSoft WP\PlastiSoft WP\bin\Debug\PlastiSoft WP.build.appxrecipe
+D:\actividas\PlastiSoft WP\PlastiSoft WP\obj\Debug\priconfig.xml
+D:\actividas\PlastiSoft WP\PlastiSoft WP\obj\Debug\priconfig.xml.intermediate
+D:\actividas\PlastiSoft WP\PlastiSoft WP\obj\Debug\layout.resfiles
+D:\actividas\PlastiSoft WP\PlastiSoft WP\obj\Debug\layout.resfiles.intermediate
+D:\actividas\PlastiSoft WP\PlastiSoft WP\obj\Debug\resources.resfiles
+D:\actividas\PlastiSoft WP\PlastiSoft WP\obj\Debug\resources.resfiles.intermediate
+D:\actividas\PlastiSoft WP\PlastiSoft WP\obj\Debug\pri.resfiles
+D:\actividas\PlastiSoft WP\PlastiSoft WP\obj\Debug\pri.resfiles.intermediate
+D:\actividas\PlastiSoft WP\PlastiSoft WP\obj\Debug\qualifiers.txt
+D:\actividas\PlastiSoft WP\PlastiSoft WP\obj\Debug\qualifiers.txt.intermediate
+D:\actividas\PlastiSoft WP\PlastiSoft WP\obj\Debug\MultipleQualifiersPerDimensionFound.txt
+D:\actividas\PlastiSoft WP\PlastiSoft WP\obj\Debug\ProjectArchitectures.txt
+D:\actividas\PlastiSoft WP\PlastiSoft WP\bin\Debug\Views\Empleado\CrearEmpleadoView.xbf
+D:\actividas\PlastiSoft WP\PlastiSoft WP\obj\Debug\Views\Empleado\CrearEmpleadoView.g.i.cs
+D:\actividas\PlastiSoft WP\PlastiSoft WP\obj\Debug\Views\Empleado\CrearEmpleadoView.g.cs
+D:\actividas\PlastiSoft WP\PlastiSoft WP\obj\Debug\Views\Empleado\CrearEmpleadoView.xaml
+D:\actividas\PlastiSoft WP\PlastiSoft WP\obj\Debug\Views\Empleado\CrearEmpleadoView.xbf
+D:\actividas\PlastiSoft WP\PlastiSoft WP\bin\Debug\Views\Utils\VerImagen.xbf
+D:\actividas\PlastiSoft WP\PlastiSoft WP\obj\Debug\Views\Utils\VerImagen.g.i.cs
+D:\actividas\PlastiSoft WP\PlastiSoft WP\obj\Debug\Views\Utils\VerImagen.g.cs
+D:\actividas\PlastiSoft WP\PlastiSoft WP\obj\Debug\Views\Utils\VerImagen.xaml
+D:\actividas\PlastiSoft WP\PlastiSoft WP\obj\Debug\Views\Utils\VerImagen.xbf
+D:\actividas\PlastiSoft WP\PlastiSoft WP\bin\Debug\Views\Cliente\CrearClienteView.xbf
+D:\actividas\PlastiSoft WP\PlastiSoft WP\obj\Debug\Views\Cliente\CrearClienteView.g.i.cs
+D:\actividas\PlastiSoft WP\PlastiSoft WP\obj\Debug\Views\Cliente\CrearClienteView.g.cs
+D:\actividas\PlastiSoft WP\PlastiSoft WP\obj\Debug\Views\Cliente\CrearClienteView.xaml
+D:\actividas\PlastiSoft WP\PlastiSoft WP\obj\Debug\Views\Cliente\CrearClienteView.xbf

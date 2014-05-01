@@ -7,118 +7,127 @@
     <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
     <PackageArchitecture>neutral</PackageArchitecture>
     <PackageIdentityName>55d33378-783e-409e-b99f-e5f138f0da01</PackageIdentityName>
-    <IntermediateOutputPath>d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\obj\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>D:\actividas\PlastiSoft WP\PlastiSoft WP\obj\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\bin\Debug\AppxManifest.xml">
+    <AppXManifest Include="D:\actividas\PlastiSoft WP\PlastiSoft WP\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\bin\Debug\PlastiSoft WP.exe">
+    <AppxPackagedFile Include="D:\actividas\PlastiSoft WP\PlastiSoft WP\bin\Debug\PlastiSoft WP.exe">
       <PackagePath>PlastiSoft WP.exe</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\Assets\SplashScreen.scale-100.png">
+    <AppxPackagedFile Include="D:\actividas\PlastiSoft WP\PlastiSoft WP\Assets\SplashScreen.scale-100.png">
       <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\Assets\SplashScreen.scale-140.png">
+    <AppxPackagedFile Include="D:\actividas\PlastiSoft WP\PlastiSoft WP\Assets\SplashScreen.scale-140.png">
       <PackagePath>Assets\SplashScreen.scale-140.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\Assets\SplashScreen.scale-240.png">
+    <AppxPackagedFile Include="D:\actividas\PlastiSoft WP\PlastiSoft WP\Assets\SplashScreen.scale-240.png">
       <PackagePath>Assets\SplashScreen.scale-240.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\Assets\Square150x150Logo.scale-100.png">
+    <AppxPackagedFile Include="D:\actividas\PlastiSoft WP\PlastiSoft WP\Assets\Square150x150Logo.scale-100.png">
       <PackagePath>Assets\Square150x150Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\Assets\Square150x150Logo.scale-140.png">
+    <AppxPackagedFile Include="D:\actividas\PlastiSoft WP\PlastiSoft WP\Assets\Square150x150Logo.scale-140.png">
       <PackagePath>Assets\Square150x150Logo.scale-140.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\Assets\Square150x150Logo.scale-240.png">
+    <AppxPackagedFile Include="D:\actividas\PlastiSoft WP\PlastiSoft WP\Assets\Square150x150Logo.scale-240.png">
       <PackagePath>Assets\Square150x150Logo.scale-240.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\Assets\Square44x44Logo.scale-100.png">
+    <AppxPackagedFile Include="D:\actividas\PlastiSoft WP\PlastiSoft WP\Assets\Square44x44Logo.scale-100.png">
       <PackagePath>Assets\Square44x44Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\Assets\Square44x44Logo.scale-140.png">
+    <AppxPackagedFile Include="D:\actividas\PlastiSoft WP\PlastiSoft WP\Assets\Square44x44Logo.scale-140.png">
       <PackagePath>Assets\Square44x44Logo.scale-140.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\Assets\Square44x44Logo.scale-240.png">
+    <AppxPackagedFile Include="D:\actividas\PlastiSoft WP\PlastiSoft WP\Assets\Square44x44Logo.scale-240.png">
       <PackagePath>Assets\Square44x44Logo.scale-240.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\Assets\Square71x71Logo.scale-100.png">
+    <AppxPackagedFile Include="D:\actividas\PlastiSoft WP\PlastiSoft WP\Assets\Square71x71Logo.scale-100.png">
       <PackagePath>Assets\Square71x71Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\Assets\Square71x71Logo.scale-140.png">
+    <AppxPackagedFile Include="D:\actividas\PlastiSoft WP\PlastiSoft WP\Assets\Square71x71Logo.scale-140.png">
       <PackagePath>Assets\Square71x71Logo.scale-140.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\Assets\Square71x71Logo.scale-240.png">
+    <AppxPackagedFile Include="D:\actividas\PlastiSoft WP\PlastiSoft WP\Assets\Square71x71Logo.scale-240.png">
       <PackagePath>Assets\Square71x71Logo.scale-240.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\Assets\StoreLogo.scale-100.png">
+    <AppxPackagedFile Include="D:\actividas\PlastiSoft WP\PlastiSoft WP\Assets\StoreLogo.scale-100.png">
       <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\Assets\StoreLogo.scale-140.png">
+    <AppxPackagedFile Include="D:\actividas\PlastiSoft WP\PlastiSoft WP\Assets\StoreLogo.scale-140.png">
       <PackagePath>Assets\StoreLogo.scale-140.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\Assets\StoreLogo.scale-240.png">
+    <AppxPackagedFile Include="D:\actividas\PlastiSoft WP\PlastiSoft WP\Assets\StoreLogo.scale-240.png">
       <PackagePath>Assets\StoreLogo.scale-240.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\Assets\Wide310x150Logo.scale-100.png">
+    <AppxPackagedFile Include="D:\actividas\PlastiSoft WP\PlastiSoft WP\Assets\Wide310x150Logo.scale-100.png">
       <PackagePath>Assets\Wide310x150Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\Assets\Wide310x150Logo.scale-140.png">
+    <AppxPackagedFile Include="D:\actividas\PlastiSoft WP\PlastiSoft WP\Assets\Wide310x150Logo.scale-140.png">
       <PackagePath>Assets\Wide310x150Logo.scale-140.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\Assets\Wide310x150Logo.scale-240.png">
+    <AppxPackagedFile Include="D:\actividas\PlastiSoft WP\PlastiSoft WP\Assets\Wide310x150Logo.scale-240.png">
       <PackagePath>Assets\Wide310x150Logo.scale-240.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\Assets\WideLogo.scale-100.png">
+    <AppxPackagedFile Include="D:\actividas\PlastiSoft WP\PlastiSoft WP\Assets\WideLogo.scale-100.png">
       <PackagePath>Assets\WideLogo.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\Assets\WideLogo.scale-140.png">
+    <AppxPackagedFile Include="D:\actividas\PlastiSoft WP\PlastiSoft WP\Assets\WideLogo.scale-140.png">
       <PackagePath>Assets\WideLogo.scale-140.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\Assets\WideLogo.scale-240.png">
+    <AppxPackagedFile Include="D:\actividas\PlastiSoft WP\PlastiSoft WP\Assets\WideLogo.scale-240.png">
       <PackagePath>Assets\WideLogo.scale-240.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\Common\ReadMe.txt">
+    <AppxPackagedFile Include="D:\actividas\PlastiSoft WP\PlastiSoft WP\Common\ReadMe.txt">
       <PackagePath>Common\ReadMe.txt</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\Assets\Fonts\BRUSHSCI.TTF">
+    <AppxPackagedFile Include="D:\actividas\PlastiSoft WP\PlastiSoft WP\Assets\Fonts\BRUSHSCI.TTF">
       <PackagePath>Assets\Fonts\BRUSHSCI.TTF</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\bin\Debug\App.xbf">
+    <AppxPackagedFile Include="D:\actividas\PlastiSoft WP\PlastiSoft WP\bin\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\bin\Debug\MainView.xbf">
-      <PackagePath>MainView.xbf</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\bin\Debug\UserControls\PedidoGallery.xbf">
+    <AppxPackagedFile Include="D:\actividas\PlastiSoft WP\PlastiSoft WP\bin\Debug\UserControls\PedidoGallery.xbf">
       <PackagePath>UserControls\PedidoGallery.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\bin\Debug\PlastiSoft WP.xr.xml">
+    <AppxPackagedFile Include="D:\actividas\PlastiSoft WP\PlastiSoft WP\bin\Debug\Views\Cliente\CrearClienteView.xbf">
+      <PackagePath>Views\Cliente\CrearClienteView.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\actividas\PlastiSoft WP\PlastiSoft WP\bin\Debug\Views\Empleado\CrearEmpleadoView.xbf">
+      <PackagePath>Views\Empleado\CrearEmpleadoView.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\actividas\PlastiSoft WP\PlastiSoft WP\bin\Debug\Views\MainView.xbf">
+      <PackagePath>Views\MainView.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\actividas\PlastiSoft WP\PlastiSoft WP\bin\Debug\Views\Utils\VerImagen.xbf">
+      <PackagePath>Views\Utils\VerImagen.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\actividas\PlastiSoft WP\PlastiSoft WP\bin\Debug\PlastiSoft WP.xr.xml">
       <PackagePath>PlastiSoft WP.xr.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="d:\documentos\visual studio 2013\Projects\PlastiSoft WP\PlastiSoft WP\bin\Debug\resources.pri">
+    <AppxPackagedFile Include="D:\actividas\PlastiSoft WP\PlastiSoft WP\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>
