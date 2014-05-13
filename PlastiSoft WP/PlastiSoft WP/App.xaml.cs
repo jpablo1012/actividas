@@ -38,11 +38,12 @@ namespace PlastiSoft_WP
             this.Suspending += OnSuspending;
             HardwareButtons.BackPressed += HardwareButtons_BackPressed;
             ContinuationManager = new ContinuationManager();
+
         }
 
         public static Frame RootFrame { get; private set; }
 
-        public static ContinuationManager ContinuationManager { get; set; }
+        public static ContinuationManager ContinuationManager { get; private set; }
 
         /// <summary>
         /// Handles back button press.  If app is at the root page of app, don't go back and the
@@ -156,7 +157,7 @@ namespace PlastiSoft_WP
             {
                 ContinuationManager.Continue(continuationEventArgs);
             }
-
+            ContinuationManager = new ContinuationManager();
             Window.Current.Activate();
         }
 
