@@ -118,8 +118,6 @@ namespace PlastiSoft_WP.Views.Empleado
 
         private void btnElegirImagen_Tapped(object sender, TappedRoutedEventArgs e)
         {
-
-            App.ContinuationManager = new ContinuationManager();
             var photo = new FileOpenPicker();
             photo.ViewMode = PickerViewMode.Thumbnail;
             photo.SuggestedStartLocation = PickerLocationId.PicturesLibrary;
@@ -158,6 +156,7 @@ namespace PlastiSoft_WP.Views.Empleado
 
         private void imgEmpleado_Tapped(object sender, TappedRoutedEventArgs e)
         {
+
             //if (imgEmpleado.Source != null)
             //{
 

@@ -43,16 +43,15 @@ namespace PlastiSoft_WP.Views.Cliente
 
         private void imgCliente_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            if (imgCliente.Source != null)
-            {
+            //if (imgCliente.Source != null)
+            //{
 
-                Frame.Navigate(typeof(VerImagen), imgCliente.Source);
-            }
+            //    Frame.Navigate(typeof(VerImagen), imgCliente.Source);
+            //}
         }
 
         private void btnElegirImagen_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            App.ContinuationManager = new ContinuationManager();
             var photo = new FileOpenPicker();
             photo.ViewMode = PickerViewMode.Thumbnail;
             photo.SuggestedStartLocation = PickerLocationId.PicturesLibrary;
