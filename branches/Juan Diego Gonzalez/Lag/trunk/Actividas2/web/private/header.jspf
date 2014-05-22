@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>PlastiSer S.A.</title>
+    </head>
+
+    <body>
+        <div class="main">
+            <div class="principal">
+<link href="resource/style.css" rel="stylesheet">
+        <script src="js/jquery-1.10.2.js"></script>
+        <script src="js/js-image-slider.js"></script>
+        <link href="js/js-image-slider.css" rel="stylesheet">
+        <script src="js/botones.js"></script>
+        <header class="title">
+                    <a href="index.jsp"><h1 class="logo">PlastiSer S.A.</h1></a>
+
+                    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" style="width: 100%;" height="123" id="art-flash-object">
+                        <!--[if !IE]>-->
+                        <object type="application/x-shockwave-flash" data="images/container.swf" width="900" height="150">
+                            <param name="wmode" value="transparent">
+                            <param name="flashvars" value="color1=0xFFFFFF&amp;alpha1=.50&amp;framerate1=24&amp;loop=true&amp;wmode=transparent&amp;clip=images/flash.swf&amp;radius=12&amp;clipx=0&amp;clipy=-38&amp;initalclipw=900&amp;initalcliph=225&amp;clipw=900&amp;cliph=225&amp;width=900&amp;height=123&amp;textblock_width=0&amp;textblock_align=no&amp;hasTopCorners=false&amp;hasBottomCorners=true">
+                            <param name="swfliveconnect" value="true">
+                            <!--<![endif]-->
+                            <<div class="art-flash-alt"><a href="http://www.adobe.com/go/getflashplayer"></a></div>
+                            <!--[if !IE]>-->
+                        </object>
+                        <!--<![endif]-->
+                    </object>
+                </header>

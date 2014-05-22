@@ -1,0 +1,75 @@
+﻿<Page
+    x:Class="PlastiSoft_WP.Views.Empleado.CrearEmpleadoView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PlastiSoft_WP.Views.Empleado"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid x:Name="LayoutRoot">
+
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- TitlePanel -->
+        <StackPanel Grid.Row="0" Margin="15,17,0,15">
+            <TextBlock Text="PlastiSoft" Style="{StaticResource PivotHeader}" Typography.Capitals="SmallCaps"/>
+            <TextBlock Text="crear empleado" Margin="0,12,0,0" Style="{ThemeResource PivotSectionHeader}"/>
+        </StackPanel>
+
+        <!--TODO: Content should be placed within the following grid-->
+        <Grid Grid.Row="1" x:Name="ContentRoot">
+            <ScrollViewer>
+                <StackPanel Margin="15,0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <Border Style="{StaticResource BordeImagen}">
+                            <Image x:ConnectionId='3' x:Name="imgEmpleado"  Style="{StaticResource Imagen}"                            />
+                        </Border>
+                        
+                        <StackPanel Grid.Column="1" Style="{StaticResource StackPanelImagen}">
+                            <Button x:ConnectionId='1' x:Name="btnElegirImagen" HorizontalAlignment="Stretch"                                >Elegir imagen</Button>
+                            <TextBlock x:ConnectionId='2' x:Name="btnQuitarImagen" HorizontalAlignment="Stretch"                                 Style="{StaticResource BtnQuitarImagen}">
+                                <Underline>
+                                    <Run Text="Quitar imagen"/>
+                                </Underline>
+                            </TextBlock>
+                        </StackPanel>
+                    </Grid>
+                    <TextBox x:Name="txtNombre" Header="Nombre:"/>
+                    <TextBox x:Name="txtApellido" Header="Apellido:"/>
+                    <TextBox x:Name="txtCedula" Header="Cédula:" InputScope="Number"/>
+                    <ComboBox x:Name="boxCargo" Header="Cargo:" PlaceholderText="Seleccione el cargo">
+                        <ComboBoxItem DataContext="administrador">Administrador</ComboBoxItem>
+                        <ComboBoxItem DataContext="extrusor">Extrusor</ComboBoxItem>
+                        <ComboBoxItem DataContext="impresor">Impresor</ComboBoxItem>
+                        <ComboBoxItem DataContext="sellador">Sellador</ComboBoxItem>
+                    </ComboBox>
+                    <PasswordBox x:Name="pswContraseña" Header="Contraseña:"/>
+                    <PasswordBox x:Name="pswConfirmar" Header="Confirmar contraseña"/>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+
+    <Page.BottomAppBar>
+        <CommandBar RequestedTheme="Dark">
+            <AppBarButton Label="crear" Icon="Accept"/>
+        </CommandBar>
+    </Page.BottomAppBar>
+</Page>
+
