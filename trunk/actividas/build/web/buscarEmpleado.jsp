@@ -15,6 +15,7 @@
      <script type='text/javascript' src='js/jquery.modal.js'></script>
      <script src='js/actualizarEmpleado.js'></script>
      <script src="js/modfwin.js"></script>
+     <script src="js/empleado.js"></script>
 </head>
 <body>
     <ul id='navigatione'>

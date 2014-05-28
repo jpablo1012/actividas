@@ -2,8 +2,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script src="js/botones.js"></script>
-        <script src="js/informes.js"></script>
     </head>
     <body>
         <ul id='navigatione'>
