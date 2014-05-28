@@ -10,6 +10,7 @@
         <script src='js/actualizarCliente.js'></script>
         <script src="js/buscarCliente.js"></script>
         <script src="js/modfwin.js"></script>
+        <script src="js/menu.js"></script>
     </head>
     <body>
         <ul id='navigatione'>

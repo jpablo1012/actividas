@@ -6,13 +6,8 @@
 
 <html>
     <head>
-        <script src='js/jquery.modal.js'></script>
-        <script src="js/modfwin.js"></script>
-        <script src="js/botones.js"></script>
         <script src="js/extrusion.js"></script>
-
-
-
+        <script src="js/orden.js"></script>
     </head>
     <body>
         <ul id='navigatione'>

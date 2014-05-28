@@ -10,7 +10,6 @@ $(document).ready(function() {
             s.removeClass("effectAct");
             s.addClass("effectDes");
             s.css("height", "0px");
-
         }
         return false;
     });
@@ -74,42 +73,11 @@ $(document).ready(function() {
             $("#slp").addClass("hidden");
         }
     });
-    
-    $("#bOrden").click(function() {
-        $(".info").load("buscarOrden.jsp");
-    })
-
-    $("#extru").click(function() {
-        cargarOrdenes();
-        $(".info").load("extrusion.jsp");
-    })
-
-    $("#impre").click(function() {
-        cargarOrdenesI();
-        $(".info").load("impresion.jsp");
-    })
-
-    $("#sella").click(function() {
-        cargarOrdenesS();
-        $(".info").load("sellado.jsp");
-    })
+  
 
     $("#mopa").click(function() {
         cargarOrdenes();
         $(".info").load("extrusion.jsp");
-    });
-
-    $("#buscarP").click(function() {
-        $(".info").load("buscarPedido.jsp");
-    });
-
-    $("#Pedidos").click(function() {
-        $(".info").load("crearPedido.jsp");
-    });
-
-    $("#esperaP").click(function() {
-        $(".info").load("esperaPedidos.jsp");
-        cargarPedidos();
     });
 
     $("#mpa").click(function() {
@@ -120,50 +88,12 @@ $(document).ready(function() {
         $(".info").load("introCli.jsp");
     });
 
-    $("#buscar").click(function() {
-        $(".info").load("buscarCliente.jsp");
-    });
-
-    $("#crear").click(function() {
-        $(".info").load("crearCliente.jsp");
-    });
-
     $("#mea").click(function() {
         $(".info").load("crearEmpleado.jsp");
     });
 
-    $("#crearE").click(function() {
-        $(".info").load("crearEmpleado.jsp");
-    });
-
-    $("#buscarE").click(function() {
-        $(".info").load("buscarEmpleado.jsp");
-    });
-
     $("#mmpa").click(function() {
         $(".info").load("insumos.jsp");
-    });
-
-    $("#crearM").click(function() {
-        $(".info").load("crearMaterial.jsp");
-    });
-
-    $("#crearCo").click(function() {
-        $(".info").load("crearColor.jsp");
-    });
-
-    $("#crearB").click(function() {
-        $(".info").load("crearBolsa.jsp");
-    });
-
-    $("#mcb").click(function() {
-        $(".info").load("crearBolsa.jsp");
-
-    });
-
-
-    $("#buscarI").click(function() {
-        $(".info").load("buscarInsumo.jsp");
     });
 
     $("#pmc").click(function() {
@@ -178,7 +108,6 @@ $(document).ready(function() {
         $(".info").load("informes.jsp");
     });
 });
-
 
 var bo = true;
 

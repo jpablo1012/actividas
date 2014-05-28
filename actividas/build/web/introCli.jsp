@@ -1,19 +1,19 @@
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML >
 
 <html>
     <head>
-        <script src="js/botones.js"></script>
-        <script src='js/jquery.modal.js'></script>
-        <script src='js/actualizarCliente.js'></script>
-        <script src="js/buscarCliente.js"></script>
-        <script src="js/modfwin.js"></script>
+            <script src="js/menu.js"></script>
     </head>
     <body>
+       
         <ul id='navigatione'>
-            <li id="crear"><a href='#'><p><b>Crear</b></p></a></li>
-            <li id="buscar"><a href='#'><p><b>Buscar</b></p></a></li>
+            <li>
+               <a href='#' id="crear"><p><b>Crear</b></p></a>
+            </li>
+            <li >
+                <a href='#' id="buscar"><p><b>Buscar</b></p></a>
+            </li>
         </ul>
         <div class="form2">
             <article id="contenido">

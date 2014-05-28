@@ -3,8 +3,7 @@
 <html>
 
     <head>
-        <script src="js/botones.js"></script>
-        <script src="js/crearPedido.js"></script>
+                <script src="js/pedido.js"></script>
     </head>
 
     <body>
@@ -32,7 +31,7 @@
                     <table align="center" >
                         <tr>
                             <td id="crearPedi">
-                                
+
                             </td>
                             <td style="padding: 0px 9px 0px 59px;">
                                 <span style="color:#D3362D;">*</span><label for="FEntrega">Fecha de Entrega</label>

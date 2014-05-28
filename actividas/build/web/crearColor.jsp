@@ -6,6 +6,7 @@
     <head>
         <script src="js/botones.js"></script>
         <script src="js/crearInsumos.js"></script>
+        <script src="js/insumos.js"></script>
     </head>
     <body>
         <ul id='navigatione'>

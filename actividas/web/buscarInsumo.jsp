@@ -8,6 +8,7 @@
         <script src="js/buscarInsumo.js"></script>
         <script src="js/heartcode-canvasloader-min-0.9.1.js"></script>
         <script src="js/modfwin.js"></script>
+        <script src="js/insumos.js"></script>
     </head>
     <body>
         <ul id='navigatione'>
