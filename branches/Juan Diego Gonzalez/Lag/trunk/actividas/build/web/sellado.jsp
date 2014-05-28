@@ -9,6 +9,7 @@
         <script src='js/jquery.modal.js'></script>
         <script src="js/modfwin.js"></script>
         <script src="js/botones.js"></script>
+        <script src="js/orden.js"></script>
         <script src="js/sellado.js"></script>
 
 
@@ -41,7 +42,7 @@
                     </tr>
                 </table>
                 <div id="ordenS"></div>
-                
+
                 <input id="ordends" type="button" value="" style="display: none">
                 <div id="selladoF" class="overlay"></div>
                 <div id="selladoF" class="modal" style="min-height:500px;width:750px">
@@ -72,13 +73,13 @@
 
                                 <label for="cantI" style="margin:20px 0px 0px 25px">Cantidad</label><br>
                                 <input id="cantidadI" type="number" style="margin:10px 0px 0px 26px; width:63px;" class="form" disabled><label for="TcantI" id="TcantI"></label><br>
-                                
+
                                 <label for="ret" style="margin:20px 0px 0px 25px">Retal</label><br>
                                 <input id="retalS" type="number" style="margin:10px 0px 0px 26px; width:63px" class="form" > <label for="TcantIp" id="TcantIp">Kg</label><br>
 
                                 <label for="bolsasSe" style="margin:20px 0px 0px 25px">Bolsas selladas</label><br>
                                 <input id="bolsasSell" type="number" style="margin:10px 0px 0px 26px; width:63px" class="form" >
-            
+
                                 <div id="imagen"></div>
 
                             </div>

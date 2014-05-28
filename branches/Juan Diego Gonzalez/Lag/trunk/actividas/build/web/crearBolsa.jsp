@@ -9,7 +9,7 @@
         <script src="js/jquery-1.10.2.js"></script>
         <script src="js/jquery.cookie.js"></script>
         <script src="js/jquery-ui.js"></script>
-
+        <script src="js/insumos.js"></script>
         <script src="js/upload.js"></script>
         <script src="js/crearInsumos.js"></script>
         <script src="js/graficos.js"></script>

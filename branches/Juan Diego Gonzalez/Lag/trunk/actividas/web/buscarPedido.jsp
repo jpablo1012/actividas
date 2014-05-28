@@ -9,6 +9,7 @@
         <script src='js/jquery.modal.js'></script>
         <script src='js/buscarPedido.js'></script>
         <script src="js/modfwin.js"></script>
+        <script src="js/pedido.js"></script>
         <script src="js/esperaPedido.js"></script>
         <script src="js/botones.js"></script>
         

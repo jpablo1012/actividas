@@ -10,6 +10,7 @@
         <script src='js/buscarOrden.js'></script>
         <script src="js/modfwin.js"></script>
         <script src="js/botones.js"></script>
+        <script src="js/orden.js"></script>
         
     </head>
     <body>
