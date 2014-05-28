@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        
         <meta content="text/html" charset="utf-8" />
         <meta charset="utf-8">
         <title>PlastiSer S.A.</title>
@@ -10,13 +11,13 @@
         <script src="js/jquery-ui.js"></script>
         <script src="js/js-image-slider.js"></script>
         <link href="js/js-image-slider.css" rel="stylesheet">
-
+        
         <style>
             .toggler { width: 250px; height: 100px;top:145px;left:684px;padding:0 0 0 0; position:absolute}
             #effect { width: 240px; height: 135px; padding: 5.4px 4px 4px 0px; position: relative; }
             #effect h3 { margin: 0; padding: 0.4em; text-align: center; }
         </style>
-
+        
     </head>
 
     <body>
@@ -101,8 +102,8 @@
         </div>
     </body>
     <script src="js/sesion.js"></script>
-    <script src="js/botones.js"></script>
-    <script src="js/autentificar.js"></script>
+        <script src="js/botones.js"></script>
+        <script src="js/autentificar.js"></script>
     <script>
         var bo = true;
 
@@ -123,4 +124,5 @@
             }
         }
     </script>
+    
 </html>
