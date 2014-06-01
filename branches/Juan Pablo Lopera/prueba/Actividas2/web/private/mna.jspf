@@ -1,0 +1,4 @@
+
+<div class="menubar">
+    <ul class="art-hmenu" id="barra"><li><a href="#" id="mmpa">Insumos</a></li><li><a href="#" id="mpa">Pedidos</a></li><li><a href="#" id="mia">Informes</a></li><li><a href="#" id="mopa">Ordenes de producción</a></li><li><a href="#" id="mea">Empleados</a></li><li><a href="#" id="mca">Clientes</a></li><li><a href="#" id="cerrar">Cerrar sesión</a></li></ul>
+</div>
