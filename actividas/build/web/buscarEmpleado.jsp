@@ -1,12 +1,21 @@
-<%-- 
-    Document   : buscarEmpleado
-    Created on : 1/09/2013, 03:58:11 PM
-    Author     : Oscar
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.net.URLDecoder"%>
+<%@page import="Controlador.AES"%>
 <!DOCTYPE HTML >
-
+<%@page contentType="java"%>
+<%
+    AES b = new AES();
+    b.setKey("actividas");
+    Cookie [] cok = null;
+    cok = request.getCookies();
+    String val = cok[4].getValue();
+    try {
+	    val = URLDecoder.decode(val, "UTF-8");
+	} catch (Exception e1) {
+	}
+    System.out.print(val);
+    b.decrypt(val);
+    if(b.getDecryptedString().equals("validado")){   
+%>
 <html>
 <head>
      <script src="js/botones.js"></script>
@@ -32,7 +41,7 @@
                     <input type="text" id="search" class="form" style="width:420px;height:28px" required/>
                     <select id="buscarCon" class="form" style="height:28px">
                       <option value="ninguno">-Seleccionar-
-                      <option value="cedula">CÃ©dula
+                      <option value="cedula">Cédula
                       <option value="nombre">Nombre
                       <option value="apellido">Apellido
                       <option value="cargo">Cargo
@@ -95,8 +104,8 @@
                                 <tr>
                                     <td>
                                         <label for="codigom">C&oacute;digo</label><br>
-                                        <input type="password" class="formM" id="codigom" name="codigo" style="width:100px" placeholder="ContraseÃ±a" required/>
-                                        <input type="password" class="formM" id="conCodigo" name="concodigo" style="width:100px" placeholder="Confirmar contraseÃ±a"/>
+                                        <input type="password" class="formM" id="codigom" name="codigo" style="width:100px" placeholder="Contraseña" required/>
+                                        <input type="password" class="formM" id="conCodigo" name="concodigo" style="width:100px" placeholder="Confirmar contraseña"/>
                                     </td>
                                     <td>
 
@@ -139,3 +148,7 @@
                </form>
 </body>
 </html>
+<%}else{
+    
+}
+%>

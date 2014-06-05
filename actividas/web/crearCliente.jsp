@@ -1,12 +1,21 @@
- <%--
-    Document   : crearCliente
-    Created on : 21/08/2013, 07:35:46 AM
-    Author     : Usuario
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+ <%@page import="java.net.URLDecoder"%>
+<%@page import="Controlador.AES"%>
 <!DOCTYPE HTML >
-
+<%@page contentType="java"%>
+<%
+    AES b = new AES();
+    b.setKey("actividas");
+    Cookie [] cok = null;
+    cok = request.getCookies();
+    String val = cok[4].getValue();
+    try {
+	    val = URLDecoder.decode(val, "UTF-8");
+	} catch (Exception e1) {
+	}
+    System.out.print(val);
+    b.decrypt(val);
+    if(b.getDecryptedString().equals("validado")){   
+%>
 <html>
     <head>
         <script src="js/menu.js"></script>
@@ -42,9 +51,9 @@
                             <td></td>
                         </tr>
                         <tr>
-                            <td><label for="codigo"><span style="color:#D3362D;">*</span>ContraseÃ±a</label><br>
-                                <input type="password" class="form" id="codigof" name="codigo" style="width:100px" placeholder="ContraseÃ±a" required/>
-                                <input type="password" class="form" id="conCodigo" name="concodigo" style="width:100px" placeholder="Confirmar contraseÃ±a" required/>
+                            <td><label for="codigo"><span style="color:#D3362D;">*</span>Contraseña</label><br>
+                                <input type="password" class="form" id="codigof" name="codigo" style="width:100px" placeholder="Contraseña" required/>
+                                <input type="password" class="form" id="conCodigo" name="concodigo" style="width:100px" placeholder="Confirmar contraseña" required/>
                             </td>
                         </tr>
                         <tr>
@@ -101,3 +110,7 @@
 
     </body>
 </html>
+<%}else{
+    
+}
+%>
