@@ -51,32 +51,40 @@ public class SvlAutentificacion extends HttpServlet {
     }
 
     public String validarIngreso(UsuarioE em,String co){
+        AES a = new AES();
+        a.setKey("actividas");
+        String word = "validado";
+        String name;
         String s="";
         if(em!=null){//si em es igual a null devuelve un mensaje de error
             if(!(em.getNombre().equals("No existe"))){ //si el usuario no existe devuelve un mensaje de error
                 if(co.equals(em.getCodigo())){
                     //si la contraseña es igual devuelve los datos de cargo, nombre y cedula a la pagina web
                     if(em.getClienteCedula()!=null){
-                        s = json(em.getTipo(),em.getNombre(),em.getClienteCedula(),"");
+                        a.encrypt(word);
+                        name = a.getEncryptedString();
+                        s = json(em.getTipo(), em.getNombre(),em.getClienteCedula(), name ,"");
                     }else{
-                        s = json(em.getTipo(),em.getNombre(),em.getEmpleadoCedula(),"");
+                        a.encrypt(word);
+                        name = a.getEncryptedString();
+                        s = json(em.getTipo(),em.getNombre(),em.getEmpleadoCedula(), name,"");
                     }
                 }else{
                     //si la contraseña no es igual devuelve un mensaje de error
-                    s = json("","","","Cédula o código incorrectos");
+                    s = json("","","","","Cédula o código incorrectos");
                 }
             }else{
-                s = json("","","","Cédula o código incorrectos");
+                s = json("","","","","Cédula o código incorrectos");
             }
         }else{
-            s = json("","","","Error con la base de datos");
+            s = json("","","","","Error con la base de datos");
         }
     return s;
     }
 
-    public String json(String tipo,String nombre,String cedula,String mensaje){
+    public String json(String tipo,String nombre,String cedula, String real,String mensaje){
         // devuelve un String con el tipo de usuario, nombre y cedula
-        return "{\"tipo\":\""+tipo+"\",\"nombre\":\""+nombre+"\",\"cedula\":\""+cedula+"\",\"mensaje\":\""+mensaje+"\"}";
+        return "{\"tipo\":\""+tipo+"\",\"nombre\":\""+nombre+"\",\"cedula\":\""+cedula+"\",\"real\":\""+real+"\",\"mensaje\":\""+mensaje+"\"}";
 }
     
 

@@ -3,6 +3,7 @@
 var cedula;
 var tipo;
 var nombre;
+var real;
 var ul;
 
 //3 JSON con cada menu correspondiente al tipo de usuario
@@ -34,6 +35,7 @@ function sesion(){
    cedula = $.cookie('cedula');
     tipo = $.cookie('tipo');
     nombre = $.cookie('nombre');
+    real = $.cookie('real');
       //tipo = sessionStorage.tipo;
       //nombre = sessionStorage.nombre;
       //cedula = sessionStorage.cedula;
@@ -91,6 +93,7 @@ function cerrar(){
     $.cookie('cedula',null);
     $.cookie('tipo',null);
     $.cookie('nombre',null);
+    $.cookie('real',null);
       //sessionStorage.clear();
 
     window.location="index.jsp";

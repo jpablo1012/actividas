@@ -1,9 +1,21 @@
-
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-   "http://www.w3.org/TR/html4/loose.dtd">
-
+<%@page import="java.net.URLDecoder"%>
+<%@page import="Controlador.AES"%>
+<!DOCTYPE HTML >
+<%@page contentType="java"%>
+<%
+    AES b = new AES();
+    b.setKey("actividas");
+    Cookie [] cok = null;
+    cok = request.getCookies();
+    String val = cok[4].getValue();
+    try {
+	    val = URLDecoder.decode(val, "UTF-8");
+	} catch (Exception e1) {
+	}
+    System.out.print(val);
+    b.decrypt(val);
+    if(b.getDecryptedString().equals("validado")){   
+%>
 <html>
     <head>
         <script src='js/jquery.modal.js'></script>
@@ -15,8 +27,8 @@
     </head>
     <body>
         <ul id='navigatione'>
-            <li id="extru"><a href='#'><p><b>ExtrusiÃ³n</b></p></a></li>
-            <li id="impre"><a href='#'><p><b>ImpresiÃ³n</b></p></a></li>
+            <li id="extru"><a href='#'><p><b>Extrusión</b></p></a></li>
+            <li id="impre"><a href='#'><p><b>Impresión</b></p></a></li>
             <li id="sella"><a href='#'><p><b>Sellado</b></p></a></li>
             <li id="bOrden"><a href='#'><p><b>Buscar</b></p></a></li>
         </ul>
@@ -80,7 +92,7 @@
                                         <label for="nombrem" style="margin:20px 0px 0px 25px">Nombre</label><br>
                                         <input type="text" class="form" id="nombrem" style="width:150px;margin:10px 0px 0px 25px" placeholder=" Nombre" disabled="disbled" /><br>
 
-                                         <label for="fechaRe" style="margin:20px 0px 0px 25px">Fecha de creaciÃ³n</label><br>
+                                         <label for="fechaRe" style="margin:20px 0px 0px 25px">Fecha de creación</label><br>
                                         <input type="date" class="form" id="fechaCre" name="fechaCre" style="width:130px;margin:10px 0px 0px 26px"  disabled="disbled"/><br>
 
                                         <label for="fechaEn" style="margin:20px 0px 0px 25px">Fecha de entrega</label><br>
@@ -116,3 +128,7 @@
                </form>
     </body>
 </html>
+<%}else{
+    
+}
+%>

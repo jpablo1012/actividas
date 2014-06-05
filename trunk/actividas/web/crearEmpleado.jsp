@@ -1,13 +1,21 @@
-<%--
-    Document   : crearEmpleado
-    Created on : 16/01/1980, 05:10:36 PM
-    Author     : Usuario
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
-
+<%@page import="java.net.URLDecoder"%>
+<%@page import="Controlador.AES"%>
+<!DOCTYPE HTML >
+<%@page contentType="java"%>
+<%
+    AES b = new AES();
+    b.setKey("actividas");
+    Cookie [] cok = null;
+    cok = request.getCookies();
+    String val = cok[4].getValue();
+    try {
+	    val = URLDecoder.decode(val, "UTF-8");
+	} catch (Exception e1) {
+	}
+    System.out.print(val);
+    b.decrypt(val);
+    if(b.getDecryptedString().equals("validado")){   
+%>
 <html>
     <head>
         <script src="js/empleado.js"></script>
@@ -51,9 +59,9 @@
                             <td></td>
                         </tr>
                         <tr>
-                            <td><label for="Codigo"><span style="color:#D3362D;">*</span>ContraseÃ±a</label><br>
-                                <input type="password" id="Codigo" class="form" placeholder="ContraseÃ±a" required>
-                            <input type="password" id="ConCodigo" class="form" placeholder="Confirmar contraseÃ±a" required></td>
+                            <td><label for="Codigo"><span style="color:#D3362D;">*</span>Contraseña</label><br>
+                                <input type="password" id="Codigo" class="form" placeholder="Contraseña" required>
+                            <input type="password" id="ConCodigo" class="form" placeholder="Confirmar contraseña" required></td>
                         </tr>
                         <tr>
                             <td colspan="2"></td>
@@ -79,3 +87,7 @@
         <script src="js/crearEmpleado.js"></script>
     </body>
 </html>
+<%}else{
+    
+}
+%>
