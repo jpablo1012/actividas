@@ -245,7 +245,7 @@ public class BuscarCliente implements MouseListener, KeyListener {
                         String s = new UsuarioN().eliminarUsuario(alue.get(0).getIdUsuario());
 
                         if (s.equals("")) {
-                            s = new ClienteN().eliminarCliente(this.ce.get(i).getCedula());
+                            s = new ClienteN().eliminarCliente((String) this.ce.get(i).getCedula());
 
                             if (s.equals("")) {
                                 buscar();

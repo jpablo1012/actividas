@@ -14,7 +14,9 @@ import Utilidades.Conexion;
 public class ClienteN {
 
     public DaosCliente dao;
-
+    public static ClienteE head = null;
+    
+    
     public ClienteN() {
         dao = new DaosCliente();
     }
