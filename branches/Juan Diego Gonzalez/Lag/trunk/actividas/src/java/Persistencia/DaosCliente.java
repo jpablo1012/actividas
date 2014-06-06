@@ -1,7 +1,7 @@
 package Persistencia;
 
 import Entidades.ClienteE;
-
+import Entidades.List;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -35,6 +35,45 @@ public class DaosCliente {
             }
         }
         return "";
+    }
+    
+    public List<ClienteE> fillList(Connection con, String variable, String valor, boolean exactamente) {
+        List<ClienteE> alce = new List();
+        try {
+            String sql = sqlBuscarCliente(variable);
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            if (exactamente) {
+                ps.setString(1, valor);
+            } else {
+                ps.setString(1, valor + "%");
+            }
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+            	ClienteE ce = new ClienteE();
+                ce.setApellido(rs.getString("apellido"));
+                ce.setCedula(rs.getString("cedula"));
+                ce.setCorreo(rs.getString("email"));
+                ce.setDireccion(rs.getString("direccion"));
+                ce.setNombre(rs.getString("nombre"));
+                ce.setTelefono(rs.getString("telefono"));
+                ce.setCiudad(rs.getString("ciudad"));
+                
+                alce.add(ce);
+            }
+        } catch (Exception e) {
+            System.out.println("Error 03 DaosEmpleado: " + e.getMessage());
+            return alce;
+        } finally {
+            try {
+                con.close();
+            } catch (Exception e) {
+                System.out.println("Error 04 DaosUsuario: " + e.getMessage());
+                return null;
+            }
+        }
+        return alce;
     }
 
     public ArrayList<ClienteE> buscarCliente(Connection con, String variable, String valor, boolean exactamente) {
