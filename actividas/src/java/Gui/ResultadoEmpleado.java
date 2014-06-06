@@ -107,7 +107,7 @@ public class ResultadoEmpleado implements MouseListener {
         usua.add(lblConfirmar);
 
         lblObligatorio = new ALabel("<html><body><b " + style + ">*</b>Campo obligatorio</body></html>");
-        lblObligatorio.setBounds(315, 20, 120, 24);
+        lblObligatorio.setBounds(315, 40, 120, 24);
         panel.add(lblObligatorio);
 
         msjNombre = new ALabel("");
