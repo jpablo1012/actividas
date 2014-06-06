@@ -12,7 +12,6 @@
 	    val = URLDecoder.decode(val, "UTF-8");
 	} catch (Exception e1) {
 	}
-    System.out.print(val);
     b.decrypt(val);
     if(b.getDecryptedString().equals("validado")){   
 %>
