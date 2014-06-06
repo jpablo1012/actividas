@@ -44,6 +44,7 @@ public class CAPedido implements MouseListener {
     ALabel lblImpresion;
     ALabel lblSellado;
     ALabel lblCedulaCliente;
+    ALabel lblObligatorio;
 
     ASpinner spnCantidad;
 
@@ -86,8 +87,13 @@ public class CAPedido implements MouseListener {
         panel.setTitulo("Pedidos| Crear");
 
         pedido = new AContainer("Pedido");
-        pedido.setBounds(60, 48, 630, 273);
+        pedido.setBounds(60, 68, 630, 273);
         panel.add(pedido);
+        
+        lblObligatorio = new ALabel("<html><body><b " + style + ">*</b>Campo obligatorio</body></html>");
+        lblObligatorio.setHorizontalAlignment(SwingConstants.RIGHT);
+        lblObligatorio.setBounds(319, 40, 112, 24);
+        panel.add(lblObligatorio);
 
         lblFechaEntrega = new ALabel("<html><body><b " + style + ">*</b>Fecha de entrega:</body></html>");
         lblFechaEntrega.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -173,7 +179,7 @@ public class CAPedido implements MouseListener {
         pedido.add(msjReferencia);
 
         procesos = new AContainer("Procesos");
-        procesos.setBounds(124, 332, 500, 158);
+        procesos.setBounds(124, 352, 500, 148);
         panel.add(procesos);
 
         lblExtrusion = new ALabel("<html><body><b " + style + ">*</b>Extrusi\u00F3n:</body></html>");

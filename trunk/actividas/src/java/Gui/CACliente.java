@@ -78,11 +78,11 @@ public class CACliente implements MouseListener {
         panel.setTitulo("Cliente| Crear");
 
         clie = new AContainer("Cliente");
-        clie.setBounds(110, 51, 530, 251);
+        clie.setBounds(110, 71, 530, 241);
         panel.add(clie);
 
         lblObligatorio = new ALabel("<html><body><b " + style + ">*</b> Campo obligatorio</body></html>");
-        lblObligatorio.setBounds(315, 20, 120, 24);
+        lblObligatorio.setBounds(315, 40, 120, 24);
         panel.add(lblObligatorio);
 
         /*lblCliente = new ALabel("Cliente| Crear");
@@ -92,7 +92,7 @@ public class CACliente implements MouseListener {
         panel.add(lblCliente);*/
 
         usua = new AContainer("Usuario");
-        usua.setBounds(110, 322, 530, 160);
+        usua.setBounds(110, 322, 530, 150);
         panel.add(usua);
 
         lblbnombre = new ALabel("<html><body><b " + style + ">*</b>Nombre:</body></html>");
@@ -165,7 +165,7 @@ public class CACliente implements MouseListener {
         clie.add(msjCorreo);
 
         msjCiudad = new ALabel("");
-        msjCiudad.setBounds(117, 219, 120, 20);
+        msjCiudad.setBounds(257, 195, 199, 24);
         clie.add(msjCiudad);
 
         msjCodigo = new ALabel("");

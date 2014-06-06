@@ -113,6 +113,11 @@ public class CABolsa implements MouseListener, ItemListener, ChangeListener {
     public CABolsa() {
 	panel = new APanel(Main.x, 0, 750, 600);
 	panel.setTitulo("Insumos| Crear bolsa");
+	
+	lblObligatorio = new ALabel("<html><body><b " + style + ">*</b>Campo obligatorio</body></html>");
+    lblObligatorio.setHorizontalAlignment(SwingConstants.RIGHT);
+    lblObligatorio.setBounds(319, 40, 112, 24);
+    panel.add(lblObligatorio);
 
 	btnNuevo = new AButton("Crear otra bolsa");
 	btnNuevo.setBounds(295, 270, 160, 60);
@@ -121,7 +126,7 @@ public class CABolsa implements MouseListener, ItemListener, ChangeListener {
 	btnNuevo.addMouseListener(this);
 
 	superior = new AScrollPanel("");
-	superior.setBounds(100, 50, 550, 460);
+	superior.setBounds(100, 80, 550, 430);
 	panel.add(superior);
 
 	bolsa = new AContainer("");
@@ -841,28 +846,28 @@ public class CABolsa implements MouseListener, ItemListener, ChangeListener {
 	    } else if (modo == 1) {
 		Main.dialog.mostrar(Main.menu.frame.getLocation(), Main.menu.frame.getSize());
 		Main.removerTodos();
-		Main.menu.frame.add(Main.ordenExtrusor.panel);
+		Main.menu.frame.getContentPane().add(Main.ordenExtrusor.panel);
 		Main.esconderTodos();
 		Main.ordenExtrusor.panel.setVisible(true);
 		Main.dialog.ocultar();
 	    } else if (modo == 2) {
 		Main.dialog.mostrar(Main.menu.frame.getLocation(), Main.menu.frame.getSize());
 		Main.removerTodos();
-		Main.menu.frame.add(Main.ordenImpresor.panel);
+		Main.menu.frame.getContentPane().add(Main.ordenImpresor.panel);
 		Main.esconderTodos();
 		Main.ordenImpresor.panel.setVisible(true);
 		Main.dialog.ocultar();
 	    } else if (modo == 3) {
 		Main.dialog.mostrar(Main.menu.frame.getLocation(), Main.menu.frame.getSize());
 		Main.removerTodos();
-		Main.menu.frame.add(Main.ordenSellado.panel);
+		Main.menu.frame.getContentPane().add(Main.ordenSellado.panel);
 		Main.esconderTodos();
 		Main.ordenSellado.panel.setVisible(true);
 		Main.dialog.ocultar();
 	    } else if (modo == 4) {
 		Main.dialog.mostrar(Main.menu.frame.getLocation(), Main.menu.frame.getSize());
 		Main.removerTodos();
-		Main.menu.frame.add(Main.ordenFinalizar.panel);
+		Main.menu.frame.getContentPane().add(Main.ordenFinalizar.panel);
 		Main.esconderTodos();
 		Main.ordenFinalizar.panel.setVisible(true);
 		Main.dialog.ocultar();
