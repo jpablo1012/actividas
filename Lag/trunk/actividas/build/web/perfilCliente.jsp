@@ -3,9 +3,24 @@
     Created on : 21/10/2013, 11:42:35 PM
     Author     : Oscar
 --%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%@page import="java.net.URLDecoder"%>
+<%@page import="Controlador.AES"%>
+<!DOCTYPE HTML >
+<%@page contentType="java"%>
+<%
+    AES b = new AES();
+    b.setKey("actividas");
+    Cookie [] cok = null;
+    cok = request.getCookies();
+    String val = cok[4].getValue();
+    try {
+	    val = URLDecoder.decode(val, "UTF-8");
+	} catch (Exception e1) {
+	}
+    System.out.print(val);
+    b.decrypt(val);
+    if(b.getDecryptedString().equals("validado")){   
+%>
 <html>
     <head>
         <script src="js/perfilCliente.js"></script>
@@ -53,24 +68,24 @@
                             <input id="txtmail" style="display: none; width: 150px;" type="text" class="form" required></td>
                         </tr>
                         <tr>
-                            <td colspan="2"><label id="camcont" style="display: none;"><hr><span style="color:#D3362D;">* </span>Cambio de contraseÃ±a</label></td>
+                            <td colspan="2"><label id="camcont" style="display: none;"><hr><span style="color:#D3362D;">* </span>Cambio de contraseña</label></td>
                         </tr>
                         <tr id="conactual" style="visibility:hidden;">
-                            <td><label>ContraseÃ±a Actual:</label></td>
-                            <td><input id="contactual" type="password" class="form" style="width: 124px;" placeholder="ContraseÃ±a Actual">
+                            <td><label>Contraseña Actual:</label></td>
+                            <td><input id="contactual" type="password" class="form" style="width: 124px;" placeholder="Contraseña Actual">
                             <label id="clave"></label></td>
                         </tr>
-                        <tr id="ncontraseÃ±a" style="visibility:hidden;">
-                            <td><label>Nueva contraseÃ±a:</label></td>
-                            <td><input id="contraseÃ±a" type="password" class="form" style="width: 124px;" placeholder="ContraseÃ±a">
-                            <input id="concontraseÃ±a" type="password" class="form" style="width: 124px;" placeholder="Confirmar contraseÃ±a"></td>
+                        <tr id="ncontraseña" style="visibility:hidden;">
+                            <td><label>Nueva contraseña:</label></td>
+                            <td><input id="contraseña" type="password" class="form" style="width: 124px;" placeholder="Contraseña">
+                            <input id="concontraseña" type="password" class="form" style="width: 124px;" placeholder="Confirmar contraseña"></td>
                         </tr>
                         <tr>
                             <td colspan="2" id="mensaje"></td>
                         </tr>
                     </table>
                     <br>
-                    <div id="nota" style="display: none;"><span style="color:#D3362D;">* </span><span><b>Nota:</b> Si desea cambiar la contraseÃ±a debera colocar la contraseÃ±a actual y luego la contraseÃ±a nueva en sus campos requeridos</span></div>
+                    <div id="nota" style="display: none;"><span style="color:#D3362D;">* </span><span><b>Nota:</b> Si desea cambiar la contraseña debera colocar la contraseña actual y luego la contraseña nueva en sus campos requeridos</span></div>
                     <div id="imagen"></div>
                 </fieldset>
                 <table align="center">
@@ -87,3 +102,7 @@
         </div>
     </body>
 </html>
+<%}else{
+    
+}
+%>

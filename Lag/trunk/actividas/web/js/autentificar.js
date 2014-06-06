@@ -48,6 +48,9 @@ function traducir(j){
         $.cookie('cedula',j.cedula,{
             expires: 1
         });
+        $.cookie('real',j.real,{
+            expires: 1
+        });
         //sessionStorage.tipo = j.tipo;
         //sessionStorage.nombre = j.nombre;
         //sessionStorage.cedula = j.cedula;

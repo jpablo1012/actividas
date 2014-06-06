@@ -233,7 +233,7 @@ public class SvlCliente extends HttpServlet {
             ClienteN cn = new ClienteN();
             ArrayList<ClienteE> ce = cn.buscarCliente("cedula", cedula, true);
 
-            s = cn.eliminarCliente(ce.get(0).getCedula());
+            s = cn.eliminarCliente((String) ce.get(0).getCedula());
 
         }
         response.setContentType("text/html;charset=UTF-8");

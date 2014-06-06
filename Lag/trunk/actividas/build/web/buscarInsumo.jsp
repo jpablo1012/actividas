@@ -1,6 +1,21 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.net.URLDecoder"%>
+<%@page import="Controlador.AES"%>
 <!DOCTYPE HTML >
-
+<%@page contentType="java"%>
+<%
+    AES b = new AES();
+    b.setKey("actividas");
+    Cookie [] cok = null;
+    cok = request.getCookies();
+    String val = cok[4].getValue();
+    try {
+	    val = URLDecoder.decode(val, "UTF-8");
+	} catch (Exception e1) {
+	}
+    System.out.print(val);
+    b.decrypt(val);
+    if(b.getDecryptedString().equals("validado")){   
+%>
 <html>
     <head>
         <script src="js/botones.js"></script>
@@ -119,7 +134,7 @@
                                 <select id="troquel" class="form" style="margin: 5px 0 0 22px;" disabled="disbled">
                                     <option value="ninguno">Ninguno</option>
                                     <option value="camiseta">Camiseta</option>
-                                    <option value="riÃ±on">RiÃ±on</option>
+                                    <option value="riñon">Riñon</option>
                                     <option value="tiras">Tiras</option>
                                 </select>
                             </div>
@@ -147,3 +162,7 @@
         </form>
     </body>
 </html>
+<%}else{
+    
+}
+%>
