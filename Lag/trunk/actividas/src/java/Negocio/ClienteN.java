@@ -2,7 +2,7 @@ package Negocio;
 
 import java.sql.*;
 import java.util.ArrayList;
-
+import Entidades.List;
 import Entidades.ClienteE;
 import Persistencia.DaosCliente;
 import Utilidades.Conexion;
@@ -14,13 +14,25 @@ import Utilidades.Conexion;
 public class ClienteN {
 
     public DaosCliente dao;
-    public static ClienteE head = null;
+    public static List <ClienteE> head = null;
     
     
     public ClienteN() {
         dao = new DaosCliente();
+        if(head==null){
+            head=getList();
+            System.out.println("lista llenada");
+        }
     }
-
+    
+    public List<ClienteE> getList(){
+        List<ClienteE> aux = new List();
+        Conexion con = new Conexion();
+        Connection c = con.getCon();
+        aux = dao.fillList(c, "cedula", null, false);
+        return aux;
+    }
+    
     public String crearCliente(ClienteE ee) {
         Conexion con = new Conexion();
         Connection c = con.getCon();

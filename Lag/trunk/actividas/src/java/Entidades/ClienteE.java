@@ -9,10 +9,7 @@ public class ClienteE <String> {
     private String apellido;
     private String telefono;
     private String ciudad;
-    private ClienteE<String> next;
-    private ClienteE<String> back;
 
-    //Defining constructor
     public ClienteE(){
         this(null,null,null,null,null,null,null,null,null);
     }
@@ -29,29 +26,9 @@ public class ClienteE <String> {
         this.apellido = lastName;
         this.telefono = phone;
         this.ciudad = city;
-        this.next = next;
-        this.back = back;
-        
     }
     
-    //getters and setters
-    public ClienteE getNext() {
-        return next;
-    }
-    
-     public void setNext(ClienteE next) {
-        this.next = next;
-    }
 
-    public ClienteE getBack() {
-        return back;
-    }
-
-    public void setBack(ClienteE back) {
-        this.back = back;
-    }
-    
-    
     public String getCiudad() {
         return ciudad;
     }

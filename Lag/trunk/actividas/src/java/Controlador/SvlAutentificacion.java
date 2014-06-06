@@ -64,6 +64,7 @@ public class SvlAutentificacion extends HttpServlet {
                         a.encrypt(word);
                         name = a.getEncryptedString();
                         s = json(em.getTipo(), em.getNombre(),em.getClienteCedula(), name ,"");
+                        
                     }else{
                         a.encrypt(word);
                         name = a.getEncryptedString();
