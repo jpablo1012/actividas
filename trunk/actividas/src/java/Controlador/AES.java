@@ -39,8 +39,6 @@ public class AES
 			sha = MessageDigest.getInstance("SHA-1");
 			key = sha.digest(key);
 	    	key = Arrays.copyOf(key, 16); // use only first 128 bit
-	    	System.out.println(key.length);
-	    	System.out.println(new String(key,"UTF-8"));
 		    secretKey = new SecretKeySpec(key, "AES");
 		    
 		    

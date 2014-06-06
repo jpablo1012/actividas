@@ -1,6 +1,6 @@
 package Entidades;
 
-public class ClienteE {
+public class ClienteE <String> {
 
     private String cedula;
     private String direccion;
@@ -9,6 +9,25 @@ public class ClienteE {
     private String apellido;
     private String telefono;
     private String ciudad;
+
+    public ClienteE(){
+        this(null,null,null,null,null,null,null,null,null);
+    }
+    
+    public ClienteE(String id, String address, String mail, String name, String lastName, String phone, String city){
+        this(id, address, mail, name, lastName, phone, city, null, null);
+    }
+    
+    public ClienteE(String id, String address, String mail, String name, String lastName, String phone, String city, ClienteE next, ClienteE back){
+        this.cedula = id;
+        this.direccion = address;
+        this.correo = mail;
+        this.nombre = name;
+        this.apellido = lastName;
+        this.telefono = phone;
+        this.ciudad = city;
+    }
+    
 
     public String getCiudad() {
         return ciudad;
