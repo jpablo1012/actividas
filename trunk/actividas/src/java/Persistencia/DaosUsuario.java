@@ -12,8 +12,20 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+/**
+ * 
+ * @author Juan Pablo Lopera Estrada
+ * @since 2013
+ */
 public class DaosUsuario {
 
+    /**
+     * Comprueba que un usuario exista en la tabla usario para iniciar sesión
+     * @param con Conexión a la base de datos
+     * @param cedula Cédula del usuario a comprobar en la base de datos
+     * @return retorna un UsuarioE si el usuario existe en la base de datos, null
+     * si la cedula es invalida o null si hubo un error al conectarse a la base de datos
+     */
     public UsuarioE validarUsuario(Connection con, String cedula) {
         UsuarioE ue = new UsuarioE();
         ue.setNombre("No existe");
@@ -48,6 +60,14 @@ public class DaosUsuario {
         return ue;
     }
 
+    /**
+     * Crea un usuario en la tabla usario
+     * @param con Conexión a la base de datos
+     * @param ue Usuario a crear
+     * @return String "2": Error al conectarse a la base de datos,
+     * "1": El usuario ya existe,
+     * "": Usuario creado
+     */
     public String crearUsuario(Connection con, UsuarioE ue) {
         try {
             String sql = sqlCrearUsuario();
@@ -79,10 +99,36 @@ public class DaosUsuario {
         return "";
     }
     
+    /**
+     * Busca usuarios en la tabla usuario que cumplan con las condiciones dadas
+     * @param con Conexión a la base de datos
+     * @param variable columna de la tabla usuario 
+     * (idusuario, nombre, apellido, tipo, empleado_cedula, cliente_cedula) 
+     * que va a usar para buscar
+     * @param valor valor a comparar con la columna seleccionada
+     * @param exactamente true si los datos de la columna tienen que ser iguales a el valor a buscar
+     * false si los datos pueden empezar por el valor a buscar
+     * @return ArrayList de UsuarioE o null si hubo un error al conectare a la
+     * base de datos
+     */
     public ArrayList<UsuarioE> buscarUsuario(Connection con, String variable, String valor, boolean exactamente){
     	return buscarUsuario(con, variable, valor, exactamente, false);
     }
 
+    /**
+     * Busca usuarios en la tabla usuario que cumplan con las condiciones dadas
+     * @param con Conexión a la base de datos
+     * @param variable columna de la tabla usario 
+     * (idusuario, nombre, apellido, tipo, empleado_cedula, cliente_cedula) 
+     * que va a usar para buscar
+     * @param valor valor a comparar con la columna seleccionada
+     * @param exactamente true si los datos de la columna tienen que ser iguales a el valor a buscar
+     * false si los datos pueden empezar por el valor a buscar
+     * @param imagen true para que el resultado incluya la imagen del usuario y 
+     * false para que no la incluya
+     * @return ArrayList de UsuarioE o null si hubo un error al conectare a la
+     * base de datos
+     */
     public ArrayList<UsuarioE> buscarUsuario(Connection con, String variable, String valor, boolean exactamente, boolean imagen) {
         ArrayList<UsuarioE> alue = new ArrayList<UsuarioE>();
         try {
@@ -163,6 +209,14 @@ public class DaosUsuario {
         return alue;
     }
 
+    /**
+     * Actualiza datos de un usuario en la tabla usuario
+     * @param con Conexión a la base de datos
+     * @param ue Usuario con datos actualizados
+     * @return "2": Error al conectarse a la base de datos,
+     * "1": El usuario no existe,
+     * "": Usuario actualizado
+     */
     public String actualizarUsuario(Connection con, UsuarioE ue) {
         try {
             String sql = sqlActualizarUsuario();
@@ -195,6 +249,14 @@ public class DaosUsuario {
         return "";
     }
 
+    /**
+     * Elimina un usuario de la tabla usuario
+     * @param con Conexión a la base de datos
+     * @param id Id del usuario a eliminar
+     * @return "2": Error al conectarse a la base de datos,
+     * "1": El usuario no se puede eliminar,
+     * "": Usuario eliminado
+     */
     public String eliminarUsuario(Connection con, String id) {
         try {
             String sql = sqlEliminarUsuario();
@@ -205,7 +267,7 @@ public class DaosUsuario {
             ps.execute();
         } catch (Exception e) {
             System.out.println("Error 09 DaosUsuario: " + e.getMessage());
-            return "1";//el usuario ya existe
+            return "1";//El usuario no se puede eliminar
         } finally {
             try {
                 con.close();
@@ -217,23 +279,46 @@ public class DaosUsuario {
         return "";
     }
 
-    public static String sqlValidarUsuario() {
+    /**
+     * Sentencia SQL para validar que un usuario exista en la tabla usuario
+     * @return String - sentencia SQL
+     */
+    private static String sqlValidarUsuario() {
         return "select *, AES_DECRYPT(codigo, 'sadivitca') as codigod from usuario where cliente_cedula = ? or empleado_cedula=?";
     }
 
-    public static String sqlCrearUsuario() {
+    /**
+     * Sentencia SQL para crear un usuario en la tabla usuario
+     * @return String - sentencia SQL
+     */
+    private static String sqlCrearUsuario() {
         return "insert into usuario (nombre, tipo, cliente_cedula, empleado_cedula, codigo,apellido, imagen) values(?,?,?,?,AES_ENCRYPT(?, 'sadivitca'), ?, ?)";
     }
 
-    public static String sqlBuscarUsuario(String variable) {
+    /**
+     * Sentencia SQL para buscar usuarios en la tabla usuario
+     * @param variable - Columna de la tabla usuario
+     * (idusuario, nombre, apellido, tipo, empleado_cedula, cliente_cedula)
+     * que se usara para buscar
+     * @return String - sentencia SQL
+     */
+    private static String sqlBuscarUsuario(String variable) {
         return "select *, AES_DECRYPT(codigo, 'sadivitca') as codigod from usuario where " + variable + " LIKE ?";
     }
 
-    public static String sqlActualizarUsuario() {
+    /**
+     * Sentencia SQL para actualizar datos de un usuario en la tabla usuario
+     * @return String - sentencia SQL
+     */
+    private static String sqlActualizarUsuario() {
         return "update usuario set nombre=?, tipo=?, cliente_cedula=?, empleado_cedula=?, codigo=AES_ENCRYPT(?, 'sadivitca'), apellido=?, imagen = ? where idusuario=?";
     }
 
-    public static String sqlEliminarUsuario() {
+    /**
+     * Sentencia SQL para eliminar un usuario de la tabla usuario
+     * @return String - sentencia SQL
+     */
+    private static String sqlEliminarUsuario() {
         return "delete from usuario where idusuario = ?";
     }
 }
