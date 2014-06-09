@@ -1,10 +1,23 @@
 package Gui;
 
 import Entidades.ClienteE;
-import Entidades.List;
 import Entidades.UsuarioE;
 import Negocio.ClienteN;
 import Negocio.UsuarioN;
+
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.util.ArrayList;
+
+import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+
 import api.AButton;
 import api.AComboBox;
 import api.AContainer;
@@ -14,17 +27,6 @@ import api.AScrollPanel;
 import api.ATable;
 import api.ATextField;
 import api.Estado;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.util.ArrayList;
-import javax.swing.JOptionPane;
-import javax.swing.SwingConstants;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.JTableHeader;
 
 public class BuscarCliente implements MouseListener, KeyListener {
 
@@ -43,8 +45,6 @@ public class BuscarCliente implements MouseListener, KeyListener {
     ATable tabla;
     DefaultTableModel dtm;
     ArrayList<ClienteE> ce;
-    
-    List<ClienteE> ceh;
 
     public BuscarCliente() {
         panel = new APanel(Main.x, 0, 750, 600);
