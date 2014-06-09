@@ -335,13 +335,13 @@ public class CACliente implements MouseListener {
         this.ce = ce;
         this.ue = ue;
 
-        txtapellido.setText(this.ce.getApellido());
-        txtcedula.setText(this.ce.getCedula());
-        txtcorreo.setText(this.ce.getCorreo());
-        txtdireccion.setText(this.ce.getDireccion());
-        txtnombre.setText(this.ce.getNombre());
-        txttelefono.setText(this.ce.getTelefono());
-        txtCiudad.setText(this.ce.getCiudad());
+        txtapellido.setText((String) this.ce.getApellido());
+        txtcedula.setText((String) this.ce.getCedula());
+        txtcorreo.setText((String) this.ce.getCorreo());
+        txtdireccion.setText((String) this.ce.getDireccion());
+        txtnombre.setText((String) this.ce.getNombre());
+        txttelefono.setText((String) this.ce.getTelefono());
+        txtCiudad.setText((String) this.ce.getCiudad());
 
         pswcodigo.setText(this.ue.getCodigo());
         pswconfirmar.setText(this.ue.getCodigo());
