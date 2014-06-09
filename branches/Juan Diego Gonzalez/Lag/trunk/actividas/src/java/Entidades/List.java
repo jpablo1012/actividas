@@ -1,93 +1,47 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Entidades;
 
-public class List<T> {
-    
-    private Nodo<T> inicio;
-    private Nodo<T> fin;
-    
-    public List() {
-        inicio = null;
-        fin = null;
-    }
-    
-    public void add(T dato) {
-        addLast(dato);
-    }
-    
-    public void addLast(T dato) {
-        Nodo<T> insertar = new Nodo<T>(dato);
+/**
+ *
+ * @author juanx96506
+ */
+public class List {
+
+    ClienteE<String> first;
+    ClienteE<String> last;
+
+    public void addLast(String id, String address, String mail, String name, String lastName, String phone, String city) {
+        ClienteE<String> insert = new ClienteE<String>(id, address, mail, name, lastName, phone, city);
         if (isEmpty()) {
-            inicio = insertar;
-            fin = insertar;
+            first = insert;
+            last = insert;
         } else {
-            fin.setNext(insertar);
-            insertar.setBack(fin);
-            fin = insertar;
+            last.setNext(insert);
+            insert.setBack(last);
+            last = insert;
         }
     }
-    
-    public boolean remove(T dato) {
-        Nodo<T> aux = new Nodo(dato);
-        for (; aux != null; aux = aux.getNext()) {
-            if (aux.equals(dato)) {
-                break;
-            }
-        }
-        
-        if (aux != null) {
-            aux.getBack().setNext(aux.getNext());
-            aux.getNext().setBack(aux.getBack());
-            return true;            
-        } else {
-            return false;            
-        }
-        
-    }
-    
+
     public boolean isEmpty() {
-        return inicio == null;
+        return first == null;
     }
-    
+
     public int size() {
         int cont = 0;
         if (isEmpty()) {
             cont = -1;
         } else {
-            Nodo<T> temp = inicio;
+            ClienteE<String> temp = first;
             while (temp != null) {
                 cont++;
                 temp = temp.getNext();
             }
         }
-        
         return cont;
     }
-    
-    public T getFirst() {
-        return inicio.getDato();
-    }
-    
-    public T getLast() {
-        return fin.getDato();
-    }
-    
-    @Override
-    public String toString() {
-        String re = "";
-        if (!isEmpty()) {
-            Nodo<T> temp = inicio;
-            while (temp != null) {
-                re += temp.getDato().toString();
-                temp = temp.getNext();
-            }
-        }
-        
-        return re;
-    }
-    
-    public static void main(String[] args) {
-        List<ClienteE> clien = new List();
-        List<EmpleadoE> empl = new List();
-        
-    }
+
 }
