@@ -2,61 +2,53 @@ package Persistencia;
 
 import Entidades.ClienteE;
 import Entidades.List;
-import Entidades.Nodo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
 public class DaosCliente {
-
-    //Usando listas ligadas
-    public String crearCliente(Connection con, ClienteE ee, List head) {
+    
+    public String crearCliente(Connection con, ClienteE ee) {
         try {
-            head.add(ee);
+            String sql = sqlCrearCliente();
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ps.setString(1, ee.getCedula());
+            ps.setString(2, ee.getDireccion());
+            ps.setString(3, ee.getCorreo());
+            ps.setString(4, ee.getNombre());
+            ps.setString(5, ee.getApellido());
+            ps.setString(6, ee.getTelefono());
+            ps.setString(7, ee.getCiudad());
+
+            ps.execute();
         } catch (Exception e) {
             System.out.println("Error 01 DaosCliente: " + e.getMessage());
             return "1";//el cliente ya existe
         } finally {
             try {
                 con.close();
-            } catch (Exception a) {
-                System.out.println("Error 02 DaosCliente: " + a.getMessage());
-                return "2";//"Error al guardar en la lista"
+            } catch (Exception e) {
+                System.out.println("Error 02 DaosCliente: " + e.getMessage());
+                return "2";//"Error al conectarse a la base de datos"
             }
         }
         return "";
     }
 
-    //Crear cliente usando Arraylist y conexion directa con la DB 
- /*  public String crearCliente(Connection con, ClienteE ee) {
-     try {
-     String sql = sqlCrearCliente();
-     PreparedStatement ps = con.prepareStatement(sql);
-
-     ps.setString(1, (String) ee.getCedula());
-     ps.setString(2, (String) ee.getDireccion());
-     ps.setString(3, (String) ee.getCorreo());
-     ps.setString(4, (String) ee.getNombre());
-     ps.setString(5, (String) ee.getApellido());
-     ps.setString(6, (String) ee.getTelefono());
-     ps.setString(7, (String) ee.getCiudad());
-
-     ps.execute();
-     } catch (Exception e) {
-     System.out.println("Error 01 DaosCliente: " + e.getMessage());
-     return "1";//el cliente ya existe
-     } finally {
-     try {
-     con.close();
-     } catch (Exception e) {
-     System.out.println("Error 02 DaosCliente: " + e.getMessage());
-     return "2";//"Error al conectarse a la base de datos"
-     }
-     }
-     return "";
-     }
-     */
+    //Usando listas ligadas
+    public String crearCliente(ClienteE ee, List head) {
+        try {
+            head.add(ee);
+        } catch (Exception e) {
+            System.out.println("Error 01 DaosCliente: " + e.getMessage());
+            return "1";//el cliente ya existe
+        }
+        return "";
+    }
+    
+    
     public List<ClienteE> fillList(Connection con, String variable, String valor, boolean exactamente) {
         List<ClienteE> alce = new List();
         try {
@@ -160,14 +152,14 @@ public class DaosCliente {
             String sql = sqlActualizarCliente();
             PreparedStatement ps = con.prepareStatement(sql);
 
-            ps.setString(1, (String) ce.getCedula());
-            ps.setString(2, (String) ce.getDireccion());
-            ps.setString(3, (String) ce.getCorreo());
-            ps.setString(4, (String) ce.getNombre());
-            ps.setString(5, (String) ce.getApellido());
-            ps.setString(6, (String) ce.getTelefono());
-            ps.setString(7, (String) ce.getCiudad());
-            ps.setString(8, (String) ce.getCedula());
+            ps.setString(1, ce.getCedula());
+            ps.setString(2, ce.getDireccion());
+            ps.setString(3, ce.getCorreo());
+            ps.setString(4, ce.getNombre());
+            ps.setString(5, ce.getApellido());
+            ps.setString(6, ce.getTelefono());
+            ps.setString(7, ce.getCiudad());
+            ps.setString(8, ce.getCedula());
 
             ps.executeUpdate();
         } catch (Exception e) {

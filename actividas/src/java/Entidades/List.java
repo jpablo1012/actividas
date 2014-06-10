@@ -1,13 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Entidades;
 
 /**
  *
- * @author juanx96506
+ * @author Juan Diego Gonzalez Mena
  * @param <T>
  */
 public class List <T>{
@@ -38,11 +33,14 @@ public class List <T>{
 
     //Pre-constructor de addLast
     public void add(T dato){
-		addLast(dato);
-	}
+        addLast(dato);
+    }
     
     
-    //Insertar al final de la lista
+    /**
+     * Insertar al final de la lista
+     * @param a dato a insertar
+     */
     public void addLast(T a) {
         Nodo insert = new Nodo(a);
         if (isEmpty()) {
@@ -55,7 +53,7 @@ public class List <T>{
         }
     }
     
-    public boolean Delete(Nodo search){
+    public boolean remove(Nodo search){
         boolean find = false;
         Nodo aux = first;
         for(;aux != null;aux = aux.getNext()){
@@ -70,13 +68,19 @@ public class List <T>{
         return find;
     }
 
-    //Verifica si la lista esta vacia
+    /**
+     * Verifica si la lista esta vacia
+     * @return  true si esta vacia o false si no lo esta
+     */
     public boolean isEmpty() {
         return first == null;
     }
 
     
-    //Nos da a conocer el tamaño de la lista
+    /**
+     * Nos da a conocer el tamaño de la lista
+     * @return tamaño de la lista
+     */
     public int size() {
         int cont = 0;
         if (isEmpty()) {

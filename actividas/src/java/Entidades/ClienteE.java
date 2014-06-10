@@ -1,6 +1,6 @@
 package Entidades;
 
-public class ClienteE <String> {
+public class ClienteE {
 
     private String cedula;
     private String direccion;
@@ -9,19 +9,13 @@ public class ClienteE <String> {
     private String apellido;
     private String telefono;
     private String ciudad;
-    private ClienteE<String> next;
-    private ClienteE<String> back;
 
     //Defining constructor
     public ClienteE(){
-        this(null,null,null,null,null,null,null,null,null);
+        this(null,null,null,null,null,null,null);
     }
     
     public ClienteE(String id, String address, String mail, String name, String lastName, String phone, String city){
-        this(id, address, mail, name, lastName, phone, city, null, null);
-    }
-    
-    public ClienteE(String id, String address, String mail, String name, String lastName, String phone, String city, ClienteE next, ClienteE back){
         this.cedula = id;
         this.direccion = address;
         this.correo = mail;
@@ -29,29 +23,8 @@ public class ClienteE <String> {
         this.apellido = lastName;
         this.telefono = phone;
         this.ciudad = city;
-        this.next = next;
-        this.back = back;
-        
     }
-    
-    //getters and setters
-    public ClienteE getNext() {
-        return next;
-    }
-    
-     public void setNext(ClienteE next) {
-        this.next = next;
-    }
-
-    public ClienteE getBack() {
-        return back;
-    }
-
-    public void setBack(ClienteE back) {
-        this.back = back;
-    }
-    
-    
+      
     public String getCiudad() {
         return ciudad;
     }
