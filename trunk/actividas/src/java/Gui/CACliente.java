@@ -85,12 +85,6 @@ public class CACliente implements MouseListener {
         lblObligatorio.setBounds(315, 40, 120, 24);
         panel.add(lblObligatorio);
 
-        /*lblCliente = new ALabel("Cliente| Crear");
-        lblCliente.setFont(new Font("Calibri", Font.PLAIN, 24));
-        lblCliente.setForeground(Colores.TITULO_NORMAL);
-        lblCliente.setBounds(10, 0, 400, 50);
-        panel.add(lblCliente);*/
-
         usua = new AContainer("Usuario");
         usua.setBounds(110, 322, 530, 150);
         panel.add(usua);
@@ -335,13 +329,13 @@ public class CACliente implements MouseListener {
         this.ce = ce;
         this.ue = ue;
 
-        txtapellido.setText((String) this.ce.getApellido());
-        txtcedula.setText((String) this.ce.getCedula());
-        txtcorreo.setText((String) this.ce.getCorreo());
-        txtdireccion.setText((String) this.ce.getDireccion());
-        txtnombre.setText((String) this.ce.getNombre());
-        txttelefono.setText((String) this.ce.getTelefono());
-        txtCiudad.setText((String) this.ce.getCiudad());
+        txtapellido.setText(this.ce.getApellido());
+        txtcedula.setText(this.ce.getCedula());
+        txtcorreo.setText(this.ce.getCorreo());
+        txtdireccion.setText(this.ce.getDireccion());
+        txtnombre.setText(this.ce.getNombre());
+        txttelefono.setText(this.ce.getTelefono());
+        txtCiudad.setText(this.ce.getCiudad());
 
         pswcodigo.setText(this.ue.getCodigo());
         pswconfirmar.setText(this.ue.getCodigo());

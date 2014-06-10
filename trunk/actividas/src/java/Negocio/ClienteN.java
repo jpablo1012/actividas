@@ -32,11 +32,15 @@ public class ClienteN {
         return aux;
     }
 
-    public String crearCliente(ClienteE ee) {
+    public String crearClienteList(ClienteE ee) {
+        String s = dao.crearCliente(ee, head);
+        return s;
+    }
+    
+     public String crearCliente(ClienteE ee) {
         Conexion con = new Conexion();
         Connection c = con.getCon();
-        //    String s = dao.crearCliente(c, ee);
-        String s = dao.crearCliente(c, ee, head);
+        String s = dao.crearCliente(c, ee);
         return s;
     }
 
@@ -45,24 +49,12 @@ public class ClienteN {
         Connection c = con.getCon();
         return dao.buscarCliente(c, variable, valor, exactamente);
     }
-    
-    //Usando listas ligadas
-   /* public String actualizarCliente(ClienteE ce) {
-        Conexion con = new Conexion();
-        return dao.actualizarCliente(con.getCon(), ce, head);
-    }*/
 
     //Usando conexion directa a la DB
    public String actualizarCliente(ClienteE ce) {
         Conexion con = new Conexion();
         return dao.actualizarCliente(con.getCon(), ce);
     }
-
-    //Usando listas ligadas
-   /* public String eliminarCliente(ClienteE clie) {
-        Conexion con = new Conexion();
-        return dao.eliminarCliente(con.getCon(), clie, head);
-    }*/
     
     //Usando conexion directa a la DB
 public String eliminarCliente(String cedula) {
