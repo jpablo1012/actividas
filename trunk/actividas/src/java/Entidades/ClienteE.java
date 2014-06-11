@@ -15,14 +15,14 @@ public class ClienteE {
         this(null,null,null,null,null,null,null);
     }
     
-    public ClienteE(String id, String address, String mail, String name, String lastName, String phone, String city){
-        this.cedula = id;
-        this.direccion = address;
-        this.correo = mail;
-        this.nombre = name;
-        this.apellido = lastName;
-        this.telefono = phone;
-        this.ciudad = city;
+    public ClienteE(String cedula, String direccion, String email, String nombre, String apellido, String telefono, String ciudad){
+        this.cedula = cedula;
+        this.direccion = direccion;
+        this.correo = email;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.telefono = telefono;
+        this.ciudad = ciudad;
     }
       
     public String getCiudad() {

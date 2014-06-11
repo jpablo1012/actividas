@@ -2,6 +2,7 @@ package Persistencia;
 
 import Entidades.ClienteE;
 import Entidades.List;
+import Entidades.Registro;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -37,15 +38,32 @@ public class DaosCliente {
         return "";
     }
 
-    //Usando listas ligadas
-    public String crearCliente(ClienteE ee, List head) {
-        try {
-            head.add(ee);
-        } catch (Exception e) {
-            System.out.println("Error 01 DaosCliente: " + e.getMessage());
-            return "1";//el cliente ya existe
+    /**
+     * Añade un cliente a la lista, comprueba que la cedula sea unica
+     * @param ee Cliente a añadir a la lista
+     * @param head Lista a la cual se le va a añadir el cliente
+     * @param cola Registro de la acciones
+     * @return 
+     */
+    public String crearCliente(ClienteE ee, List<ClienteE> head, List<Registro<ClienteE>> cola) {
+        boolean unico = true;
+        for(int i = 0; i < head.size(); i++){
+            ClienteE ce = head.get(i);
+            if(ce.getCedula().equals(ee.getCedula())){
+                unico = false;
+                break;
+            }
         }
-        return "";
+        
+        if(unico){
+            ClienteE ce = new ClienteE(ee.getCedula(), ee.getDireccion(), ee.getCorreo(), ee.getNombre(), ee.getApellido(), ee.getTelefono(), ee.getCiudad());
+            head.add(ce);
+            Registro<ClienteE> recl = new Registro<ClienteE>(ce, Registro.CREAR);
+            cola.push(recl);
+            return "";
+        }else{
+            return "1";//El cliente ya existe
+        }
     }
     
     
@@ -126,6 +144,62 @@ public class DaosCliente {
         }
         return alce;
     }
+    
+    public List<ClienteE> buscarCliente(List<ClienteE> lista, String valor){
+        List<ClienteE> resultado = new List<ClienteE>();
+        for(int i = 0; i < lista.size(); i++){
+            ClienteE ce = lista.get(i);
+            if(stringIniciaCon(ce.getApellido(), valor) ||
+                    stringIniciaCon(ce.getCedula(), valor) ||
+                    stringIniciaCon(ce.getCiudad(), valor) ||
+                    stringIniciaCon(ce.getCorreo(), valor) ||
+                    stringIniciaCon(ce.getDireccion(), valor) ||
+                    stringIniciaCon(ce.getNombre(), valor) ||
+                    stringIniciaCon(ce.getTelefono(), valor)){
+                ClienteE encontrado = new ClienteE(ce.getCedula(), ce.getDireccion(), ce.getCorreo(), ce.getNombre(), ce.getApellido(), ce.getTelefono(), ce.getCiudad());
+                resultado.add(encontrado);
+            }
+        }
+        
+        return resultado;
+    }
+    
+    public String actualizarCliente(ClienteE cliente, List<ClienteE> lista, List<Registro<ClienteE>> registro){
+        ClienteE reemplazo = new ClienteE(cliente.getCedula(), cliente.getDireccion(), cliente.getCorreo(), cliente.getNombre(), cliente.getApellido(), cliente.getTelefono(), cliente.getCiudad());
+        for(int i = 0; i < lista.size(); i++){
+            ClienteE ce = lista.get(i);
+            if(ce.getCedula().equals(reemplazo.getCedula())){
+                lista.set(reemplazo, i);
+                Registro<ClienteE> re = new Registro<ClienteE>(reemplazo, Registro.ACTUALIZAR);
+                registro.push(re);
+                return "";
+            }
+        }
+        
+        return "1";
+    }
+    
+    public String eliminarCliente(String cedula, List<ClienteE> lista, List<Registro<ClienteE>> registro){
+        for(int i = 0; i < lista.size(); i++){
+            ClienteE ce = lista.get(i);
+            if(ce.getCedula().equals(cedula)){
+                lista.remove(i);
+                ClienteE eliminado = new ClienteE(ce.getCedula(), ce.getDireccion(), ce.getCorreo(), ce.getNombre(), ce.getApellido(), ce.getTelefono(), ce.getCiudad());
+                Registro<ClienteE> re = new Registro<ClienteE>(eliminado, Registro.ELIMINAR);
+                registro.add(re);
+                return "";
+            }
+        }
+        
+        return "1";
+    }
+    
+    private boolean stringIniciaCon(String original, String comparar){
+        original = original.toLowerCase();
+        comparar = comparar.toLowerCase();
+        
+        return original.startsWith(comparar);
+    }
 
     //Usando listas ligadas
   /*  public String actualizarCliente(Connection con, ClienteE ce, List head) {
@@ -160,6 +234,7 @@ public class DaosCliente {
             ps.setString(6, ce.getTelefono());
             ps.setString(7, ce.getCiudad());
             ps.setString(8, ce.getCedula());
+            
 
             ps.executeUpdate();
         } catch (Exception e) {
