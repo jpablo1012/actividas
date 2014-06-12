@@ -16,7 +16,7 @@ public class ClienteN {
 
     public DaosCliente dao;
     public static List<ClienteE> head = null;
-    public static List<Registro<ClienteE>> cola = null;
+    public Historial historial;
     public boolean conBD = false;
 
     public ClienteN() {
@@ -26,8 +26,8 @@ public class ClienteN {
             System.out.println("lista llenada");
         }
         
-        if(cola == null)
-            cola = new List<Registro<ClienteE>>();
+        if(historial == null)
+            historial = new Historial();
     }
 
     public final List<ClienteE> getList() {
@@ -44,7 +44,7 @@ public class ClienteN {
             String s = dao.crearCliente(c, ee);
             return s;  
         }else{
-            return dao.crearCliente(ee, head, cola);
+            return dao.crearCliente(ee, head, historial);
         }
         
     }
@@ -65,7 +65,7 @@ public class ClienteN {
             Conexion con = new Conexion();
             return dao.actualizarCliente(con.getCon(), ce);
         }else{
-            return dao.actualizarCliente(ce, head, cola);
+            return dao.actualizarCliente(ce, head, historial);
         }
     }
     
@@ -75,23 +75,25 @@ public String eliminarCliente(String cedula) {
             Conexion con = new Conexion();
             return dao.eliminarCliente(con.getCon(), cedula);
         }else{
-            return dao.eliminarCliente(cedula, head, cola);
+            return dao.eliminarCliente(cedula, head, historial);
         }
     }
 
     public static void main(String[] args){
         ClienteN cn = new ClienteN();
+        ClienteN cn2 = new ClienteN();
         ClienteE ce = new ClienteE("96457854", "carrera", "jpablo", "Juan Pablo", "Lopera Estrada", "2691450", "Medellin");
         cn.crearCliente(ce);
         imprimir();
-        ce.setNombre("juan cambiado");
-        ce.setCedula("123456");
-        cn.actualizarCliente(ce);
+        ClienteE ce2 = new ClienteE("9645785484", "carrera", "jpablo", "Juan Pablo", "Lopera Estrada", "2691450", "Medellin");
+        cn2.crearCliente(ce2);
         imprimir();
-        ce.setNombre("cambiado cambiado");
-        imprimir();
-        cn.eliminarCliente(ce.getCedula());
-        imprimir();
+        System.out.println("---------------------");
+        List<Registro> cambios = cn.historial.getCambios();
+        for(int i = 0; i < cambios.size(); i++){
+            Registro r = cambios.get(i);
+            System.out.println(r.getAccion());
+        }
     }
     
     public static void imprimir(){
