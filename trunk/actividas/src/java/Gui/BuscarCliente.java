@@ -1,23 +1,10 @@
 package Gui;
 
 import Entidades.ClienteE;
+import Entidades.List;
 import Entidades.UsuarioE;
 import Negocio.ClienteN;
 import Negocio.UsuarioN;
-
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.util.ArrayList;
-
-import javax.swing.JOptionPane;
-import javax.swing.SwingConstants;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.JTableHeader;
-
 import api.AButton;
 import api.AComboBox;
 import api.AContainer;
@@ -27,6 +14,17 @@ import api.AScrollPanel;
 import api.ATable;
 import api.ATextField;
 import api.Estado;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 
 public class BuscarCliente implements MouseListener, KeyListener {
 
@@ -44,7 +42,7 @@ public class BuscarCliente implements MouseListener, KeyListener {
     AScrollPanel resultado;
     ATable tabla;
     DefaultTableModel dtm;
-    ArrayList<ClienteE> ce;
+    List<ClienteE> ce;
 
     public BuscarCliente() {
         panel = new APanel(Main.x, 0, 750, 600);
@@ -174,7 +172,8 @@ public class BuscarCliente implements MouseListener, KeyListener {
         buscarCon = buscarCon.replaceAll(bus[6], "telefono");
         buscarCon = buscarCon.replaceAll(bus[7], "ciudad");
 
-        this.ce = new ClienteN().buscarCliente(buscarCon, texto, false);
+        //this.ce = new ClienteN().buscarCliente(buscarCon, texto, false);
+        this.ce = new ClienteN().buscarCliente(texto);
         ArrayList<UsuarioE> alue = new UsuarioN().buscarUsuario("cliente_cedula", "", false);
         if (ce == null) {
             msjMensaje.setText("El valor que usted busca no existe en la base de datos");
