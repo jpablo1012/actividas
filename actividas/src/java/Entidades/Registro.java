@@ -13,14 +13,14 @@ package Entidades;
  */
 public class Registro<T> {
     private T dato;
-    private int accion;
+    private Accion accion;
     
     public Registro(){
         dato = null;
-        accion = -1;
+        accion = null;
     }
     
-    public Registro(T dato, int accion){
+    public Registro(T dato, Accion accion){
         this.dato = dato;
         this.accion = accion;
     }
@@ -28,20 +28,12 @@ public class Registro<T> {
     public T getDato() {
         return dato;
     }
-
-    public void setDato(T dato) {
-        this.dato = dato;
-    }
-
-    public int getAccion() {
-        return accion;
-    }
-
-    public void setAccion(int accion) {
+    
+    public void setAccion(Accion accion){
         this.accion = accion;
     }
     
-    public final static int CREAR = 0;
-    public final static int ACTUALIZAR = 1;
-    public final static int ELIMINAR = 2;
+    public Accion getAccion(){
+        return this.accion;
+    }
 }

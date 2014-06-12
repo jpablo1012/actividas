@@ -1,8 +1,10 @@
 package Persistencia;
 
+import Entidades.Accion;
 import Entidades.ClienteE;
 import Entidades.List;
 import Entidades.Registro;
+import Negocio.Historial;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -45,7 +47,7 @@ public class DaosCliente {
      * @param cola Registro de la acciones
      * @return 
      */
-    public String crearCliente(ClienteE ee, List<ClienteE> head, List<Registro<ClienteE>> cola) {
+    public String crearCliente(ClienteE ee, List<ClienteE> head, Historial cola) {
         boolean unico = true;
         for(int i = 0; i < head.size(); i++){
             ClienteE ce = head.get(i);
@@ -58,8 +60,8 @@ public class DaosCliente {
         if(unico){
             ClienteE ce = new ClienteE(ee.getCedula(), ee.getDireccion(), ee.getCorreo(), ee.getNombre(), ee.getApellido(), ee.getTelefono(), ee.getCiudad());
             head.add(ce);
-            Registro<ClienteE> recl = new Registro<ClienteE>(ce, Registro.CREAR);
-            cola.push(recl);
+            Registro<ClienteE> recl = new Registro<ClienteE>(ce, Accion.CREAR_CLIENTE);
+            cola.añadir(recl);
             return "";
         }else{
             return "1";//El cliente ya existe
@@ -164,14 +166,14 @@ public class DaosCliente {
         return resultado;
     }
     
-    public String actualizarCliente(ClienteE cliente, List<ClienteE> lista, List<Registro<ClienteE>> registro){
+    public String actualizarCliente(ClienteE cliente, List<ClienteE> lista, Historial registro){
         ClienteE reemplazo = new ClienteE(cliente.getCedula(), cliente.getDireccion(), cliente.getCorreo(), cliente.getNombre(), cliente.getApellido(), cliente.getTelefono(), cliente.getCiudad());
         for(int i = 0; i < lista.size(); i++){
             ClienteE ce = lista.get(i);
             if(ce.getCedula().equals(reemplazo.getCedula())){
                 lista.set(reemplazo, i);
-                Registro<ClienteE> re = new Registro<ClienteE>(reemplazo, Registro.ACTUALIZAR);
-                registro.push(re);
+                Registro<ClienteE> re = new Registro<ClienteE>(reemplazo, Accion.ACTUALIZAR_CLIENTE);
+                registro.añadir(re);
                 return "";
             }
         }
@@ -179,14 +181,14 @@ public class DaosCliente {
         return "1";
     }
     
-    public String eliminarCliente(String cedula, List<ClienteE> lista, List<Registro<ClienteE>> registro){
+    public String eliminarCliente(String cedula, List<ClienteE> lista, Historial registro){
         for(int i = 0; i < lista.size(); i++){
             ClienteE ce = lista.get(i);
             if(ce.getCedula().equals(cedula)){
                 lista.remove(i);
                 ClienteE eliminado = new ClienteE(ce.getCedula(), ce.getDireccion(), ce.getCorreo(), ce.getNombre(), ce.getApellido(), ce.getTelefono(), ce.getCiudad());
-                Registro<ClienteE> re = new Registro<ClienteE>(eliminado, Registro.ELIMINAR);
-                registro.add(re);
+                Registro<ClienteE> re = new Registro<ClienteE>(eliminado, Accion.ELIMINAR_CLIENTE);
+                registro.añadir(re);
                 return "";
             }
         }
@@ -200,25 +202,6 @@ public class DaosCliente {
         
         return original.startsWith(comparar);
     }
-
-    //Usando listas ligadas
-  /*  public String actualizarCliente(Connection con, ClienteE ce, List head) {
-        try {
-            Nodo aux = head.getFirst();
-            for(;aux != null; aux = aux.getNext()){
-                ClienteE cli = (ClienteE) aux.getDato();
-                if(ce.getCedula().equals(cli.getCedula())){
-                     aux.setDato(aux);
-                }
-            }
-           
-        } catch (Exception e) {
-            System.out.println("Error 05 DaosCliente: " + e.getMessage());
-            return "1";
-        } 
-         
-        return "";
-    }*/
     
     //Usando conexion directa a la DB
     public String actualizarCliente(Connection con, ClienteE ce) {
@@ -250,27 +233,6 @@ public class DaosCliente {
         }
         return "";
     }
-
-    //Eliminar en lista ligada
-   /* public String eliminarCliente(Connection con, ClienteE deletable, List head) {
-     try {
-     Nodo aux = head.getFirst();
-     boolean find = false;
-     for (; aux != null; aux = aux.getNext()) {
-     if (aux.getDato() == deletable) {
-     aux.getBack().setNext(aux.getNext());
-     aux.getNext().setBack(aux.getBack());
-     find = true;
-     aux = null;
-     break;
-     }
-     }
-     } catch (Exception e) {
-     System.out.println("Error 07 DaosCliente: " + e.getMessage());
-     return "1";
-     }
-     return "";
-     }*/
     
     //Eliminar usando Arraylist
     public String eliminarCliente(Connection con, String cedula) {
