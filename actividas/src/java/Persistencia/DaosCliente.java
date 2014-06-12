@@ -195,6 +195,13 @@ public class DaosCliente {
         return resultado;
     }
     
+    /**
+     * 
+     * @param cliente
+     * @param lista
+     * @param registro
+     * @return 
+     */
     public String actualizarCliente(ClienteE cliente, List<ClienteE> lista, Historial registro){
         ClienteE reemplazo = new ClienteE(cliente.getCedula(), cliente.getDireccion(), cliente.getCorreo(), cliente.getNombre(), cliente.getApellido(), cliente.getTelefono(), cliente.getCiudad());
         for(int i = 0; i < lista.size(); i++){
