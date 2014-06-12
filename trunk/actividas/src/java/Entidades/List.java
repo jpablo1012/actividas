@@ -112,6 +112,13 @@ public class List <T>{
         }
     }
     
+    /**
+     * Establece el dato de un nodo dado por su posición
+     * @param dato dato a establecer en el nodo
+     * @param posicion posición del nodo en la lista
+     * @throws IndexOutOfBoundsException si posicion es mayor o igual al tamaño
+     * de la lista
+     */
     public void set(T dato, int posicion) throws IndexOutOfBoundsException{
         if(posicion >= size()){
             throw new IndexOutOfBoundsException();
@@ -140,6 +147,12 @@ public class List <T>{
         return find;
     }
     
+    /**
+     * Elimina un nodo de la lista en una posicion especifica
+     * @param posicion numero del nodo a eliminar
+     * @throws IndexOutOfBoundsException si posicion es mayor o igual al tamaño
+     * de la lista
+     */
     public void remove(int posicion) throws IndexOutOfBoundsException{
         if(posicion >= size()){
             throw new IndexOutOfBoundsException();
@@ -149,22 +162,20 @@ public class List <T>{
                 temp = temp.getNext();
             }
             
-            Nodo<T> anterior = temp.getBack();
-            Nodo<T> siguiente = temp.getNext();
-            try{
-                anterior.setNext(siguiente);
-            }catch(Exception e){
-                System.out.println("Error con anterior");
+            if(temp.getNext() == null){
+                removeLast();
+            }else if(temp.getBack() == null){
+                removeFirst();
+            }else{
+                Nodo<T> sig = temp.getNext();
+                Nodo<T> ant = temp.getBack();
+                
+                ant.setNext(sig);
+                sig.setBack(ant);
+                
+                temp.setBack(null);
+                temp.setNext(null);
             }
-            try{
-                siguiente.setBack(anterior);
-            }catch(Exception e){
-                System.out.println("Error con siguiente");
-            }
-            
-            temp.setNext(null);
-            temp.setBack(null);
-            temp = null;
         }
     }
     
@@ -186,6 +197,23 @@ public class List <T>{
                first = pen;
             }
             
+            return true;
+        }
+    }
+    
+    public boolean removeLast(){
+        if(isEmpty()){
+            return false;
+        }else{
+            if(size() == 1){
+                first = null;
+                last = null;
+            }else{
+                Nodo<T> temp = last.getBack();
+                temp.setNext(null);
+                last.setBack(null);
+                last = temp;
+            }
             return true;
         }
     }

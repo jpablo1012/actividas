@@ -68,7 +68,17 @@ public class DaosCliente {
         }
     }
     
-    
+    /**
+     * Retorna toda la tabla "cliente" de la base de datos en una lista de ClienteE
+     * @param con Conexión a la base de datos
+     * @param variable columna de la tabla cliente 
+     * (cedula, direccion, email, nombre, telefono, apellido, ciudad) 
+     * que va a usar para buscar
+     * @param valor valor a comparar con la columna seleccionada
+     * @param exactamente true si los datos de la columna tienen que ser iguales
+     * a el valor a buscar false si los datos pueden empezar por el valor a buscar
+     * @return Lista de ClienteE de toda la tabla
+     */
     public List<ClienteE> fillList(Connection con, String variable, String valor, boolean exactamente) {
         List<ClienteE> alce = new List();
         try {
@@ -108,6 +118,18 @@ public class DaosCliente {
         return alce;
     }
 
+    /**
+     * Busca clientes en la tabla cliente que cumplan con las condiciones dadas
+     * @param con Conexión a la base de datos
+     * @param variable columna de la tabla cliente 
+     * (cedula, direccion, email, nombre, telefono, apellido, ciudad) 
+     * que va a usar para buscar
+     * @param valor valor a comparar con la columna seleccionada
+     * @param exactamente true si los datos de la columna tienen que ser iguales
+     * a el valor a buscar false si los datos pueden empezar por el valor a buscar
+     * @return ArrayList de UsuarioE o null si hubo un error al conectare a la
+     * base de datos
+     */
     public ArrayList<ClienteE> buscarCliente(Connection con, String variable, String valor, boolean exactamente) {
         ArrayList<ClienteE> alce = new ArrayList<ClienteE>();
         try {
@@ -147,6 +169,13 @@ public class DaosCliente {
         return alce;
     }
     
+    /**
+     * Busca clientes en la lista que cumpla con la condición de que cualquier dato
+     * empiece por el valor dado
+     * @param lista Lista de clientes
+     * @param valor Valor por el cual se buscara
+     * @return Lista con los clientes que cumplen esa condición
+     */
     public List<ClienteE> buscarCliente(List<ClienteE> lista, String valor){
         List<ClienteE> resultado = new List<ClienteE>();
         for(int i = 0; i < lista.size(); i++){
