@@ -16,6 +16,7 @@ import java.util.ArrayList;
  * 
  * @author Juan Pablo Lopera Estrada
  * @since 2013
+ * @version 73
  */
 public class DaosUsuario {
 
@@ -118,7 +119,7 @@ public class DaosUsuario {
     /**
      * Busca usuarios en la tabla usuario que cumplan con las condiciones dadas
      * @param con Conexión a la base de datos
-     * @param variable columna de la tabla usario 
+     * @param variable columna de la tabla usuario 
      * (idusuario, nombre, apellido, tipo, empleado_cedula, cliente_cedula) 
      * que va a usar para buscar
      * @param valor valor a comparar con la columna seleccionada

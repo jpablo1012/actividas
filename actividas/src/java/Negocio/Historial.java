@@ -13,11 +13,14 @@ import Entidades.Registro;
  *
  * @author Juan Pablo Lopera Estrada
  * @since 11/06/2014
+ * @version 73
  */
 public class Historial {
     private static List<Registro> cambios;
     
-    
+    /**
+     * Contructor de la clase Historial
+     */
     public Historial(){
         if(cambios == null){
             cambios = new List<Registro>();

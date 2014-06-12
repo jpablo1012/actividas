@@ -11,6 +11,7 @@ import java.util.ArrayList;
 /**
  *
  * @author Juan Pablo Lopera Estrada
+ * @since 2013
  */
 public class ClienteN {
 
@@ -19,6 +20,9 @@ public class ClienteN {
     public Historial historial;
     public boolean conBD = false;
 
+    /**
+     * Contructor de la clase ClienteN
+     */
     public ClienteN() {
         dao = new DaosCliente();
         if (head == null) {
@@ -30,6 +34,10 @@ public class ClienteN {
             historial = new Historial();
     }
 
+    /**
+     * Retorna toda la tabla cliente en una lista
+     * @return 
+     */
     public final List<ClienteE> getList() {
         Conexion con = new Conexion();
         Connection c = con.getCon();
@@ -37,6 +45,12 @@ public class ClienteN {
         return aux;
     }
     
+    /**
+     * Crea un cliente en el sistema
+     * @param ee Cliente a crear
+     * @return "2": Error al conectarse a la base de datos, "1": El cliente ya
+     * existe, "": Cliente creado
+     */
      public String crearCliente(ClienteE ee) {
         if(conBD){
             Conexion con = new Conexion();
@@ -49,17 +63,38 @@ public class ClienteN {
         
     }
 
+     /**
+      * Busca clientes en la tabla "cliente" de la base de datos
+      * @param variable columna de la tabla cliente 
+     * (cedula, direccion, email, nombre, telefono, apellido, ciudad) 
+     * que va a usar para buscar
+      * @param valor valor a comparar con la columna seleccionada
+      * @param exactamente true si los datos de la columna tienen que ser iguales
+      * a el valor a buscar false si los datos pueden empezar por el valor a buscar
+      * @return ArrayList de ClienteE o null si hubo un error al conectare a la
+     * base de datos
+      */
     public ArrayList<ClienteE> buscarCliente(String variable, String valor, boolean exactamente) {
         Conexion con = new Conexion();
         Connection c = con.getCon();
         return dao.buscarCliente(c, variable, valor, exactamente);
     }
     
+    /**
+     * Busca clientes en la lista clientes
+     * @param valor valor a comparar con la columna seleccionada
+     * @return List de ClienteE
+     */
     public List<ClienteE> buscarCliente(String valor){
         return dao.buscarCliente(head ,valor);
     }
 
-    //Usando conexion directa a la DB
+    /**
+     * Actualiza un cliente del sistema
+     * @param ce Cliente con datos actualizados
+     * @return "2": Error al conectarse a la base de datos, "1": El cliente no 
+     * existe en el sistema, "": Cliente actualizado
+     */
    public String actualizarCliente(ClienteE ce) {
         if(conBD){
             Conexion con = new Conexion();
@@ -69,7 +104,12 @@ public class ClienteN {
         }
     }
     
-    //Usando conexion directa a la DB
+    /**
+     * Elimina un cliente del sistema
+     * @param cedula Cédula del cliente a eliminar
+     * @return "2": Error al conectarse a la base de datos, "1": El cliente no 
+     * se puede eliminar, "": Cliente eliminado
+     */
 public String eliminarCliente(String cedula) {
         if(conBD){
             Conexion con = new Conexion();
