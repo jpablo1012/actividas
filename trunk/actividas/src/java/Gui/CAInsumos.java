@@ -216,7 +216,7 @@ public class CAInsumos implements MouseListener {
         if (s.equals("1")) {
             visibleMaterial(true, true, false, false);
             msjMaterial.setEstado(Estado.ERROR);
-            msjMaterial.setText("Ha ocurrido un error al actualizar :C");
+            msjMaterial.setText("Ha ocurrido un error al actualizar el material");
             msjMaterial.setVisible(true);
         }
 
@@ -264,7 +264,7 @@ public class CAInsumos implements MouseListener {
         if (s.equals("1")) {
             visibleColor(true, true, false, false);
             msjColor.setEstado(Estado.ERROR);
-            msjColor.setText("Ha ocurrido un error al actualizar :C");
+            msjColor.setText("Ha ocurrido un error al actualizar el color");
             msjColor.setVisible(true);
         }
 
@@ -349,7 +349,7 @@ public class CAInsumos implements MouseListener {
 
         if (s.equals("1")) {
             msjColor.setEstado(Estado.ERROR);
-            msjColor.setText("Ha ocurrido un error al crear el material :C");
+            msjColor.setText("Ha ocurrido un error al crear el material");
             msjColor.setVisible(true);
             visibleColor(true, true, false, false);
         }
@@ -447,7 +447,7 @@ public class CAInsumos implements MouseListener {
 
         if (s.equals("1")) {
             msjMaterial.setEstado(Estado.EXITO);
-            msjMaterial.setText("Ha ocurrido un error al crear el material :C");
+            msjMaterial.setText("Ha ocurrido un error al crear el material");
             msjMaterial.setVisible(true);
             visibleMaterial(true, true, false, false);
         }

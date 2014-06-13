@@ -250,7 +250,7 @@ public class BuscarEmpleado implements MouseListener, KeyListener {
 			    }
 
 			    if (s.equals("1")) {
-				msjMensaje.setText("Ha ocurrido un error al eliminar el empleado :C");
+				msjMensaje.setText("Ha ocurrido un error al eliminar el empleado");
 				msjMensaje.setEstado(Estado.ERROR);
 				msjMensaje.setVisible(true);
 			    }

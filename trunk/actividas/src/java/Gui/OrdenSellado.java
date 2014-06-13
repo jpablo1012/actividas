@@ -332,7 +332,7 @@ public class OrdenSellado implements MouseListener {
 	}
 
 	if (s.equals("1")) {
-	    msjMensaje.setText("Error desconocido :C");
+	    msjMensaje.setText("Error desconocido");
 	    msjMensaje.setEstado(Estado.ERROR);
 	    msjMensaje.setVisible(true);
 	}
@@ -417,7 +417,7 @@ public class OrdenSellado implements MouseListener {
 	}
 
 	if (s.equals("1")) {
-	    msjMensaje.setText("Error desconocido :C");
+	    msjMensaje.setText("Error desconocido");
 	    msjMensaje.setEstado(Estado.ERROR);
 	    msjMensaje.setVisible(true);
 	}

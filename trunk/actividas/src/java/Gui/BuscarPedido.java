@@ -225,7 +225,7 @@ public class BuscarPedido implements MouseListener, KeyListener {
 		    String extrusion = "No", impresion = "No", sellado = "No";
 		    String estado = pe.getEstado();
 		    if (estado.equals("en aprobacion")) {
-			estado = "En aprobaci�n";
+			estado = "En aprobaci\u00F3n";
 		    }
 		    result[i][0] = pe.getNumeroPedido();
 		    result[i][1] = pe.getCliente_cedula();
@@ -328,7 +328,7 @@ public class BuscarPedido implements MouseListener, KeyListener {
 		}
 
 		if (s.equals("1")) {
-		    msjMensaje.setText("Error desconocido :C");
+		    msjMensaje.setText("Error desconocido");
 		    msjMensaje.setEstado(Estado.ERROR);
 		    msjMensaje.setVisible(true);
 		}
@@ -376,7 +376,7 @@ public class BuscarPedido implements MouseListener, KeyListener {
 		}
 
 		if (s.equals("1")) {
-		    msjMensaje.setText("Error desconocido :C");
+		    msjMensaje.setText("Error desconocido");
 		    msjMensaje.setEstado(Estado.ERROR);
 		    msjMensaje.setVisible(true);
 		}

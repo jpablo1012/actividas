@@ -395,7 +395,7 @@ public class ResultadoEmpleado implements MouseListener {
             }
 
             if (s.equals("1")) {
-                msjMensaje.setText("Oh, ha ocurrido un error y no sabemos que es. :C");
+                msjMensaje.setText("Oh, ha ocurrido un error y no sabemos que es");
                 msjMensaje.setEstado(Estado.ERROR);
                 msjMensaje.setVisible(true);
             }

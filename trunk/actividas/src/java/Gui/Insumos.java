@@ -97,7 +97,7 @@ public class Insumos implements MouseListener {
                 Main.menu.frame.add(Main.insumos.panel);
                 Main.esconderTodos();
                 Main.insumos.panel.setVisible(true);
-                Main.insumos.msjMensaje.setText("No tienes bolsas :C");
+                Main.insumos.msjMensaje.setText("No tienes bolsas");
                 Main.insumos.msjMensaje.setEstado(Estado.ERROR);
             }
         }

@@ -333,7 +333,7 @@ public class OrdenExtrusor implements MouseListener {
 	ArrayList<BolsaE> albe = new BolsaN().buscarBolsa("referencia", this.ee.getBolsa_referencia() + "", true, true);
 
 	if (albe == null) {
-	    msjMensaje.setText("Error desconocido :C");
+	    msjMensaje.setText("Error desconocido");
 	    msjMensaje.setEstado(Estado.ERROR);
 	    msjMensaje.setVisible(true);
 	} else {
@@ -380,7 +380,7 @@ public class OrdenExtrusor implements MouseListener {
 	}
 
 	if (s.equals("1")) {
-	    msjMensaje.setText("Error desconocido :C");
+	    msjMensaje.setText("Error desconocido");
 	    msjMensaje.setEstado(Estado.ERROR);
 	    msjMensaje.setVisible(true);
 	}
@@ -442,7 +442,7 @@ public class OrdenExtrusor implements MouseListener {
 	}
 
 	if (s.equals("1")) {
-	    msjMensaje.setText("Error desconocido :C");
+	    msjMensaje.setText("Error desconocido");
 	    msjMensaje.setEstado(Estado.ERROR);
 	    msjMensaje.setVisible(true);
 	}

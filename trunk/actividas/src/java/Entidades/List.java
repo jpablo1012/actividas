@@ -98,9 +98,10 @@ public class List <T>{
      * @param i dato que se desea retornar
      * @return dato del nodo
      * @throws IndexOutOfBoundsException si i es igual o mayor al tamaño de la lista
+     * o es menor a 0
      */
     public T get(int i) throws IndexOutOfBoundsException{
-        if(i >= size()){
+        if(i >= size() || i < 0){
             throw new IndexOutOfBoundsException();
         }else{
             Nodo<T> temp = first;
@@ -117,10 +118,10 @@ public class List <T>{
      * @param dato dato a establecer en el nodo
      * @param posicion posición del nodo en la lista
      * @throws IndexOutOfBoundsException si posicion es mayor o igual al tamaño
-     * de la lista
+     * de la lista o es menor a 0
      */
     public void set(T dato, int posicion) throws IndexOutOfBoundsException{
-        if(posicion >= size()){
+        if(posicion >= size() || posicion < 0){
             throw new IndexOutOfBoundsException();
         }else{
             Nodo<T> temp = first;
@@ -151,10 +152,10 @@ public class List <T>{
      * Elimina un nodo de la lista en una posicion especifica
      * @param posicion numero del nodo a eliminar
      * @throws IndexOutOfBoundsException si posicion es mayor o igual al tamaño
-     * de la lista
+     * de la lista o es menor a 0
      */
     public void remove(int posicion) throws IndexOutOfBoundsException{
-        if(posicion >= size()){
+        if(posicion >= size() || posicion < 0){
             throw new IndexOutOfBoundsException();
         }else{
             Nodo<T> temp = first;

@@ -690,7 +690,7 @@ public class CABolsa implements MouseListener, ItemListener, ChangeListener {
 	}
 
 	if (s.equals("1")) {
-	    msjMensaje.setText("Error desconocido :C");
+	    msjMensaje.setText("Error desconocido");
 	    msjMensaje.setEstado(Estado.ERROR);
 	    visible(false, false, true, true);
 	}
@@ -771,7 +771,7 @@ public class CABolsa implements MouseListener, ItemListener, ChangeListener {
 	}
 
 	if (s.equals("1")) {
-	    msjMensaje.setText("Error desconocido :C");
+	    msjMensaje.setText("Error desconocido");
 	    msjMensaje.setEstado(Estado.ERROR);
 	    visible(false, true, false, true);
 	}

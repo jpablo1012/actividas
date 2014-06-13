@@ -52,7 +52,7 @@ public class Ajustes implements MouseListener {
             msjMensaje.setVisible(true);
         } else {
             if (alee.size() == 0) {
-                msjMensaje.setText("Error desconocido :C");
+                msjMensaje.setText("Error desconocido");
                 msjMensaje.setEstado(Estado.ERROR);
                 msjMensaje.setVisible(true);
             } else {
@@ -79,7 +79,7 @@ public class Ajustes implements MouseListener {
             msjMensaje.setVisible(true);
         } else {
             if (alce.size() == 0) {
-                msjMensaje.setText("Error desconocido :C");
+                msjMensaje.setText("Error desconocido");
                 msjMensaje.setEstado(Estado.ERROR);
                 msjMensaje.setVisible(true);
             } else {
