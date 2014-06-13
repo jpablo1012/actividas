@@ -304,7 +304,7 @@ public class BuscarInsumos implements MouseListener, ActionListener, KeyListener
 
             }
             if (s.equals("1")) {
-                msjMensaje.setText("Error desconocido al eliminar la bolsa :C");
+                msjMensaje.setText("Error desconocido al eliminar la bolsa");
                 msjMensaje.setEstado(Estado.ERROR);
                 msjMensaje.setVisible(true);
             }
@@ -546,7 +546,7 @@ public class BuscarInsumos implements MouseListener, ActionListener, KeyListener
                 Main.menu.frame.add(Main.insumos.panel);
                 Main.esconderTodos();
                 Main.insumos.panel.setVisible(true);
-                Main.insumos.msjMensaje.setText("No tienes bolsas :C");
+                Main.insumos.msjMensaje.setText("No tienes bolsas");
                 Main.insumos.msjMensaje.setEstado(Estado.ERROR);
                 Main.dialog.ocultar();
             }

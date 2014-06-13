@@ -292,7 +292,7 @@ public class OrdenImpresor implements MouseListener {
 	ArrayList<BolsaE> albe = new BolsaN().buscarBolsa("referencia", this.ie.getBolsa_referencia() + "", true, true);
 
 	if (albe == null) {
-	    msjMensaje.setText("Error desconocido :C");
+	    msjMensaje.setText("Error desconocido");
 	    msjMensaje.setEstado(Estado.ERROR);
 	    msjMensaje.setVisible(true);
 	} else {
@@ -389,7 +389,7 @@ public class OrdenImpresor implements MouseListener {
 	}
 
 	if (s.equals("1")) {
-	    msjMensaje.setText("Error desconocido :C");
+	    msjMensaje.setText("Error desconocido");
 	    msjMensaje.setEstado(Estado.ERROR);
 	    msjMensaje.setVisible(true);
 	}
@@ -476,13 +476,13 @@ public class OrdenImpresor implements MouseListener {
 	}
 
 	if (s.equals("1")) {
-	    msjMensaje.setText("Error desconocido :C");
+	    msjMensaje.setText("Error desconocido");
 	    msjMensaje.setEstado(Estado.ERROR);
 	    msjMensaje.setVisible(true);
 	}
 
 	if (s.equals("2")) {
-	    msjMensaje.setText("Error desconocido :C");
+	    msjMensaje.setText("Error al conectarse a la base de datos");
 	    msjMensaje.setEstado(Estado.ERROR);
 	    msjMensaje.setVisible(true);
 	}

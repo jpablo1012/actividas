@@ -295,7 +295,7 @@ public class OrdenFinalizar implements MouseListener {
 	ArrayList<BolsaE> albe = new BolsaN().buscarBolsa("referencia", this.oe.getBolsa_referencia() + "", true, true);
 
 	if (albe == null) {
-	    msjMensaje.setText("Error desconocido :C");
+	    msjMensaje.setText("Error desconocido");
 	    msjMensaje.setEstado(Estado.ERROR);
 	    msjMensaje.setVisible(true);
 	} else {

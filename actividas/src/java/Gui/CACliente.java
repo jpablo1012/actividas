@@ -419,7 +419,7 @@ public class CACliente implements MouseListener {
 
         if (s.equals("1")) {
             msjMensaje.setEstado(Estado.ERROR);
-            msjMensaje.setText("Ha ocurrido un error y no sabemos que es :C");
+            msjMensaje.setText("Error desconocido");
             msjMensaje.setVisible(true);
         }
 

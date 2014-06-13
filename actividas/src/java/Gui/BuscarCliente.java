@@ -256,7 +256,7 @@ public class BuscarCliente implements MouseListener, KeyListener {
                         }
 
                         if (s.equals("1")) {
-                            msjMensaje.setText("Ha ocurrido un error al eliminar el cliente :C");
+                            msjMensaje.setText("Ha ocurrido un error al eliminar el cliente");
                             msjMensaje.setEstado(Estado.ERROR);
                             msjMensaje.setVisible(true);
                         }
