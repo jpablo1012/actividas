@@ -4,7 +4,8 @@
  */
 package Controlador;
 
-import Entidades.ClienteE; 
+import Entidades.ClienteE;
+import Entidades.List;
 import Entidades.UsuarioE;
 import Negocio.ClienteN;
 import Negocio.UsuarioN;
@@ -13,7 +14,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
-import java.util.ArrayList; 
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -26,7 +27,9 @@ import javax.servlet.http.HttpServletResponse;
 public class SvlCliente extends HttpServlet {
 
     /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
@@ -97,8 +100,6 @@ public class SvlCliente extends HttpServlet {
             out.close();
         }
 
-
-
     }
 
     public void buscarCliente(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -112,7 +113,7 @@ public class SvlCliente extends HttpServlet {
 
         UsuarioN un = new UsuarioN();
         ArrayList<UsuarioE> alue = un.buscarUsuario("cliente_cedula", "", false, true);
-
+        //List <UsuarioE> alue = un.buscarUsuario(valor); //buscar usando lista
         alce = cn.buscarCliente(buscar, valor, false);
         if (alce == null) {
             enviar = respuestaBuscar("El valor que usted busca no existe en la base de datos");
@@ -170,18 +171,17 @@ public class SvlCliente extends HttpServlet {
         ue.setTipo("cliente");
 
         try {
-           if(direccionI.equals("")){
-           }else{
-            direccionI = URLDecoder.decode(direccionI, "UTF-8");
-            System.out.println(direccionI);
-            File f = new File(direccionI);
-            ue.setImagen(f);
-           }
+            if (direccionI.equals("")) {
+            } else {
+                direccionI = URLDecoder.decode(direccionI, "UTF-8");
+                System.out.println(direccionI);
+                File f = new File(direccionI);
+                ue.setImagen(f);
+            }
         } catch (Exception e) {
         }
-
         String s = un.actualizarUsuario(ue);
-
+        System.out.print(s);
         if (s.equals("")) {
             ClienteE me = new ClienteE();
             ClienteN mn = new ClienteN();
@@ -228,6 +228,7 @@ public class SvlCliente extends HttpServlet {
         ue.setIdUsuario(IdUsuario);
 
         String s = un.eliminarUsuario(ue.getIdUsuario());
+        System.out.println(s);
         if (s.equals("")) {
             System.out.println("ggfgfhrh");
             ClienteN cn = new ClienteN();
@@ -278,21 +279,20 @@ public class SvlCliente extends HttpServlet {
             lugar = URLEncoder.encode(ue.getImagen().getAbsolutePath(), "UTF-8");
         } catch (Exception e) {
         }
-        String retorne = "{\"nombre\":\"" + a.getNombre() + "\"," +
-                "\"apellido\":\"" + a.getApellido() + "\"," +
-                "\"cedula\":\"" + a.getCedula() + "\"," +
-                "\"direccion\":\"" + a.getDireccion() + "\"," +
-                "\"telefono\":\"" + a.getTelefono() + "\"," +
-                "\"correo\":\"" + a.getCorreo() + "\"," +
-                "\"codigo\":\"" + ue.getCodigo() + "\"," +
-                "\"ciudad\":\"" + a.getCiudad() + "\"," +
-                "\"IdUsuario\":\"" + ue.getIdUsuario() + "\",";
+        String retorne = "{\"nombre\":\"" + a.getNombre() + "\","
+                + "\"apellido\":\"" + a.getApellido() + "\","
+                + "\"cedula\":\"" + a.getCedula() + "\","
+                + "\"direccion\":\"" + a.getDireccion() + "\","
+                + "\"telefono\":\"" + a.getTelefono() + "\","
+                + "\"correo\":\"" + a.getCorreo() + "\","
+                + "\"codigo\":\"" + ue.getCodigo() + "\","
+                + "\"ciudad\":\"" + a.getCiudad() + "\","
+                + "\"IdUsuario\":\"" + ue.getIdUsuario() + "\",";
         try {
             retorne += "\"imagen\":\"" + ue.getImagen().getName() + "\",";
             retorne += "\"direccionimg\":\"" + lugar + "\",";
         } catch (Exception e) {
         }
-
 
         retorne += "\"mensaje\":\"" + s + "\"}";
 
@@ -322,10 +322,10 @@ public class SvlCliente extends HttpServlet {
 //                "\"ciudad\":\"" + a.getCiudad() + "\"," +
 //                "\"IdUsuario\":\"" + ue.getIdUsuario() + "\"}";
 //    }
-
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
+     *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
@@ -339,6 +339,7 @@ public class SvlCliente extends HttpServlet {
 
     /**
      * Handles the HTTP <code>POST</code> method.
+     *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
@@ -352,6 +353,7 @@ public class SvlCliente extends HttpServlet {
 
     /**
      * Returns a short description of the servlet.
+     *
      * @return a String containing servlet description
      */
     @Override
