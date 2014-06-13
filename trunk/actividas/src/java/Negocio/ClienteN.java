@@ -66,7 +66,6 @@ public class ClienteN {
 
     }
 
-<<<<<<< .mine
     /**
      * Busca clientes en la tabla "cliente" de la base de datos
      *
@@ -77,18 +76,7 @@ public class ClienteN {
      * a el valor a buscar false si los datos pueden empezar por el valor a
      * buscar
      * @return ArrayList de ClienteE o null si hubo un error al conectare a la
-=======
-     /**
-     * Busca clientes en la tabla "cliente" de la base de datos
-     * @param variable columna de la tabla cliente 
-     * (cedula, direccion, email, nombre, telefono, apellido, ciudad) 
-     * que va a usar para buscar
-     * @param valor valor a comparar con la columna seleccionada
-     * @param exactamente true si los datos de la columna tienen que ser iguales
-     * a el valor a buscar false si los datos pueden empezar por el valor a buscar
-     * @return ArrayList de ClienteE o null si hubo un error al conectare a la
->>>>>>> .r75
-     * base de datos
+     * ======= /** Busca clientes en la tabla "cliente" de la base de datos
      */
     public ArrayList<ClienteE> buscarCliente(String variable, String valor, boolean exactamente) {
         Conexion con = new Conexion();
@@ -153,17 +141,16 @@ public class ClienteN {
         imprimir();
         cn2.eliminarCliente("96041011456");
         imprimir();
-        
-        
+
         List<Registro> cambios = cn.historial.getCambios();
-<<<<<<< .mine
         for (int i = 0; i < cambios.size(); i++) {
             Registro r = cambios.get(i);
-=======
-        while(!cambios.isEmpty()){
-            Registro r= cambios.pop();
->>>>>>> .r75
-            System.out.println(r.getAccion());
+
+            while (!cambios.isEmpty()) {
+                r = cambios.pop();
+
+                System.out.println(r.getAccion());
+            }
         }
     }
 
