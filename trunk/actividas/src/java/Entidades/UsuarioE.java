@@ -8,7 +8,7 @@ import java.io.File;
 
 /**
  *
- * @author Juan Diego - Juan Pablo
+ * @author USUARIO
  */
 public class UsuarioE {
 
@@ -20,29 +20,23 @@ public class UsuarioE {
     private String codigo;
     private String apellido;
     private File imagen;
-
-    public UsuarioE(String idU, String name, String type, String clienteC, String empleadoC, String code, String lastName, File img){
-        this.idUsuario = idU;
-        this.nombre = name;
-        this.tipo = type;
-        this.clienteCedula = clienteC;
-        this.empleadoCedula = empleadoC;
-        this.codigo = code;
-        this.apellido = lastName;
-        this.imagen = img;
-    }
     
     public UsuarioE(){
-        this.idUsuario = null;
-        this.nombre = null;
-        this.tipo = null;
-        this.clienteCedula = null;
-        this.empleadoCedula = null;
-        this.codigo = null;
-        this.apellido = null;
-        this.imagen = null;
+        this(null, null, null, null, null, null, null, null);
     }
     
+    public UsuarioE(String id, String nombre, String apellido, String tipo, 
+            String clienteCedula, String empleadoCedula, String codigo, File imagen){
+        this.idUsuario = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.tipo = tipo;
+        this.clienteCedula = clienteCedula;
+        this.empleadoCedula = empleadoCedula;
+        this.codigo = codigo;
+        this.imagen = imagen;
+    }
+
     public String getIdUsuario() {
         return idUsuario;
     }
