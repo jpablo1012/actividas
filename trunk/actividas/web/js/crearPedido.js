@@ -1,30 +1,31 @@
 var tipo;
-$("document").ready(function () {
-    
-    completarrf();
+$("document").ready(function() {
+    fecha();
+    completarref();
     tipo = $.cookie('tipo');
-    if (tipo == "administrador"){
+    if (tipo == "administrador") {
         var micapa = document.getElementById("crearPedi");
         micapa.innerHTML = '<label for="Cedulaa" style="margin:0 0 0 66px"><span style="color:#D3362D;">*</span>Cedula del Cliente</label><br><input class="form" style="width:120px; margin-left:66px;" type="text" id="cedulaa">';
     }
-    if (tipo == "cliente"){
+    if (tipo == "cliente") {
         var micapa2 = document.getElementById("esperaP");
-        micapa2.style.display="none";
+        micapa2.style.display = "none";
     }
-    
-    $("#crearPedido").submit(function(){
+
+    $("#crearPedido").submit(function() {
         enviar();
         return false;
     });
 });
 
 function validar() {
-    var cont=true;
-    var cedula1 = $("#cedulaa").val();;
+    var cont = true;
+    var cedula1 = $("#cedulaa").val();
+    ;
     tipo = $.cookie('tipo');
     var fecha;
     var f = new Date();
-    fecha= f.getFullYear() + "-" + (f.getMonth() +1) + "-" + f.getDate();
+    fecha = f.getFullYear() + "-" + (f.getMonth() + 1) + "-" + f.getDate();
     var fechaEntrega = $("#FEntrega").val();
     var dateh = new Date(fecha);
     var date = new Date(fechaEntrega);
@@ -38,63 +39,63 @@ function validar() {
     var sellado1 = false;
 
     var regex = /^\d+$/;
-    
-    if(regex.test(cedula1) && cedula1.length>=6 && cedula1.length<=13){
+
+    if (regex.test(cedula1) && cedula1.length >= 6 && cedula1.length <= 13) {
         $("#cedulaa").addClass("exito");
         $("#cedulaa").parent().parent().next().text("");
-    }else{
+    } else {
         $("#cedulaa").addClass("error");
         $("#cedulaa").parent().parent().next().text("Cédula no válida");
         cont = false;
     }
-    
-    if(date < dateh){
+
+    if (date < dateh) {
         $("#FEentrega").addClass("error");
         $("#FEentrega").parent().parent().next().text("Ingrese una fecha posterior");
         cont = false;
-    }else{
+    } else {
         $("#FEentrega").parent().parent().next().text("");
         $("#FEentrega").addClass("exito");
     }
 
-    if(tipoV == "seleccionar"){
+    if (tipoV == "seleccionar") {
         $("#tipoVenta").addClass("error");
         $("#tipoVenta").parent().parent().next().text("Seleccione un tipo de venta");
         cont = false;
-    }else{
+    } else {
         $("#tipoVenta").parent().parent().next().text("");
         $("#tipoVenta").addClass("exito");
     }
 
-    if(refBolsa == "ninguno"){
+    if (refBolsa == "ninguno") {
         $("#refBolsa").addClass("error");
         $("#refBolsa").parent().parent().next().text("Seleccione una bolsa");
         cont = false;
-    }else{
+    } else {
         $("#refBolsa").parent().parent().next().text("");
         $("#refBolsa").addClass("exito");
     }
 
-    if(medidaCa == "seleccionar"){
+    if (medidaCa == "seleccionar") {
         $("#cantidadU").addClass("error");
         $("#cantidadU").parent().parent().next().text("Seleccione una unidad de medida");
         cont = false;
-    }else{
+    } else {
         $("#cantidadU").parent().parent().next().text("");
         $("#cantidadU").addClass("exito");
     }
 
-    if(cantidades == "" || cantidades == null){
+    if (cantidades == "" || cantidades == null) {
         $("#cantidad").addClass("error");
         $("#cantidad").parent().parent().next().text("Campo vacio");
         cont = false;
-    }else{
+    } else {
         $("#cantidad").parent().parent().next().text("");
         $("#cantidad").addClass("exito");
     }
 
 
-    if(cont){
+    if (cont) {
         enviar();
     }
 }
@@ -118,14 +119,14 @@ function enviar() {
         cedula1 = $.cookie("cedula");
     }
 
-    if (document.getElementById("check3").checked == true){
+    if (document.getElementById("check3").checked == true) {
         extrusion1 = true;
     }
-    if (document.getElementById("check1").checked == true){
+    if (document.getElementById("check1").checked == true) {
         impresion1 = true;
     }
     if (document.getElementById("check2").checked == true) {
-        sellado1 = true; 
+        sellado1 = true;
     }
     $("#crearPed").attr("disabled", "disabled");
     $("#Mensaje3").text(""); //deja en blanco el contenido que haya en el elemento con id "mensaje"
@@ -134,7 +135,7 @@ function enviar() {
         type: 'POST', //establece el metodo de envio
         timeout: 12000, //establece el tiempo maximo de espera en milisegundos
         dataType: 'text', //establece el tipo de datos
-        data: { //datos que se envian al servidor
+        data: {//datos que se envian al servidor
             fechaEntrega: date.getTime(),
             cantidad: cantidades,
             medidac: medidaCa,
@@ -147,11 +148,11 @@ function enviar() {
             cedula: cedula1,
             tipo: "crear"
         }
-    }).done(function (responseText) { //cuando el servidor entrega una respuesta se ejecuta esta funcion anonima
+    }).done(function(responseText) { //cuando el servidor entrega una respuesta se ejecuta esta funcion anonima
         var j = JSON.parse(responseText); //convierte la respuesta en un JSON
         traducira(j); //envia el JSON a "traducir" para su posterior analisis
         $("#crearPed").removeAttr("disabled");
-    }).fail(function () { //si el tiempo de espera se acaba ejecuta esta funcion anonima
+    }).fail(function() { //si el tiempo de espera se acaba ejecuta esta funcion anonima
         $("#Mensaje3").text("Error al comunicarse con el servidor");
         $("#crearPed").removeAttr("disabled");
     });
@@ -178,7 +179,7 @@ function traducira(j) {
     }
 }
 
-function completarrf(){
+function completarref() {
     $.ajax({
         url: '/Actividas/SvlPedido',
         type: 'POST',
@@ -187,10 +188,11 @@ function completarrf(){
         data: {
             tipo: "llenarrf"
         }
-    }).done(function (responseText) {
+    }).done(function(responseText) {
         var k = JSON.parse(responseText);
         llenarba(k);
-    }).fail(function () {});
+    }).fail(function() {
+    });
 }
 
 function llenarba(k) {
@@ -200,7 +202,23 @@ function llenarba(k) {
     $("<option value='ninguno'>-Seleccionar-</option>").appendTo("#refBolsa");
     for (var l = 0; l < nd; l++) {
         var id = k.buscar[l].id;
-        $('<option value='+id+'>' + "Ref:" + id + '</option>').appendTo("#refBolsa");
+        $('<option value=' + id + '>' + "Ref:" + id + '</option>').appendTo("#refBolsa");
 
     }
+}
+
+function fecha() {
+    var fecha;
+    var f = new Date();
+    fecha = f.getFullYear() + "-";
+    if (f.getMonth() + 1 <= 9) {
+        fecha = fecha + "0";
+    }
+    fecha = fecha + (f.getMonth() + 1) + "-";
+    if (f.getDate() <= 9) {
+        fecha = fecha + "0";
+    }
+    fecha = fecha + f.getDate();
+    $("#FEntrega").val(fecha);
+    $("#FEntrega").attr("min", fecha);
 }
