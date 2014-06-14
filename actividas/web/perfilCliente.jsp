@@ -6,7 +6,7 @@
 <%@page import="java.net.URLDecoder"%>
 <%@page import="Controlador.AES"%>
 <!DOCTYPE HTML >
-<%@page contentType="java"%>
+<%@page contentType="java/html"%>
 <%
     AES b = new AES();
     b.setKey("actividas");

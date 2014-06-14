@@ -2,7 +2,7 @@
 <html>
     <head>
         
-        <meta content="text/html" charset="utf-8" />
+        <meta content="java/text/html" charset="utf-8" />
         <meta charset="utf-8">
         <title>PlastiSer S.A.</title>
         <link href="style.css" rel="stylesheet">

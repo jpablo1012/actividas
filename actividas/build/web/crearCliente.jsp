@@ -1,19 +1,19 @@
- <%@page import="java.net.URLDecoder"%>
+<%@page import="java.net.URLDecoder"%>
 <%@page import="Controlador.AES"%>
 <!DOCTYPE HTML >
-<%@page contentType="java"%>
+<%@page contentType="java/html"%>
 <%
     AES b = new AES();
     b.setKey("actividas");
-    Cookie [] cok = null;
+    Cookie[] cok = null;
     cok = request.getCookies();
     String val = cok[4].getValue();
     try {
-	    val = URLDecoder.decode(val, "UTF-8");
-	} catch (Exception e1) {
-	}
+        val = URLDecoder.decode(val, "UTF-8");
+    } catch (Exception e1) {
+    }
     b.decrypt(val);
-    if(b.getDecryptedString().equals("validado")){   
+    if (b.getDecryptedString().equals("validado")) {
 %>
 <html>
     <head>
@@ -109,7 +109,7 @@
 
     </body>
 </html>
-<%}else{
-    
-}
+<%} else {
+
+    }
 %>
