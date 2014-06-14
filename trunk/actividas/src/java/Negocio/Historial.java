@@ -42,6 +42,7 @@ public class Historial {
     public static void guardar(){
         conBD = true;
         while(!cambios.isEmpty()){
+            
             Registro registro = cambios.pop();
             switch(registro.getAccion()){
                 case ACTUALIZAR_CLIENTE:
@@ -75,5 +76,6 @@ public class Historial {
                     break;
             }
         }
+        conBD = false;
     }
 }

@@ -79,6 +79,7 @@ public class UsuarioN {
         return u;
         
         }else{
+            ue.setIdUsuario(Integer.toString(Integer.parseInt(usersH.getLast().getDato().getIdUsuario())+1));
             return dao.crearUsuario(ue, usersH);
         }
     }
