@@ -16,21 +16,21 @@ import Entidades.Registro;
  * @version 73
  */
 public class Historial {
-    private static List<Registro> cambios;
+    private static List<Registro> cambios = new List<Registro>();
     
     /**
      * Contructor de la clase Historial
      */
-    public Historial(){
-        if(cambios == null){
-            cambios = new List<Registro>();
-        }
-    }
+//    public Historial(){
+//        if(cambios == null){
+//            cambios = new List<Registro>();
+//        }
+//    }
     /**
      * Añade un cambio a la cola de cambios
      * @param registro cambio a añadir
      */
-    public void añadir(Registro registro){
+    public static void añadir(Registro registro){
         cambios.push(registro);
     }
     
@@ -38,7 +38,7 @@ public class Historial {
      * Retorna la cola de cambios
      * @return List - cola de cambios
      */
-    public List<Registro> getCambios(){
+    public static List<Registro> getCambios(){
         return cambios;
     }
 }
