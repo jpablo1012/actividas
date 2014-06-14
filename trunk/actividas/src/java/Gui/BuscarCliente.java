@@ -54,7 +54,7 @@ public class BuscarCliente implements MouseListener, KeyListener {
 
         lblBuscar = new ALabel("Buscar con:");
         lblBuscar.setBounds(35, 30, 70, 24);
-        busq.add(lblBuscar);
+        //busq.add(lblBuscar);
 
         txtBuscar = new ATextField();
         txtBuscar.setBounds(35, 85, 450, 24);
@@ -63,8 +63,9 @@ public class BuscarCliente implements MouseListener, KeyListener {
         busq.add(txtBuscar);
 
         comBuscar = new AComboBox(bus);
+        comBuscar.setSelectedIndex(1);
         comBuscar.setBounds(117, 30, 120, 24);
-        busq.add(comBuscar);
+        //busq.add(comBuscar);
 
         btnBuscar = new AButton("Buscar cliente");
         btnBuscar.setBounds(200, 147, 130, 30);
@@ -138,16 +139,21 @@ public class BuscarCliente implements MouseListener, KeyListener {
 
             for (int i = 0; i < this.ce.size(); i++) {
                 if (this.ce.get(i).getCedula().equals(valor)) {
-                    ArrayList<UsuarioE> actue = new UsuarioN().buscarUsuario("cliente_cedula", valor, true, true);
+                    List<UsuarioE> actue = new UsuarioN().buscarUsuario(valor);
+                    for (int j = 0; j < actue.size(); j++) {
+                        UsuarioE ue = actue.get(j);
+                        if (ue.getClienteCedula().equals(valor)) {
+                            Main.caCliente = new CACliente();
+                            Main.menu.frame.getContentPane().add(Main.caCliente.panel);
+                            Main.esconderTodos();
+                            Main.caCliente.setDatos(this.ce.get(i), ue);
+                            Main.caCliente.panel.setVisible(true);
+                            Main.caCliente.visibleCliente(true, false, false, true);
+                            Main.caCliente.panel.setTitulo("Cliente| Actualizar");
+                            break;
+                        }
+                    }
 
-                    Main.caCliente = new CACliente();
-                    Main.menu.frame.getContentPane().add(Main.caCliente.panel);
-                    Main.esconderTodos();
-                    Main.caCliente.setDatos(this.ce.get(i), actue.get(0));
-                    Main.caCliente.panel.setVisible(true);
-                    Main.caCliente.visibleCliente(true, false, false, true);
-                    Main.caCliente.panel.setTitulo("Cliente| Actualizar");
-                    break;
                 }
             }
         } else {
@@ -164,17 +170,16 @@ public class BuscarCliente implements MouseListener, KeyListener {
         msjMensaje.setText("");
         // buscarCon = buscarCon.toLowerCase();
 
-        buscarCon = buscarCon.replaceAll(bus[1], "nombre");
-        buscarCon = buscarCon.replaceAll(bus[2], "apellido");
-        buscarCon = buscarCon.replaceAll(bus[3], "cedula");
-        buscarCon = buscarCon.replaceAll(bus[4], "direccion");
-        buscarCon = buscarCon.replaceAll(bus[5], "email");
-        buscarCon = buscarCon.replaceAll(bus[6], "telefono");
-        buscarCon = buscarCon.replaceAll(bus[7], "ciudad");
-
+//        buscarCon = buscarCon.replaceAll(bus[1], "nombre");
+//        buscarCon = buscarCon.replaceAll(bus[2], "apellido");
+//        buscarCon = buscarCon.replaceAll(bus[3], "cedula");
+//        buscarCon = buscarCon.replaceAll(bus[4], "direccion");
+//        buscarCon = buscarCon.replaceAll(bus[5], "email");
+//        buscarCon = buscarCon.replaceAll(bus[6], "telefono");
+//        buscarCon = buscarCon.replaceAll(bus[7], "ciudad");
         //this.ce = new ClienteN().buscarCliente(buscarCon, texto, false);
         this.ce = new ClienteN().buscarCliente(texto);
-        ArrayList<UsuarioE> alue = new UsuarioN().buscarUsuario("cliente_cedula", "", false);
+        List<UsuarioE> alue = new UsuarioN().buscarUsuario("");
         if (ce == null) {
             msjMensaje.setText("El valor que usted busca no existe en la base de datos");
             msjMensaje.setEstado(Estado.ERROR);
@@ -239,35 +244,38 @@ public class BuscarCliente implements MouseListener, KeyListener {
 
                 for (int i = 0; i < this.ce.size(); i++) {
                     if (this.ce.get(i).getCedula().equals(valor)) {
-                        ArrayList<UsuarioE> alue = new UsuarioN().buscarUsuario("cliente_cedula", valor, true);
+                        List<UsuarioE> alue = new UsuarioN().buscarUsuario(valor);
+                        for (int j = 0; j < alue.size(); j++) {
+                            if (alue.get(j).getClienteCedula().equals(valor)) {
+                                String s = new UsuarioN().eliminarUsuario(alue.get(j).getIdUsuario());
 
-                        String s = new UsuarioN().eliminarUsuario(alue.get(0).getIdUsuario());
+                                if (s.equals("")) {
+                                    s = new ClienteN().eliminarCliente((String) this.ce.get(i).getCedula());
 
-                        if (s.equals("")) {
-                            s = new ClienteN().eliminarCliente((String) this.ce.get(i).getCedula());
+                                    if (s.equals("")) {
+                                        buscar();
+                                        msjMensaje.setText("El cliente ha sido eliminado");
+                                        msjMensaje.setEstado(Estado.EXITO);
+                                        msjMensaje.setVisible(true);
 
-                            if (s.equals("")) {
-                                buscar();
-                                msjMensaje.setText("El cliente ha sido eliminado");
-                                msjMensaje.setEstado(Estado.EXITO);
-                                msjMensaje.setVisible(true);
+                                    }
+                                }
 
+                                if (s.equals("1")) {
+                                    msjMensaje.setText("Ha ocurrido un error al eliminar el cliente");
+                                    msjMensaje.setEstado(Estado.ERROR);
+                                    msjMensaje.setVisible(true);
+                                }
+
+                                if (s.equals("2")) {
+                                    msjMensaje.setText("Error al conectarse a la base de datos");
+                                    msjMensaje.setEstado(Estado.ERROR);
+                                    msjMensaje.setVisible(true);
+                                }
+                                break;
                             }
                         }
 
-                        if (s.equals("1")) {
-                            msjMensaje.setText("Ha ocurrido un error al eliminar el cliente");
-                            msjMensaje.setEstado(Estado.ERROR);
-                            msjMensaje.setVisible(true);
-                        }
-
-                        if (s.equals("2")) {
-                            msjMensaje.setText("Error al conectarse a la base de datos");
-                            msjMensaje.setEstado(Estado.ERROR);
-                            msjMensaje.setVisible(true);
-                        }
-
-                        break;
                     }
                 }
                 Main.dialog.ocultar();
@@ -306,7 +314,7 @@ public class BuscarCliente implements MouseListener, KeyListener {
         if (e.getSource() == btnNueva) {
             visibleBuscar(false);
             txtBuscar.setText("");
-            comBuscar.setSelectedIndex(0);
+            //comBuscar.setSelectedIndex(0);
             msjMensaje.setText("");
         }
     }
@@ -322,22 +330,24 @@ public class BuscarCliente implements MouseListener, KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-	 if (e.getSource() == txtBuscar) {
-	            int k = e.getKeyCode();
+        if (e.getSource() == txtBuscar) {
+            int k = e.getKeyCode();
 
-	            if (k == 10) {
-	        	Main.dialog.mostrar(Main.menu.frame.getLocation(), Main.menu.frame.getSize());
-	                if (comprobar()) {
-	                    buscar();
-	                }
-	                Main.dialog.ocultar();
-	            }
-	        }
+            if (k == 10) {
+                Main.dialog.mostrar(Main.menu.frame.getLocation(), Main.menu.frame.getSize());
+                if (comprobar()) {
+                    buscar();
+                }
+                Main.dialog.ocultar();
+            }
+        }
     }
 
     @Override
-    public void keyReleased(KeyEvent e) {}
+    public void keyReleased(KeyEvent e) {
+    }
 
     @Override
-    public void keyTyped(KeyEvent e) {}
+    public void keyTyped(KeyEvent e) {
+    }
 }

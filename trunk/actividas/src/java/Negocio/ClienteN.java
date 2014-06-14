@@ -17,7 +17,7 @@ public class ClienteN {
 
     public DaosCliente dao;
     public static List<ClienteE> head = null;
-    public boolean conBD = false;
+    
 
     /**
      * Contructor de la clase ClienteN
@@ -49,7 +49,7 @@ public class ClienteN {
      * existe, "": Cliente creado
      */
      public String crearCliente(ClienteE ee) {
-        if(conBD){
+        if(Historial.conBD){
             Conexion con = new Conexion();
             Connection c = con.getCon();
             String s = dao.crearCliente(c, ee);
@@ -93,7 +93,7 @@ public class ClienteN {
      * existe en el sistema, "": Cliente actualizado
      */
    public String actualizarCliente(ClienteE ce) {
-        if(conBD){
+        if(Historial.conBD){
             Conexion con = new Conexion();
             return dao.actualizarCliente(con.getCon(), ce);
         }else{
@@ -108,7 +108,7 @@ public class ClienteN {
      * se puede eliminar, "": Cliente eliminado
      */
 public String eliminarCliente(String cedula) {
-        if(conBD){
+        if(Historial.conBD){
             Conexion con = new Conexion();
             return dao.eliminarCliente(con.getCon(), cedula);
         }else{
