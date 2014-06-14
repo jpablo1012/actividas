@@ -441,6 +441,7 @@ public class DaosUsuario {
                         ce.getApellido(), ce.getTipo(), ce.getClienteCedula(),
                         ce.getEmpleadoCedula(), ce.getCodigo(), ce.getImagen());
                 Registro<UsuarioE> re = new Registro<UsuarioE>(eliminado, Accion.ELIMINAR_USUARIO);
+                Historial.añadir(re);
                 return "";
             }
         }
@@ -448,6 +449,9 @@ public class DaosUsuario {
     }
     
     private boolean stringIniciaCon(String original, String comparar){
+        if (original == null || comparar == null){
+            return false;
+        }
         original = original.toLowerCase();
         comparar = comparar.toLowerCase();
         return original.startsWith(comparar);

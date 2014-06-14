@@ -1,19 +1,8 @@
 package Gui;
 
 import Entidades.UsuarioE;
+import Negocio.Historial;
 import Negocio.UsuarioN;
-
-import java.awt.Font;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.util.ArrayList;
-
-import javax.swing.JOptionPane;
-import javax.swing.SwingConstants;
-import javax.swing.border.MatteBorder;
-
 import api.AButton;
 import api.AFrame;
 import api.ALabel;
@@ -22,6 +11,15 @@ import api.APassword;
 import api.ATextField;
 import api.Colores;
 import api.Estado;
+import java.awt.Font;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
+import javax.swing.border.MatteBorder;
 
 public class InicioSesion implements MouseListener, KeyListener {
 

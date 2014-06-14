@@ -22,7 +22,6 @@ public class UsuarioN {
 
     public DaosUsuario dao;
     public static List<UsuarioE> usersH = null;
-    public boolean conBD = false;
     
     public UsuarioN() {
         dao = new DaosUsuario();
@@ -61,7 +60,7 @@ public class UsuarioN {
      * @return  mensaje indicando si el cliente pudo ser creado o no
      */
     public String crearUsuario(UsuarioE ue) {
-    	if (conBD){
+    	if (Historial.conBD){
             if (ue.getImagen() == null) {
                 String clase = this.getClass().getResource("txt.txt").toString();
                 clase = clase.replaceAll("file:/", "");
@@ -106,7 +105,7 @@ public class UsuarioN {
      * @return Confirmacion de la actualización, de lo contrario el respectivo error
      */
     public String actualizarUsuario(UsuarioE ue) {
-    	if(conBD){
+    	if(Historial.conBD){
             if (ue.getImagen() == null) {
                 String clase = this.getClass().getResource("txt.txt").toString();
                 clase = clase.replaceAll("file:/", "");
@@ -128,7 +127,7 @@ public class UsuarioN {
     }
 
     public String eliminarUsuario(String id) {
-        if(conBD){
+        if(Historial.conBD){
             Conexion con = new Conexion();
             return dao.eliminarUsuario(con.getCon(), id);
         }else{
