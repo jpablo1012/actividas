@@ -19,6 +19,7 @@
 
     <head>
                 <script src="js/pedido.js"></script>
+                <script src="js/crearPedido.js"></script>
     </head>
 
     <body>

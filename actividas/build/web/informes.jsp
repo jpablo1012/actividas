@@ -17,6 +17,7 @@
 %>
 <html>
     <head>
+        <script src="js/informes.js"></script>
     </head>
     <body>
         <ul id='navigatione'>

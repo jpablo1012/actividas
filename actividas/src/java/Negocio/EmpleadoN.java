@@ -6,7 +6,8 @@ package Negocio;
 
 import java.sql.*;
 import java.util.ArrayList;
-
+import Entidades.List;
+import Entidades.Registro;
 import Entidades.EmpleadoE;
 import Persistencia.DaosEmpleado;
 import Utilidades.Conexion;
@@ -18,16 +19,31 @@ import Utilidades.Conexion;
 public class EmpleadoN {
 
     public DaosEmpleado dao;
+    public static List<EmpleadoE> head = null;
 
     public EmpleadoN() {
         dao = new DaosEmpleado();
+        if (head == null) {
+            head = getList();
+        }
+    }
+
+    public final List<EmpleadoE> getList() {
+        Conexion con = new Conexion();
+        Connection c = con.getCon();
+        List<EmpleadoE> aux = dao.fillList(c, "cedula", "", false);
+        return aux;
     }
 
     public String crearEmpleado(EmpleadoE ee) {
-        Conexion con = new Conexion();
-        Connection c = con.getCon();
-        String s = dao.crearEmpleado(c, ee);
-        return s;
+        if (Historial.conBD) {
+            Conexion con = new Conexion();
+            Connection c = con.getCon();
+            String s = dao.crearEmpleado(c, ee);
+            return s;
+        } else {
+            return dao.crearEmpleado(ee, head);
+        }
     }
 
     public ArrayList<EmpleadoE> buscarEmpleado(String variable, String valor, boolean exactamente) {
@@ -36,24 +52,36 @@ public class EmpleadoN {
         return dao.buscarEmpleado(c, variable, valor, exactamente);
     }
 
+    public List<EmpleadoE> buscarEmpleado(String valor) {
+        return dao.buscarEmpleado(head, valor);
+    }
+
     public String actualizarEmpleado(EmpleadoE ee) {
-        Conexion con = new Conexion();
-        Connection c = con.getCon();
-        return dao.actualizarEmpleado(c, ee);
+        if (Historial.conBD) {
+            Conexion con = new Conexion();
+            Connection c = con.getCon();
+            return dao.actualizarEmpleado(c, ee);
+        }else{
+            return dao.actualizarEmpleado(ee, head);
+        }
     }
 
     public String eliminarEmpleado(String cedula) {
+        if(Historial.conBD){
+            Conexion con = new Conexion();
+            return dao.eliminarEmpleado(con.getCon(), cedula);
+        }else{
+            return dao.eliminarEmpleado(cedula, head);
+        }
+    }
+
+    public ArrayList<Object[]> informesSellador() {
         Conexion con = new Conexion();
-        return dao.eliminarEmpleado(con.getCon(), cedula);
+        return dao.informeSinFechas(con.getCon());
     }
-    
-    public ArrayList<Object[]> informesSellador(){
-	Conexion con = new Conexion();
-        return dao.informeSinFechas(con.getCon()); 
-    }
-    
-    public ArrayList<Object[]> informesSellador(java.util.Date inicio, java.util.Date fin){
-	Conexion con = new Conexion();
+
+    public ArrayList<Object[]> informesSellador(java.util.Date inicio, java.util.Date fin) {
+        Conexion con = new Conexion();
         Connection c = con.getCon();
         return dao.informeConFechas(c, inicio, fin);
     }
