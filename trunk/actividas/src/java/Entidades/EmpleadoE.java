@@ -14,6 +14,17 @@ public class EmpleadoE {
     private String nombre;
     private String apellido;
     private String cargo;
+    
+    public EmpleadoE() {
+        this(null,null,null,null);
+    }
+    
+    public EmpleadoE(String cedula, String nombre, String apellido, String cargo) {
+        this.cedula = cedula;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.cargo = cargo;
+    } 
 
     public String getCargo() {
         return cargo;
