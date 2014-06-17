@@ -22,26 +22,26 @@ public class UsuarioN {
 
     public DaosUsuario dao;
     public static List<UsuarioE> usersH = null;
-    
+
     public UsuarioN() {
         dao = new DaosUsuario();
-        if(usersH == null){
+        if (usersH == null) {
             usersH = getList();
         }
     }
-    
+
     /**
-     * 
+     *
      * @return retorna la tabla usuario, en una lista
      */
-    public List<UsuarioE> getList(){
+    public List<UsuarioE> getList() {
         Conexion con = new Conexion();
         Connection c = con.getCon();
         return dao.fillList(c, "nombre", "", false, true);
     }
 
     /**
-     * 
+     *
      * @param cedula Cédula del supuesto usuario a validar inicio de sesión
      * @return Retorna un UsuarioE, si el usuario existe, de lo contrario
      * retorna null
@@ -56,35 +56,36 @@ public class UsuarioN {
 
     /**
      * Crea un usuario, en la base de datos o en la lista; Todo según el caso
+     *
      * @param ue Usuario a crear
-     * @return  mensaje indicando si el cliente pudo ser creado o no
+     * @return mensaje indicando si el cliente pudo ser creado o no
      */
     public String crearUsuario(UsuarioE ue) {
-    	if (Historial.conBD){
-            if (ue.getImagen() == null) {
-                String clase = this.getClass().getResource("txt.txt").toString();
-                clase = clase.replaceAll("file:/", "");
-                clase = clase.replaceAll("/", "//");
-    	    try {
-    		clase = URLDecoder.decode(clase, "UTF-8");
-    	    }catch(UnsupportedEncodingException ex) {}
-    	    
-    	    ue.setImagen(new File(clase));
+        if (ue.getImagen() == null) {
+            String clase = this.getClass().getResource("txt.txt").toString();
+            clase = clase.replaceAll("file:/", "");
+            clase = clase.replaceAll("/", "//");
+            try {
+                clase = URLDecoder.decode(clase, "UTF-8");
+            } catch (UnsupportedEncodingException ex) {
+            }
 
-    	}
-    	
+            ue.setImagen(new File(clase));
+
+        }
+
         Conexion con = new Conexion();
         Connection c = con.getCon();
         String u = dao.crearUsuario(c, ue);
         return u;
-        
-        }else{
-            ue.setIdUsuario(Integer.toString(Integer.parseInt(usersH.getLast().getDato().getIdUsuario())+1));
-            return dao.crearUsuario(ue, usersH);
-        }
     }
     
-    public List<UsuarioE> buscarUsuario(String valor){
+    public String crearUsuarioL(UsuarioE ue){
+        ue.setIdUsuario(Integer.toString(Integer.parseInt(usersH.getLast().getDato().getIdUsuario()) + 1));
+        return dao.crearUsuario(ue, usersH);
+    }
+
+    public List<UsuarioE> buscarUsuario(String valor) {
         return dao.buscarUsuario(usersH, valor);
     }
 
@@ -93,7 +94,7 @@ public class UsuarioN {
         Connection c = con.getCon();
         return dao.buscarUsuario(c, variable, valor, exactamente);
     }
-    
+
     public ArrayList<UsuarioE> buscarUsuario(String variable, String valor, boolean exactamente, boolean imagen) {
         Conexion con = new Conexion();
         Connection c = con.getCon();
@@ -101,38 +102,42 @@ public class UsuarioN {
     }
 
     /**
-     * Permite actualizar algunos datos de cierto usuario en la DB o en una lista
+     * Permite actualizar algunos datos de cierto usuario en la DB o en una
+     * lista
+     *
      * @param ue datos del usuario a actualizar en la lista o en la DB
-     * @return Confirmacion de la actualización, de lo contrario el respectivo error
+     * @return Confirmacion de la actualización, de lo contrario el respectivo
+     * error
      */
     public String actualizarUsuario(UsuarioE ue) {
-    	if(Historial.conBD){
-            if (ue.getImagen() == null) {
-                String clase = this.getClass().getResource("txt.txt").toString();
-                clase = clase.replaceAll("file:/", "");
-                clase = clase.replaceAll("/", "//");
-    	    try {
-    		clase = URLDecoder.decode(clase, "UTF-8");
-    	    } catch (UnsupportedEncodingException ex) {}
-    	    
-    	    ue.setImagen(new File(clase));
+        if (ue.getImagen() == null) {
+            String clase = this.getClass().getResource("txt.txt").toString();
+            clase = clase.replaceAll("file:/", "");
+            clase = clase.replaceAll("/", "//");
+            try {
+                clase = URLDecoder.decode(clase, "UTF-8");
+            } catch (UnsupportedEncodingException ex) {
+            }
 
-    	}
-    	
+            ue.setImagen(new File(clase));
+
+        }
+
         Conexion con = new Conexion();
         Connection c = con.getCon();
         return dao.actualizarUsuario(c, ue);
-        }else{
-            return dao.actualizarUsuario(ue, usersH);
-        }
+    }
+    
+    public String actualizarUsuarioL(UsuarioE ue){
+        return dao.actualizarUsuario(ue, usersH);
     }
 
     public String eliminarUsuario(String id) {
-        if(Historial.conBD){
-            Conexion con = new Conexion();
-            return dao.eliminarUsuario(con.getCon(), id);
-        }else{
-            return dao.eliminarUsuario(id, usersH);
-        }
+        Conexion con = new Conexion();
+        return dao.eliminarUsuario(con.getCon(), id);
+    }
+    
+    public String eliminarUsuarioL(String id){
+        return dao.eliminarUsuario(id, usersH);
     }
 }

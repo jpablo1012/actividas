@@ -7,7 +7,6 @@ package Negocio;
 import java.sql.*;
 import java.util.ArrayList;
 import Entidades.List;
-import Entidades.Registro;
 import Entidades.EmpleadoE;
 import Persistencia.DaosEmpleado;
 import Utilidades.Conexion;
@@ -36,16 +35,16 @@ public class EmpleadoN {
     }
 
     public String crearEmpleado(EmpleadoE ee) {
-        if (Historial.conBD) {
-            Conexion con = new Conexion();
-            Connection c = con.getCon();
-            String s = dao.crearEmpleado(c, ee);
-            return s;
-        } else {
-            return dao.crearEmpleado(ee, head);
-        }
+        Conexion con = new Conexion();
+        Connection c = con.getCon();
+        String s = dao.crearEmpleado(c, ee);
+        return s;
     }
 
+    public String crearEmpleadoL(EmpleadoE ee){
+        return dao.crearEmpleado(ee, head);
+    }
+    
     public ArrayList<EmpleadoE> buscarEmpleado(String variable, String valor, boolean exactamente) {
         Conexion con = new Conexion();
         Connection c = con.getCon();
@@ -57,22 +56,22 @@ public class EmpleadoN {
     }
 
     public String actualizarEmpleado(EmpleadoE ee) {
-        if (Historial.conBD) {
-            Conexion con = new Conexion();
-            Connection c = con.getCon();
-            return dao.actualizarEmpleado(c, ee);
-        }else{
-            return dao.actualizarEmpleado(ee, head);
-        }
+        Conexion con = new Conexion();
+        Connection c = con.getCon();
+        return dao.actualizarEmpleado(c, ee);
+    }
+    
+    public String actualizarEmpleadoL(EmpleadoE ee){
+        return dao.actualizarEmpleado(ee, head);
     }
 
     public String eliminarEmpleado(String cedula) {
-        if(Historial.conBD){
-            Conexion con = new Conexion();
-            return dao.eliminarEmpleado(con.getCon(), cedula);
-        }else{
-            return dao.eliminarEmpleado(cedula, head);
-        }
+        Conexion con = new Conexion();
+        return dao.eliminarEmpleado(con.getCon(), cedula);
+    }
+    
+    public String eliminarEmpleadoL(String cedula){
+        return dao.eliminarEmpleado(cedula, head);
     }
 
     public ArrayList<Object[]> informesSellador() {

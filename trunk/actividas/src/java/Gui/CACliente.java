@@ -376,7 +376,8 @@ public class CACliente implements MouseListener {
         ace.setTelefono(telefono);
         ace.setCiudad(ciudad);
 
-        String s = cn.actualizarCliente(ace);
+        //String s = cn.actualizarCliente(ace);
+        String s = cn.actualizarClienteL(ace);
         UsuarioE cue = this.ue;
         if (s.equals("")) {
 
@@ -389,7 +390,8 @@ public class CACliente implements MouseListener {
             cue.setTipo("cliente");
             cue.setImagen(file);
 
-            s = un.actualizarUsuario(cue);
+            //s = un.actualizarUsuario(cue);
+            s = un.actualizarUsuarioL(cue);
         }
 
         if (s.equals("")) {
@@ -619,7 +621,8 @@ public class CACliente implements MouseListener {
         cce.setTelefono(telefono);
         cce.setCiudad(ciudad);
 
-        String s = cn.crearCliente(cce);
+        //String s = cn.crearCliente(cce);
+        String s = cn.crearClienteL(cce);
 
         if (s.equals("")) {
             UsuarioE cue = new UsuarioE();
@@ -631,7 +634,8 @@ public class CACliente implements MouseListener {
             cue.setNombre(nombre);
             cue.setTipo("cliente");
             cue.setImagen(file);
-            s = un.crearUsuario(cue);
+            //s = un.crearUsuario(cue);
+            s = un.crearUsuarioL(cue);
         }
 
         if (s.equals("")) {
