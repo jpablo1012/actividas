@@ -357,7 +357,8 @@ public class ResultadoEmpleado implements MouseListener {
             ee2.setCedula(cedula);
             ee2.setNombre(nombre);
 
-            String s = en2.actualizarEmpleado(ee2);
+            //String s = en2.actualizarEmpleado(ee2);
+            String s = en2.actualizarEmpleadoL(ee2);
             if (s.equals("")) {
                 UsuarioE ue2 = new UsuarioE();
                 UsuarioN un2 = new UsuarioN();
@@ -370,7 +371,8 @@ public class ResultadoEmpleado implements MouseListener {
                 ue2.setNombre(nombre);
                 ue2.setTipo(cargo);
                 ue2.setImagen(file);
-                s = un2.actualizarUsuario(ue2);
+                //s = un2.actualizarUsuario(ue2);
+                s = un2.actualizarUsuarioL(ue2);
 
                 if (s.equals("")) {
                     if (aBuscar) {

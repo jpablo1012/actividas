@@ -20,7 +20,6 @@ import Entidades.UsuarioE;
  */
 public class Historial {
     private static List<Registro> cambios = new List<Registro>();
-    public static boolean conBD = false;
     
     
     /**
@@ -40,7 +39,6 @@ public class Historial {
     }
     
     public static void guardar(){
-        conBD = true;
         while(!cambios.isEmpty()){
             
             Registro registro = cambios.pop();
@@ -76,6 +74,5 @@ public class Historial {
                     break;
             }
         }
-        conBD = false;
     }
 }
