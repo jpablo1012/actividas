@@ -141,23 +141,43 @@ function enviarco(){
 function comprobarbo(){
     var calibre;
     var anchoRollo;
+    var largoRollo;
     var referenciaMaterial;
     var refereciaColor;
     var tratado;
+    var medida;
     var cont = true;
+    
+    /**
+     * Tomando valores del formulario
+     */
     calibre = $("#calibre").val();
-    anchoRollo = $("#anchoro").val();
+    anchoRollo = $("#ancho").val();
+    largoRollo = $("#largo").val();
     referenciaMaterial = $("#referenciama").val();
     refereciaColor = $("#referenciaco").val();
+    medida = $("#medida").val();
 
+    $("#medida").removeClass();
+    $("#largo").removeClass();
     $("#calibre").removeAttr("class");
-    $("#anchoro").removeAttr("class");
+    $("#ancho").removeAttr("class");
     $("#referenciama").removeAttr("class");
     $("#referenciaco").removeAttr("class");
     $("#tratado").removeAttr("class");
     $("#Mensaje").text("");
 
     var regex = /^\d+$/;
+    
+    if(medida=="null"){
+        $("#medida").addClass("error");
+        $("#medida").parent().parent().next().children(0).text("Seleccione una referencia");
+        cont = false;
+    }else{
+        $("#medida").removeClass();
+        $("#medida").addClass("exito");
+    }
+    
     if(regex.test(calibre) || calibre==""){
         $("#calibre").addClass("error");
         $("#calibre").parent().parent().next().children(0).text("Sólo números");
@@ -166,14 +186,22 @@ function comprobarbo(){
         $("#calibre").addClass("exito");
         $("#calibre").parent().parent().next().children(0).text("");
     }
-
-    if(regex.test(anchoRollo) || anchoRollo==""){
-        $("#anchoro").addClass("error");
-        $("#anchoro").parent().parent().next().children(0).text("Sólo números");
+    if(regex.test(largoRollo) || largoRollo==""){
+        $("#largo").addClass("error");
+        $("#largo").parent().parent().next().children(0).text("Sólo números");
         cont = false;
     }else{
-        $("#anchoro").addClass("exito");
-        $("#anchoro").parent().parent().next().children(0).text("");
+        $("#largo").addClass("exito");
+        $("#largo").parent().parent().next().children(0).text("");
+    }
+
+    if(regex.test(anchoRollo) || anchoRollo==""){
+        $("#ancho").addClass("error");
+        $("#ancho").parent().parent().next().children(0).text("Sólo números");
+        cont = false;
+    }else{
+        $("#ancho").addClass("exito");
+        $("#ancho").parent().parent().next().children(0).text("");
     }
 
     if(referenciaMaterial=="ninguno"){
@@ -250,9 +278,29 @@ function enviarbo(s){
         }
     }).done(function(res){
         $("#Mensaje").text("Bolsa creada Exitosamente");
+        $("#crearBolsa")[0].reset();
     }).fail(function() {
         $("#Mensaje").text("Error al subir el archivo -dentro");
     });
+}
+
+function limpiarBolsa(){
+    
+  $("#medida").removeClass();
+    $("#largo").removeClass();
+    $("#calibre").removeAttr("class");
+    $("#ancho").removeAttr("class");
+    $("#referenciama").removeAttr("class");
+    $("#referenciaco").removeAttr("class");
+    $("#tratado").removeAttr("class");
+    $("#Mensaje").text("");
+    
+    $("#medida").addClass("form");
+    $("#largo").addClass("form");
+    $("#calibre").addClass("form");
+    $("#ancho").addClass("form");
+    $("#referenciama").addClass("form");
+    $("#referenciaco").addClass("form");
 }
 
 function traducir(j){

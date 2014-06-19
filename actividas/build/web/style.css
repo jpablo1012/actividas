@@ -89,8 +89,8 @@ ul#navigatione li a {
     display:block;
     margin-top: 20px;
     margin-left: 0px;
-    width: 110px; /* Ancho de las pestañas */
-    height: 35px; /* Alto de las pestañas */
+    width: 110px; /* Ancho de las pesta?as */
+    height: 35px; /* Alto de las pesta?as */
     background:rgb(211, 95, 92);
     background-position:center center;
     opacity: 0.9;
@@ -175,7 +175,7 @@ label{
 .form{
     background:#fff;
     height:25px;
-    color:black;
+    color: rgb(0, 0, 0);
     padding:0 8px;
     border:1px solid #d9d9d9;
     border-top:1px solid #c0c0c0;
@@ -898,9 +898,31 @@ ul.art-hmenu ul
     cursor: pointer;
 }
 
+select.error{
+    border: 1px solid rgb(220,68,55);
+    border-top: 1px solid rgb(220,68,55);
+    background:#fff;
+    height:25px;
+    color:black;
+    padding:0 8px;
+    font-family:inherit;
+    font-size:inherit;
+}
 
 input.error{
     border: 1px solid rgb(220,68,55);
+    border-top: 1px solid rgb(220,68,55);
+    background:#fff;
+    height:25px;
+    color:black;
+    padding:0 8px;
+    font-family:inherit;
+    font-size:inherit;
+}
+
+select.exito{
+    border: 1px solid rgb(16,157,89);
+    border-top: 1px solid rgb(16,157,89);
     background:#fff;
     height:25px;
     color:black;
@@ -911,6 +933,7 @@ input.error{
 
 input.exito{
     border: 1px solid rgb(16,157,89);
+    border-top: 1px solid rgb(16,157,89);
     background:#fff;
     height:25px;
     color:black;
