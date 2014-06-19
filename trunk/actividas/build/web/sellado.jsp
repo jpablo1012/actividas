@@ -96,7 +96,7 @@
 
                             </div>
                             <input id="saveS" type="button" name="guardarS" onclick="guardarSe(this.name)" style="margin:60px 0px 15px 26px; width:120px" value="Guardar progeso" class="form">
-                            <input id="confirmarS" name="finS" onclick="guardarSe(this.name)" type="button" style="margin:0px 15px 0px 26px; width:120px" value="Finalizar impresión" class="form">
+                            <input id="confirmarS" name="finS" onclick="guardarSe(this.name)" type="button" style="margin:0px 15px 0px 26px; width:120px" value="Finalizar Sellado" class="form">
                             <table align="center">
                                 <tr>
                                     <td colspan="2" id="mensajeS">
