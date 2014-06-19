@@ -1,19 +1,9 @@
 package Gui;
 
-import java.awt.Font;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.util.ArrayList;
-import java.util.Date;
-
 import Entidades.BolsaE;
 import Entidades.PedidoE;
 import Negocio.BolsaN;
 import Negocio.PedidoN;
-
-import javax.swing.JOptionPane;
-import javax.swing.SwingConstants;
-
 import api.AButton;
 import api.AComboBox;
 import api.AContainer;
@@ -24,6 +14,14 @@ import api.ASpinner;
 import api.ATextField;
 import api.AToggleButton;
 import api.Estado;
+import java.awt.Font;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
 
 public class CAPedido implements MouseListener {
 
@@ -102,6 +100,11 @@ public class CAPedido implements MouseListener {
 
         dtEntrega = new ADateChosser();
         dtEntrega.setBounds(170, 30, 120, 24);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(new Date());
+        cal.add(Calendar.DAY_OF_YEAR, 1);
+        dtEntrega.setMinSelectableDate(cal.getTime());
+        dtEntrega.setDate(cal.getTime());
         pedido.add(dtEntrega);
 
         msjFechaEntrega = new ALabel("");
@@ -254,6 +257,7 @@ public class CAPedido implements MouseListener {
     public void setDatos(PedidoE pe) {
         this.pe = pe;
         dtEntrega.setDate(this.pe.getFecha_entrega());
+        dtEntrega.setMinSelectableDate(null);
 
         spnCantidad.setValue(this.pe.getCantidad());
 
