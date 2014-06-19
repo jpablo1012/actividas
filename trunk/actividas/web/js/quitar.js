@@ -1,5 +1,5 @@
 $("document").ready(function() {
-    if($.cookie('tipo') == "cliente"){
+    if($.cookie('tipo') != "administrador"){
         console.log("si entro");
         var b = $("#crearCo");
         var c = $("#buscarI");

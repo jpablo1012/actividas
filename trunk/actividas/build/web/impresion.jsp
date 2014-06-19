@@ -19,7 +19,8 @@
     <head>
         <script src='js/jquery.modal.js'></script>
         <script src="js/modfwin.js"></script>
-        <script src="js/botones.js"></script>
+        <script src="js/botones.js"></script
+        <script src="js/quitar.js"></script>
         <script src="js/impresion.js"></script>
         <script src="js/orden.js"></script>
 
