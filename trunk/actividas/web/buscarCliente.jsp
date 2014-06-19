@@ -88,7 +88,7 @@
                 <div style="background:white; margin:0 auto; text-align:center;">
                     <legend><h4 align="center">Modificar Cliente</h4></legend>
                     <span id="close" class="close">X</span>
-                    <table align="center" cellspacing="10">
+                    <table align="center" style="text-align: left" cellspacing="10">
                         <tr>
                             <td>
                                 <label for="Cedula">C&eacute;dula</label><br>
@@ -113,9 +113,9 @@
                         </tr>
                         <tr>
                             <td>
-                                <label for="codigo">Contraseña</label><br>
-                                <input type="password" class="formM" id="codigom" name="codigo" style="width:130px" placeholder="Contraseña" required/>
-                                <input type="password" class="formM" id="conCodigo" name="concodigo" style="width:130px" placeholder="Confirmar contraseña"/>
+                                <label for="codigo">Contrase&ntilde;a</label><br>
+                                <input type="password" class="formM" id="codigom" name="codigo" style="width:130px" placeholder="Contrase&ntilde;a" required/>
+                                <input type="password" class="formM" id="conCodigo" name="concodigo" style="width:130px" placeholder="Confirmar contrase&ntilde;a"/>
                             </td>
                             <td>
 

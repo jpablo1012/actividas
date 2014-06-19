@@ -40,7 +40,7 @@
                     <input type="text" id="search" class="form" style="width:420px;height:28px" required/>
                     <select id="buscarCon" class="form" style="height:28px">
                       <option value="ninguno">-Seleccionar-
-                      <option value="cedula">Cédula
+                      <option value="cedula">C&eacute;dula
                       <option value="nombre">Nombre
                       <option value="apellido">Apellido
                       <option value="cargo">Cargo
@@ -77,7 +77,7 @@
                         <div style="background:white; margin:0 auto; text-align:center;">
                             <legend><h4 align="center">Modificar Empleado</h4></legend>
                             <span id="close" class="close">X</span>
-                            <table align="center" cellspacing="10">
+                            <table align="center" cellspacing="10" style="text-align: left">
                                  <tr>
                                      <td>
                                         <label for="cedulam">C&eacute;dula</label><br>
@@ -102,9 +102,9 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <label for="codigom">C&oacute;digo</label><br>
-                                        <input type="password" class="formM" id="codigom" name="codigo" style="width:100px" placeholder="Contraseña" required/>
-                                        <input type="password" class="formM" id="conCodigo" name="concodigo" style="width:100px" placeholder="Confirmar contraseña"/>
+                                        <label for="codigom">Contrase&ntilde;a</label><br>
+                                        <input type="password" class="formM" id="codigom" name="codigo" style="width:100px" placeholder="Contrase&ntilde;a" required/>
+                                        <input type="password" class="formM" id="conCodigo" name="concodigo" style="width:100px" placeholder="Confirmar contrase&ntilde;a"/>
                                     </td>
                                     <td>
 

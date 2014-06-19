@@ -82,7 +82,7 @@
                 <div id="lal" style="background:white; margin:0 auto; height: 100%;">
                     <legend><h4 id="insbo" align="center">Modificar Insumo</h4></legend>
                     <span id="close" class="close">X</span>
-                    <table cellspacing="10">
+                    <table cellspacing="10" align="center">
                         <label id="rc" for="idI" style="margin-left: 30px;">Referencia</label><br>
                         <input type="text" class="formM" id="idI" style="width:100px; margin-left: 31px;" disabled="disbled"/><br><br>
                         <div id="modin">

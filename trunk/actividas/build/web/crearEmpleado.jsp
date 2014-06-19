@@ -58,9 +58,9 @@
                             <td></td>
                         </tr>
                         <tr>
-                            <td><label for="Codigo"><span style="color:#D3362D;">*</span>Contraseña</label><br>
-                                <input type="password" id="Codigo" class="form" placeholder="Contraseña" required>
-                            <input type="password" id="ConCodigo" class="form" placeholder="Confirmar contraseña" required></td>
+                            <td><label for="Codigo"><span style="color:#D3362D;">*</span>Contrase&ntilde;a</label><br>
+                                <input type="password" id="Codigo" class="form" placeholder="Contrase&ntilde;a" required>
+                                <input type="password" id="ConCodigo" class="form" placeholder="Confirmar contrase&ntilde;a" required></td>
                         </tr>
                         <tr>
                             <td colspan="2"></td>
