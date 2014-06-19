@@ -94,7 +94,7 @@
                 <table align="center">
                     <tr>
                         <td align="right"><input type="submit" class="buttons" id="registerBol" value="Crear Bolsa"></td>
-                        <td><input type="reset" id="borrar" onclick="limpiarT2()" class="buttons" value="Limpiar"><br></td>
+                        <td><input type="reset" id="borrar" onclick="limpiarBolsa()" class="buttons" value="Limpiar"><br></td>
                     </tr>
                     <tr>
                     <center><td colspan="2" id="Mensaje">
