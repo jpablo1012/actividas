@@ -218,7 +218,8 @@ function fecha() {
     if (f.getDate() <= 9) {
         fecha = fecha + "0";
     }
-    fecha = fecha + f.getDate();
+    var d = f.getDate() + 1;
+    fecha = fecha + d;
     $("#FEntrega").val(fecha);
     $("#FEntrega").attr("min", fecha);
 }
