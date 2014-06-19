@@ -10,7 +10,7 @@ $("document").ready(function(){
     completarco();
     $("#crearBolsa").submit(function(){
         console.log("here1");
-        subir();
+        comprobarbo();
         return false;
     });
 });
@@ -159,21 +159,21 @@ function comprobarbo(){
 
     var regex = /^\d+$/;
     if(regex.test(calibre) || calibre==""){
-        $("#calibre").addClass("exito");
-        $("#calibre").parent().parent().next().children(0).text("");
-    }else{
         $("#calibre").addClass("error");
         $("#calibre").parent().parent().next().children(0).text("Sólo números");
         cont = false;
+    }else{
+        $("#calibre").addClass("exito");
+        $("#calibre").parent().parent().next().children(0).text("");
     }
 
     if(regex.test(anchoRollo) || anchoRollo==""){
-        $("#anchoro").addClass("exito");
-        $("#anchoro").parent().parent().next().children(0).text("");
-    }else{
         $("#anchoro").addClass("error");
         $("#anchoro").parent().parent().next().children(0).text("Sólo números");
         cont = false;
+    }else{
+        $("#anchoro").addClass("exito");
+        $("#anchoro").parent().parent().next().children(0).text("");
     }
 
     if(referenciaMaterial=="ninguno"){

@@ -13,7 +13,7 @@
 	} catch (Exception e1) {
 	}
     b.decrypt(val);
-    if(b.getDecryptedString().equals("validado")){   
+    if(b.getDecryptedString().equals("validado")){
 %>
 <html>
     <head>

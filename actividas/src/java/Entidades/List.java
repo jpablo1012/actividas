@@ -79,7 +79,7 @@ public class List <T>{
     }
     
     /**
-     * Elimina el ultimo nodo y retorna el dato del nodo eliminado, metodo especial
+     * Elimina el primer nodo y retorna el dato del nodo eliminado, metodo especial
      * para que la lista se comporte como una cola
      * @return retorna el dato del nodo
      */
@@ -131,21 +131,6 @@ public class List <T>{
             
             temp.setDato(dato);
         }
-    }
-    
-    public boolean remove(T search){
-        boolean find = false;
-        Nodo<T> aux = first;
-        for(;aux != null;aux = aux.getNext()){
-            if(aux.getDato().equals(search)){
-                aux.getBack().setNext(aux.getNext());
-                aux.getNext().setBack(aux.getBack());
-                find = true;
-                aux = null;
-                break;
-            }
-        }   
-        return find;
     }
     
     /**

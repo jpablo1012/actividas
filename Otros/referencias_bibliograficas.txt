@@ -1,0 +1,6 @@
+http://jquery.com/
+http://javaya.com.ar/
+https://dev.windowsphone.com/es-es
+http://www.aescrypt.com/download/
+http://dev.mysql.com/doc/
+http://docs.oracle.com/javaee/5/tutorial/doc/bnagy.html#bnagz

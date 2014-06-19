@@ -107,6 +107,10 @@ $(document).ready(function() {
     $("#mia").click(function() {
         $(".info").load("informes.jsp");
     });
+    
+    $("#mcb").click(function() {
+       $(".info").load("crearBolsa.jsp") ;
+    });
 });
 
 var bo = true;
