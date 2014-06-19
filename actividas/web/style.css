@@ -16,10 +16,11 @@ h2{
     text-align:center;
 }
 
+
+
 header, footer, article, nav{
     -webkit-background-origin: border;
     -moz-background-origin: border;
-    -ms-background-origin: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     -ms-box-sizing: border-box;

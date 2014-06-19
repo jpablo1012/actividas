@@ -73,11 +73,30 @@ $(document).ready(function() {
             $("#slp").addClass("hidden");
         }
     });
-  
+
 
     $("#mopa").click(function() {
-        cargarOrdenes();
-        $(".info").load("extrusion.jsp");
+        tipo2 = $.cookie('tipo');
+
+        if (tipo2 == "sellador") {
+            cargarOrdenesS();
+            $(".info").load("sellado.jsp");
+        }
+        if (tipo2 == "extrusor") {
+            cargarOrdenes();
+            $(".info").load("extrusion.jsp");
+        }
+        if (tipo2 == "impresion") {
+            cargarOrdenesI();
+            $(".info").load("impresion.jsp");
+        }
+
+        if (tipo2 == "administrador") {
+            cargarOrdenes();
+            $(".info").load("extrusion.jsp");
+        }
+
+
     });
 
     $("#mpa").click(function() {
@@ -107,9 +126,9 @@ $(document).ready(function() {
     $("#mia").click(function() {
         $(".info").load("informes.jsp");
     });
-    
+
     $("#mcb").click(function() {
-       $(".info").load("crearBolsa.jsp") ;
+        $(".info").load("crearBolsa.jsp");
     });
 });
 
@@ -272,7 +291,7 @@ function insertarI(k) {
     tabla.innerHTML = texto;
 }
 
-function cargarOrdenesS(){
+function cargarOrdenesS() {
     $("#mensajeI").text(" ");
     $.ajax({
         url: '/Actividas/SvlOrden',

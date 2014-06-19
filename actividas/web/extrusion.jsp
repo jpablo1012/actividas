@@ -19,6 +19,7 @@
     <head>
         <script src="js/extrusion.js"></script>
         <script src="js/orden.js"></script>
+        <script src="js/quitar.js"></script>
     </head>
     <body>
         <ul id='navigatione'>
