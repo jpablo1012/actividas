@@ -42,7 +42,7 @@ public class InicioSesion implements MouseListener, KeyListener {
         frame.setLocationRelativeTo(null);
 
         inicio = new APanel(0, 0, 400, 300);
-        inicio.setTitulo("Plastiser");
+        inicio.setTitulo("Plastiser S.A.");
         inicio.titulo.setFont(new Font("Brush Script MT", Font.PLAIN, 40));
         inicio.titulo.setLocation(1, 1);
         inicio.titulo.setBorder(null);
