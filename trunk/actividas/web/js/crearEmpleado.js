@@ -142,8 +142,8 @@ function traducir(j) {
         $("#registerEmp").removeAttr("disabled");
     }
 }
-function justNumbers(e)
-{
+
+function justNumbers(e){
     var keynum = window.event ? window.event.keyCode : e.which;
     if ((keynum == 8) || (keynum == 46))
         return true;
