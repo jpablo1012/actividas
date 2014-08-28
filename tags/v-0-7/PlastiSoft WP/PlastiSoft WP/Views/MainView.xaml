@@ -1,0 +1,61 @@
+﻿<Page
+    x:Class="PlastiSoft_WP.Views.MainView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PlastiSoft_WP.Views"
+    xmlns:flyout="using:PlastiSoft_WP.Utils"
+    xmlns:VM="using:PlastiSoft_WP.ViewModels"
+    xmlns:usercontrols="using:PlastiSoft_WP.UserControls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.DataContext>
+        <VM:MainViewModel></VM:MainViewModel>
+    </Page.DataContext>
+    
+    <Grid>
+        <Hub>
+            <Hub.Header>
+                <TextBlock Text="PlastiSoft" Style="{StaticResource HubHeader}"/>
+            </Hub.Header>
+            <HubSection Header="PEDIDOS">
+                <DataTemplate>
+                    <ScrollViewer>
+                        <usercontrols:PedidoGallery DataContext="{Binding ListaPedido}"/>
+                    </ScrollViewer>
+                </DataTemplate>
+            </HubSection>
+            <HubSection Header="ULTIMAS ORDENES DE PRODUCCIÓN">
+                <DataTemplate>
+                    <StackPanel></StackPanel>
+                </DataTemplate>
+            </HubSection>
+            <HubSection Header="INFORMES">
+                <DataTemplate>
+                    <StackPanel></StackPanel>
+                </DataTemplate>
+            </HubSection>
+        </Hub>
+    </Grid>
+    
+    <Page.BottomAppBar>
+        <CommandBar RequestedTheme="Dark">
+            <AppBarButton Icon="Add" Label="crear">
+                <AppBarButton.Flyout>
+                    <ListPickerFlyout x:Name="listaCrear"/>
+                </AppBarButton.Flyout>
+            </AppBarButton>
+            <AppBarButton Icon="Zoom" Label="buscar">
+                <AppBarButton.Flyout>
+                    <ListPickerFlyout x:Name="listaBuscar"/>
+                </AppBarButton.Flyout>
+            </AppBarButton>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton Label="opciones"/>
+                <AppBarButton Label="cerrar sesión"/>
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
+</Page>

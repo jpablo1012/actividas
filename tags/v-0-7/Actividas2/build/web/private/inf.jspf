@@ -1,0 +1,11 @@
+<div class="info">
+    <article id="contenido">
+        <div id="slider">
+            <img src="images/01.jpg" alt="" />
+            <img src="images/02.jpg" alt="" />
+            <img src="images/03.jpg" alt="" />
+            <img src="images/04.jpg" />
+        </div>
+    </article>
+
+</div>
