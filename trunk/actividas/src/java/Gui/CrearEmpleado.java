@@ -326,11 +326,9 @@ public class CrearEmpleado implements MouseListener {
         EmpleadoN en = new EmpleadoN();
         UsuarioN un = new UsuarioN();
 
-        //String s = en.crearEmpleado(ee);
-        String s = en.crearEmpleadoL(ee);
+        String s = en.crearEmpleado(ee);
         if (s.equals("")) {
-            //s = un.crearUsuario(ue);
-            s = un.crearUsuarioL(ue);
+            s = un.crearUsuario(ue);
             if (s.equals("")) {
 
                 msjMensaje.setEstado(Estado.EXITO);

@@ -1,18 +1,17 @@
 package Persistencia;
 
-import Entidades.Accion;
-import Entidades.List;
-import Entidades.Registro;
 import Entidades.UsuarioE;
-import Negocio.Historial;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -51,98 +50,18 @@ public class DaosUsuario {
                 ue.setCodigo(rs.getString("codigod"));
                 System.out.println(rs.getString("idusuario"));
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println("Error 01 DaosUsuario: " + e.getMessage());
             return null;
         } finally {
             try {
                 con.close();
-            } catch (Exception e) {
+            } catch (SQLException e) {
                 System.out.println("Error 02 DaosUsuario: " + e.getMessage());
                 return null;
             }
         }
         return ue;
-    }
-
-    public List<UsuarioE> fillList(Connection con, String variable, String valor,
-            boolean exactamente, boolean imagen) {
-        List<UsuarioE> alue = new List<UsuarioE>();
-        try {
-            String sql = sqlBuscarUsuario(variable);
-            PreparedStatement ps = con.prepareStatement(sql);
-
-            if (exactamente) {
-                ps.setString(1, valor);
-            } else {
-                ps.setString(1, valor + "%");
-            }
-
-            ResultSet rs = ps.executeQuery();
-            String clase = this.getClass().getResource("").toString();
-            clase = clase.replaceAll("file:/", "");
-            clase = clase.replaceAll("/", "//");
-
-            try {
-                clase = URLDecoder.decode(clase, "UTF-8");
-            } catch (Exception ex) {
-            }
-            clase = clase.replaceAll("WEB-INF//classes//Persistencia//", "usuarios");
-            File alt = new File(clase);
-            alt.mkdirs();
-            while (rs.next()) {
-                UsuarioE ue = new UsuarioE();
-                ue.setApellido(rs.getString("apellido"));
-                ue.setClienteCedula(rs.getString("cliente_cedula"));
-                ue.setCodigo(rs.getString("codigod"));
-                ue.setEmpleadoCedula(rs.getString("empleado_cedula"));
-                ue.setIdUsuario(rs.getString("idusuario"));
-                ue.setNombre(rs.getString("nombre"));
-                ue.setTipo(rs.getString("tipo"));
-
-                if (imagen) {
-                    try {
-                        File image = new File(clase, "user" + ue.getIdUsuario() + ".png");
-                        FileOutputStream fos = new FileOutputStream(image);
-                        byte[] buffer = new byte[1];
-                        InputStream is = rs.getBinaryStream("imagen");
-                        while (is.read(buffer) > 0) {
-                            fos.write(buffer);
-                        }
-                        fos.close();
-                        is.close();
-                        if (image.length() == 0) {
-                            image.delete();
-                        } else {
-                            ue.setImagen(image);
-                        }
-
-                    } catch (Exception e) {
-                        try {
-                            File image = new File(clase, "user" + ue.getIdUsuario() + ".png");
-                            if (image.length() == 0) {
-                                image.delete();
-                            }
-
-                        } catch (Exception ee) {
-                        }
-                    }
-                }
-
-                alue.add(ue);
-            }
-        } catch (Exception e) {
-            System.out.println("Error 11 DaosUsuario: " + e.getMessage());
-            return alue;
-        } finally {
-            try {
-                con.close();
-            } catch (Exception e) {
-                System.out.println("Error 12 DaosUsuario: " + e.getMessage());
-                return null;
-            }
-        }
-        return alue;
     }
 
     /**
@@ -170,50 +89,21 @@ public class DaosUsuario {
             ps.execute();
 
             file.close();
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println("Error 03 DaosUsuario: " + e.getMessage());
             return "1";//el usuario ya existe
+        } catch (IOException e) {
+            System.out.println("Error 04 DaosUsuario: " + e.getMessage());
+            return "1";//error con la imagen
         } finally {
             try {
                 con.close();
-            } catch (Exception e) {
-                System.out.println("Error 04 DaosUsuario: " + e.getMessage());
+            } catch (SQLException e) {
+                System.out.println("Error 05 DaosUsuario: " + e.getMessage());
                 return "2";//"Error al conectarse a la base de datos"
             }
         }
         return "";
-    }
-
-    public String crearUsuario(UsuarioE ue, List<UsuarioE> head) {
-        boolean unico = true;
-        for (int i = 0; i < head.size(); i++) {
-            UsuarioE ce = head.get(i);
-            if (ue.getTipo().equals("cliente")) {
-                if (ue.getClienteCedula().equals(ce.getClienteCedula())
-                        || ue.getClienteCedula().equals(ce.getEmpleadoCedula())) {
-                    unico = false;
-                    break;
-                }
-            } else {
-                if (ue.getEmpleadoCedula().equals(ce.getEmpleadoCedula())
-                        || ue.getEmpleadoCedula().equals(ce.getClienteCedula())) {
-                    unico = false;
-                    break;
-                }
-            }
-        }
-
-        if (unico) {
-            UsuarioE ce = new UsuarioE(ue.getIdUsuario(), ue.getNombre(), ue.getApellido(),
-                    ue.getTipo(), ue.getClienteCedula(), ue.getEmpleadoCedula(),
-                    ue.getCodigo(), ue.getImagen());
-            head.add(ce);
-            Registro<UsuarioE> recl = new Registro<UsuarioE>(ce, Accion.CREAR_USUARIO);
-            Historial.añadir(recl);
-            return "";
-        } else {
-            return "1"; //El usuario ya existe
-        }
     }
 
     /**
@@ -268,7 +158,7 @@ public class DaosUsuario {
             clase = clase.replaceAll("/", "//");
             try {
                 clase = URLDecoder.decode(clase, "UTF-8");
-            } catch (Exception ex) {
+            } catch (UnsupportedEncodingException ex) {
             }
             clase = clase.replaceAll("WEB-INF//classes//Persistencia//", "usuarios");
             File alt = new File(clase);
@@ -300,7 +190,7 @@ public class DaosUsuario {
                             ue.setImagen(image);
                         }
 
-                    } catch (Exception e) {
+                    } catch (SQLException e) {
                         try {
                             File image = new File(clase, "user" + ue.getIdUsuario() + ".png");
                             if (image.length() == 0) {
@@ -309,44 +199,32 @@ public class DaosUsuario {
 
                         } catch (Exception ee) {
                         }
+                    } catch (IOException e) {
+                        try {
+                            File image = new File(clase, "user" + ue.getIdUsuario() + ".png");
+                            if (image.length() == 0) {
+                                image.delete();
+                            }
+                            
+                        } catch (Exception ee) {
+                        }
                     }
                 }
 
                 alue.add(ue);
             }
-        } catch (Exception e) {
-            System.out.println("Error 05 DaosUsuario: " + e.getMessage());
+        } catch (SQLException e) {
+            System.out.println("Error 06 DaosUsuario: " + e.getMessage());
             return alue;
         } finally {
             try {
                 con.close();
-            } catch (Exception e) {
-                System.out.println("Error 06 DaosUsuario: " + e.getMessage());
+            } catch (SQLException e) {
+                System.out.println("Error 07 DaosUsuario: " + e.getMessage());
                 return null;
             }
         }
         return alue;
-    }
-
-    public List<UsuarioE> buscarUsuario(List<UsuarioE> lista, String valor) {
-        List<UsuarioE> resultado = new List<UsuarioE>();
-        for (int i = 0; i < lista.size(); i++) {
-            UsuarioE ce = lista.get(i);
-            if (stringIniciaCon(ce.getApellido(), valor)
-                    || stringIniciaCon(ce.getClienteCedula(), valor)
-                    || stringIniciaCon(ce.getCodigo(), valor)
-                    || stringIniciaCon(ce.getEmpleadoCedula(), valor)
-                    || stringIniciaCon(ce.getIdUsuario(), valor)
-                    || stringIniciaCon(ce.getTipo(), valor)
-                    || stringIniciaCon(ce.getNombre(), valor)) {
-                UsuarioE encontrado = new UsuarioE(ce.getIdUsuario(), ce.getNombre(),
-                        ce.getApellido(), ce.getTipo(), ce.getClienteCedula(),
-                        ce.getEmpleadoCedula(), ce.getCodigo(), ce.getImagen());
-                resultado.add(encontrado);
-            }
-        }
-
-        return resultado;
     }
 
     /**
@@ -375,46 +253,21 @@ public class DaosUsuario {
             ps.executeUpdate();
 
             file.close();
-        } catch (Exception e) {
-            System.out.println("Error 07 DaosUsuario: " + e.getMessage());
+        } catch (SQLException e) {
+            System.out.println("Error 08 DaosUsuario: " + e.getMessage());
+            return "1";
+        } catch (IOException e) {
+            System.out.println("Error 08 DaosUsuario: " + e.getMessage());
             return "1";
         } finally {
             try {
                 con.close();
-            } catch (Exception e) {
-                System.out.println("Error 08 DaosUsuario: " + e.getMessage());
+            } catch (SQLException e) {
+                System.out.println("Error 09 DaosUsuario: " + e.getMessage());
                 return "2";//"Error al conectarse a la base de datos"
             }
         }
         return "";
-    }
-
-    public String actualizarUsuario(UsuarioE usuario, List<UsuarioE> lista) {
-        UsuarioE reemplazo = new UsuarioE(usuario.getIdUsuario(), usuario.getNombre(),
-                usuario.getApellido(), usuario.getTipo(), usuario.getClienteCedula(),
-                usuario.getEmpleadoCedula(), usuario.getCodigo(), usuario.getImagen());
-        for (int i = 0; i < lista.size(); i++) {
-            UsuarioE ue = lista.get(i);
-            if (reemplazo.getTipo().equals("cliente")) {
-                if (reemplazo.getClienteCedula().equals(ue.getClienteCedula())
-                        || ue.getClienteCedula().equals(ue.getEmpleadoCedula())) {
-                    lista.set(reemplazo, i);
-                    Registro<UsuarioE> re = new Registro<UsuarioE>(reemplazo, Accion.ACTUALIZAR_USUARIO);
-                    Historial.añadir(re);
-                    return "";
-                }
-            } else {
-                if (reemplazo.getEmpleadoCedula().equals(ue.getEmpleadoCedula())
-                        || reemplazo.getEmpleadoCedula().equals(ue.getClienteCedula())) {
-                    lista.set(reemplazo, i);
-                    Registro<UsuarioE> re = new Registro<UsuarioE>(reemplazo, Accion.ACTUALIZAR_USUARIO);
-                    Historial.añadir(re);
-                    return "";
-                }
-            }
-        }
-
-        return "1";
     }
 
     /**
@@ -433,36 +286,20 @@ public class DaosUsuario {
             ps.setString(1, id);
 
             ps.execute();
-        } catch (Exception e) {
-            System.out.println("Error 09 DaosUsuario: " + e.getMessage());
+        } catch (SQLException e) {
+            System.out.println("Error 10 DaosUsuario: " + e.getMessage());
             return "1";//El usuario no se puede eliminar
         } finally {
             try {
                 con.close();
-            } catch (Exception e) {
-                System.out.println("Error 10 DaosUsuario: " + e.getMessage());
+            } catch (SQLException e) {
+                System.out.println("Error 11 DaosUsuario: " + e.getMessage());
                 return "2";//"Error al conectarse a la base de datos"
             }
         }
         return "";
     }
-
-    public String eliminarUsuario(String id, List<UsuarioE> lista) {
-        for (int i = 0; i < lista.size(); i++) {
-            UsuarioE ce = lista.get(i);
-            if (ce.getIdUsuario().equals(id)) {
-                lista.remove(i);
-                UsuarioE eliminado = new UsuarioE(ce.getIdUsuario(), ce.getNombre(),
-                        ce.getApellido(), ce.getTipo(), ce.getClienteCedula(),
-                        ce.getEmpleadoCedula(), ce.getCodigo(), ce.getImagen());
-                Registro<UsuarioE> re = new Registro<UsuarioE>(eliminado, Accion.ELIMINAR_USUARIO);
-                Historial.añadir(re);
-                return "";
-            }
-        }
-        return "1";
-    }
-
+    
     private boolean stringIniciaCon(String original, String comparar) {
         if (original == null || comparar == null) {
             return false;

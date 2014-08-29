@@ -1,7 +1,6 @@
 package Gui;
 
 import Entidades.EmpleadoE;
-import Entidades.List;
 import Entidades.UsuarioE;
 import Negocio.EmpleadoN;
 import Negocio.UsuarioN;
@@ -41,7 +40,7 @@ public class BuscarEmpleado implements MouseListener, KeyListener {
     AScrollPanel resultado;
     ATable tabla;
     DefaultTableModel dtm;
-    List<EmpleadoE> alee;
+    ArrayList<EmpleadoE> alee;
 
     public BuscarEmpleado() {
         panel = new APanel(Main.x, 0, 750, 600);
@@ -142,8 +141,8 @@ public class BuscarEmpleado implements MouseListener, KeyListener {
 
         EmpleadoN en = new EmpleadoN();
 
-        this.alee = en.buscarEmpleado(consulta);
-        List<UsuarioE> alue = new UsuarioN().buscarUsuario("");
+        this.alee = en.buscarEmpleado(var, consulta, false);
+        ArrayList<UsuarioE> alue = new UsuarioN().buscarUsuario("empleado_cedula", "", false);
 
         if (this.alee == null) {
             msjMensaje.setText("El valor que usted busca no existe en la base de datos");
@@ -192,20 +191,18 @@ public class BuscarEmpleado implements MouseListener, KeyListener {
 
         if (seleccionado >= 0) {
             String valor = (String) tabla.getModel().getValueAt(seleccionado, 0);
-            List<UsuarioE> actue;
-            actue = new UsuarioN().buscarUsuario(valor);
+
             for (int i = 0; i < this.alee.size(); i++) {
-                for (int j = 0; j < actue.size(); j++) {
-                    EmpleadoE aee = this.alee.get(i);
-                    UsuarioE aue = actue.get(j);
-                    if (aee.getCedula().equals(valor) && aue.getEmpleadoCedula().equals(valor)) {
-                        Main.resultadoEmpleado = new ResultadoEmpleado();
-                        Main.menu.frame.getContentPane().add(Main.resultadoEmpleado.panel);
-                        Main.esconderTodos();
-                        Main.resultadoEmpleado.setDatos(aue, aee);
-                        Main.resultadoEmpleado.panel.setVisible(true);
-                        break;
-                    }
+                if (this.alee.get(i).getCedula().equals(valor)) {
+                    ArrayList<UsuarioE> actue;
+
+                    actue = new UsuarioN().buscarUsuario("empleado_cedula", valor, true, true);
+                    Main.resultadoEmpleado = new ResultadoEmpleado();
+                    Main.menu.frame.getContentPane().add(Main.resultadoEmpleado.panel);
+                    Main.esconderTodos();
+                    Main.resultadoEmpleado.setDatos(actue.get(0), this.alee.get(i));
+                    Main.resultadoEmpleado.panel.setVisible(true);
+                    break;
                 }
             }
         } else {
@@ -230,39 +227,35 @@ public class BuscarEmpleado implements MouseListener, KeyListener {
                 if (cont == 0) {
 
                     for (int i = 0; i < this.alee.size(); i++) {
-                        List<UsuarioE> elue = new UsuarioN().buscarUsuario(valor);
-                        for (int j = 0; j < elue.size(); j++) {
-                            EmpleadoE eee = this.alee.get(i);
-                            UsuarioE eue = elue.get(j);
+                        if (this.alee.get(i).getCedula().equals(valor)) {
+                            ArrayList<UsuarioE> elue = new UsuarioN().buscarUsuario("empleado_cedula", valor, true);
 
-                            if (eee.getCedula().equals(valor) && eue.getEmpleadoCedula().equals(valor)) {
-                                String s = new UsuarioN().eliminarUsuarioL(eue.getIdUsuario());
+                            String s = new UsuarioN().eliminarUsuario(elue.get(0).getIdUsuario());
+
+                            if (s.equals("")) {
+                                s = new EmpleadoN().eliminarEmpleado(this.alee.get(i).getCedula());
 
                                 if (s.equals("")) {
-                                    s = new EmpleadoN().eliminarEmpleadoL(eee.getCedula());
-
-                                    if (s.equals("")) {
-                                        buscar();
-                                        msjMensaje.setText("El empleado ha sido eliminado");
-                                        msjMensaje.setEstado(Estado.EXITO);
-                                        msjMensaje.setVisible(true);
-                                    }
-
-                                    if (s.equals("1")) {
-                                        msjMensaje.setText("Ha ocurrido un error al eliminar el empleado");
-                                        msjMensaje.setEstado(Estado.ERROR);
-                                        msjMensaje.setVisible(true);
-                                    }
-
-                                    if (s.equals("2")) {
-                                        msjMensaje.setText("Error al conectarse a la base de datos");
-                                        msjMensaje.setEstado(Estado.ERROR);
-                                        msjMensaje.setVisible(true);
-                                    }
-
-                                    break;
+                                    buscar();
+                                    msjMensaje.setText("El empleado ha sido eliminado");
+                                    msjMensaje.setEstado(Estado.EXITO);
+                                    msjMensaje.setVisible(true);
                                 }
                             }
+
+                            if (s.equals("1")) {
+                                msjMensaje.setText("Ha ocurrido un error al eliminar el empleado");
+                                msjMensaje.setEstado(Estado.ERROR);
+                                msjMensaje.setVisible(true);
+                            }
+
+                            if (s.equals("2")) {
+                                msjMensaje.setText("Error al conectarse a la base de datos");
+                                msjMensaje.setEstado(Estado.ERROR);
+                                msjMensaje.setVisible(true);
+                            }
+
+                            break;
                         }
                     }
                 }

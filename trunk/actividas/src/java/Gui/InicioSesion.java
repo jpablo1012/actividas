@@ -1,7 +1,6 @@
 package Gui;
 
 import Entidades.UsuarioE;
-import Negocio.Historial;
 import Negocio.UsuarioN;
 import api.AButton;
 import api.AFrame;

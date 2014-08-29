@@ -1,7 +1,6 @@
 package Gui;
 
 import Entidades.UsuarioE;
-import Negocio.Historial;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -94,9 +93,6 @@ public class Menu implements MouseListener {
     }
 
     public void mousePressed(MouseEvent e) {
-        if(e.getSource() == frame.cerrar){
-            Historial.guardar();
-        }
         
         if (e.getSource() == menu.botones[0]) {
             Main.dialog.mostrar(Main.menu.frame.getLocation(), Main.menu.frame.getSize());
@@ -157,7 +153,6 @@ public class Menu implements MouseListener {
         }
 
         if (e.getSource() == menu.botones[ultimo]) {
-            Historial.guardar();
             Main.inicioSesion = new InicioSesion();
             frame.setVisible(false);
         }

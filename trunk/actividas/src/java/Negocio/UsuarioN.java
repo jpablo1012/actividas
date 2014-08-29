@@ -4,7 +4,6 @@
  */
 package Negocio;
 
-import Entidades.List;
 import Entidades.UsuarioE;
 import Persistencia.DaosUsuario;
 import Utilidades.Conexion;
@@ -21,23 +20,9 @@ import java.util.ArrayList;
 public class UsuarioN {
 
     public DaosUsuario dao;
-    public static List<UsuarioE> usersH = null;
 
     public UsuarioN() {
         dao = new DaosUsuario();
-        if (usersH == null) {
-            usersH = getList();
-        }
-    }
-
-    /**
-     *
-     * @return retorna la tabla usuario, en una lista
-     */
-    public List<UsuarioE> getList() {
-        Conexion con = new Conexion();
-        Connection c = con.getCon();
-        return dao.fillList(c, "nombre", "", false, true);
     }
 
     /**
@@ -79,15 +64,6 @@ public class UsuarioN {
         String u = dao.crearUsuario(c, ue);
         return u;
     }
-    
-    public String crearUsuarioL(UsuarioE ue){
-        ue.setIdUsuario(Integer.toString(Integer.parseInt(usersH.getLast().getDato().getIdUsuario()) + 1));
-        return dao.crearUsuario(ue, usersH);
-    }
-
-    public List<UsuarioE> buscarUsuario(String valor) {
-        return dao.buscarUsuario(usersH, valor);
-    }
 
     public ArrayList<UsuarioE> buscarUsuario(String variable, String valor, boolean exactamente) {
         Conexion con = new Conexion();
@@ -106,7 +82,7 @@ public class UsuarioN {
      * lista
      *
      * @param ue datos del usuario a actualizar en la lista o en la DB
-     * @return Confirmacion de la actualización, de lo contrario el respectivo
+     * @return confirmación de la actualización, de lo contrario el respectivo
      * error
      */
     public String actualizarUsuario(UsuarioE ue) {
@@ -127,17 +103,9 @@ public class UsuarioN {
         Connection c = con.getCon();
         return dao.actualizarUsuario(c, ue);
     }
-    
-    public String actualizarUsuarioL(UsuarioE ue){
-        return dao.actualizarUsuario(ue, usersH);
-    }
 
     public String eliminarUsuario(String id) {
         Conexion con = new Conexion();
         return dao.eliminarUsuario(con.getCon(), id);
-    }
-    
-    public String eliminarUsuarioL(String id){
-        return dao.eliminarUsuario(id, usersH);
     }
 }

@@ -20,6 +20,7 @@ import Entidades.ClienteE;
 import Entidades.UsuarioE;
 import Negocio.ClienteN;
 import Negocio.UsuarioN;
+import java.io.IOException;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -376,8 +377,7 @@ public class CACliente implements MouseListener {
         ace.setTelefono(telefono);
         ace.setCiudad(ciudad);
 
-        //String s = cn.actualizarCliente(ace);
-        String s = cn.actualizarClienteL(ace);
+        String s = cn.actualizarCliente(ace);
         UsuarioE cue = this.ue;
         if (s.equals("")) {
 
@@ -390,8 +390,7 @@ public class CACliente implements MouseListener {
             cue.setTipo("cliente");
             cue.setImagen(file);
 
-            //s = un.actualizarUsuario(cue);
-            s = un.actualizarUsuarioL(cue);
+            s = un.actualizarUsuario(cue);
         }
 
         if (s.equals("")) {
@@ -454,7 +453,7 @@ public class CACliente implements MouseListener {
         if (nombre.equals("")) {
             txtnombre.setEstado(Estado.ERROR);
             msjNombre.setEstado(Estado.ERROR);
-            msjNombre.setText("Campo vac\u00EDo");
+            msjNombre.setText("Campo vacio");
             msjNombre.setVisible(true);
             cont = false;
         } else {
@@ -467,7 +466,7 @@ public class CACliente implements MouseListener {
         if (apellido.equals("")) {
             txtapellido.setEstado(Estado.ERROR);
             msjApellido.setEstado(Estado.ERROR);
-            msjApellido.setText("Campo vac\u00EDo");
+            msjApellido.setText("Campo vacio");
             msjApellido.setVisible(true);
             cont = false;
         } else {
@@ -491,10 +490,10 @@ public class CACliente implements MouseListener {
                 msjCedula.setVisible(true);
                 cont = false;
             }
-        } catch (Exception e) {
+        } catch (NumberFormatException e) {
             txtcedula.setEstado(Estado.ERROR);
             msjCedula.setEstado(Estado.ERROR);
-            msjCedula.setText("Campo vac\u00EDo");
+            msjCedula.setText("Campo vacio");
             msjCedula.setVisible(true);
             cont = false;
         }
@@ -502,7 +501,7 @@ public class CACliente implements MouseListener {
         if (direccion.equals("")) {
             txtdireccion.setEstado(Estado.ERROR);
             msjDireccion.setEstado(Estado.ERROR);
-            msjDireccion.setText("Campo vac\u00EDo");
+            msjDireccion.setText("Campo vacio");
             msjDireccion.setVisible(true);
             cont = false;
         } else {
@@ -518,7 +517,7 @@ public class CACliente implements MouseListener {
             msjTelefono.setEstado(Estado.EXITO);
             msjTelefono.setText("");
             msjTelefono.setVisible(false);
-        } catch (Exception e) {
+        } catch (NumberFormatException e) {
             txttelefono.setEstado(Estado.ERROR);
             msjTelefono.setEstado(Estado.ERROR);
             msjTelefono.setText("S\u00F3lo numeros");
@@ -529,7 +528,7 @@ public class CACliente implements MouseListener {
         if (correo.equals("")) {
             txtcorreo.setEstado(Estado.ERROR);
             msjCorreo.setEstado(Estado.ERROR);
-            msjCorreo.setText("Campo vac\u00EDo");
+            msjCorreo.setText("Campo vacio");
             msjCorreo.setVisible(true);
             cont = false;
         } else {
@@ -551,7 +550,7 @@ public class CACliente implements MouseListener {
         if (ciudad.equals("")) {
             txtCiudad.setEstado(Estado.ERROR);
             msjCiudad.setEstado(Estado.ERROR);
-            msjCiudad.setText("Campo vac\u00EDo");
+            msjCiudad.setText("Campo vacio");
             msjCiudad.setVisible(true);
             cont = false;
         } else {
@@ -621,8 +620,7 @@ public class CACliente implements MouseListener {
         cce.setTelefono(telefono);
         cce.setCiudad(ciudad);
 
-        //String s = cn.crearCliente(cce);
-        String s = cn.crearClienteL(cce);
+        String s = cn.crearCliente(cce);
 
         if (s.equals("")) {
             UsuarioE cue = new UsuarioE();
@@ -634,8 +632,8 @@ public class CACliente implements MouseListener {
             cue.setNombre(nombre);
             cue.setTipo("cliente");
             cue.setImagen(file);
-            //s = un.crearUsuario(cue);
-            s = un.crearUsuarioL(cue);
+            
+            s = un.crearUsuario(cue);
         }
 
         if (s.equals("")) {
@@ -696,7 +694,7 @@ public class CACliente implements MouseListener {
         System.out.println(s);
         try {
             Runtime.getRuntime().exec("cmd /c " + s);
-        } catch (Exception e) {
+        } catch (IOException e) {
             System.out.println(e.getMessage());
         }
     }
