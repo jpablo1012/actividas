@@ -26,7 +26,7 @@
 
                 <header class="title">
                     <div class="title-cont">
-                        <a href="index.jsp"><h1 class="logo">PlastiSer S.A.</h1></a>
+                        <a href="index.jsp"><h1 class="logo" style="font-family: Brush Script MT">PlastiSer S.A.</h1></a>
                         <div id="art-flash-area">
                             <div id="art-flash-container">
                                 <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="900" height="150" id="art-flash-object">

@@ -1,5 +1,15 @@
 @charset "utf-8";
 
+@font-face
+{
+   font-family: "Brush Script MT";
+   src: url("/fuentes/BRUSHSCI.TTF");
+   src: url("fuentefancy.eot?#amocristalab") format("embedded-opentype"),
+        url("fuentefancy.woff") format("woff"),
+        url("/fuentes/BRUSHSCI.TTF") format("truetype"),
+        url("fuentefancy.svg#IDdelafuente") format("svg");
+}
+
 body {
     padding: 0;
     margin: 0;
